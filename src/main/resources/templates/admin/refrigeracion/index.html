@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Refrigeración</title>
+</head>
+<body>
+
+    <h1>Refrigeración</h1>
+    <a href="/admin/refrigeracion/crear">Crear refrigeración</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>URL</th>
+                <th>Categoría</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="refrigeracion : ${tablaRefrigeracion}">
+                <td th:text="${refrigeracion.refrigeracionId}"></td>
+                <td th:text="${refrigeracion.nombre}"></td>
+                <td><img th:src="${refrigeracion.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${refrigeracion.stock}"></td>
+                <td th:text="${refrigeracion.precio}"></td>
+                <td th:text="${refrigeracion.descripcion}"></td>
+                <td><a th:href="${refrigeracion.url}" th:text="${refrigeracion.url}"></a></td>
+                <td th:text="${refrigeracion.categoria.nombre}"></td>
+                <td><a th:href="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Editar</a></td>
+                <td><a th:href="@{/admin/refrigeracion/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="/admin/perfil">Volver</a>
+
+</body>
+</html>

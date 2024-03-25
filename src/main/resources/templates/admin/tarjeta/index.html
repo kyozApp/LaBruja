@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tarjeta</title>
+</head>
+<body>
+
+    <h1>Tarjeta</h1>
+    <a href="/admin/tarjeta/crear">Crear tarjeta</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>URL</th>
+                <th>Categoría</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tarjeta : ${tablaTarjeta}">
+                <td th:text="${tarjeta.tarjetaId}"></td>
+                <td th:text="${tarjeta.nombre}"></td>
+                <td><img th:src="${tarjeta.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${tarjeta.stock}"></td>
+                <td th:text="${tarjeta.precio}"></td>
+                <td th:text="${tarjeta.descripcion}"></td>
+                <td><a th:href="${tarjeta.url}" th:text="${tarjeta.url}"></a></td>
+                <td th:text="${tarjeta.categoria.nombre}"></td>
+                <td><a th:href="@{/admin/tarjeta/editar/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Editar</a></td>
+                <td><a th:href="@{/admin/tarjeta/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="/admin/perfil">Volver</a>
+
+</body>
+</html>

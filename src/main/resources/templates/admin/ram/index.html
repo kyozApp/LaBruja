@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>RAM</title>
+</head>
+<body>
+
+    <h1>RAM</h1>
+    <a href="/admin/ram/crear">Crear RAM</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>URL</th>
+                <th>Categoría</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ram : ${tablaRam}">
+                <td th:text="${ram.ramId}"></td>
+                <td th:text="${ram.nombre}"></td>
+                <td><img th:src="${ram.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${ram.stock}"></td>
+                <td th:text="${ram.precio}"></td>
+                <td th:text="${ram.descripcion}"></td>
+                <td><a th:href="${ram.url}" th:text="${ram.url}"></a></td>
+                <td th:text="${ram.categoria.nombre}"></td>
+                <td><a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a></td>
+                <td><a th:href="@{/admin/ram/{ramId}(ramId=${ram.ramId})}">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="/admin/perfil">Volver</a>
+
+</body>
+</html>

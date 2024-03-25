@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Monitor</title>
+</head>
+<body>
+
+    <h1>Monitor</h1>
+    <a href="/admin/monitor/crear">Crear Monitor</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>URL</th>
+                <th>Categoría</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="monitor : ${tablaMonitor}">
+                <td th:text="${monitor.monitorId}"></td>
+                <td th:text="${monitor.nombre}"></td>
+                <td><img th:src="${monitor.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${monitor.stock}"></td>
+                <td th:text="${monitor.precio}"></td>
+                <td th:text="${monitor.descripcion}"></td>
+                <td><a th:href="${monitor.url}" th:text="${monitor.url}"></a></td>
+                <td th:text="${monitor.categoria.nombre}"></td>
+                <td><a th:href="@{/admin/monitor/editar/{monitorId}(monitorId=${monitor.monitorId})}">Editar</a></td>
+                <td><a th:href="@{/admin/monitor/{monitorId}(monitorId=${monitor.monitorId})}">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="/admin/perfil">Volver</a>
+
+</body>
+</html>
