@@ -1,10 +1,16 @@
+# Incluir el archivo HELP.md y la carpeta target
 HELP.md
 target/
+
+# Ignorar todo en la carpeta target, excepto el archivo maven-wrapper.jar
 !.mvn/wrapper/maven-wrapper.jar
+
+# Excluir carpetas target específicas en los directorios src/main y src/test
 !**/src/main/**/target/
 !**/src/test/**/target/
 !**/src/main/resources/static/
 
+# Ignorar archivos y carpetas generados por varios IDE y herramientas
 ### STS ###
 .apt_generated
 .classpath
