@@ -1,0 +1,156 @@
+/* Todo del Footer */
+.encabezado {
+    background-color: #ed1d24;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.52rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: left;
+    bottom: 1.7rem;
+}
+
+.encabezado .encabezado__input {
+    width: 280px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 0.7rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+.seccion{
+    margin-left: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .encabezado {
+        background-color: #ed1d24;
+        border-radius: 5px;
+        flex-direction: row;
+    }
+
+    .encabezado .encabezado__titulo {
+        text-transform: uppercase;
+        padding-right: 4rem;
+        padding-left: 2rem;
+        font-size: 1.15rem;
+    }
+
+    .encabezado__contenido {
+        display: flex;
+        align-items: center;
+    }
+
+    .encabezado .encabezado__input:placeholder-shown {
+        color: #323232;
+    }
+
+    .encabezado .encabezado__parrafo {
+        text-transform: uppercase;
+    }
+
+    .seccion{
+        margin: unset;
+    }
+}
+
+.articulo {
+    margin-bottom: 80px;
+}
+
+/* Footer */
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+}
+
+.contenido__span {
+    display: block;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 72px;
+}
+
+@media screen and (min-width: 795px) {
+    .seccion {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Footer iconos */
+.contacto__iconos a span {
+    margin-right: 0.28rem;
+}
+
+.container {
+    max-width: 800px;
+    text-align: left;
+}
+
+.container .conacto__dividir,
+.informacion__dividir {
+    width: 170px;
+    height: 2px;
+    margin: 1.55rem 0;
+    background-color: white;
+}
+
+.contacto__iconos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.55rem;
+}
+
+.contacto__iconos a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Información */
+.informacion .informacion__lista {
+    list-style: none;
+    padding: 0;
+}
+
+.informacion__lista a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.informacion__lista li a:active {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+    .informacion__lista li {
+        margin: 0.25rem 0;
+    }
+}
+
+/* Pie de Footer */
+.copyright {
+    margin-top: 0.8rem;
+    background-color: #323232;
+    padding: 0.55rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .copyright p {
+        text-align: center;
+    }
+}
