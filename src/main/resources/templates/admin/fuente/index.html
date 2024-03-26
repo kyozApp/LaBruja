@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Fuente</title>
+    <meta charset="UTF-8">
+    <title>Fuente</title>
 </head>
+
 <body>
 
     <h1>Fuente</h1>
-    <a href="/admin/fuente/crear">Crear Fuente</a>
-    
+    <a href="/admin/fuente/crear">Crear fuente</a>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,26 @@
             <tr th:each="fuente : ${tablaFuente}">
                 <td th:text="${fuente.fuenteId}"></td>
                 <td th:text="${fuente.nombre}"></td>
-                <td><img th:src="${fuente.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${fuente.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
                 <td th:text="${fuente.stock}"></td>
                 <td th:text="${fuente.precio}"></td>
                 <td th:text="${fuente.descripcion}"></td>
                 <td><a th:href="${fuente.url}" th:text="${fuente.url}"></a></td>
                 <td th:text="${fuente.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}">Editar</a></td>
-                <td><a th:href="@{/admin/fuente/{fuenteId}(fuenteId=${fuente.fuenteId})}">Eliminar</a></td>
+                <td><a th:href="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/fuente/{fuenteId}(fuenteId=${fuente.fuenteId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>

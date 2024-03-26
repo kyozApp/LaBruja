@@ -1,9 +1,6 @@
 package com.labrujastore.controller;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Casse;
@@ -24,10 +21,7 @@ import com.labrujastore.service.CategoriaService;
 
 @Controller
 @RequestMapping("/admin")
-public class CasseController 
-{
-	private static String storageLocation = "src/main/resources/static/admin/casse";
-
+public class CasseController {
     @Autowired
     private CasseService casseService;
 
@@ -37,16 +31,13 @@ public class CasseController
     @GetMapping("/casse")
     public String index(Model model) {
         List<Casse> casses = casseService.listarCasse();
-        for (Casse casse : casses) {
-        	casse.setImagenArchivo("http://localhost:8080//admin/casse/" + casse.getImagenNombre());
-        }
         model.addAttribute("tablaCasse", casses);
         return "admin/casse/index";
     }
 
     @GetMapping("/casse/crear")
     public String crear(Model model) {
-    	Casse casse = new Casse();
+        Casse casse = new Casse();
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearCasse", casse);
         model.addAttribute("selectorCategorias", categorias);
@@ -54,118 +45,45 @@ public class CasseController
     }
 
     @PostMapping("/casse/crear")
-    public String crear(@ModelAttribute("formularioCrearCasse") Casse casse,
-            @RequestPart("imagen") MultipartFile imagen) {
-        try {
-            // Generar un nombre único para el archivo de imagen
-            String imagenNombre = generarNombreUnico(imagen.getOriginalFilename());
-
-            // Establecer el nombre de la imagen en el accesorio
-            casse.setImagenNombre(imagenNombre);
-
-            // Obtener la ruta del archivo donde se almacenará la imagen
-            Path filePath = Paths.get(storageLocation + "/" + imagenNombre);
-
-            // Copiar los bytes de la imagen al archivo en el sistema de archivos
-            Files.copy(imagen.getInputStream(), filePath);
-
-            // Construir la URL de la imagen
-            String imageUrl = "http://localhost:8080//admin/casse/" + imagenNombre;
-
-            // Establecer la URL de la imagen en el accesorio
-            casse.setImagenArchivo(imageUrl);
-
-            // Guardar el accesorio en la base de datos
-            casseService.guardarCasse(casse);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public String crear(@ModelAttribute Casse casse,
+            @RequestParam("imagen") MultipartFile imagen) throws IOException {
+        casse.setImagenNombre(imagen.getOriginalFilename());
+        casse.setImagenArchivo(imagen.getBytes());
+        casseService.guardarCasse(casse);
         return "redirect:/admin/casse";
     }
 
     @GetMapping("/casse/editar/{casseId}")
     public String editar(@PathVariable Integer casseId, Model model) {
+        Casse casse = casseService.obtenerIdCasse(casseId);
         List<Categoria> categorias = categoriaService.listarCategoria();
-        model.addAttribute("formularioEditarCasse", casseService.obtenerIdCasse(casseId));
-        model.addAttribute("selectorCategorias", categorias);
+        model.addAttribute("casse", casse);
+        model.addAttribute("categorias", categorias);
         return "admin/casse/editar";
     }
 
     @PostMapping("/casse/editar/{casseId}")
-    public String editar(@PathVariable Integer casseId,
-            @ModelAttribute("formularioEditarCasse") Casse casse,
-            @RequestPart("imagen") MultipartFile imagen) {
-        try {
-        	Casse casseAnterior = casseService.obtenerIdCasse(casseId);
-
-            // Verificar si se ha proporcionado una nueva imagen
-            if (!imagen.isEmpty()) {
-                // Eliminar la imagen anterior
-                eliminarImagen(casseAnterior.getImagenNombre());
-
-                // Generar un nombre único para el archivo de imagen
-                String imagenNombre = generarNombreUnico(imagen.getOriginalFilename());
-
-                // Establecer el nombre de la nueva imagen en el accesorio
-                casse.setImagenNombre(imagenNombre);
-
-                // Obtener la ruta del archivo donde se almacenará la nueva imagen
-                Path filePath = Paths.get(storageLocation + "/" + imagenNombre);
-
-                // Copiar los bytes de la imagen al archivo en el sistema de archivos
-                Files.copy(imagen.getInputStream(), filePath);
-
-                // Construir la URL de la nueva imagen
-                String imageUrl = "http://localhost:8080//admin/casse/" + imagenNombre;
-
-                // Establecer la URL de la nueva imagen en el accesorio
-                casse.setImagenArchivo(imageUrl);
-            } else {
-                // Si no se proporciona una nueva imagen, mantener la imagen anterior
-            	casse.setImagenNombre(casseAnterior.getImagenNombre());
-            	casse.setImagenArchivo(casseAnterior.getImagenArchivo());
-            }
-
-            // Actualizar el accesorio en la base de datos
-            casseService.actualizarCasse(casse);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public String editar(@PathVariable Integer casseId, @ModelAttribute Casse casse,
+            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
+            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url) throws IOException {
+        Casse casseExistente = casseService.obtenerIdCasse(casseId);
+        casseExistente.setNombre(casse.getNombre());
+        casseExistente.setStock(stock);
+        casseExistente.setPrecio(precio);
+        casseExistente.setDescripcion(descripcion);
+        casseExistente.setUrl(url);
+        if (!imagen.isEmpty()) {
+            casseExistente.setImagenNombre(imagen.getOriginalFilename());
+            casseExistente.setImagenArchivo(imagen.getBytes());
         }
+        casseService.guardarCasse(casseExistente);
         return "redirect:/admin/casse";
     }
 
     @GetMapping("/casse/{casseId}")
     public String eliminar(@PathVariable Integer casseId) {
-        Casse casse = casseService.obtenerIdCasse(casseId);
-        
-        // Eliminar la imagen asociada a la caja
-        eliminarImagen(casse.getImagenNombre());
-        
-        // Eliminar la caja de la base de datos
         casseService.eliminarCasse(casseId);
-        
         return "redirect:/admin/casse";
-    }
-
-
-    // Método para generar un nombre único para el archivo de imagen
-    private String generarNombreUnico(String nombreOriginal) {
-        String[] partesNombre = nombreOriginal.split("\\.");
-        String extension = partesNombre[partesNombre.length - 1];
-        String nombreBase = partesNombre[0];
-        String timestamp = Long.toString(System.currentTimeMillis());
-        return nombreBase + "_" + timestamp + "." + extension;
-    }
-
-    // Método para eliminar la imagen anterior
-    private void eliminarImagen(String nombreImagen) {
-        if (nombreImagen != null && !nombreImagen.isEmpty()) {
-            Path imagePath = Paths.get(storageLocation + "/" + nombreImagen);
-            try {
-                Files.deleteIfExists(imagePath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

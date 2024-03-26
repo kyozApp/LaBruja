@@ -1,8 +1,11 @@
 package com.labrujastore.entity;
 
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
+
+import org.apache.tika.Tika;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,51 +19,61 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "rams")
-public class Ram implements Serializable
-{
+public class Ram implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ramId;
-	
+
 	@Column
 	private String nombre;
-	
+
 	@Column
 	private String imagenNombre;
-	
-	@Column
-	private String imagenArchivo;
-	
+
+	@Column(columnDefinition = "longblob")
+	private byte[] imagenArchivo;
+
 	@Column
 	private Integer stock;
-	
+
 	@Column
 	private Double precio;
-	
+
 	@Column
 	private String descripcion;
-	
+
 	@Column
 	private String url;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
-	
+
 	@ManyToMany(mappedBy = "itemsRam")
 	private Set<Placa> itemsPlaca = new HashSet<>();
-	
-	public Ram() {
-		// TODO Auto-generated constructor stub
+
+	// convertir file en String base64
+	public String getBase64Image() {
+		String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
+		return base64;
 	}
 
-	public Ram(Integer ramId, String nombre, String imagenNombre, String imagenArchivo, Integer stock, Double precio,
+	// obtener tipo de imagen (jpeg,jpg,png,etc)
+	public String getTypeImage() {
+		String typeImage = new Tika().detect(this.imagenArchivo);
+		return typeImage;
+	}
+
+	public Ram() {
+	}
+
+	public Ram(Integer ramId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock, Double precio,
 			String descripcion, String url, Categoria categoria, Set<Placa> itemsPlaca) {
 		this.ramId = ramId;
 		this.nombre = nombre;
@@ -75,7 +88,7 @@ public class Ram implements Serializable
 	}
 
 	public Integer getRamId() {
-		return ramId;
+		return this.ramId;
 	}
 
 	public void setRamId(Integer ramId) {
@@ -83,7 +96,7 @@ public class Ram implements Serializable
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -91,23 +104,23 @@ public class Ram implements Serializable
 	}
 
 	public String getImagenNombre() {
-		return imagenNombre;
+		return this.imagenNombre;
 	}
 
 	public void setImagenNombre(String imagenNombre) {
 		this.imagenNombre = imagenNombre;
 	}
 
-	public String getImagenArchivo() {
-		return imagenArchivo;
+	public byte[] getImagenArchivo() {
+		return this.imagenArchivo;
 	}
 
-	public void setImagenArchivo(String imagenArchivo) {
+	public void setImagenArchivo(byte[] imagenArchivo) {
 		this.imagenArchivo = imagenArchivo;
 	}
 
 	public Integer getStock() {
-		return stock;
+		return this.stock;
 	}
 
 	public void setStock(Integer stock) {
@@ -115,7 +128,7 @@ public class Ram implements Serializable
 	}
 
 	public Double getPrecio() {
-		return precio;
+		return this.precio;
 	}
 
 	public void setPrecio(Double precio) {
@@ -123,7 +136,7 @@ public class Ram implements Serializable
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
@@ -131,7 +144,7 @@ public class Ram implements Serializable
 	}
 
 	public String getUrl() {
-		return url;
+		return this.url;
 	}
 
 	public void setUrl(String url) {
@@ -139,7 +152,7 @@ public class Ram implements Serializable
 	}
 
 	public Categoria getCategoria() {
-		return categoria;
+		return this.categoria;
 	}
 
 	public void setCategoria(Categoria categoria) {
@@ -147,13 +160,11 @@ public class Ram implements Serializable
 	}
 
 	public Set<Placa> getItemsPlaca() {
-		return itemsPlaca;
+		return this.itemsPlaca;
 	}
 
 	public void setItemsPlaca(Set<Placa> itemsPlaca) {
 		this.itemsPlaca = itemsPlaca;
 	}
-
-	
 
 }

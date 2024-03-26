@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Refrigeración</title>
+    <meta charset="UTF-8">
+    <title>Refrigeración</title>
 </head>
+
 <body>
 
     <h1>Refrigeración</h1>
     <a href="/admin/refrigeracion/crear">Crear refrigeración</a>
-    
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,28 @@
             <tr th:each="refrigeracion : ${tablaRefrigeracion}">
                 <td th:text="${refrigeracion.refrigeracionId}"></td>
                 <td th:text="${refrigeracion.nombre}"></td>
-                <td><img th:src="${refrigeracion.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${refrigeracion.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}"
+                        width="45px" height="45px" border="1" />
+                </td>
                 <td th:text="${refrigeracion.stock}"></td>
                 <td th:text="${refrigeracion.precio}"></td>
                 <td th:text="${refrigeracion.descripcion}"></td>
                 <td><a th:href="${refrigeracion.url}" th:text="${refrigeracion.url}"></a></td>
                 <td th:text="${refrigeracion.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Editar</a></td>
-                <td><a th:href="@{/admin/refrigeracion/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Eliminar</a></td>
+                <td><a
+                        th:href="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Editar</a>
+                </td>
+                <td><a
+                        th:href="@{/admin/refrigeracion/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>

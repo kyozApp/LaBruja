@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Procesador</title>
+    <meta charset="UTF-8">
+    <title>Procesador</title>
 </head>
+
 <body>
 
     <h1>Procesador</h1>
-    <a href="/admin/procesador/crear">Crear Procesador</a>
-    
+    <a href="/admin/procesador/crear">Crear procesador</a>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,28 @@
             <tr th:each="procesador : ${tablaProcesador}">
                 <td th:text="${procesador.procesadorId}"></td>
                 <td th:text="${procesador.nombre}"></td>
-                <td><img th:src="${procesador.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${procesador.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}"
+                        width="45px" height="45px" border="1" />
+                </td>
                 <td th:text="${procesador.stock}"></td>
                 <td th:text="${procesador.precio}"></td>
                 <td th:text="${procesador.descripcion}"></td>
                 <td><a th:href="${procesador.url}" th:text="${procesador.url}"></a></td>
                 <td th:text="${procesador.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/procesador/editar/{procesadorId}(procesadorId=${procesador.procesadorId})}">Editar</a></td>
-                <td><a th:href="@{/admin/procesador/{procesadorId}(procesadorId=${procesador.procesadorId})}">Eliminar</a></td>
+                <td><a
+                        th:href="@{/admin/procesador/editar/{procesadorId}(procesadorId=${procesador.procesadorId})}">Editar</a>
+                </td>
+                <td><a
+                        th:href="@{/admin/procesador/{procesadorId}(procesadorId=${procesador.procesadorId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Placa</title>
+    <meta charset="UTF-8">
+    <title>Placa</title>
 </head>
+
 <body>
 
     <h1>Placa</h1>
-    <a href="/admin/placa/crear">Crear Placa</a>
-    
+    <a href="/admin/placa/crear">Crear placa</a>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,26 @@
             <tr th:each="placa : ${tablaPlaca}">
                 <td th:text="${placa.placaId}"></td>
                 <td th:text="${placa.nombre}"></td>
-                <td><img th:src="${placa.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${placa.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
                 <td th:text="${placa.stock}"></td>
                 <td th:text="${placa.precio}"></td>
                 <td th:text="${placa.descripcion}"></td>
                 <td><a th:href="${placa.url}" th:text="${placa.url}"></a></td>
                 <td th:text="${placa.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/placa/editar/{placaId}(placaId=${placa.placaId})}">Editar</a></td>
-                <td><a th:href="@{/admin/placa/{placaId}(placaId=${placa.placaId})}">Eliminar</a></td>
+                <td><a th:href="@{/admin/placa/editar/{placaId}(placaId=${placa.placaId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/placa/{placaId}(placaId=${placa.placaId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>

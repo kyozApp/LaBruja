@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Laptop</title>
+    <meta charset="UTF-8">
+    <title>Laptop</title>
 </head>
+
 <body>
 
     <h1>Laptop</h1>
-    <a href="/admin/laptop/crear">Crear Laptop</a>
-    
+    <a href="/admin/laptop/crear">Crear laptop</a>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,26 @@
             <tr th:each="laptop : ${tablaLaptop}">
                 <td th:text="${laptop.laptopId}"></td>
                 <td th:text="${laptop.nombre}"></td>
-                <td><img th:src="${laptop.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${laptop.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
                 <td th:text="${laptop.stock}"></td>
                 <td th:text="${laptop.precio}"></td>
                 <td th:text="${laptop.descripcion}"></td>
                 <td><a th:href="${laptop.url}" th:text="${laptop.url}"></a></td>
                 <td th:text="${laptop.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}">Editar</a></td>
-                <td><a th:href="@{/admin/laptop/{laptopId}(laptopId=${laptop.laptopId})}">Eliminar</a></td>
+                <td><a th:href="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/laptop/{laptopId}(laptopId=${laptop.laptopId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>
