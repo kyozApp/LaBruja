@@ -5,16 +5,63 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+
+	<!-- CSS -->
 	<link rel="stylesheet" th:href="@{/general/css/formato.css}">
 	<link rel="stylesheet" th:href="@{/general/css/header.css}">
 	<link rel="stylesheet" th:href="@{/general/css/index.css}">
 	<link rel="stylesheet" th:href="@{/general/css/footer.css}">
+
+	<!-- JS -->
+	<script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
+	<script th:src="@{/general/js/header.js}"></script>
+	<style>
+		.swiper-button-next,
+		.swiper-button-prev {
+		  color: #000;
+		  height: 40px;
+		  width: 40px;
+		  background: #eee;
+		  border-radius: 50%;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-size: 25px;
+		}
+		.swiper {
+		  width: 100%;
+		  height: 100%;
+		}
+		
+		.swiper-slide {
+		  text-align: center;
+		  font-size: 18px;
+		  background: #fff;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+  
+		.caja1, .caja2, .caja3{
+		  position: relative;
+		  height: 72vh;
+		}
+  
+		.swiper-slide img {
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		}
+		.a, .b{
+		  position: absolute;
+		  top: 35rem;
+		  background-color: red;
+		}
+	  </style>
 </head>
 
 <body>
-
-<h1>ESTE ES COMMIT DE PRUEBA 2.0 proque no cargo</h1>
-
 	<!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 	<header>
@@ -22,7 +69,7 @@
 			<div class="contenedor">
 				<div class="head-div-1-sub">
 					<p>
-						Correo electrónico: <a href="mailto:labrujastore@outlook.com">labrujastore@outlokk.com</a>
+						Correo electrónico: <a href="mailto:labrujastore@outlook.com">labrujastore@outlook.com</a>
 					</p>
 				</div>
 				<div class="dropdown">
@@ -41,11 +88,11 @@
 					<!--Buscador-->
 					<div class="head-div-2-part1-2 none-mobil">
 						<div class="abrir">
-							<button class="centered-label">Abrir Categorias</button>
+							<label class="centered-label" for="open-silebar">Categorias</label>
 						</div>
 						<form class="form-busqueda" action="" method="post">
 							<div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-							<div><button><img src="/icon/lupa.png" alt="" /></button></div>
+							<div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button></div>
 						</form>
 					</div>
 					<!--Favorito y Carrito-->
@@ -53,12 +100,14 @@
 						<!--Contador de favoritos-->
 						<a class="link-bnt" href="/">
 							<div>
+								<img th:src="@{/general/img/icon/corazon.svg}" alt="" />
 								<span class="contador-fav">4</span>
 							</div>
 						</a>
 						<!--Contador de carrito-->
 						<a class="link-bnt" href="/">
 							<div>
+								<img th:src="@{/general/img/icon/carrito.svg}" alt="" />
 								<span class="contador-car">2</span>
 							</div>
 						</a>
@@ -69,26 +118,28 @@
 	</header>
 	<div class="head-div-2-part2">
 		<div class="contenedor-3">
-			<a class="cont-lista-op" th:href="@{/}">INICIO</a>
-			<a class="cont-lista-op" th:href="@{/catalogo/producto}">PRODUCTOS</a>
-			<a class="cont-lista-op" th:href="@{/contacto}">CONTACTANOS</a>
-			<a class="cont-lista-op" th:href="@{/about}">ACERCA DE</a>
-			<a class="cont-lista-op" th:href="@{/}">CARRITO</a>
-			<a class="cont-lista-op" th:href="@{/}">COTIZACIÓN</a>
+			<a class="cont-lista-op" href="/">INICIO</a>
+			<a class="cont-lista-op" href="/catalogo/producto">CATALOGO</a>
+			<a class="cont-lista-op" href="/contacto">CONTACTANOS</a>
+			<a class="cont-lista-op" href="/about">ACERCA DE</a>
+			<a class="cont-lista-op" href="/">CARRITO</a>
+			<a class="cont-lista-op" href="/">COTIZACIÓN</a>
 		</div>
 	</div>
 
 	<!--Buscador PARA MOBILES DEFAULT DISPLAY:NONE-->
 	<div class="sub-nivel-header-mobil">
 		<div class="abrir">
-			<button class="centered-label">
-				<img class="img-menu" src="/icon/menu.svg" alt="" />
-			</button>
+			<label for="open-silebar" class="centered-label">
+				<!-- <img class="img-menu" th:src="@{/general/img/menu.png}" alt="" style="width: 15px; padding: 5px;" /> -->
+				<!-- <img class="img-menu" th:src="@{/general/img/menu.svg}" alt=""> -->
+				<i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
+			</label>
 		</div>
 		<div class="head-div-2-part1-2">
 			<form class="form-busqueda" action="" method="post">
 				<div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-				<div><button><img src="/icon/lupa.svg" alt="" /></button></div>
+				<div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
 			</form>
 		</div>
 
@@ -96,11 +147,13 @@
 			<a href="/">
 				<div class="cont-icon-corazon">
 					<span class="span-corazon-mobil">4</span>
+					<img th:src="@{/general/img/icon/corazon.svg}" alt="" />
 				</div>
 			</a>
 			<a href="/">
 				<div>
 					<span class="span-carrito-mobil">5</span>
+					<img th:src="@{/general/img/icon/carrito.svg}" alt="" />
 				</div>
 			</a>
 		</div>
@@ -113,28 +166,28 @@
 			<!-- Contenedor para la columna de categorias -->
 			<div id="silebar-categorias">
 				<div class="close-silebar">
-					<button>X</button>
+					<label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
 				</div>
 				<ul>
 					<a href="/">
 						<li id="listaItems">
 							<span>Inicio</span>
-							<span class="simbolo"></span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 						</li>
 					</a>
 					<a href="producto">
 						<li id="listaItems">
 							<span>Procesadores</span>
-							<span class="simbolo"></span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 						</li>
 					</a>
 					<li>
 						<span>Placas madres</span>
-						<span class="simbolo"></span>
+						<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 					</li>
 					<li>
 						<span>Memorias ram</span>
-						<span class="simbolo"></span>
+						<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 					</li>
 				</ul>
 			</div>
@@ -183,7 +236,1161 @@
 
 	<!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
+ <!-- Slider Mian -->
+ <div class="swiper mySwiper" style="overflow-x: hidden;">
+	<div class="swiper-wrapper">
+	  <div class="swiper-slide caja1">
+		<img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/429769343_898481052282805_8309666710281944734_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHwZY6I6PEGKSkU935h27CPRIxZaZ-hZDhEjFlpn6FkOF_NN0aFudtRlX2lTtf6m9lCx0-BR8Cegpgx8ijpRTIs&_nc_ohc=SIPDK4jsZO8AX8nRFzr&_nc_ht=scontent-lim1-1.xx&oh=00_AfC7UUPjyiNd5drUFpyb38kFXVg67vRHHFjXUwKguijSWQ&oe=6608788D" alt="">
+	  </div>
+	  <div class="swiper-slide caja2">
+		<img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/424539616_879008260896751_5401908048415568251_n.png?stp=dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeF8gQLe7sLdaof53Kpo5eQNM9Sthq8thrUz1K2Gry2GtRRJXCzK8Rqc67KPDWLZbxPKnpE-NpkT8C17v_VQ8dYR&_nc_ohc=MtOQJLAuFdAAX90L1eV&_nc_ht=scontent-lim1-1.xx&oh=00_AfAi1OPsimE7SDEutxowK8cV6If56cXVKQcgYcW74Hw2zg&oe=66087A21" alt="">
+	  </div>
+	  <div class="swiper-slide caja3">
+		<img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/423133608_876270837837160_8759042200298010004_n.png?stp=dst-jpg&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEHdETln27UlrofBZiJtRkGRGA7Gv9_VOFEYDsa_39U4TgfJ1NaE2i3Y0eMoJPFSxCpd16TlM5fO1aJCxjdy0Dl&_nc_ohc=uJVAHfU89KQAX8OwZM5&_nc_ht=scontent-lim1-1.xx&oh=00_AfAh015olxFz6Gtd_GTUIyqNy5XoIiBnxwimWhwfKegEpQ&oe=6607259A" alt="">
+	  </div>
+	</div>
+	<div class="swiper-button-next a">
+	  <i class="fa-solid fa-angle-right"></i>
+	</div>
+	<div class="swiper-button-prev b">
+	  <i class="fa-solid fa-angle-left"></i>
+	</div>
+  </div>
 
+
+   <!-- Slider Productos Nuevos -->
+   <section class="combos">
+	<p class="combos__title">Productos Nuevos</p>
+	<div class="swiper-container">
+	  <div class="swiper-wrapper">
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 1</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 2</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 1</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
+				alt="imagen2"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 3</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen3"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 4</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen4"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 5</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/PSTE7160WBRZ_4_0-300x300.png"
+				alt="imagen5"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 6</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
+				alt="imagen6"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 7</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen7"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 8</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/38472688_2_0-300x300.png"
+				alt="imagen8"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 9</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen3"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 10</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen7"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 11</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="swiper-button-prev">
+		<i class="fa-solid fa-angle-left"></i>
+	  </div>
+	  <div class="swiper-button-next">
+		<i class="fa-solid fa-angle-right"></i>
+	  </div>
+	</div>
+  </section>
+
+  <!-- Banner 2 -->
+  <section class="banners">
+	<div class="baner">
+	  <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/385909155_799881235476121_8712861839807455002_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGPzFwjMArS4sZLKXi76GdRsDmmRiYf2FGwOaZGJh_YUUBNRAK9Ef2B37piFB_83VceU_rHDFrMEoJ5UgIiKHBt&_nc_ohc=iMtiLkr_KewAX-WMWJC&_nc_ht=scontent-lim1-1.xx&oh=00_AfDo59Sx8iDwp-RMDkmIjKwuByhkeqF10p73w3d1Sexxow&oe=6607B01A" alt="bruja" />
+	</div>
+  </section> 
+
+  <!-- Slider Ofertas Laptops -->
+  <section class="combos">
+	<p class="combos__title">Ofertas Laptops</p>
+	<div class="swiper-container">
+	  <div class="swiper-wrapper">
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 1</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 2</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 1</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
+				alt="imagen2"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 3</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen3"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 4</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen4"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 5</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/PSTE7160WBRZ_4_0-300x300.png"
+				alt="imagen5"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 6</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
+				alt="imagen6"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 7</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen7"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 8</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/38472688_2_0-300x300.png"
+				alt="imagen8"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 9</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen3"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 10</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen7"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 11</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="swiper-button-prev">
+		<i class="fa-solid fa-angle-left"></i>
+	  </div>
+	  <div class="swiper-button-next">
+		<i class="fa-solid fa-angle-right"></i>
+	  </div>
+	</div>
+  </section>
+
+  <!-- Banner 1 -->
+  <section class="banners">
+	<div class="baner">
+	  <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/370371837_778017997662445_5772361548463186241_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEtfCBn--g7-vNCAPgQaXwOBSe5RjcPmKYFJ7lGNw-YpoY_QaS0oiJy3R8sLoy41ajTl92Q5MMPQzREKHoCuWfr&_nc_ohc=2LFqFlIOz8IAX-opCqO&_nc_ht=scontent-lim1-1.xx&oh=00_AfCRs9MfN281X057-YZfzQmdSd9W3Ot_8OBGf_RRflxv8Q&oe=66082DAC" alt="banner" />
+	</div>
+  </section>
+
+  <!-- Slider Ofertas Combos -->
+  <section class="combos">
+	<p class="combos__title">Ofertas Combos</p>
+	<div class="swiper-container">
+	  <div class="swiper-wrapper">
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 1</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 2</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen1"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 1</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
+				alt="imagen2"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 3</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen3"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 4</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen4"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 5</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/PSTE7160WBRZ_4_0-300x300.png"
+				alt="imagen5"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 6</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
+				alt="imagen6"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 7</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen7"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 8</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/38472688_2_0-300x300.png"
+				alt="imagen8"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 9</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
+				alt="imagen3"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 10</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="card">
+			<div class="figure-image">
+			  <img
+				src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
+				alt="imagen7"
+			  />
+			  <div class="figure__description">
+				<a href="https://www.google.com/?hl=es" class="figure__link">
+				  Ver mas
+				  <span>
+					<i class="fa-solid fa-eye"></i>
+				  </span>
+				</a>
+			  </div>
+			</div>
+			<div class="description">
+			  <p>Producto 11</p>
+			  <div class="icons__compra">
+				<div class="heart">
+				  <i class="fa-regular fa-heart"></i>
+				</div>
+				<div>
+				  <i class="fa-solid fa-cart-shopping"></i>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="swiper-button-prev">
+		<i class="fa-solid fa-angle-left"></i>
+	  </div>
+	  <div class="swiper-button-next">
+		<i class="fa-solid fa-angle-right"></i>
+	  </div>
+	</div>
+  </section>
+
+  <section class="marcas">
+	<div>
+		<h1 class="marcas__title">Marcas con las que trabajamos</h1>
+	</div>
+	<div class="logos">
+		<div class="logos-slide">
+			<img src="https://logodownload.org/wp-content/uploads/2014/09/nvidia-logo-0.png" alt="logo" />
+			<img
+				src="https://i.etsystatic.com/23511185/r/il/7112ac/2408810313/il_1140xN.2408810313_kqb8.jpg"
+				alt="logo"
+			/>
+			<img
+				src="https://th.bing.com/th/id/OIP.wsbXa45LjI6lm1iu5eUvbwHaE8?rs=1&pid=ImgDetMain"
+				alt="logo"
+			/>
+			<img src="https://logodownload.org/wp-content/uploads/2014/09/asus_logo.png" alt="logo" />
+			<img src="https://logodownload.org/wp-content/uploads/2014/09/lenovo-logo-0.png" alt="logo" />
+			<img src="https://1000logos.net/wp-content/uploads/2017/02/Colors-HP-Logo.jpg" alt="logo" />
+			<img
+				src="https://th.bing.com/th/id/OIP.xnCmeIubOmmCx9j5jcAd4QHaEK?rs=1&pid=ImgDetMain"
+				alt="logo"
+			/>
+			<img
+				src="https://th.bing.com/th/id/R.7509d94ab722b6a45d4e5c0579045309?rik=jjgOaFBk8by1Sg&pid=ImgRaw&r=0"
+				alt="logo"
+			/>
+			<img src="https://logosmarcas.net/wp-content/uploads/2020/12/Epson-Simbolo.png" alt="logo" />
+		</div>
+	</div>
+</section>
 	<!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 

@@ -114,7 +114,7 @@ li {
     background-color: #ffffff;
     border-radius: 3px;
     width: 50%;
-    height: 38px;
+    height: 48px;
     align-items: center;
 }
 
@@ -172,6 +172,7 @@ li {
     border-radius: 20px;
     padding-left: 15px;
     transition: border-color 0.2s ease-in-out;
+    font-size: 16px;
 }
 
 .form-busqueda input:focus {
@@ -203,7 +204,7 @@ li {
 }
 
 .head-div-2-part1-3 img {
-    width: 27px;
+    width: 37px;
     margin: 0 17px;
 }
 
@@ -264,7 +265,8 @@ li {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.close-silebar button {
+.close-silebar label {
+    display: flex;
     padding: 12px 17px;
     color: rgb(0, 0, 0);
     cursor: pointer;
@@ -272,8 +274,14 @@ li {
     border: none;
 }
 
-.close-silebar button:hover {
-    background-color: rgb(251, 60, 60);
+
+
+.close-silebar label:hover {
+    background-color: rgb(239 239 239);
+}
+
+.close-silebar label img{
+    width: 25px;    
 }
 
 /* Estilos para la parte de las categorias */
@@ -297,13 +305,17 @@ li {
     border-left: 5px solid rgba(243, 243, 243, 0);
 }
 
+.simnbolo{
+    width: 12px;
+}
+
 #silebar-categorias li:hover {
     background-color: #f7f7f7;
     border-left: 5px solid red;
     color: black;
 }
 
-li:hover span.simbolo {
+li:hover .simbolo{
     color: red;
     font-weight: bold;
 }
@@ -334,13 +346,8 @@ li:hover span.simbolo {
     color: white;
 }
 
-.contador-fav {
-    left: -15px;
-    top: -19px;
-}
-
-.contador-car {
-    left: -15px;
+.contador-fav, .contador-car {
+    left: -30px;
     top: -19px;
 }
 
@@ -511,7 +518,7 @@ li:hover span.simbolo {
 
     .centered-label {
         background-color: white;
-        padding: 5px;
+        padding: 0;
         border-radius: 5px;
         transition: 0.2s;
         cursor: pointer;
@@ -586,7 +593,7 @@ li:hover span.simbolo {
     }
 
     .span-corazon-mobil {
-        right: 46px;
+        right: 35px;
     }
 
     .span-carrito-mobil {

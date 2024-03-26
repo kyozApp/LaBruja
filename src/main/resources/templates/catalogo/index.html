@@ -12,6 +12,10 @@
 	<link rel="stylesheet" th:href="@{/producto/css/producto.css}">
 	<link rel="stylesheet" th:href="@{/general/css/footer.css}">
 
+	<!-- JS -->
+	<script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
+	<script th:src="@{/general/js/header.js}"></script>
+
 </head>
 
 <body>
@@ -35,17 +39,17 @@
 				<div class="contenedor-2">
 					<!--Logo Header-->
 					<div class="head-div-2-part1-1">
-						<img th:src="@{/home/img/logo.png}" alt="Logo La Bruja Store" />
+						<img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
 					</div>
 
 					<!--Buscador-->
 					<div class="head-div-2-part1-2 none-mobil">
 						<div class="abrir">
-							<button class="centered-label">Abrir Categorias</button>
+							<label class="centered-label" for="open-silebar">Categorias</label>
 						</div>
 						<form class="form-busqueda" action="" method="post">
 							<div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-							<div><button><img src="/icon/lupa.png" alt="" /></button></div>
+							<div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button></div>
 						</form>
 					</div>
 					<!--Favorito y Carrito-->
@@ -53,12 +57,14 @@
 						<!--Contador de favoritos-->
 						<a class="link-bnt" href="/">
 							<div>
+								<img th:src="@{/general/img/icon/corazon.svg}" alt="" />
 								<span class="contador-fav">4</span>
 							</div>
 						</a>
 						<!--Contador de carrito-->
 						<a class="link-bnt" href="/">
 							<div>
+								<img th:src="@{/general/img/icon/carrito.svg}" alt="" />
 								<span class="contador-car">2</span>
 							</div>
 						</a>
@@ -70,7 +76,7 @@
 	<div class="head-div-2-part2">
 		<div class="contenedor-3">
 			<a class="cont-lista-op" href="/">INICIO</a>
-			<a class="cont-lista-op" href="/catalogo/producto">PRODUCTOS</a>
+			<a class="cont-lista-op" href="/catalogo/producto">CATALOGO</a>
 			<a class="cont-lista-op" href="/contacto">CONTACTANOS</a>
 			<a class="cont-lista-op" href="/about">ACERCA DE</a>
 			<a class="cont-lista-op" href="/">CARRITO</a>
@@ -81,14 +87,16 @@
 	<!--Buscador PARA MOBILES DEFAULT DISPLAY:NONE-->
 	<div class="sub-nivel-header-mobil">
 		<div class="abrir">
-			<button class="centered-label">
-				<img class="img-menu" src="/icon/menu.svg" alt="" />
-			</button>
+			<label for="open-silebar" class="centered-label">
+				<!-- <img class="img-menu" th:src="@{/general/img/menu.png}" alt="" style="width: 15px; padding: 5px;" /> -->
+				<!-- <img class="img-menu" th:src="@{/general/img/menu.svg}" alt=""> -->
+				<i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
+			</label>
 		</div>
 		<div class="head-div-2-part1-2">
 			<form class="form-busqueda" action="" method="post">
 				<div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-				<div><button><img src="/icon/lupa.svg" alt="" /></button></div>
+				<div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
 			</form>
 		</div>
 
@@ -96,11 +104,13 @@
 			<a href="/">
 				<div class="cont-icon-corazon">
 					<span class="span-corazon-mobil">4</span>
+					<img th:src="@{/general/img/icon/corazon.svg}" alt="" />
 				</div>
 			</a>
 			<a href="/">
 				<div>
 					<span class="span-carrito-mobil">5</span>
+					<img th:src="@{/general/img/icon/carrito.svg}" alt="" />
 				</div>
 			</a>
 		</div>
@@ -113,28 +123,28 @@
 			<!-- Contenedor para la columna de categorias -->
 			<div id="silebar-categorias">
 				<div class="close-silebar">
-					<button>X</button>
+					<label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
 				</div>
 				<ul>
 					<a href="/">
 						<li id="listaItems">
 							<span>Inicio</span>
-							<span class="simbolo"></span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 						</li>
 					</a>
 					<a href="producto">
 						<li id="listaItems">
 							<span>Procesadores</span>
-							<span class="simbolo"></span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 						</li>
 					</a>
 					<li>
 						<span>Placas madres</span>
-						<span class="simbolo"></span>
+						<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 					</li>
 					<li>
 						<span>Memorias ram</span>
-						<span class="simbolo"></span>
+						<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 					</li>
 				</ul>
 			</div>
@@ -230,8 +240,8 @@
 							<div class="detalle-producto">
 								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
 
-									<img class="img-producto" th:src="@{producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{producto/img/icon/corazon.svg}" alt="" />
+									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
 
 								</a>
@@ -255,8 +265,8 @@
 							<div class="detalle-producto">
 								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
 
-									<img class="img-producto" th:src="@{producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{producto/img/icon/corazon.svg}" alt="" />
+									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
 
 								</a>
@@ -280,8 +290,8 @@
 							<div class="detalle-producto">
 								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
 
-									<img class="img-producto" th:src="@{producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{producto/img/icon/corazon.svg}" alt="" />
+									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
 
 								</a>
@@ -305,8 +315,8 @@
 							<div class="detalle-producto">
 								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
 
-									<img class="img-producto" th:src="@{producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{producto/img/icon/corazon.svg}" alt="" />
+									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
 
 								</a>
@@ -330,8 +340,8 @@
 							<div class="detalle-producto">
 								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
 
-									<img class="img-producto" th:src="@{producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{producto/img/icon/corazon.svg}" alt="" />
+									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
 
 								</a>
@@ -355,8 +365,8 @@
 							<div class="detalle-producto">
 								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
 
-									<img class="img-producto" th:src="@{producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{producto/img/icon/corazon.svg}" alt="" />
+									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
 
 								</a>
