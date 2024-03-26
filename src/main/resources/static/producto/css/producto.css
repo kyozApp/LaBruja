@@ -69,14 +69,17 @@
     }
     
     .producto-encabezado ul {
+        display: flex;
         margin-left: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
     }
     
     .producto-encabezado li {
         background-color: #ff1313;
         border-radius: 33px;
         padding: 13px 39px;
-        margin: 0 15px 0 0;
+        margin: 0 15px 15px 0;
         transition: 0.2s;
     }
     
@@ -381,7 +384,7 @@
         }
     
         .producto-encabezado li {
-            margin: 0;
+            margin: 0 6px 4px 0;
             padding: 5px 14px;
         }
     

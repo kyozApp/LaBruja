@@ -159,7 +159,7 @@
 								<img src="" alt="" />
 								<!--Icono referente a la categoria-->
 							</div>
-							<a href="/">Procesador</a>
+							<a href="/">Productos</a>
 						</div>
 						<a href="/">Ver todo</a>
 					</div>
@@ -198,7 +198,7 @@
 			<a th:href="@{/}" class="seguimiento__etiqueta">
 				Hogar
 				<i class="fa-solid fa-angle-right"></i>
-				<span class="seguimiento__producto"> Productos </span>
+				<span class="seguimiento__producto"> Catalogo </span>
 			</a>
 		</div>
 		<div class="productos">
@@ -210,11 +210,14 @@
 				<div class="center-colum">
 					<!-- Encabezado de los productos -->
 					<div class="producto-encabezado">
-						<h2>PROCESADORES</h2>
+						<h2>CATALOGO</h2>
 						<h3>Subcategorías</h3>
 						<ul>
-							<li><a th:href="@{#}">Procesadro Intel</a></li>
-							<li><a th:href="@{#}">Procesador AMD</a></li>
+							<li><a th:href="@{#}">Subcategoria 1</a></li>
+							<li><a th:href="@{#}">Subcategoria 2</a></li>
+							<li><a th:href="@{#}">Subcategoria 3</a></li>
+							<li><a th:href="@{#}">Subcategoria 4</a></li>
+							<li><a th:href="@{#}">Subcategoria 5</a></li>
 						</ul>
 					</div>
 
@@ -237,16 +240,16 @@
 
 						<!-- Productos -->
 						<div class="contenedor-productos">
+
 							<div class="detalle-producto">
-								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
-
+								<a th:href="@{/}" class="con-img-fav"> <!--el formato para ir a el producto eso /{categoria}/{id}-->
 									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
 									</div>
-
 								</a>
 								<p class="titulo-producto">
-									<a th:href="@{/producto-detalle.html}">PROCESADOR INTEL CORE I5-11400</a>
+									<a th:href="@{/}">PROCESADOR INTEL CORE I5-11400</a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -257,136 +260,14 @@
 											<p>Ref: 1243543672</p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/producto-detalle.html}">Comprar</a>
+											<a th:href="@{/}" class="con-img-fav">  <!--el formato para ir a el producto eso /{categoria}/{id}-->
+												Comprar
+											</a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="detalle-producto">
-								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
-
-									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
-									</div>
-
-								</a>
-								<p class="titulo-producto">
-									<a th:href="@{/producto-detalle.html}">PROCESADOR INTEL CORE I5-11400</a>
-								</p>
-								<div class="cont-producto">
-									<div class="sub-cont-produc">
-										<div class="cont-atrub-prod">
-											<p class="precio-dolar">$ 156,60</p>
-											<p class="precio-soles">(S/. 603.65)</p>
-											<p>Stock: 5</p>
-											<p>Ref: 1243543672</p>
-										</div>
-										<div class="btn-producto">
-											<a th:href="@{/producto-detalle.html}">Comprar</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="detalle-producto">
-								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
-
-									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
-									</div>
-
-								</a>
-								<p class="titulo-producto">
-									<a th:href="@{/producto-detalle.html}">PROCESADOR INTEL CORE I5-11400</a>
-								</p>
-								<div class="cont-producto">
-									<div class="sub-cont-produc">
-										<div class="cont-atrub-prod">
-											<p class="precio-dolar">$ 156,60</p>
-											<p class="precio-soles">(S/. 603.65)</p>
-											<p>Stock: 5</p>
-											<p>Ref: 1243543672</p>
-										</div>
-										<div class="btn-producto">
-											<a th:href="@{/producto-detalle.html}">Comprar</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="detalle-producto">
-								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
-
-									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
-									</div>
-
-								</a>
-								<p class="titulo-producto">
-									<a th:href="@{/producto-detalle.html}">PROCESADOR INTEL CORE I5-11400</a>
-								</p>
-								<div class="cont-producto">
-									<div class="sub-cont-produc">
-										<div class="cont-atrub-prod">
-											<p class="precio-dolar">$ 156,60</p>
-											<p class="precio-soles">(S/. 603.65)</p>
-											<p>Stock: 5</p>
-											<p>Ref: 1243543672</p>
-										</div>
-										<div class="btn-producto">
-											<a th:href="@{/producto-detalle.html}">Comprar</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="detalle-producto">
-								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
-
-									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
-									</div>
-
-								</a>
-								<p class="titulo-producto">
-									<a th:href="@{/producto-detalle.html}">PROCESADOR INTEL CORE I5-11400</a>
-								</p>
-								<div class="cont-producto">
-									<div class="sub-cont-produc">
-										<div class="cont-atrub-prod">
-											<p class="precio-dolar">$ 156,60</p>
-											<p class="precio-soles">(S/. 603.65)</p>
-											<p>Stock: 5</p>
-											<p>Ref: 1243543672</p>
-										</div>
-										<div class="btn-producto">
-											<a th:href="@{/producto-detalle.html}">Comprar</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="detalle-producto">
-								<a th:href="@{/producto-detalle.html}" class="con-img-fav">
-
-									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
-									<div class="overlay-icon"><img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
-									</div>
-
-								</a>
-								<p class="titulo-producto">
-									<a th:href="@{/producto-detalle.html}">PROCESADOR INTEL CORE I5-11400</a>
-								</p>
-								<div class="cont-producto">
-									<div class="sub-cont-produc">
-										<div class="cont-atrub-prod">
-											<p class="precio-dolar">$ 156,60</p>
-											<p class="precio-soles">(S/. 603.65)</p>
-											<p>Stock: 5</p>
-											<p>Ref: 1243543672</p>
-										</div>
-										<div class="btn-producto">
-											<a th:href="@{/producto-detalle.html}">Comprar</a>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 
 						</div>
 					</div>
@@ -438,17 +319,17 @@
 					<p>Siguenes en nuestras redes sociales:</p>
 					<div class="cont-redes">
 						<div class="cad-img">
-							<a class="style-icon" href="">
+							<a class="style-icon" target="_blank" th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
 								<img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
 							</a>
 						</div>
 						<div class="cad-img">
-							<a class="style-icon" href="">
+							<a class="style-icon" target="_blank" th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
 								<img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
 							</a>						
 						</div>
 						<div class="cad-img">
-							<a class="style-icon" href="">
+							<a class="style-icon" target="_blank" th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
 								<img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
 							</a>						
 						</div>
