@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Accesorio</title>
+    <meta charset="UTF-8">
+    <title>Accesorio</title>
 </head>
+
 <body>
 
     <h1>Accesorio</h1>
     <a href="/admin/accesorio/crear">Crear accesorio</a>
-    
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,27 @@
             <tr th:each="accesorio : ${tablaAccesorio}">
                 <td th:text="${accesorio.accesorioId}"></td>
                 <td th:text="${accesorio.nombre}"></td>
-                <td><img th:src="${accesorio.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${accesorio.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}"
+                        width="45px" height="45px" border="1" />
+                </td>
                 <td th:text="${accesorio.stock}"></td>
                 <td th:text="${accesorio.precio}"></td>
                 <td th:text="${accesorio.descripcion}"></td>
                 <td><a th:href="${accesorio.url}" th:text="${accesorio.url}"></a></td>
                 <td th:text="${accesorio.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/accesorio/editar/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Editar</a></td>
-                <td><a th:href="@{/admin/accesorio/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Eliminar</a></td>
+                <td><a
+                        th:href="@{/admin/accesorio/editar/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/accesorio/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>

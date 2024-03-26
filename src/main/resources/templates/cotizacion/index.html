@@ -2,13 +2,136 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" th:href="@{/cotizacion/css/estilos.css}">
 </head>
 
 <body>
-    <h1>Pagina principal</h1>
+    <h1>Catalogo</h1>
+
+    <form>
+        <h1>REALIZA TU COTIZACION</h1>
+        <!-- Primer select para procesadores -->
+        <label for="procesador">Procesador:</label>
+        <select name="procesador" id="procesador">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Thymeleaf loop para procesadores -->
+            <option th:each="procesador : ${procesadores}" th:value="${procesador.id}"
+                th:data-precio="${procesador.precio}" th:text="${procesador.nombre}"></option>
+        </select>
+        <span id="precioProcesador">Precio: S/. 0.00</span><br>
+
+        <!-- Segundo select para placas -->
+        <label for="placa">Placa:</label>
+        <select name="placa" id="placa">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioPlaca">Precio: S/. 0.00</span><br>
+
+        <!-- Tercer select para memorias RAM -->
+        <label for="ram">Memoria RAM:</label>
+        <select name="ram" id="ram">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioRam">Precio: S/. 0.00</span><br>
+
+        <!-- Cuarto select para tarjetas de video -->
+        <label for="tarjeta">Tarjeta de Video:</label>
+        <select name="tarjeta" id="tarjeta">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioTarjeta">Precio: S/. 0.00</span><br>
+
+        <!-- Quinto select para almacenamientos -->
+        <label for="almacenamiento">Almacenamiento:</label>
+        <select name="almacenamiento" id="almacenamiento">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioAlmacenamiento">Precio: S/. 0.00</span><br>
+
+        <!-- Sexto select para fuentes de poder -->
+        <label for="fuente">Fuente de Poder:</label>
+        <select name="fuente" id="fuente">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioFuente">Precio: S/. 0.00</span><br>
+
+        <!-- Séptimo select para cases -->
+        <label for="casse">Casse:</label>
+        <select name="casse" id="casse">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioCasse">Precio: S/. 0.00</span><br>
+
+        <!-- Octavo select para monitores -->
+        <label for="monitor">Monitor:</label>
+        <select name="monitor" id="monitor">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioMonitor">Precio: S/. 0.00</span><br>
+
+        <!-- Noveno select para refrigeración -->
+        <label for="refrigeracion">Refrigeración:</label>
+        <select name="refrigeracion" id="refrigeracion">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioRefrigeracion">Precio: S/. 0.00</span><br>
+
+        <!-- Décimo select para accesorio 1 -->
+        <label for="accesorio1">Accesorio 1:</label>
+        <select name="accesorio1" id="accesorio1">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioAccesorio1">Precio: S/. 0.00</span><br>
+
+        <!-- Undécimo select para accesorio 2 -->
+        <label for="accesorio2">Accesorio 2:</label>
+        <select name="accesorio2" id="accesorio2">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioAccesorio2">Precio: S/. 0.00</span><br>
+
+        <!-- Duodécimo select para accesorio 3 -->
+        <label for="accesorio3">Accesorio 3:</label>
+        <select name="accesorio3" id="accesorio3">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioAccesorio3">Precio: S/. 0.00</span><br>
+
+        <!-- Décimo tercer select para accesorio 4 -->
+        <label for="accesorio4">Accesorio 4:</label>
+        <select name="accesorio4" id="accesorio4">
+            <option value="" selected disabled>Seleccionar</option>
+            <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+        </select>
+        <span id="precioAccesorio4">Precio: S/. 0.00</span><br>
+
+        <span id="precioTotal">Precio Total: S/. 0.00</span><br>
+
+        <button type="button" onclick="generarCotizacion()">Generar Cotización</button>
+
+
+    </form>
+
+    <footer>
+        <p>&copy; 2023 La Bruja Store. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script JavaScript para actualizar los precios -->
+    <script src="@{/cotizacion/js/index.js}"></script>
+
 </body>
 
 </html>

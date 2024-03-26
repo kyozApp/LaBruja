@@ -1,8 +1,11 @@
 package com.labrujastore.entity;
 
 import java.io.Serializable;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
+
+import org.apache.tika.Tika;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,54 +20,62 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "procesadores")
-public class Procesador implements Serializable
-{
+public class Procesador implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer procesadorId;
-	
+
 	@Column
 	private String nombre;
-	
+
 	@Column
 	private String imagenNombre;
-	
-	@Column
-	private String imagenArchivo;
-	
+
+	@Column(columnDefinition = "longblob")
+	private byte[] imagenArchivo;
+
 	@Column
 	private Integer stock;
-	
+
 	@Column
 	private Double precio;
-	
+
 	@Column
 	private String descripcion;
-	
+
 	@Column
 	private String url;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
-	
+
 	@ManyToMany
-	@JoinTable(name = "procesadores_placas", 
-			joinColumns = @JoinColumn(name = "procesador_id"), 
-			inverseJoinColumns = @JoinColumn(name = "placa_id"))
+	@JoinTable(name = "procesadores_placas", joinColumns = @JoinColumn(name = "procesador_id"), inverseJoinColumns = @JoinColumn(name = "placa_id"))
 	private Set<Placa> itemsPlaca = new HashSet<>();
-	
-	public Procesador() {
-		// TODO Auto-generated constructor stub
+
+	// convertir file en String base64
+	public String getBase64Image() {
+		String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
+		return base64;
 	}
 
-	public Procesador(Integer procesadorId, String nombre, String imagenNombre, String imagenArchivo, Integer stock,
+	// obtener tipo de imagen (jpeg,jpg,png,etc)
+	public String getTypeImage() {
+		String typeImage = new Tika().detect(this.imagenArchivo);
+		return typeImage;
+	}
+
+	public Procesador() {
+	}
+
+	public Procesador(Integer procesadorId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
 			Double precio, String descripcion, String url, Categoria categoria, Set<Placa> itemsPlaca) {
 		this.procesadorId = procesadorId;
 		this.nombre = nombre;
@@ -79,7 +90,7 @@ public class Procesador implements Serializable
 	}
 
 	public Integer getProcesadorId() {
-		return procesadorId;
+		return this.procesadorId;
 	}
 
 	public void setProcesadorId(Integer procesadorId) {
@@ -87,7 +98,7 @@ public class Procesador implements Serializable
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -95,23 +106,23 @@ public class Procesador implements Serializable
 	}
 
 	public String getImagenNombre() {
-		return imagenNombre;
+		return this.imagenNombre;
 	}
 
 	public void setImagenNombre(String imagenNombre) {
 		this.imagenNombre = imagenNombre;
 	}
 
-	public String getImagenArchivo() {
-		return imagenArchivo;
+	public byte[] getImagenArchivo() {
+		return this.imagenArchivo;
 	}
 
-	public void setImagenArchivo(String imagenArchivo) {
+	public void setImagenArchivo(byte[] imagenArchivo) {
 		this.imagenArchivo = imagenArchivo;
 	}
 
 	public Integer getStock() {
-		return stock;
+		return this.stock;
 	}
 
 	public void setStock(Integer stock) {
@@ -119,7 +130,7 @@ public class Procesador implements Serializable
 	}
 
 	public Double getPrecio() {
-		return precio;
+		return this.precio;
 	}
 
 	public void setPrecio(Double precio) {
@@ -127,7 +138,7 @@ public class Procesador implements Serializable
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
@@ -135,7 +146,7 @@ public class Procesador implements Serializable
 	}
 
 	public String getUrl() {
-		return url;
+		return this.url;
 	}
 
 	public void setUrl(String url) {
@@ -143,7 +154,7 @@ public class Procesador implements Serializable
 	}
 
 	public Categoria getCategoria() {
-		return categoria;
+		return this.categoria;
 	}
 
 	public void setCategoria(Categoria categoria) {
@@ -151,13 +162,11 @@ public class Procesador implements Serializable
 	}
 
 	public Set<Placa> getItemsPlaca() {
-		return itemsPlaca;
+		return this.itemsPlaca;
 	}
 
 	public void setItemsPlaca(Set<Placa> itemsPlaca) {
 		this.itemsPlaca = itemsPlaca;
 	}
 
-	
-	
 }

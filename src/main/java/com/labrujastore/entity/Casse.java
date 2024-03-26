@@ -1,6 +1,9 @@
 package com.labrujastore.entity;
 
 import java.io.Serializable;
+import java.util.Base64;
+
+import org.apache.tika.Tika;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,48 +16,58 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "casses")
-public class Casse implements Serializable
-{
+public class Casse implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer casseId;
-	
+
 	@Column
 	private String nombre;
-	
+
 	@Column
 	private String imagenNombre;
-	
-	@Column
-	private String imagenArchivo;
-	
+
+	@Column(columnDefinition = "longblob")
+	private byte[] imagenArchivo;
+
 	@Column
 	private Integer stock;
-	
+
 	@Column
 	private Double precio;
-	
+
 	@Column
 	private String descripcion;
-	
+
 	@Column
 	private String url;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
-	
-	public Casse() {
-		// TODO Auto-generated constructor stub
+
+	// convertir file en String base64
+	public String getBase64Image() {
+		String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
+		return base64;
 	}
 
-	public Casse(Integer casseId, String nombre, String imagenNombre, String imagenArchivo, Integer stock,
+	// obtener tipo de imagen (jpeg,jpg,png,etc)
+	public String getTypeImage() {
+		String typeImage = new Tika().detect(this.imagenArchivo);
+		return typeImage;
+	}
+
+	public Casse() {
+	}
+
+	public Casse(Integer casseId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
 			Double precio, String descripcion, String url, Categoria categoria) {
 		this.casseId = casseId;
 		this.nombre = nombre;
@@ -68,7 +81,7 @@ public class Casse implements Serializable
 	}
 
 	public Integer getCasseId() {
-		return casseId;
+		return this.casseId;
 	}
 
 	public void setCasseId(Integer casseId) {
@@ -76,7 +89,7 @@ public class Casse implements Serializable
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -84,23 +97,23 @@ public class Casse implements Serializable
 	}
 
 	public String getImagenNombre() {
-		return imagenNombre;
+		return this.imagenNombre;
 	}
 
 	public void setImagenNombre(String imagenNombre) {
 		this.imagenNombre = imagenNombre;
 	}
 
-	public String getImagenArchivo() {
-		return imagenArchivo;
+	public byte[] getImagenArchivo() {
+		return this.imagenArchivo;
 	}
 
-	public void setImagenArchivo(String imagenArchivo) {
+	public void setImagenArchivo(byte[] imagenArchivo) {
 		this.imagenArchivo = imagenArchivo;
 	}
 
 	public Integer getStock() {
-		return stock;
+		return this.stock;
 	}
 
 	public void setStock(Integer stock) {
@@ -108,7 +121,7 @@ public class Casse implements Serializable
 	}
 
 	public Double getPrecio() {
-		return precio;
+		return this.precio;
 	}
 
 	public void setPrecio(Double precio) {
@@ -116,7 +129,7 @@ public class Casse implements Serializable
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
@@ -124,7 +137,7 @@ public class Casse implements Serializable
 	}
 
 	public String getUrl() {
-		return url;
+		return this.url;
 	}
 
 	public void setUrl(String url) {
@@ -132,13 +145,11 @@ public class Casse implements Serializable
 	}
 
 	public Categoria getCategoria() {
-		return categoria;
+		return this.categoria;
 	}
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
-	
 
 }

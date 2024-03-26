@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>RAM</title>
+    <meta charset="UTF-8">
+    <title>RAM</title>
 </head>
+
 <body>
 
     <h1>RAM</h1>
     <a href="/admin/ram/crear">Crear RAM</a>
-    
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -25,22 +28,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="ram : ${tablaRam}">
+            <tr th:each="ram : ${tablaRAM}">
                 <td th:text="${ram.ramId}"></td>
                 <td th:text="${ram.nombre}"></td>
-                <td><img th:src="${ram.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${ram.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
                 <td th:text="${ram.stock}"></td>
                 <td th:text="${ram.precio}"></td>
                 <td th:text="${ram.descripcion}"></td>
                 <td><a th:href="${ram.url}" th:text="${ram.url}"></a></td>
                 <td th:text="${ram.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a></td>
-                <td><a th:href="@{/admin/ram/{ramId}(ramId=${ram.ramId})}">Eliminar</a></td>
+                <td><a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/ram/{ramId}(ramId=${ram.ramId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>

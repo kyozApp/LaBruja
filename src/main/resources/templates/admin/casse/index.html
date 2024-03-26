@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Casse</title>
+    <meta charset="UTF-8">
+    <title>Casse</title>
 </head>
+
 <body>
 
     <h1>Casse</h1>
-    <a href="/admin/casse/crear">Crear Casse</a>
-    
+    <a href="/admin/casse/crear">Crear casse</a>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
                 <th>Precio</th>
@@ -28,19 +31,26 @@
             <tr th:each="casse : ${tablaCasse}">
                 <td th:text="${casse.casseId}"></td>
                 <td th:text="${casse.nombre}"></td>
-                <td><img th:src="${casse.imagenArchivo}" width="100px" height="100px"></td>
+                <td th:text="${casse.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
                 <td th:text="${casse.stock}"></td>
                 <td th:text="${casse.precio}"></td>
                 <td th:text="${casse.descripcion}"></td>
                 <td><a th:href="${casse.url}" th:text="${casse.url}"></a></td>
                 <td th:text="${casse.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/casse/editar/{casseId}(casseId=${casse.casseId})}">Editar</a></td>
-                <td><a th:href="@{/admin/casse/{casseId}(casseId=${casse.casseId})}">Eliminar</a></td>
+                <td><a th:href="@{/admin/casse/editar/{casseId}(casseId=${casse.casseId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/casse/{casseId}(casseId=${casse.casseId})}">Eliminar</a>
+                </td>
             </tr>
         </tbody>
     </table>
-    
+
     <a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>
