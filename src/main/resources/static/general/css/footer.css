@@ -25,6 +25,39 @@
     margin-left: 1rem;
 }
 
+.cont-redes{
+    width: 100%;
+    display: flex;
+}
+
+.cad-img{
+    margin-right: 20px;
+    border-radius: 50%;
+    background-color: #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-redes{
+    width: 15px;
+    filter: invert(100%);
+}
+
+.cad-img:hover{
+    background-color: #ed1d24;
+}
+
+.cad-img:hover .icon-redes{
+    filter: invert(0%);
+}
+
+.style-icon{
+    display: flex;
+    padding: 12px;
+    border-radius: 50%;
+}
+
 @media screen and (min-width: 768px) {
     .encabezado {
         background-color: #ed1d24;
