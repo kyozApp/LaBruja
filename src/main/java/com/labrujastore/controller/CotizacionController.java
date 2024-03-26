@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
@@ -31,8 +33,7 @@ import com.labrujastore.service.TarjetaService;
 
 @Controller
 @RequestMapping("/cotizacion")
-public class CotizacionController 
-{
+public class CotizacionController {
     @Autowired
     private AccesorioService accesorioService;
 
@@ -41,7 +42,7 @@ public class CotizacionController
 
     @Autowired
     private CasseService casseService;
-    
+
     @Autowired
     private FuenteService fuenteService;
 
@@ -63,35 +64,17 @@ public class CotizacionController
     @Autowired
     private TarjetaService tarjetaService;
 
-    @GetMapping("producto")
-    public String index(Model model)
-    {
-        // Obtener los productos de cada tipo utilizando el servicio respectivo
-        List<Accesorio> accesorios = accesorioService.listarAccesorio();
-        List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
-        List<Casse> casses = casseService.listarCasse();
-        List<Fuente> fuentes = fuenteService.listarFuente();
-        List<Monitor> monitores = monitorService.listarMonitor();
-        List<Placa> placas = placaService.listarPlaca();
+    @GetMapping("/producto")
+    public String mostrarFormulario(Model model) {
         List<Procesador> procesadores = procesadorService.listarProcesador();
+        List<Placa> placas = placaService.listarPlaca();
         List<Ram> rams = ramService.listarRam();
-        List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
-        List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
 
-        // Agregar las listas de productos al modelo
-        model.addAttribute("accesorios", accesorios);
-        model.addAttribute("almacenamientos", almacenamientos);
-        model.addAttribute("casses", casses);
-        model.addAttribute("fuentes", fuentes);
-        model.addAttribute("monitores", monitores);
-        model.addAttribute("placas", placas);
         model.addAttribute("procesadores", procesadores);
+        model.addAttribute("placas", placas);
         model.addAttribute("rams", rams);
-        model.addAttribute("refrigeraciones", refrigeraciones);
-        model.addAttribute("tarjetas", tarjetas);
-        
+
         return "cotizacion/index";
     }
 
-    
 }
