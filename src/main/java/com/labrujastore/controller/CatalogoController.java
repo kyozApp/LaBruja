@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
 import com.labrujastore.entity.Casse;
+import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Fuente;
 import com.labrujastore.entity.Laptop;
 import com.labrujastore.entity.Monitor;
@@ -22,6 +23,7 @@ import com.labrujastore.entity.Tarjeta;
 import com.labrujastore.service.AccesorioService;
 import com.labrujastore.service.AlmacenamientoService;
 import com.labrujastore.service.CasseService;
+import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.FuenteService;
 import com.labrujastore.service.LaptopService;
 import com.labrujastore.service.MonitorService;
@@ -68,6 +70,9 @@ public class CatalogoController {
     @Autowired
     private TarjetaService tarjetaService;
 
+    @Autowired
+    private CategoriaService categoriaService;
+
     @GetMapping("producto")
     public String index(Model model) {
 
@@ -82,6 +87,7 @@ public class CatalogoController {
         List<Ram> rams = ramService.listarRam();
         List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
+        List<Categoria> categorias = categoriaService.listarCategoria();
 
         model.addAttribute("vistaAccesorios", accesorios);
         model.addAttribute("vistaAlmacenamientos", almacenamientos);
@@ -94,6 +100,7 @@ public class CatalogoController {
         model.addAttribute("vistaRams", rams);
         model.addAttribute("vistaRefrigeraciones", refrigeraciones);
         model.addAttribute("vistaTarjetas", tarjetas);
+        model.addAttribute("vistaCategorias", categorias);
 
         return "catalogo/index";
     }

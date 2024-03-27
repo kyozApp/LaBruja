@@ -129,31 +129,36 @@
 					<a href="/catalogo/producto">
 						<li id="listaItems">
 							<span>CATALOGO</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 					<a href="/">
 						<li id="listaItems">
 							<span>Categoria 1</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 					<a href="/">
 						<li id="listaItems">
 							<span>Categoria 2</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 					<a href="/">
 						<li id="listaItems">
 							<span>Categoria 3</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 					<a href="/">
 						<li id="listaItems">
 							<span>Categoria 4</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 				</ul>
@@ -222,12 +227,40 @@
 					<div class="producto-encabezado">
 						<h2>CATALOGO</h2>
 						<h3>Subcategorías</h3>
-						<ul>
-							<li><a th:href="@{#}">Subcategoria 1</a></li>
-							<li><a th:href="@{#}">Subcategoria 2</a></li>
-							<li><a th:href="@{#}">Subcategoria 3</a></li>
-							<li><a th:href="@{#}">Subcategoria 4</a></li>
-							<li><a th:href="@{#}">Subcategoria 5</a></li>
+						<ul th:each="categoria : ${vistaCategorias}">
+							<li th:if="${categoria.categoriaId == 1}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 2}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 3}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 4}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 5}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 6}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 7}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 8}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 9}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 10}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
+							<li th:if="${categoria.categoriaId == 11}">
+								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
+							</li>
 						</ul>
 					</div>
 
