@@ -227,38 +227,8 @@
 					<div class="producto-encabezado">
 						<h2>CATALOGO</h2>
 						<h3>Subcategorías</h3>
-						<ul th:each="categoria : ${vistaCategorias}">
-							<li th:if="${categoria.categoriaId == 1}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 2}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 3}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 4}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 5}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 6}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 7}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 8}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 9}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 10}">
-								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
-							</li>
-							<li th:if="${categoria.categoriaId == 11}">
+						<ul>
+							<li th:each="categoria : ${vistaCategorias}">
 								<a th:href="@{#}" th:text="${categoria.nombre}"></a>
 							</li>
 						</ul>
