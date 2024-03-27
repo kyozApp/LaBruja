@@ -120,34 +120,42 @@
 	<div id="background-silebar">
 		<div id="contenedor-silebar">
 
-			<!-- Contenedor para la columna de categorias -->
+			<!-- Contenedor para la columna de categori -->
 			<div id="silebar-categorias">
 				<div class="close-silebar">
 					<label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
 				</div>
 				<ul>
+					<a href="/catalogo/producto">
+						<li id="listaItems">
+							<span>CATALOGO</span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+						</li>
+					</a>
 					<a href="/">
 						<li id="listaItems">
-							<span>Inicio</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-								style="width: 12px;">
+							<span>Categoria 1</span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 						</li>
 					</a>
-					<a href="producto">
+					<a href="/">
 						<li id="listaItems">
-							<span>Procesadores</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-								style="width: 12px;">
+							<span>Categoria 2</span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
 						</li>
 					</a>
-					<li>
-						<span>Placas madres</span>
-						<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
-					</li>
-					<li>
-						<span>Memorias ram</span>
-						<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
-					</li>
+					<a href="/">
+						<li id="listaItems">
+							<span>Categoria 3</span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+						</li>
+					</a>
+					<a href="/">
+						<li id="listaItems">
+							<span>Categoria 4</span>
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+						</li>
+					</a>
 				</ul>
 			</div>
 
@@ -243,23 +251,158 @@
 						<!-- Productos -->
 						<div class="contenedor-productos">
 
-							<!-- Procesador -->
-							<div th:each="procesador : ${vistaProcesadores}" class="detalle-producto">
+							<!-- Accesorios -->
+							<div th:each="accesorio : ${vistaAccesorios}" class="detalle-producto">
 								<a class="con-img-fav">
 									<img class="img-producto"
-										th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
+										th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
 									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazon" />
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
 									</div>
 								</a>
 								<p class="titulo-producto">
-									<a th:text="${procesador.nombre}"></a>
+									<a th:text="${accesorio.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${procesador.precio} + ')'"></p>
-											<p th:text="'Stock: ' + ${procesador.stock}"></p>
+											<p th:text="'(S/. ' + ${accesorio.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${accesorio.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Almacenamiento -->
+							<div th:each="almacenamiento : ${vistaAlmacenamientos}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${almacenamiento.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${almacenamiento.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Casses -->
+							<div th:each="casse : ${vistaCasses}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${casse.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${casse.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${casse.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Fuentes de alimentación -->
+							<div th:each="fuente : ${vistaFuentes}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${fuente.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${fuente.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${fuente.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Laptops -->
+							<div th:each="laptop : ${vistaLaptops}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${laptop.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${laptop.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${laptop.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Monitores -->
+							<div th:each="monitor : ${vistaMonitores}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${monitor.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${monitor.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${monitor.stock}"></p>
 										</div>
 										<div class="btn-producto">
 											<a th:href="@{/}" class="con-img-fav">
@@ -297,24 +440,23 @@
 								</div>
 							</div>
 
-
-
-							<!--<div class="detalle-producto" th:each="procesador : ${vistaProcesador}">
-								<a th:href="@{/}" class="con-img-fav">
-									
-									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
+							<!-- Procesador -->
+							<div th:each="procesador : ${vistaProcesadores}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
 									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazon" />
 									</div>
 								</a>
 								<p class="titulo-producto">
-									<a th:href="@{/}">PROCESADOR INTEL CORE I5-11400</a>
+									<a th:text="${procesador.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-soles">(S/. 603.65)</p>
-											<p>Stock: 5</p>
+											<p th:text="'(S/. ' + ${procesador.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${procesador.stock}"></p>
 										</div>
 										<div class="btn-producto">
 											<a th:href="@{/}" class="con-img-fav">
@@ -323,8 +465,88 @@
 										</div>
 									</div>
 								</div>
-							</div>-->
+							</div>
 
+							<!-- RAM -->
+							<div th:each="ram : ${vistaRams}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${ram.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${ram.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${ram.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Sistemas de refrigeración -->
+							<div th:each="refrigeracion : ${vistaRefrigeraciones}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${refrigeracion.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${refrigeracion.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Tarjetas gráficas -->
+							<div th:each="tarjeta : ${vistaTarjetas}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${tarjeta.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${tarjeta.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${tarjeta.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
 
 						</div>
 					</div>
