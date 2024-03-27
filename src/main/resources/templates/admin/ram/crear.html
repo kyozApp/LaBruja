@@ -10,7 +10,7 @@
 
 	<h1>Crear RAM</h1>
 
-	<form th:action="@{/admin/ram/crear}" th:object="${formularioCrearRAM}" method="post" enctype="multipart/form-data">
+	<form th:action="@{/admin/ram/crear}" th:object="${formularioCrearRam}" method="post" enctype="multipart/form-data">
 		<label for="nombre">Nombre:</label>
 		<input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
 		<br>

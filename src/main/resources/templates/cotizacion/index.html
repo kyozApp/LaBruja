@@ -10,37 +10,111 @@
 <body>
     <h1>Catalogo</h1>
 
-    <form action="/cotizacion/generarCotizacion" method="post">
+    <form method="post" action="" th:object="${cotizacionForm}" id="cotizacionForm">
         <h1>REALIZA TU COTIZACION</h1>
 
-        <!-- Primer select para procesadores -->
-        <label for="procesador">Procesador:</label>
-        <select name="procesador" id="procesador">
-            <option value="" selected disabled>Seleccionar</option>
-            <option th:each="procesador : ${procesadores}" th:value="${procesador.id}"
-                th:data-precio="${procesador.precio}" th:text="${procesador.nombre}"></option>
-        </select>
-        <span id="precioProcesador">Precio: S/. 0.00</span><br>
-
-        <!-- Segundo select para placas -->
-        <label for="placa">Placa:</label>
-        <select name="placa" id="placa">
-            <option value="" selected disabled>Seleccionar</option>
-            <option th:each="placa : ${placas}" th:value="${placa.id}" th:data-precio="${placa.precio}"
-                th:text="${placa.nombre}"></option>
-        </select>
-        <span id="precioPlaca">Precio: S/. 0.00</span><br>
-
-        <!-- Tercer select para RAM -->
-        <label for="ram">RAM:</label>
-        <select name="ram" id="ram">
-            <option value="" selected disabled>Seleccionar</option>
-            <option th:each="ram : ${rams}" th:value="${ram.id}" th:data-precio="${ram.precio}" th:text="${ram.nombre}">
+        <b>Procesador: </b>
+        <select name="procesadorId" id="selectId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="procesador : ${selectProcesador}" th:value="${procesador.procesadorId}"
+                th:text="${procesador.nombre}" th:data-precio="${procesador.precio}">
             </option>
-        </select>
-        <span id="precioRam">Precio: S/. 0.00</span><br>
+        </select> <br>
 
-        <span id="precioTotal">Precio Total: S/. 0.00</span><br>
+        <span id="precioProcesador">Precio: S/. 0</span><br>
+
+        <b>Placa: </b>
+        <select name="placaId" id="placaId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="placa : ${selectPlaca}" th:value="${placa.placaId}" th:text="${placa.nombre}"
+                th:data-precio="${placa.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioPlaca">Precio: S/. 0</span><br>
+
+        <b>Ram: </b>
+        <select name="ramId" id="ramId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="ram : ${selectRam}" th:value="${ram.ramId}" th:text="${ram.nombre}"
+                th:data-precio="${ram.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioRam">Precio: S/. 0</span><br>
+
+        <b>Almacenamiento: </b>
+        <select name="almacenamientoId" id="almacenamientoId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="almacenamiento : ${selectAlmacenamiento}" th:value="${almacenamiento.almacenamientoId}"
+                th:text="${almacenamiento.nombre}" th:data-precio="${almacenamiento.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioAlmacenamiento">Precio: S/. 0</span><br>
+
+        <b>Tarjeta de video: </b>
+        <select name="tarjetaId" id="tarjetaId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="tarjeta : ${selectTarjeta}" th:value="${tarjeta.tarjetaId}" th:text="${tarjeta.nombre}"
+                th:data-precio="${tarjeta.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioTarjeta">Precio: S/. 0</span><br>
+
+        <b>Fuente: </b>
+        <select name="fuenteId" id="fuenteId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="fuente : ${selectFuente}" th:value="${fuente.fuenteId}" th:text="${fuente.nombre}"
+                th:data-precio="${fuente.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioFuente">Precio: S/. 0</span><br>
+
+        <b>Case: </b>
+        <select name="casseId" id="casseId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="casse : ${selectCasse}" th:value="${casse.casseId}" th:text="${casse.nombre}"
+                th:data-precio="${casse.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioCasse">Precio: S/. 0</span><br>
+
+        <b>Monitor: </b>
+        <select name="monitorId" id="monitorId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="monitor : ${selectMonitor}" th:value="${monitor.monitorId}" th:text="${monitor.nombre}"
+                th:data-precio="${monitor.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioMonitor">Precio: S/. 0</span><br>
+
+        <b>Refrigeracion: </b>
+        <select name="refrigeracionId" id="refrigeracionId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="refrigeracion : ${selectRefrigeracion}" th:value="${refrigeracion.refrigeracionId}"
+                th:text="${refrigeracion.nombre}" th:data-precio="${refrigeracion.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioRefrigeracion">Precio: S/. 0</span><br>
+
+        <b>Accesorio: </b>
+        <select name="accesorioId" id="accesorioId">
+            <option value="">-- Seleccione --</option>
+            <option th:each="accesorio : ${selectAccesorio}" th:value="${accesorio.accesorioId}"
+                th:text="${accesorio.nombre}" th:data-precio="${accesorio.precio}">
+            </option>
+        </select> <br>
+
+        <span id="precioAccesorio">Precio: S/. 0</span><br>
+
+
+        <span id="precioTotal">Precio Total: S/. 0</span><br>
 
         <button type="submit">Generar Cotización</button>
     </form>
@@ -48,6 +122,8 @@
     <footer>
         <p>&copy; 2023 La Bruja Store. Todos los derechos reservados.</p>
     </footer>
+
+    <script th:src="@{/cotizacion/js/index.js}"></script>
 </body>
 
 </html>
