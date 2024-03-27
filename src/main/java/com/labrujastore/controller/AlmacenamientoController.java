@@ -58,7 +58,7 @@ public class AlmacenamientoController {
 		Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
 		List<Categoria> categorias = categoriaService.listarCategoria();
 		model.addAttribute("almacenamiento", almacenamiento);
-		model.addAttribute("categorias", categorias);
+		model.addAttribute("selectorCategorias", categorias);
 		return "admin/almacenamiento/editar";
 	}
 
@@ -66,13 +66,14 @@ public class AlmacenamientoController {
 	public String editar(@PathVariable Integer almacenamientoId, @ModelAttribute Almacenamiento almacenamiento,
 			@RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
 			@RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-			@RequestParam("url") String url) throws IOException {
+			@RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
 		Almacenamiento almacenamientoExistente = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
 		almacenamientoExistente.setNombre(almacenamiento.getNombre());
 		almacenamientoExistente.setStock(stock);
 		almacenamientoExistente.setPrecio(precio);
 		almacenamientoExistente.setDescripcion(descripcion);
 		almacenamientoExistente.setUrl(url);
+		almacenamientoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
 		if (!imagen.isEmpty()) {
 			almacenamientoExistente.setImagenNombre(imagen.getOriginalFilename());
 			almacenamientoExistente.setImagenArchivo(imagen.getBytes());

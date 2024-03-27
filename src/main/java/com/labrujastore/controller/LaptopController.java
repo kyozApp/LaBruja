@@ -59,7 +59,7 @@ public class LaptopController {
         Laptop laptop = laptopService.obtenerIdLaptop(laptopId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("laptop", laptop);
-        model.addAttribute("categorias", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/laptop/editar";
     }
 
@@ -67,13 +67,14 @@ public class LaptopController {
     public String editar(@PathVariable Integer laptopId, @ModelAttribute Laptop laptop,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url) throws IOException {
+            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Laptop laptopExistente = laptopService.obtenerIdLaptop(laptopId);
         laptopExistente.setNombre(laptop.getNombre());
         laptopExistente.setStock(stock);
         laptopExistente.setPrecio(precio);
         laptopExistente.setDescripcion(descripcion);
         laptopExistente.setUrl(url);
+        laptopExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             laptopExistente.setImagenNombre(imagen.getOriginalFilename());
             laptopExistente.setImagenArchivo(imagen.getBytes());

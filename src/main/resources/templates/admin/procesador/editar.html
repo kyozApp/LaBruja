@@ -56,6 +56,17 @@
 				<input type="text" name="url" th:value="${procesador.url}" />
 			</div>
 
+			<div>
+				<label for="categoria">Categoría:</label>
+				<select id="categoria" name="categoriaId">
+					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+						th:text="${categoria.nombre}"
+						th:selected="${categoria.categoriaId == procesador.categoria.categoriaId}">
+					</option>>
+					</option>
+				</select>
+			</div>
+
 			<button type="submit">Guardar</button>
 			<button type="button" onclick="location.href='/admin/procesador'">Cancelar</button>
 		</form>

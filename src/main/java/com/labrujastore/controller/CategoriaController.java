@@ -52,10 +52,9 @@ public class CategoriaController {
 		categoriaService.actualizarCategoria(categoriaExistente);
 		return "redirect:/admin/categoria";
 	}
-	
+
 	@GetMapping("/categoria/{categoriaId}")
-	public String eliminar(@PathVariable Integer categoriaId)
-	{
+	public String eliminar(@PathVariable Integer categoriaId) {
 		categoriaService.eliminarCategoria(categoriaId);
 		return "redirect:/admin/categoria";
 	}

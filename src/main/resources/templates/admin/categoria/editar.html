@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
 </head>
+
 <body>
 
 	<h1>Crear Categoria</h1>
 
-	<form
-		th:action="@{/admin/categoria/editar/{categoriaId}(categoriaId=${formularioEditarCategoria.categoriaId})}"
+	<form th:action="@{/admin/categoria/editar/{categoriaId}(categoriaId=${formularioEditarCategoria.categoriaId})}"
 		th:object="${formularioEditarCategoria}" method="post">
-		<label for="nombre">Nombre:</label> <input type="text" id="nombre"
-			name="nombre" th:field="*{nombre}" required> <br>
+		<label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
+		<br>
 		<button type="submit">Editar</button>
 	</form>
 
-	<a href="../categoria">Volver</a>
+	<a href="../../categoria">Volver</a>
 
 </body>
+
 </html>

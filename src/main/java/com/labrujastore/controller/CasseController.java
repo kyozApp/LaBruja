@@ -58,7 +58,7 @@ public class CasseController {
         Casse casse = casseService.obtenerIdCasse(casseId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("casse", casse);
-        model.addAttribute("categorias", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/casse/editar";
     }
 
@@ -66,13 +66,14 @@ public class CasseController {
     public String editar(@PathVariable Integer casseId, @ModelAttribute Casse casse,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url) throws IOException {
+            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Casse casseExistente = casseService.obtenerIdCasse(casseId);
         casseExistente.setNombre(casse.getNombre());
         casseExistente.setStock(stock);
         casseExistente.setPrecio(precio);
         casseExistente.setDescripcion(descripcion);
         casseExistente.setUrl(url);
+        casseExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             casseExistente.setImagenNombre(imagen.getOriginalFilename());
             casseExistente.setImagenArchivo(imagen.getBytes());

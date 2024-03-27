@@ -59,7 +59,7 @@ public class ProcesadorController {
         Procesador procesador = procesadorService.obtenerIdProcesador(procesadorId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("procesador", procesador);
-        model.addAttribute("categorias", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/procesador/editar";
     }
 
@@ -67,13 +67,14 @@ public class ProcesadorController {
     public String editar(@PathVariable Integer procesadorId, @ModelAttribute Procesador procesador,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url) throws IOException {
+            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Procesador procesadorExistente = procesadorService.obtenerIdProcesador(procesadorId);
         procesadorExistente.setNombre(procesador.getNombre());
         procesadorExistente.setStock(stock);
         procesadorExistente.setPrecio(precio);
         procesadorExistente.setDescripcion(descripcion);
         procesadorExistente.setUrl(url);
+        procesadorExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             procesadorExistente.setImagenNombre(imagen.getOriginalFilename());
             procesadorExistente.setImagenArchivo(imagen.getBytes());

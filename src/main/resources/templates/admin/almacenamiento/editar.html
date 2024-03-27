@@ -57,6 +57,17 @@
 				<input type="text" name="url" th:value="${almacenamiento.url}" />
 			</div>
 
+			<div>
+				<label for="categoria">Categoría:</label>
+				<select id="categoria" name="categoriaId">
+					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+						th:text="${categoria.nombre}"
+						th:selected="${categoria.categoriaId == almacenamiento.categoria.categoriaId}">
+					</option>>
+					</option>
+				</select>
+			</div>
+
 			<button type="submit">Guardar</button>
 			<button type="button" onclick="location.href='/admin/almacenamiento'">Cancelar</button>
 		</form>

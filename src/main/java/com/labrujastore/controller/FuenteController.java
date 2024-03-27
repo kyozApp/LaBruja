@@ -58,7 +58,7 @@ public class FuenteController {
         Fuente fuente = fuenteService.obtenerIdFuente(fuenteId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("fuente", fuente);
-        model.addAttribute("categorias", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/fuente/editar";
     }
 
@@ -66,13 +66,14 @@ public class FuenteController {
     public String editar(@PathVariable Integer fuenteId, @ModelAttribute Fuente fuente,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url) throws IOException {
+            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Fuente fuenteExistente = fuenteService.obtenerIdFuente(fuenteId);
         fuenteExistente.setNombre(fuente.getNombre());
         fuenteExistente.setStock(stock);
         fuenteExistente.setPrecio(precio);
         fuenteExistente.setDescripcion(descripcion);
         fuenteExistente.setUrl(url);
+        fuenteExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             fuenteExistente.setImagenNombre(imagen.getOriginalFilename());
             fuenteExistente.setImagenArchivo(imagen.getBytes());

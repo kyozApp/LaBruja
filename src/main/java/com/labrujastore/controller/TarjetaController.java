@@ -59,7 +59,7 @@ public class TarjetaController {
         Tarjeta tarjeta = tarjetaService.obtenerIdTarjeta(tarjetaId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("tarjeta", tarjeta);
-        model.addAttribute("categorias", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/tarjeta/editar";
     }
 
@@ -67,13 +67,14 @@ public class TarjetaController {
     public String editar(@PathVariable Integer tarjetaId, @ModelAttribute Tarjeta tarjeta,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url) throws IOException {
+            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Tarjeta tarjetaExistente = tarjetaService.obtenerIdTarjeta(tarjetaId);
         tarjetaExistente.setNombre(tarjeta.getNombre());
         tarjetaExistente.setStock(stock);
         tarjetaExistente.setPrecio(precio);
         tarjetaExistente.setDescripcion(descripcion);
         tarjetaExistente.setUrl(url);
+        tarjetaExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             tarjetaExistente.setImagenNombre(imagen.getOriginalFilename());
             tarjetaExistente.setImagenArchivo(imagen.getBytes());
