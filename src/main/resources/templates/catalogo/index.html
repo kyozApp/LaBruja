@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -129,13 +129,15 @@
 					<a href="/">
 						<li id="listaItems">
 							<span>Inicio</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 					<a href="producto">
 						<li id="listaItems">
 							<span>Procesadores</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+								style="width: 12px;">
 						</li>
 					</a>
 					<li>
@@ -241,8 +243,65 @@
 						<!-- Productos -->
 						<div class="contenedor-productos">
 
-							<div class="detalle-producto">
-								<a th:href="@{/}" class="con-img-fav"> <!--el formato para ir a el producto eso /{categoria}/{id}-->
+							<!-- Procesador -->
+							<div th:each="procesador : ${vistaProcesadores}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazon" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${procesador.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${procesador.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${procesador.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Placa -->
+							<div th:each="placa : ${vistaPlacas}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazon" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${placa.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p th:text="'(S/. ' + ${placa.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${placa.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+							<!--<div class="detalle-producto" th:each="procesador : ${vistaProcesador}">
+								<a th:href="@{/}" class="con-img-fav">
+									
 									<img class="img-producto" th:src="@{/producto/img/procesador.jpg}" alt="" />
 									<div class="overlay-icon">
 										<img th:src="@{/producto/img/icon/corazon.svg}" alt="" />
@@ -254,20 +313,18 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-dolar">$ 156,60</p>
 											<p class="precio-soles">(S/. 603.65)</p>
 											<p>Stock: 5</p>
-											<p>Ref: 1243543672</p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">  <!--el formato para ir a el producto eso /{categoria}/{id}-->
+											<a th:href="@{/}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
 									</div>
 								</div>
-							</div>
-							
+							</div>-->
+
 
 						</div>
 					</div>
@@ -319,19 +376,22 @@
 					<p>Siguenes en nuestras redes sociales:</p>
 					<div class="cont-redes">
 						<div class="cad-img">
-							<a class="style-icon" target="_blank" th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
+							<a class="style-icon" target="_blank"
+								th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
 								<img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
 							</a>
 						</div>
 						<div class="cad-img">
-							<a class="style-icon" target="_blank" th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
+							<a class="style-icon" target="_blank"
+								th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
 								<img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
-							</a>						
+							</a>
 						</div>
 						<div class="cad-img">
-							<a class="style-icon" target="_blank" th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
+							<a class="style-icon" target="_blank"
+								th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
 								<img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
-							</a>						
+							</a>
 						</div>
 					</div>
 				</div>
