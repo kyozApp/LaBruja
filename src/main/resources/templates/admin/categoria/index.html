@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
 </head>
+
 <body>
 
 	<h1>Categoria</h1>
-	<a href="/admin/categoria/crear">Crear categoria</a>
+	<a href="/admin/categoria/crear">Crear categorias</a>
 
 	<table>
 		<thead>
@@ -23,9 +25,10 @@
 				<td th:text="${categoria.categoriaId}"></td>
 				<td th:text="${categoria.nombre}"></td>
 				<td><a
-					th:href="@{/admin/categoria/editar/{categoriaId}(categoriaId=${categoria.categoriaId})}">Editar</a></td>
-				<td><a
-					th:href="@{/admin/categoria/{categoriaId}(categoriaId=${categoria.categoriaId})}">Eliminar</a></td>
+						th:href="@{/admin/categoria/editar/{categoriaId}(categoriaId=${categoria.categoriaId})}">Editar</a>
+				</td>
+				<td><a th:href="@{/admin/categoria/{categoriaId}(categoriaId=${categoria.categoriaId})}">Eliminar</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
@@ -33,4 +36,5 @@
 	<a href="/admin/perfil">Volver</a>
 
 </body>
+
 </html>
