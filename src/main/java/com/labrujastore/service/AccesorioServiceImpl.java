@@ -9,8 +9,7 @@ import com.labrujastore.entity.Accesorio;
 import com.labrujastore.repository.AccesorioRepository;
 
 @Service
-public class AccesorioServiceImpl implements AccesorioService
-{
+public class AccesorioServiceImpl implements AccesorioService {
 	@Autowired
 	private AccesorioRepository accesorioRepository;
 
