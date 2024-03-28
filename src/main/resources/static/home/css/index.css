@@ -1,3 +1,247 @@
-body{
-    margin: 0;    
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  color: #000;
+  height: 40px;
+  width: 40px;
+  background: #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+@media screen and (max-width: 520px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 589px) {
+  .swiper-button-next {
+    position: absolute;
+    margin-right: 1px; /* Ajusta el valor según sea necesario */
+    top: 177px;
+    z-index: 1;
+  }
+
+  .swiper-button-prev {
+    position: absolute;
+    margin-left: 1px; /* Ajusta el valor según sea necesario */
+    top: 177px;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 612px) {
+  .swiper-button-next {
+    position: absolute;
+    margin-right: -10px; /* Ajusta el valor según sea necesario */
+    top: 177px;
+    z-index: 1;
+  }
+
+  .swiper-button-prev {
+    position: absolute;
+    margin-left: -10px; /* Ajusta el valor según sea necesario */
+    top: 177px;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 205px;
+  }
+
+  .swiper-button-next {
+    position: absolute;
+    margin-right: -10px; /* Ajusta el valor según sea necesario */
+    z-index: 1;
+  }
+
+  .swiper-button-prev {
+    position: absolute;
+    margin-left: -10px; /* Ajusta el valor según sea necesario */
+    z-index: 1;
+  }
+}
+.combos {
+  max-width: 1119px;
+  overflow-x: hidden;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.card {
+  position: relative;
+  margin: 0;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid lightblue;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 180px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.description p {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .card {
+    width: 241px;
+    height: 266px;
+    padding-bottom: 1rem;
+  }
+
+  .description p {
+    font-size: unset;
+  }
+}
+.combos .combos__title {
+  text-align: center;
+  font-size: 1.45rem;
+  font-weight: bold;
+}
+
+.figure-image {
+  position: relative;
+}
+
+.figure__description {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5);
+  /* Cambia el último valor (0.5) para ajustar la opacidad */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: all 300ms ease-in;
+}
+
+.figure-image:hover .figure__description {
+  opacity: 1;
+}
+
+.heart {
+  color: red;
+}
+
+.fa-cart-shopping,
+.fa-heart {
+  font-size: 1.55rem;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem;
+}
+
+.description p {
+  margin: 0;
+}
+
+.icons__compra {
+  display: flex;
+  gap: 1rem;
+}
+/* Banners */
+.banners {
+  max-width: 1105px;
+  margin: 0 auto;
+}
+
+.baner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 7px;
+}
+
+/* Marcas con las que trabajamos */
+.marcas {
+  max-width: 1119px;
+  margin: 0 auto;
+  margin-bottom: 7rem;
+}
+
+.marcas__title {
+  text-align: center;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(
+      -100%
+    ); /* Ajuste necesario para evitar espacio entre imágenes */
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 20px 0;
+  background: #f5f5f5cc;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos-slide {
+  display: flex;
+  animation: 30s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 80px;
+  margin: 0 40px; /* Ajuste necesario para evitar espacio entre imágenes */
 }
