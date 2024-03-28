@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" th:href="@{/admin/perfil/css/perfil.css}" />
+  </head>
 
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
-</head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="admin">
+			<img th:src="@{/admin/img/admin.png}" alt="" />
+		   <p>Admin</p>
+        </div>
+        <a href="/admin/procesador" class="active">Procesador</a>
+        <a href="/admin/placa">Placa</a>
+        <a href="/admin/ram">Memoria Ram</a>
+        <a href="/admin/almacenamiento">Almacenamiento</a>
+        <a href="/admin/tarjeta">Tarjeta de video</a>
+        <a href="/admin/fuente">Fuente de poder</a>
+        <a href="/admin/casse">Case</a>
+        <a href="/admin/monitor">Monitor</a>
+        <a href="/admin/laptop">Laptop</a>
+        <a href="/admin/refrigeracion">Refrigeración</a>
+        <a href="/admin/accesorio">Accesorio</a>
+        <a href="/admin/categoria">Categoría</a>
+      </div>
+      <div class="content">
+        <h1>Página de admin</h1>
+        <!-- Contenido principal aquí -->
+      </div>
+    </div>
 
-<body>
-
-	<h1>Pagina de admin</h1>
-	<a href="/admin/procesador">Procesador</a>
-	<br>
-	<a href="/admin/placa">Placa</a>
-	<br>
-	<a href="/admin/ram">Memoria Ram</a>
-	<br>
-	<a href="/admin/almacenamiento">Almacenamiento</a>
-	<br>
-	<a href="/admin/tarjeta">Tarjeta de video</a>
-	<br>
-	<a href="/admin/fuente">Fuente de poder</a>
-	<br>
-	<a href="/admin/casse">Case</a>
-	<br>
-	<a href="/admin/monitor">Monitor</a>
-	<br>
-	<a href="/admin/laptop">Laptop</a>
-	<br>
-	<a href="/admin/refrigeracion">Refrigeracion</a>
-	<br>
-	<a href="/admin/accesorio">Accesorio</a>
-	<br>
-	<a href="/admin/categoria">Categoria</a>
-
-</body>
-
+    <script th:src="@{/admin/perfil/js/perfil.js}"></script>
+  </body>
 </html>
