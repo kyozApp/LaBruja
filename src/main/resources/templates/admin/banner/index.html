@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Banner</title>
+</head>
+
+<body>
+
+    <h1>Banner</h1>
+    <a href="/admin/banner/crear">Crear banner</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
+                <th>Imagen</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="banner : ${tablaBanner}">
+                <td th:text="${banner.bannerId}"></td>
+                <td th:text="${banner.nombre}"></td>
+                <td th:text="${banner.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
+                <td><a th:href="@{/admin/banner/editar/{bannerId}(bannerId=${banner.bannerId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/banner/{bannerId}(bannerId=${banner.bannerId})}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/perfil">Volver</a>
+
+</body>
+
+</html>

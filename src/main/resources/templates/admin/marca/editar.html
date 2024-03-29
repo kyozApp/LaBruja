@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar Marca</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<h3>Editar Marca</h3>
+
+		<form name="editarMarcaForm" method="post"
+			th:action="@{/admin/marca/editar/{marcaId}(marcaId=${marca.marcaId})}" enctype="multipart/form-data">
+
+			<input type="hidden" name="marcaId" th:value="${marca.marcaId}" readonly="true" />
+
+			<div>
+				<label for="nombre">Nombre:</label><br>
+				<input type="text" name="nombre" th:value="${marca.nombre}" />
+			</div>
+
+			<div>
+				<label for="imagenActual">Imagen actual:</label><br>
+				<img th:src="'data:image/' + ${marca.getTypeImage()} + ';base64,' + ${marca.getBase64Image()}"
+					width="150px" height="150px" border="1" /><br>
+			</div>
+
+			<div>
+				<label for="imagenNueva">Selecciona una nueva imagen:</label><br>
+				<input type="file" name="imagen" accept="image/*" id="imagenNueva"
+					onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
+				<br>
+				<img id="imageId" width="150px" height="150px" border="1" />
+			</div>
+
+			<button type="submit">Guardar</button>
+			<button type="button" onclick="location.href='/admin/marca'">Cancelar</button>
+		</form>
+
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Combo</title>
+</head>
+
+<body>
+
+    <h1>Combo</h1>
+    <a href="/admin/combo/crear">Crear combo</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Nombre de la Imagen</th>
+                <th>Imagen</th>
+                <th>Descripción</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="combo : ${tablaCombo}">
+                <td th:text="${combo.comboId}"></td>
+                <td th:text="${combo.nombre}"></td>
+                <td th:text="${combo.imagenNombre}"></td>
+                <td>
+                    <img th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" width="45px"
+                        height="45px" border="1" />
+                </td>
+                <td th:text="${combo.descripcion}"></td>
+                <td><a th:href="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}">Editar</a>
+                </td>
+                <td><a th:href="@{/admin/combo/{comboId}(comboId=${combo.comboId})}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/perfil">Volver</a>
+
+</body>
+
+</html>
