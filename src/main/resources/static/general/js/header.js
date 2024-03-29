@@ -1,5 +1,3 @@
-console.log("Hola desde el archivo JavaScript");
-
 document.addEventListener("DOMContentLoaded", function(){
     var label_open_silebar = document.querySelector("label[for='open-silebar']");
     var label_close_silebar = document.querySelector("label[for='close-silebar']");
