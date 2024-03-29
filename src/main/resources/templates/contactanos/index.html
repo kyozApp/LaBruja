@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/general/css/formato.css}">
+    <link rel="stylesheet" th:href="@{/general/css/header.css}">
+    <link rel="stylesheet" th:href="@{/contactanos/css/contactanos.css}">
+    <link rel="stylesheet" th:href="@{/general/css/footer.css}">
+
+    <!-- JS -->
+    <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
+    <script th:src="@{/general/js/header.js}"></script>
+
+</head>
+
+<body>
+    <!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+    <header>
+        <div id="head-div-1">
+            <div class="contenedor">
+                <div class="head-div-1-sub">
+                    <p>
+                        Correo electrónico: <a href="mailto:labrujastore@outlook.com">labrujastore@outlook.com</a>
+                    </p>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-toggle" on:click={openModal}>Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+        <div id="head-div-2">
+            <div class="head-div-2-part1">
+                <div class="contenedor-2">
+                    <!--Logo Header-->
+                    <div class="head-div-2-part1-1">
+                        <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                    </div>
+
+                    <!--Buscador-->
+                    <div class="head-div-2-part1-2 none-mobil">
+                        <div class="abrir">
+                            <label class="centered-label" for="open-silebar">Categorias</label>
+                        </div>
+                        <form class="form-busqueda" action="" method="post">
+                            <div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
+                            <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button></div>
+                        </form>
+                    </div>
+                    <!--Favorito y Carrito-->
+                    <div class="head-div-2-part1-3 none-mobil" style="margin-left: 2rem;">
+                        <!--Contador de favoritos-->
+                        <a class="link-bnt" href="/">
+                            <div>
+                                <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                                <span class="contador-fav">4</span>
+                            </div>
+                        </a>
+                        <!--Contador de carrito-->
+                        <a class="link-bnt" href="/">
+                            <div>
+                                <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                                <span class="contador-car">2</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="head-div-2-part2">
+        <div class="contenedor-3">
+            <a class="cont-lista-op" href="/">INICIO</a>
+            <a class="cont-lista-op" href="/catalogo/producto">CATALOGO</a>
+            <a class="cont-lista-op" href="/contactanos">CONTACTANOS</a>
+            <!-- <a class="cont-lista-op" href="/about">ACERCA DE</a>
+			<a class="cont-lista-op" href="/">CARRITO</a>
+			<a class="cont-lista-op" href="/">COTIZACIÓN</a> -->
+        </div>
+    </div>
+
+    <!--Buscador PARA MOBILES DEFAULT DISPLAY:NONE-->
+    <div class="sub-nivel-header-mobil">
+        <div class="abrir">
+            <label for="open-silebar" class="centered-label">
+                <!-- <img class="img-menu" th:src="@{/general/img/menu.png}" alt="" style="width: 15px; padding: 5px;" /> -->
+                <!-- <img class="img-menu" th:src="@{/general/img/menu.svg}" alt=""> -->
+                <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
+            </label>
+        </div>
+        <div class="head-div-2-part1-2">
+            <form class="form-busqueda" action="" method="post">
+                <div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
+                <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
+            </form>
+        </div>
+
+        <div class="head-div-2-part1-3">
+            <a href="/">
+                <div class="cont-icon-corazon">
+                    <span class="span-corazon-mobil">4</span>
+                    <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                </div>
+            </a>
+            <a href="/">
+                <div>
+                    <span class="span-carrito-mobil">5</span>
+                    <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- INICIO SILEBAR -->
+    <div id="background-silebar">
+        <div id="contenedor-silebar">
+
+            <!-- Contenedor para la columna de categori -->
+            <div id="silebar-categorias">
+                <div class="close-silebar">
+                    <label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                </div>
+                <ul>
+                    <a href="/catalogo/producto">
+                        <li id="listaItems">
+                            <span>CATALOGO</span>
+                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
+                        </li>
+                    </a>
+                    <a href="/">
+                        <li id="listaItems">
+                            <span>Categoria 1</span>
+                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
+                        </li>
+                    </a>
+                    <a href="/">
+                        <li id="listaItems">
+                            <span>Categoria 2</span>
+                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
+                        </li>
+                    </a>
+                    <a href="/">
+                        <li id="listaItems">
+                            <span>Categoria 3</span>
+                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
+                        </li>
+                    </a>
+                    <a href="/">
+                        <li id="listaItems">
+                            <span>Categoria 4</span>
+                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
+                        </li>
+                    </a>
+                </ul>
+            </div>
+
+            <!-- Contenedor para las subcategorias de las categorias -->
+            <div id="silebar-subcategoria">
+                <div>
+                    <div>
+                        <!-- Encabezado -->
+                        <div>
+                            <div>
+                                <img src="" alt="" />
+                                <!--Icono referente a la categoria-->
+                            </div>
+                            <a href="/">Productos</a>
+                        </div>
+                        <a href="/">Ver todo</a>
+                    </div>
+
+                    <!-- Contenido de cada sub categoria -->
+                    <div>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN HEADER ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+    <section class="contactos">
+        <div class="contactos__header">
+            <div class="seguimiento">
+                <a href="/contactanos" class="seguimiento__etiqueta">
+                    Hogar
+                    <i class="fa-solid fa-angle-right"></i>
+                    <span class="seguimiento__contacto"> Contactanos </span>
+                </a>
+            </div>
+            <div class="seguimiento__dos">
+                <h2 class="seguimiento__titulo">CONTACTANOS</h2>
+            </div>
+        </div>
+        <hr />
+
+        <article class="main">
+            <div class="flex__cajas">
+                <div class="bloques">
+                    <h1 class="bloque__titulo">Lima <span>(ASESORES)</span></h1>
+                    <ul>
+                        <li>
+                            <a th:href="@{https://wa.me/51918310475}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>YERSON</h3>
+                                    <p>918 310 475</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51922512904}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>JERENY</h3>
+                                    <p>922 512 904</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51972563104}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>GUSTAVO</h3>
+                                    <p>972 563 104</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51972213019}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>ELIEL</h3>
+                                    <p>972 213 019</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51914994007}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>ANDY</h3>
+                                    <p>914 994 007</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51923646990}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>LUIS</h3>
+                                    <p>923 646 990</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51984737542}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>JEREMY</h3>
+                                    <p>984 737 542</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    <!-- AGREGAR LOS NUMEROS DE CONTACTO -->
+                </div>
+                <div class="linea-roja"></div>
+                <div class="bloques">
+                    <h1 class="bloque__titulo">Arequipa <span>(ASESORES)</span></h1>
+                    <ul>
+
+                        <li>
+                            <a th:href="@{https://wa.me/51918310475}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>FERNANDO</h3>
+                                    <p>918 310 475</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{https://wa.me/51921906558}" target="_blank">
+                                <div class="cont-asesor">
+                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}" alt="">
+                                    <h3>EDINSON</h3>
+                                    <p>921 906 558</p>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="ubicacion">
+            <h1 class="ubicacion__titulo">Ubicanos</h1>
+            <div class="mapas">
+                <div class="cont-ubics">
+                    <h3>(Lima)</h3>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.804184383345!2d-77.0418232249387!3d-12.056989988180627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9babbe694bd%3A0x282693d962c25f2f!2sLa%20Bruja%20Store!5e0!3m2!1ses-419!2spe!4v1709167610627!5m2!1ses-419!2spe"
+                            width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <ul>
+                            <li>C.C. CYBERPLAZA TIENDA 140 SECTOR 2B</li>
+                            <li>
+                                HORARIO DE ATENCIÓN
+                                <ul>
+                                    <li><strong>LUNES - SABADO:</strong> 10:00 AM a 8:00 PM</li>
+                                    <li><strong>DOMINGO:</strong> 10:00 AM a 6:00 PM</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cont-ubics">
+                    <h3>(Arequipa)</h3>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.4521393418995!2d-71.53245272485692!3d-16.401847784326904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b09520c21dd%3A0x384ea64a00d604d8!2sLa%20Bruja%20Store!5e0!3m2!1ses-419!2spe!4v1710342662889!5m2!1ses-419!2spe"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <ul>
+                            <li>C.C. CYBERPLAZA TIENDA 140 SECTOR 2B</li>
+                            <li>
+                                HORARIO DE ATENCIÓN
+                                <ul>
+                                    <li><strong>LUNES - SABADO:</strong> 10:00 AM a 8:00 PM</li>
+                                    <li><strong>DOMINGO:</strong> 10:00 AM a 6:00 PM</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+    <footer class="footer">
+        <main class="encabezado">
+            <span class="encabezado__titulo">Suscribete para resivir boletinis</span>
+            <div class="encabezado__contenido">
+                <input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
+                <p class="encabezado__parrafo">suscribirse</p>
+            </div>
+        </main>
+        <section class="seccion">
+            <article class="articulo">
+                <figure>
+                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/05/labrujastore-1.png}" alt="imagen"
+                        class="articulo__imagen" loading="lazy" width="315px" />
+                </figure>
+                <div class="contenido">
+                    <p class="contenido__descripcion">
+                        Consigue las mejores marcas a los mejores
+                        <span class="contenido__span">precios, aquí en La Bruja Store.</span>
+                    </p>
+                    <p>Siguenes en nuestras redes sociales:</p>
+                    <div class="cont-redes">
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
+                                <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                            </a>
+                        </div>
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
+                                <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                            </a>
+                        </div>
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
+                                <img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="contacto">
+                <div class="container">
+                    <h2 class="contacto__titulo">CONTÁCTANOS</h2>
+                    <div class="conacto__dividir"></div>
+                </div>
+                <div class="contacto__borde"></div>
+                <div class="contacto__iconos">
+                    <a th:href="@{/contacto}">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
+                    </a>
+                    <a th:href="@{/contacto}">
+                        <span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
+                        133 y 219
+                    </a>
+                    <a th:href="@{/}">
+                        <span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
+                        sector 2 B
+                    </a>
+                    <a th:href="@{/}">
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        labrujastore@uotlook.com
+                    </a>
+                </div>
+            </article>
+            <article class="informacion">
+                <div class="container">
+                    <h2 class="informacion__titulo">INFORMACIÓN</h2>
+                    <div class="informacion__dividir"></div>
+                </div>
+                <ul class="informacion__lista">
+                    <li>Nosotros</li>
+                    <li>Novedades</li>
+                    <li>Destacados</li>
+                    <li>Ofertas del día</li>
+                    <li>
+                        <a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+        <div class="copyright">
+            <p>Labrujastore© 2023 todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+</body>
+
+</html>
