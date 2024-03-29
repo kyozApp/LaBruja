@@ -278,6 +278,12 @@
     .seguimiento .seguimiento__producto {
         color: #ff0202;
     }
+
+    .precio-producto{
+        font-size: 20px;
+        color: red;
+        font-weight: bolder;
+    }
     
     @media screen and (max-width: 1400px){
         .contenido {
