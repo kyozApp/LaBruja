@@ -1,0 +1,173 @@
+.contactos {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+hr {
+    border-top: 1px solid #eeeeee;
+    margin: 1rem 0 1rem 0;
+}
+
+.seguimiento .seguimiento__etiqueta {
+    text-decoration: none;
+    color: #818181;
+}
+
+.seguimiento .seguimiento__contacto {
+    color: #ff0202;
+}
+
+.contactos__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main {
+    max-width: 1116px;
+    margin: 0 auto;
+}
+
+.flex__cajas {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bloques  {
+    width: 48%;
+    text-align: center;
+}
+
+.bloque__titulo {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.bloque__titulo span {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.bloques ul{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.bloques li{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    transition: color 0.5s;
+}
+
+.bloques li:hover .cont-asesor h3,
+.bloques li:hover .cont-asesor p {
+    color: #ff0202;
+}
+
+.cont-asesor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont-asesor h3, .cont-asesor p{
+    margin: 3px;
+    color: black;
+}
+
+.linea-roja{
+    height: auto;
+    background-color: red;
+    padding: 2px
+}
+
+.cont-ubics {
+    width: 47%;
+}
+
+.cont-ubics iframe{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ubicacion {
+    margin-top: 4rem;
+    border-top: 4px solid #ff0202;
+}
+
+.ubicacion .ubicacion__titulo {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.mapas {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 550px) {
+    .bloque__titulo {
+        font-size: 1rem;
+    }
+
+    .bloque__titulo span {
+        font-size: 12px;
+    }
+
+    .seguimiento__titulo{
+        font-size: 16px;
+    }
+
+    .cont-asesor img {
+        width: 65px;
+    }
+
+    .cont-asesor h3 {
+        font-size: 15px;
+    }
+    
+    .cont-asesor p {
+        font-size: 13px;
+    }
+
+    .ubicacion .ubicacion__titulo {
+        text-align: center;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin-top: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .cont-ubics li {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .cont-asesor p {
+        font-size: 11px;
+    }
+}
