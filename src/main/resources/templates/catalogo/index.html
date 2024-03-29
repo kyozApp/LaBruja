@@ -238,8 +238,8 @@
 					<div>
 						<!-- Filtrar productos -->
 						<div class="filtro-productos">
-							<p>Hay 74 productos</p>
-							<div class="menu-container">
+							<p id="mensajeProductos"></p>
+							<div class="menu-container"style="display: none;">
 								<label class="txt-menu-filtro" for="menu-filtro">Ordenar por: </label>
 								<select id="menu-filtro">
 									<option disabled selected hidden>Relevancia</option>
@@ -269,7 +269,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${accesorio.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${accesorio.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${accesorio.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -296,7 +296,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${almacenamiento.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -323,7 +323,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${casse.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${casse.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${casse.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -350,7 +350,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${fuente.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${fuente.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${fuente.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -377,7 +377,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${laptop.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${laptop.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${laptop.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -404,7 +404,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${monitor.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${monitor.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${monitor.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -431,7 +431,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${placa.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${placa.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${placa.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -458,7 +458,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${procesador.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${procesador.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${procesador.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -485,7 +485,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${ram.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${ram.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${ram.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -512,7 +512,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${refrigeracion.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -539,7 +539,7 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p th:text="'(S/. ' + ${tarjeta.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${tarjeta.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${tarjeta.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -551,11 +551,12 @@
 								</div>
 							</div>
 
+							<script th:src="@{/producto/js/contador-productos.js}"></script>
 						</div>
 					</div>
 
 					<!-- Recorren páginas -->
-					<div class="recorrer-pag">
+					<div class="recorrer-pag" style="display: none;">
 						<p>Mostrando 1-12 de 31 articulos.</p>
 						<div>
 							<ul>
