@@ -22,7 +22,8 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
-                <th>ESTADO</th>
+                <th>Estado</th>
+                <th>Oferta</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -42,6 +43,7 @@
                 <td th:text="${laptop.descripcion}"></td>
                 <td><a th:href="${laptop.url}" th:text="${laptop.url}"></a></td>
                 <td th:text="${laptop.estado}"></td>
+                <td th:text="${laptop.oferta}"></td>
                 <td th:text="${laptop.categoria.nombre}"></td>
                 <td><a th:href="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}">Editar</a>
                 </td>

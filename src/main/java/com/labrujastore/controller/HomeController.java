@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.labrujastore.entity.Banner;
 import com.labrujastore.entity.Combo;
+import com.labrujastore.entity.Laptop;
 import com.labrujastore.entity.Marca;
+import com.labrujastore.entity.Procesador;
 import com.labrujastore.service.BannerService;
 import com.labrujastore.service.ComboService;
+import com.labrujastore.service.LaptopService;
 import com.labrujastore.service.MarcaService;
+import com.labrujastore.service.ProcesadorService;
 
 @Controller
 public class HomeController {
@@ -22,6 +26,10 @@ public class HomeController {
 	private MarcaService marcaService;
 	@Autowired
 	private ComboService comboService;
+	@Autowired
+	private ProcesadorService procesadorService;
+	@Autowired
+	private LaptopService laptopService;
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -32,6 +40,8 @@ public class HomeController {
 		Banner bannerId3 = bannerService.obtenerIdBanner(3);
 		Banner bannerId4 = bannerService.obtenerIdBanner(4);
 		Banner bannerId5 = bannerService.obtenerIdBanner(5);
+		List<Procesador> procesadores = procesadorService.listarProcesador();
+		List<Laptop> laptops = laptopService.listarLaptop();
 		model.addAttribute("vistaMarcas", marcas);
 		model.addAttribute("vistaCombos", combos);
 		model.addAttribute("bannerId1", bannerId1);
@@ -39,6 +49,8 @@ public class HomeController {
 		model.addAttribute("bannerId3", bannerId3);
 		model.addAttribute("bannerId4", bannerId4);
 		model.addAttribute("bannerId5", bannerId5);
+		model.addAttribute("vistaProcesadores", procesadores);
+		model.addAttribute("vistaLaptops", laptops);
 		return "index";
 	}
 }

@@ -61,6 +61,11 @@
 			</div>
 
 			<div>
+				<label for="oferta">Oferta:</label><br>
+				<input type="text" name="oferta" th:value="${laptop.oferta}" />
+			</div>
+
+			<div>
 				<label for="categoria">Categoría:</label>
 				<select id="categoria" name="categoriaId">
 					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"

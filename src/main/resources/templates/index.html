@@ -289,11 +289,12 @@
 		<p class="combos__title">Productos Nuevos</p>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
+				<div class="swiper-slide" th:each="procesador : ${vistaProcesadores}"
+					th:if="${procesador.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
+							<img
+								th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
 							<div class="figure__description">
 								<a href="https://www.google.com/?hl=es" class="figure__link">
 									Ver mas
@@ -304,7 +305,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p>Producto 1</p>
+							<p th:text="${procesador.nombre}"></p>
 							<div class="icons__compra">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -637,11 +638,10 @@
 		<p class="combos__title">Ofertas Laptops</p>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
+				<div class="swiper-slide" th:each="laptop : ${vistaLaptops}" th:if="${laptop.oferta == 'si'}">
 					<div class="card">
 						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
+							<img th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
 							<div class="figure__description">
 								<a href="https://www.google.com/?hl=es" class="figure__link">
 									Ver mas
@@ -652,7 +652,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p>Producto 1</p>
+							<p th:text="${laptop.nombre}"></p>
 							<div class="icons__compra">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -664,6 +664,7 @@
 						</div>
 					</div>
 				</div>
+				<!--
 				<div class="swiper-slide">
 					<div class="card">
 						<div class="figure-image">
@@ -960,7 +961,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class="swiper-button-prev">
 				<i class="fa-solid fa-angle-left"></i>

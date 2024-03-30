@@ -37,6 +37,9 @@
 		<label for="estado">Estado:</label>
 		<input type="text" id="estado" name="estado" th:field="*{estado}" required>
 		<br>
+		<label for="oferta">Oferta:</label>
+		<input type="text" id="oferta" name="oferta" th:field="*{oferta}" required>
+		<br>
 		<label for="categoria">Categoría:</label>
 		<select id="categoria" name="categoria" th:field="*{categoria}" required>
 			<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"

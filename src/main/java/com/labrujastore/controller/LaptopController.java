@@ -68,6 +68,7 @@ public class LaptopController {
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("oferta") String oferta,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Laptop laptopExistente = laptopService.obtenerIdLaptop(laptopId);
         laptopExistente.setNombre(laptop.getNombre());
@@ -76,6 +77,7 @@ public class LaptopController {
         laptopExistente.setDescripcion(descripcion);
         laptopExistente.setUrl(url);
         laptopExistente.setEstado(estado);
+        laptopExistente.setOferta(oferta);
         laptopExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             laptopExistente.setImagenNombre(imagen.getOriginalFilename());

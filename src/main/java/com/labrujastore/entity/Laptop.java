@@ -51,6 +51,9 @@ public class Laptop implements Serializable {
 	@Column
 	private String estado;
 
+	@Column
+	private String oferta;
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
@@ -71,7 +74,7 @@ public class Laptop implements Serializable {
 	}
 
 	public Laptop(Integer laptopId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-			Double precio, String descripcion, String url, String estado, Categoria categoria) {
+			Double precio, String descripcion, String url, String estado, String oferta, Categoria categoria) {
 		this.laptopId = laptopId;
 		this.nombre = nombre;
 		this.imagenNombre = imagenNombre;
@@ -81,6 +84,7 @@ public class Laptop implements Serializable {
 		this.descripcion = descripcion;
 		this.url = url;
 		this.estado = estado;
+		this.oferta = oferta;
 		this.categoria = categoria;
 	}
 
@@ -154,6 +158,14 @@ public class Laptop implements Serializable {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public String getOferta() {
+		return this.oferta;
+	}
+
+	public void setOferta(String oferta) {
+		this.oferta = oferta;
 	}
 
 	public Categoria getCategoria() {
