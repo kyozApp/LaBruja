@@ -289,6 +289,192 @@
 		<p class="combos__title">Productos Nuevos</p>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
+				<div class="swiper-slide" th:each="accesorio : ${vistaAccesorios}"
+					th:if="${accesorio.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img
+								th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${accesorio.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide" th:each="almacenamiento : ${vistaAlmacenamientos}"
+					th:if="${almacenamiento.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img
+								th:src="'data:image/' + ${almacenamiento.typeImage} + ';almacenamiento,' + ${almacenamiento.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${almacenamiento.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide" th:each="casse : ${vistaCasses}" th:if="${casse.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${casse.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide" th:each="fuente : ${vistaFuentes}" th:if="${fuente.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${fuente.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide" th:each="laptop : ${vistaLaptops}" th:if="${laptop.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${laptop.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide" th:each="monitor : ${vistaMonitores}" th:if="${monitor.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${monitor.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide" th:each="placa : ${vistaPlacas}" th:if="${placa.estado == 'nuevo'}">
+					<div class="card">
+						<div class="figure-image">
+							<img th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
+							<div class="figure__description">
+								<a href="https://www.google.com/?hl=es" class="figure__link">
+									Ver mas
+									<span>
+										<i class="fa-solid fa-eye"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="description">
+							<p th:text="${placa.nombre}"></p>
+							<div class="icons__compra">
+								<div class="heart">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div>
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="swiper-slide" th:each="procesador : ${vistaProcesadores}"
 					th:if="${procesador.estado == 'nuevo'}">
 					<div class="card">
@@ -317,12 +503,10 @@
 						</div>
 					</div>
 				</div>
-				<!--
-				<div class="swiper-slide">
+				<div class="swiper-slide" th:each="ram : ${vistaRams}" th:if="${ram.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
+							<img th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
 							<div class="figure__description">
 								<a href="https://www.google.com/?hl=es" class="figure__link">
 									Ver mas
@@ -333,7 +517,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p>Producto 2</p>
+							<p th:text="${ram.nombre}"></p>
 							<div class="icons__compra">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -345,11 +529,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" th:each="refrigeracion : ${vistaRefrigeraciones}"
+					th:if="${refrigeracion.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
+							<img
+								th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
 							<div class="figure__description">
 								<a href="https://www.google.com/?hl=es" class="figure__link">
 									Ver mas
@@ -360,7 +545,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p>Producto 1</p>
+							<p th:text="${refrigeracion.nombre}"></p>
 							<div class="icons__compra">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -372,11 +557,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" th:each="tarjeta : ${vistaTarjetas}" th:if="${tarjeta.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
-								alt="imagen2" />
+							<img th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
 							<div class="figure__description">
 								<a href="https://www.google.com/?hl=es" class="figure__link">
 									Ver mas
@@ -387,7 +571,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p>Producto 3</p>
+							<p th:text="${tarjeta.nombre}"></p>
 							<div class="icons__compra">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -399,222 +583,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen3" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 4</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen4" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 5</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/PSTE7160WBRZ_4_0-300x300.png"
-								alt="imagen5" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 6</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
-								alt="imagen6" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 7</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen7" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 8</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/38472688_2_0-300x300.png"
-								alt="imagen8" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 9</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen3" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 10</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen7" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 11</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
+
 			</div>
 			<div class="swiper-button-prev">
 				<i class="fa-solid fa-angle-left"></i>
@@ -664,304 +633,6 @@
 						</div>
 					</div>
 				</div>
-				<!--
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 2</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 1</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
-								alt="imagen2" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 3</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen3" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 4</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen4" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 5</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/PSTE7160WBRZ_4_0-300x300.png"
-								alt="imagen5" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 6</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
-								alt="imagen6" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 7</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen7" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 8</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/38472688_2_0-300x300.png"
-								alt="imagen8" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 9</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen3" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 10</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen7" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 11</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>-->
 			</div>
 			<div class="swiper-button-prev">
 				<i class="fa-solid fa-angle-left"></i>
@@ -1013,306 +684,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!--
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 2</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 1</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
-								alt="imagen2" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 3</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen3" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 4</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen4" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 5</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/PSTE7160WBRZ_4_0-300x300.png"
-								alt="imagen5" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 6</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66263310_3_0-300x300.png"
-								alt="imagen6" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 7</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen7" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 8</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/38472688_2_0-300x300.png"
-								alt="imagen8" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 9</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/51973633_4_0-300x300.png"
-								alt="imagen3" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 10</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="card">
-						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen7" />
-							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
-									Ver mas
-									<span>
-										<i class="fa-solid fa-eye"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-						<div class="description">
-							<p>Producto 11</p>
-							<div class="icons__compra">
-								<div class="heart">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div>
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				-->
 			</div>
 			<div class="swiper-button-prev">
 				<i class="fa-solid fa-angle-left"></i>
