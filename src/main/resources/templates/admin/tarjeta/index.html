@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${tarjeta.precio}"></td>
                 <td th:text="${tarjeta.descripcion}"></td>
                 <td><a th:href="${tarjeta.url}" th:text="${tarjeta.url}"></a></td>
+                <td th:text="${tarjeta.estado}"></td>
                 <td th:text="${tarjeta.categoria.nombre}"></td>
                 <td><a th:href="@{/admin/tarjeta/editar/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Editar</a>
                 </td>

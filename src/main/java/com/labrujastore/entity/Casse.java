@@ -48,6 +48,9 @@ public class Casse implements Serializable {
 	@Column
 	private String url;
 
+	@Column
+	private String estado;
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
@@ -68,7 +71,7 @@ public class Casse implements Serializable {
 	}
 
 	public Casse(Integer casseId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-			Double precio, String descripcion, String url, Categoria categoria) {
+			Double precio, String descripcion, String url, String estado, Categoria categoria) {
 		this.casseId = casseId;
 		this.nombre = nombre;
 		this.imagenNombre = imagenNombre;
@@ -77,6 +80,7 @@ public class Casse implements Serializable {
 		this.precio = precio;
 		this.descripcion = descripcion;
 		this.url = url;
+		this.estado = estado;
 		this.categoria = categoria;
 	}
 
@@ -142,6 +146,14 @@ public class Casse implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getEstado() {
+		return this.estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public Categoria getCategoria() {

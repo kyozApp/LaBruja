@@ -67,13 +67,15 @@ public class ProcesadorController {
     public String editar(@PathVariable Integer procesadorId, @ModelAttribute Procesador procesador,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Procesador procesadorExistente = procesadorService.obtenerIdProcesador(procesadorId);
         procesadorExistente.setNombre(procesador.getNombre());
         procesadorExistente.setStock(stock);
         procesadorExistente.setPrecio(precio);
         procesadorExistente.setDescripcion(descripcion);
         procesadorExistente.setUrl(url);
+        procesadorExistente.setEstado(estado);
         procesadorExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             procesadorExistente.setImagenNombre(imagen.getOriginalFilename());

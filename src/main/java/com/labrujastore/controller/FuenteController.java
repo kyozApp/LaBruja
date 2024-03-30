@@ -66,13 +66,15 @@ public class FuenteController {
     public String editar(@PathVariable Integer fuenteId, @ModelAttribute Fuente fuente,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Fuente fuenteExistente = fuenteService.obtenerIdFuente(fuenteId);
         fuenteExistente.setNombre(fuente.getNombre());
         fuenteExistente.setStock(stock);
         fuenteExistente.setPrecio(precio);
         fuenteExistente.setDescripcion(descripcion);
         fuenteExistente.setUrl(url);
+        fuenteExistente.setEstado(estado);
         fuenteExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             fuenteExistente.setImagenNombre(imagen.getOriginalFilename());

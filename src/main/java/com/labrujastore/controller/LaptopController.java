@@ -67,13 +67,15 @@ public class LaptopController {
     public String editar(@PathVariable Integer laptopId, @ModelAttribute Laptop laptop,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Laptop laptopExistente = laptopService.obtenerIdLaptop(laptopId);
         laptopExistente.setNombre(laptop.getNombre());
         laptopExistente.setStock(stock);
         laptopExistente.setPrecio(precio);
         laptopExistente.setDescripcion(descripcion);
         laptopExistente.setUrl(url);
+        laptopExistente.setEstado(estado);
         laptopExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             laptopExistente.setImagenNombre(imagen.getOriginalFilename());

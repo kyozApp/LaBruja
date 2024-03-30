@@ -66,13 +66,16 @@ public class AccesorioController {
     public String editar(@PathVariable Integer accesorioId, @ModelAttribute Accesorio accesorio,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId)
+            throws IOException {
         Accesorio accesorioExistente = accesorioService.obtenerIdAccesorio(accesorioId);
         accesorioExistente.setNombre(accesorio.getNombre());
         accesorioExistente.setStock(stock);
         accesorioExistente.setPrecio(precio);
         accesorioExistente.setDescripcion(descripcion);
         accesorioExistente.setUrl(url);
+        accesorioExistente.setEstado(estado);
         accesorioExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             accesorioExistente.setImagenNombre(imagen.getOriginalFilename());

@@ -52,6 +52,9 @@ public class Procesador implements Serializable {
 	@Column
 	private String url;
 
+	@Column
+	private String estado;
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id", nullable = false)
 	private Categoria categoria;
@@ -76,7 +79,7 @@ public class Procesador implements Serializable {
 	}
 
 	public Procesador(Integer procesadorId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-			Double precio, String descripcion, String url, Categoria categoria, Set<Placa> itemsPlaca) {
+			Double precio, String descripcion, String url, String estado, Categoria categoria, Set<Placa> itemsPlaca) {
 		this.procesadorId = procesadorId;
 		this.nombre = nombre;
 		this.imagenNombre = imagenNombre;
@@ -85,6 +88,7 @@ public class Procesador implements Serializable {
 		this.precio = precio;
 		this.descripcion = descripcion;
 		this.url = url;
+		this.estado = estado;
 		this.categoria = categoria;
 		this.itemsPlaca = itemsPlaca;
 	}
@@ -151,6 +155,14 @@ public class Procesador implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getEstado() {
+		return this.estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public Categoria getCategoria() {

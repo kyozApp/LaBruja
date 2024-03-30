@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${placa.precio}"></td>
                 <td th:text="${placa.descripcion}"></td>
                 <td><a th:href="${placa.url}" th:text="${placa.url}"></a></td>
+                <td th:text="${placa.estado}"></td>
                 <td th:text="${placa.categoria.nombre}"></td>
                 <td><a th:href="@{/admin/placa/editar/{placaId}(placaId=${placa.placaId})}">Editar</a>
                 </td>

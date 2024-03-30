@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${accesorio.precio}"></td>
                 <td th:text="${accesorio.descripcion}"></td>
                 <td><a th:href="${accesorio.url}" th:text="${accesorio.url}"></a></td>
+                <td th:text="${accesorio.estado}"></td>
                 <td th:text="${accesorio.categoria.nombre}"></td>
                 <td><a
                         th:href="@{/admin/accesorio/editar/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Editar</a>

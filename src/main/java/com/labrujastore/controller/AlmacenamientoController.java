@@ -66,13 +66,15 @@ public class AlmacenamientoController {
 	public String editar(@PathVariable Integer almacenamientoId, @ModelAttribute Almacenamiento almacenamiento,
 			@RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
 			@RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-			@RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+			@RequestParam("url") String url, @RequestParam("estado") String estado,
+			@RequestParam("categoriaId") Integer categoriaId) throws IOException {
 		Almacenamiento almacenamientoExistente = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
 		almacenamientoExistente.setNombre(almacenamiento.getNombre());
 		almacenamientoExistente.setStock(stock);
 		almacenamientoExistente.setPrecio(precio);
 		almacenamientoExistente.setDescripcion(descripcion);
 		almacenamientoExistente.setUrl(url);
+		almacenamientoExistente.setEstado(estado);
 		almacenamientoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
 		if (!imagen.isEmpty()) {
 			almacenamientoExistente.setImagenNombre(imagen.getOriginalFilename());

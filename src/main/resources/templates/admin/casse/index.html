@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${casse.precio}"></td>
                 <td th:text="${casse.descripcion}"></td>
                 <td><a th:href="${casse.url}" th:text="${casse.url}"></a></td>
+                <td th:text="${casse.estado}"></td>
                 <td th:text="${casse.categoria.nombre}"></td>
                 <td><a th:href="@{/admin/casse/editar/{casseId}(casseId=${casse.casseId})}">Editar</a>
                 </td>

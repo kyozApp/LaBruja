@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${ram.precio}"></td>
                 <td th:text="${ram.descripcion}"></td>
                 <td><a th:href="${ram.url}" th:text="${ram.url}"></a></td>
+                <td th:text="${ram.estado}"></td>
                 <td th:text="${ram.categoria.nombre}"></td>
                 <td><a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a>
                 </td>

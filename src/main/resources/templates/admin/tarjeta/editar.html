@@ -57,6 +57,11 @@
 			</div>
 
 			<div>
+				<label for="estado">Estado:</label><br>
+				<input type="text" name="estado" th:value="${tarjeta.estado}" />
+			</div>
+
+			<div>
 				<label for="categoria">Categoría:</label>
 				<select id="categoria" name="categoriaId">
 					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"

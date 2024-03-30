@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${refrigeracion.precio}"></td>
                 <td th:text="${refrigeracion.descripcion}"></td>
                 <td><a th:href="${refrigeracion.url}" th:text="${refrigeracion.url}"></a></td>
+                <td th:text="${refrigeracion.estado}"></td>
                 <td th:text="${refrigeracion.categoria.nombre}"></td>
                 <td><a
                         th:href="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Editar</a>

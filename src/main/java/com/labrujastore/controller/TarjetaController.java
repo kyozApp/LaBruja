@@ -67,13 +67,15 @@ public class TarjetaController {
     public String editar(@PathVariable Integer tarjetaId, @ModelAttribute Tarjeta tarjeta,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Tarjeta tarjetaExistente = tarjetaService.obtenerIdTarjeta(tarjetaId);
         tarjetaExistente.setNombre(tarjeta.getNombre());
         tarjetaExistente.setStock(stock);
         tarjetaExistente.setPrecio(precio);
         tarjetaExistente.setDescripcion(descripcion);
         tarjetaExistente.setUrl(url);
+        tarjetaExistente.setEstado(estado);
         tarjetaExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             tarjetaExistente.setImagenNombre(imagen.getOriginalFilename());

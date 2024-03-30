@@ -66,13 +66,15 @@ public class CasseController {
     public String editar(@PathVariable Integer casseId, @ModelAttribute Casse casse,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Casse casseExistente = casseService.obtenerIdCasse(casseId);
         casseExistente.setNombre(casse.getNombre());
         casseExistente.setStock(stock);
         casseExistente.setPrecio(precio);
         casseExistente.setDescripcion(descripcion);
         casseExistente.setUrl(url);
+        casseExistente.setEstado(estado);
         casseExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             casseExistente.setImagenNombre(imagen.getOriginalFilename());

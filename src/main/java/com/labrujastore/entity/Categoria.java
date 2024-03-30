@@ -14,56 +14,54 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "categorias")
-public class Categoria implements Serializable
-{
+public class Categoria implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer categoriaId;
-	
+
 	@Column
 	private String nombre;
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Accesorio> itemsAccesorio = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Almacenamiento> itemsAlmacenamiento = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Casse> itemsCasse = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Fuente> itemsFuente = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Laptop> itemsLaptop = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Monitor> itemsMonitor = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Placa> itemsPlaca = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Procesador> itemsProcesador = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Ram> itemsRam = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Refrigeracion> itemsRefrigeracion = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Tarjeta> itemsTarjeta = new ArrayList<>();
-	
+
 	public Categoria() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Categoria(Integer categoriaId, String nombre, Collection<Accesorio> itemsAccesorio,
@@ -189,7 +187,5 @@ public class Categoria implements Serializable
 	public void setItemsTarjeta(Collection<Tarjeta> itemsTarjeta) {
 		this.itemsTarjeta = itemsTarjeta;
 	}
-
-	
 
 }

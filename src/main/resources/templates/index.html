@@ -316,6 +316,7 @@
 						</div>
 					</div>
 				</div>
+				<!--
 				<div class="swiper-slide">
 					<div class="card">
 						<div class="figure-image">
@@ -612,7 +613,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="swiper-button-prev">
 				<i class="fa-solid fa-angle-left"></i>
@@ -625,9 +626,9 @@
 
 	<!-- Banner 2 -->
 	<section class="banners">
-		<div class="baner">
-			<img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/385909155_799881235476121_8712861839807455002_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGPzFwjMArS4sZLKXi76GdRsDmmRiYf2FGwOaZGJh_YUUBNRAK9Ef2B37piFB_83VceU_rHDFrMEoJ5UgIiKHBt&_nc_ohc=iMtiLkr_KewAX-WMWJC&_nc_ht=scontent-lim1-1.xx&oh=00_AfDo59Sx8iDwp-RMDkmIjKwuByhkeqF10p73w3d1Sexxow&oe=6607B01A"
-				alt="bruja" />
+		<div class="baner" th:if="${bannerId4 != null}">
+			<img th:src="'data:image/' + ${bannerId4.typeImage} + ';base64,' + ${bannerId4.base64Image}"
+				alt="Banner 4" />
 		</div>
 	</section>
 
@@ -970,11 +971,11 @@
 		</div>
 	</section>
 
-	<!-- Banner 1 -->
+	<!-- Banner 3 -->
 	<section class="banners">
-		<div class="baner">
-			<img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/370371837_778017997662445_5772361548463186241_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEtfCBn--g7-vNCAPgQaXwOBSe5RjcPmKYFJ7lGNw-YpoY_QaS0oiJy3R8sLoy41ajTl92Q5MMPQzREKHoCuWfr&_nc_ohc=2LFqFlIOz8IAX-opCqO&_nc_ht=scontent-lim1-1.xx&oh=00_AfCRs9MfN281X057-YZfzQmdSd9W3Ot_8OBGf_RRflxv8Q&oe=66082DAC"
-				alt="banner" />
+		<div class="baner" th:if="${bannerId5 != null}">
+			<img th:src="'data:image/' + ${bannerId5.typeImage} + ';base64,' + ${bannerId5.base64Image}"
+				alt="Banner 5" />
 		</div>
 	</section>
 
@@ -983,11 +984,12 @@
 		<p class="combos__title">Ofertas Combos</p>
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
+
+				<div class="swiper-slide" th:each="combo : ${vistaCombos}">
 					<div class="card">
 						<div class="figure-image">
-							<img src="https://labrujastore.com/wp-content/uploads/2023/12/66415976_3_0-300x300.png"
-								alt="imagen1" />
+							<img class="img-producto"
+								th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" />
 							<div class="figure__description">
 								<a href="https://www.google.com/?hl=es" class="figure__link">
 									Ver mas
@@ -998,7 +1000,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<p>Producto 1</p>
+							<p th:text="${combo.nombre}"></p>
 							<div class="icons__compra">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -1010,6 +1012,8 @@
 						</div>
 					</div>
 				</div>
+
+				<!--
 				<div class="swiper-slide">
 					<div class="card">
 						<div class="figure-image">
@@ -1307,6 +1311,7 @@
 						</div>
 					</div>
 				</div>
+				-->
 			</div>
 			<div class="swiper-button-prev">
 				<i class="fa-solid fa-angle-left"></i>

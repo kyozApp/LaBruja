@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${almacenamiento.precio}"></td>
                 <td th:text="${almacenamiento.descripcion}"></td>
                 <td><a th:href="${almacenamiento.url}" th:text="${almacenamiento.url}"></a></td>
+                <td th:text="${almacenamiento.estado}"></td>
                 <td th:text="${almacenamiento.categoria.nombre}"></td>
                 <td><a
                         th:href="@{/admin/almacenamiento/editar/{almacenamientoId}(almacenamientoId=${almacenamiento.almacenamientoId})}">Editar</a>

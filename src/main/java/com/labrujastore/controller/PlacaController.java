@@ -67,13 +67,15 @@ public class PlacaController {
     public String editar(@PathVariable Integer placaId, @ModelAttribute Placa placa,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Placa placaExistente = placaService.obtenerIdPlaca(placaId);
         placaExistente.setNombre(placa.getNombre());
         placaExistente.setStock(stock);
         placaExistente.setPrecio(precio);
         placaExistente.setDescripcion(descripcion);
         placaExistente.setUrl(url);
+        placaExistente.setEstado(estado);
         placaExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             placaExistente.setImagenNombre(imagen.getOriginalFilename());

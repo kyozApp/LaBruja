@@ -22,6 +22,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
+                <th>ESTADO</th>
                 <th>Categoría</th>
                 <th></th>
                 <th></th>
@@ -40,6 +41,7 @@
                 <td th:text="${fuente.precio}"></td>
                 <td th:text="${fuente.descripcion}"></td>
                 <td><a th:href="${fuente.url}" th:text="${fuente.url}"></a></td>
+                <td th:text="${fuente.estado}"></td>
                 <td th:text="${fuente.categoria.nombre}"></td>
                 <td><a th:href="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}">Editar</a>
                 </td>

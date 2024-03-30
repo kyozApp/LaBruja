@@ -67,13 +67,14 @@ public class MonitorController {
 	public String editar(@PathVariable Integer monitorId, @ModelAttribute Monitor monitor,
 			@RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
 			@RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-			@RequestParam("url") String url) throws IOException {
+			@RequestParam("url") String url, @RequestParam("estado") String estado) throws IOException {
 		Monitor monitorExistente = monitorService.obtenerIdMonitor(monitorId);
 		monitorExistente.setNombre(monitor.getNombre());
 		monitorExistente.setStock(stock);
 		monitorExistente.setPrecio(precio);
 		monitorExistente.setDescripcion(descripcion);
 		monitorExistente.setUrl(url);
+		monitorExistente.setEstado(estado);
 		if (!imagen.isEmpty()) {
 			monitorExistente.setImagenNombre(imagen.getOriginalFilename());
 			monitorExistente.setImagenArchivo(imagen.getBytes());

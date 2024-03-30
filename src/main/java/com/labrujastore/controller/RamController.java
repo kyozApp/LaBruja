@@ -67,13 +67,15 @@ public class RamController {
     public String editar(@PathVariable Integer ramId, @ModelAttribute Ram ram,
             @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Ram ramExistente = ramService.obtenerIdRam(ramId);
         ramExistente.setNombre(ram.getNombre());
         ramExistente.setStock(stock);
         ramExistente.setPrecio(precio);
         ramExistente.setDescripcion(descripcion);
         ramExistente.setUrl(url);
+        ramExistente.setEstado(estado);
         ramExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             ramExistente.setImagenNombre(imagen.getOriginalFilename());
