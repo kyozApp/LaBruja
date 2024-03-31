@@ -557,6 +557,33 @@
 								</div>
 							</div>
 
+							<!-- Todos los productos -->
+							<div th:each="producto : ${vistaProductos}" class="detalle-producto">
+								<a class="con-img-fav">
+									<img class="img-producto"
+										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
+									<div class="overlay-icon">
+										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+									</div>
+								</a>
+								<p class="titulo-producto">
+									<a th:text="${producto.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p class="precio-producto" th:text="'(S/. ' + ${producto.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${producto.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{'/detalle-producto/' + ${producto.productoId}}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<script th:src="@{/producto/js/contador-productos.js}"></script>
 						</div>
 					</div>
