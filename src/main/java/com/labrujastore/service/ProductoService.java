@@ -11,4 +11,5 @@ public interface ProductoService
 	public Producto actualizarProducto(Producto producto);
 	public Producto obtenerIdProducto(Integer productoId);
 	public void eliminarProducto(Integer productoId);
+	public List<Producto> obtenerProductosPorCategoria(Integer idCategoria);
 }

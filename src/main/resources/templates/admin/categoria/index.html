@@ -16,6 +16,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Nombre</th>
+				<th>Nombre URL</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -24,11 +25,10 @@
 			<tr th:each="categoria : ${tablaCategoria}">
 				<td th:text="${categoria.categoriaId}"></td>
 				<td th:text="${categoria.nombre}"></td>
-				<td><a
-						th:href="@{/admin/categoria/editar/{categoriaId}(categoriaId=${categoria.categoriaId})}">Editar</a>
-				</td>
-				<td><a th:href="@{/admin/categoria/{categoriaId}(categoriaId=${categoria.categoriaId})}">Eliminar</a>
-				</td>
+				<td th:text="${categoria.nombreUrl}"></td>
+
+				<td><a th:href="@{/admin/categoria/editar/{categoriaId}(categoriaId=${categoria.categoriaId})}">Editar</a></td>
+				<td><a th:href="@{/admin/categoria/{categoriaId}(categoriaId=${categoria.categoriaId})}">Eliminar</a></td>
 			</tr>
 		</tbody>
 	</table>

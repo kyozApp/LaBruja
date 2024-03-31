@@ -28,6 +28,9 @@ public class Categoria implements Serializable {
 	@Column
 	private String nombre;
 
+	@Column
+	private String nombreUrl;
+
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Accesorio> itemsAccesorio = new ArrayList<>();
 
@@ -61,16 +64,23 @@ public class Categoria implements Serializable {
 	@OneToMany(mappedBy = "categoria")
 	private Collection<Tarjeta> itemsTarjeta = new ArrayList<>();
 
+	@OneToMany(mappedBy = "categoria")
+	private Collection<Producto> itemsProducto = new ArrayList<>();
+
+	@OneToMany(mappedBy = "categoria")
+	private Collection<Subcategoria> subcategorias = new ArrayList<>();
+
 	public Categoria() {
 	}
 
-	public Categoria(Integer categoriaId, String nombre, Collection<Accesorio> itemsAccesorio,
+	public Categoria(Integer categoriaId, String nombre, String nombreUrl, Collection<Accesorio> itemsAccesorio,
 			Collection<Almacenamiento> itemsAlmacenamiento, Collection<Casse> itemsCasse,
 			Collection<Fuente> itemsFuente, Collection<Laptop> itemsLaptop, Collection<Monitor> itemsMonitor,
 			Collection<Placa> itemsPlaca, Collection<Procesador> itemsProcesador, Collection<Ram> itemsRam,
-			Collection<Refrigeracion> itemsRefrigeracion, Collection<Tarjeta> itemsTarjeta) {
+			Collection<Refrigeracion> itemsRefrigeracion, Collection<Tarjeta> itemsTarjeta, Collection<Producto> itemsProducto, Collection<Subcategoria> subcategorias) {
 		this.categoriaId = categoriaId;
 		this.nombre = nombre;
+		this.nombreUrl = nombreUrl;
 		this.itemsAccesorio = itemsAccesorio;
 		this.itemsAlmacenamiento = itemsAlmacenamiento;
 		this.itemsCasse = itemsCasse;
@@ -82,6 +92,8 @@ public class Categoria implements Serializable {
 		this.itemsRam = itemsRam;
 		this.itemsRefrigeracion = itemsRefrigeracion;
 		this.itemsTarjeta = itemsTarjeta;
+		this.itemsProducto = itemsProducto;
+		this.subcategorias = subcategorias;
 	}
 
 	public Integer getCategoriaId() {
@@ -98,6 +110,14 @@ public class Categoria implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getNombreUrl() {
+		return nombreUrl;
+	}
+
+	public void setNombreUrl(String nombreUrl) {
+		this.nombreUrl = nombreUrl;
 	}
 
 	public Collection<Accesorio> getItemsAccesorio() {
@@ -186,6 +206,23 @@ public class Categoria implements Serializable {
 
 	public void setItemsTarjeta(Collection<Tarjeta> itemsTarjeta) {
 		this.itemsTarjeta = itemsTarjeta;
+	}
+
+
+	public Collection<Producto> getItemsProducto() {
+		return itemsProducto;
+	}
+
+	public void setItemsProducto(Collection<Producto> itemsProducto) {
+		this.itemsProducto = itemsProducto;
+	}
+
+	public Collection<Subcategoria> getItemsSubcategoria() {
+		return subcategorias;
+	}
+
+	public void setItemsSubcategoria(Collection<Subcategoria> itemSubcategorias) {
+		this.subcategorias = itemSubcategorias;
 	}
 
 }

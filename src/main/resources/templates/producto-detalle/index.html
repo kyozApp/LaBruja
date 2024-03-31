@@ -216,7 +216,11 @@
 			<a th:href="@{/}" class="seguimiento__etiqueta">
 				Hogar
 				<i class="fa-solid fa-angle-right"></i>
-				<span class="seguimiento__producto"> Detalle - Producto </span>
+				<span>Nombre de Categoria</span>
+				<!-- <span th:text="${producto.categoria.nombre}"></span> -->
+				<i class="fa-solid fa-angle-right"></i>
+				<span>Nombre del Producto</span>
+				<!-- <span th:text="${producto.nombre}"></span> -->
 			</a>
 		</div>
         <div class="productos">
@@ -228,26 +232,58 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <!-- <img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt=""> -->
-                            <img class="img-central"
-										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
-                            <div class="img-lupa">
-                                <img src="img/lupa.svg" alt="">
+                            <img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt="">
+                            <!--<img class="img-central"
+										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />-->
+                            <div class="img-lupa" id="img-lupa">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </div> <!--imagen central-->
                     </div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt="">
+							<!--<img class="img-central"
+										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />-->
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<script>
+						// Obtener el botón de cierre del modal
+						const closeButton = document.getElementById('close-modal');
+					
+						// Obtener el modal
+						const modal = document.getElementById('modal-imagen');
+					
+						// Obtener el ícono de la lupa
+						const lupaIcon = document.getElementById('img-lupa');
+					
+						// Función para ocultar el modal al hacer clic en el botón de cierre
+						closeButton.addEventListener('click', () => {
+							modal.style.display = 'none';
+						});
+					
+						// Función para mostrar el modal al hacer clic en el ícono de la lupa
+						lupaIcon.addEventListener('click', () => {
+							modal.style.display = 'flex';
+						});
+					</script>
                     
                     <div id="carousel" class="carousel" style="display: none;">
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
-                                <li><img src="/img/procesador.jpg" alt=""></li>
+                                <li><img src="" alt=""></li>
+                                <li><img src="" alt=""></li>
+                                <li><img src="" alt=""></li>
+                                <li><img src="" alt=""></li>
+                                <li><img src="" alt=""></li>
+                                <li><img src="" alt=""></li>
+                                <li><img src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -262,25 +298,28 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${producto.nombre}"></h1>
+						<h1>NOMBRE DEL PRODUCTO</h1>
+                        <!-- <h1 th:text="${producto.nombre}"></h1> -->
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
-                                <div>
+                                <!--<div>
                                     <label>Marca: </label>
                                     <span id="marca"></span>
                                 </div>
                                 <div>
                                     <label>Referencia: </label>
                                     <span th:text="${producto.referencia}"></span>
-                                </div>
+                                </div>-->
                                 <div>
                                     <label>Estado: </label>
-                                    <span th:text="${producto.estado}"></span>
+									<span>Nuevo</span>
+                                    <!-- <span th:text="${producto.estado}"></span> -->
                                 </div>
                                 <div>
                                     <label>En stock: </label>
-                                    <span th:text="${producto.stock}"></span>
+									<span>29</span>
+                                    <!-- <span th:text="${producto.stock}"></span> -->
                                 </div>
                             </div>
 
@@ -289,7 +328,8 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar">S/. <span th:text="${producto.precio}"></span></p>
+											<p class="precio-mostrar">S/. 1549.99</p>
+                                            <!-- <p class="precio-mostrar">S/. <span th:text="${producto.precio}"></span></p> -->
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -301,8 +341,10 @@
                                         <div class="cont-boton-cantidad">
                                             <button type="button" class="btn-incrementar"><i
                                                     class="fa-solid fa-plus"></i></button>
-                                            <input type="number" class="custom-input" value="1" min="1"
-                                                th:max="${producto.stock}" required>
+											<input type="number" class="custom-input" value="1" min="1"
+                                                max="5" required>
+                                            <!-- <input type="number" class="custom-input" value="1" min="1"
+                                                th:max="${producto.stock}" required> -->
                                             <button type="button" class="btn-decrementar"><i
                                                     class="fa-solid fa-minus"></i></button>
                                         </div>
@@ -342,7 +384,7 @@
             </div>
 
             <!-- Descripcion del producto -->
-            <div>
+            <div style="display: none;">
                 <ul>
                     <li>
                         <a href="/">
@@ -417,6 +459,14 @@
                     </div>
                 </div>
             </div>
+
+			<div class="descripcion">
+				<h3>Descripcion</h3>
+				<div>
+					<p>Aca va la Descripcion del producto Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, aspernatur ad dolor ipsam, distinctio repellendus corrupti, labore neque optio sequi veniam exercitationem at ea. Ullam deserunt fugit fugiat neque velit.</p>
+					<!-- <p th:text="${producto.descripcion}"></p> -->
+				</div>
+			</div>
 
             <!-- Libre para agregar -->
             <div></div>
