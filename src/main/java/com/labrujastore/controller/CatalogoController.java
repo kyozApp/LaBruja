@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
+import com.labrujastore.entity.Banner;
 import com.labrujastore.entity.Casse;
 import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Fuente;
@@ -22,6 +23,7 @@ import com.labrujastore.entity.Refrigeracion;
 import com.labrujastore.entity.Tarjeta;
 import com.labrujastore.service.AccesorioService;
 import com.labrujastore.service.AlmacenamientoService;
+import com.labrujastore.service.BannerService;
 import com.labrujastore.service.CasseService;
 import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.FuenteService;
@@ -36,6 +38,9 @@ import com.labrujastore.service.TarjetaService;
 @Controller
 @RequestMapping("/catalogo")
 public class CatalogoController {
+
+    @Autowired
+    private BannerService bannerService;
 
     @Autowired
     private AccesorioService accesorioService;
@@ -76,6 +81,8 @@ public class CatalogoController {
     @GetMapping("producto")
     public String index(Model model) {
 
+        Banner bannerId6 = bannerService.obtenerIdBanner(6);
+
         List<Accesorio> accesorios = accesorioService.listarAccesorio();
         List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
         List<Casse> casses = casseService.listarCasse();
@@ -88,6 +95,8 @@ public class CatalogoController {
         List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
         List<Categoria> categorias = categoriaService.listarCategoria();
+
+        model.addAttribute("bannerId6", bannerId6);
 
         model.addAttribute("vistaAccesorios", accesorios);
         model.addAttribute("vistaAlmacenamientos", almacenamientos);

@@ -218,8 +218,10 @@
 		</div>
 		<div class="productos">
 			<div class="row">
-				<div class="left-colum">
-					<a th:href="@{#}"><img th:src="@{/producto/img/banner-pro.jpg}" alt="" /></a>
+				<div class="left-colum" th:if="${bannerId6 != null}">
+					<a th:href="@{#}"><img
+							th:src="'data:image/' + ${bannerId6.typeImage} + ';base64,' + ${bannerId6.base64Image}"
+							alt="Banner 6" /></a>
 				</div>
 
 				<div class="center-colum">
@@ -239,7 +241,7 @@
 						<!-- Filtrar productos -->
 						<div class="filtro-productos">
 							<p id="mensajeProductos"></p>
-							<div class="menu-container"style="display: none;">
+							<div class="menu-container" style="display: none;">
 								<label class="txt-menu-filtro" for="menu-filtro">Ordenar por: </label>
 								<select id="menu-filtro">
 									<option disabled selected hidden>Relevancia</option>
@@ -269,7 +271,8 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-producto" th:text="'(S/. ' + ${accesorio.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${accesorio.precio} + ')'">
+											</p>
 											<p th:text="'Stock: ' + ${accesorio.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -296,7 +299,8 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-producto" th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></p>
+											<p class="precio-producto"
+												th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${almacenamiento.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -458,7 +462,8 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-producto" th:text="'(S/. ' + ${procesador.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${procesador.precio} + ')'">
+											</p>
 											<p th:text="'Stock: ' + ${procesador.stock}"></p>
 										</div>
 										<div class="btn-producto">
@@ -512,7 +517,8 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-producto" th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></p>
+											<p class="precio-producto"
+												th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${refrigeracion.stock}"></p>
 										</div>
 										<div class="btn-producto">

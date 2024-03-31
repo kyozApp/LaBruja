@@ -31,11 +31,12 @@
 		</dependency>
 
 		<!-- file upload -->
-	    <dependency>
-	      <groupId>commons-fileupload</groupId>
-	      <artifactId>commons-fileupload</artifactId>
-	      <version>1.4</version>
-	    </dependency>
+	    <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.5</version>
+		</dependency>
 	    
 	    <!-- Tika -->
 	    <dependency>
@@ -44,11 +45,11 @@
 	      <version>1.17</version>
 	    </dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.itextpdf/html2pdf -->
+		<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
 		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>html2pdf</artifactId>
-			<version>5.0.3</version>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.45.2.0</version>
 		</dependency>
 
 		<dependency>
