@@ -19,53 +19,81 @@
 	<script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
 	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js}"></script>
 	<style>
-		.swiper-button-next,
-		.swiper-button-prev {
-			color: #000;
-			height: 40px;
-			width: 40px;
-			background: #eee;
-			border-radius: 50%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 25px;
-		}
+	.swiper-button-next,
+	.swiper-button-prev {
+		color: #000;
+		height: 40px;
+		width: 40px;
+		background: #eee;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 25px;
+	}
+	.relative {
+	    position: relative;
+		overflow-x: hidden;
+		margin: 1.5rem;
+	}
+	.swiper-pagination {
+		bottom: 20px;
+	}
+	.swiper-button-prev::after,
+	.swiper-button-next::after {
+		display: none;
+	}
 
-		.swiper {
-			width: 100%;
-			height: 100%;
-		}
+	.swiper-button-next,
+	.swiper-button-prev {
+		position: absolute;
+		color: #000;
+		height: 30px;
+		width: 30px;
+		background: #d50909;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 25px;
+		top: 45%;
+		transition: all 500ms ease;
+	}
 
-		.swiper-slide {
-			text-align: center;
-			font-size: 18px;
-			background: #fff;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+	.swiper-button-next:hover,
+	.swiper-button-prev:hover {
+		background-color: #f43838;
+	}
 
-		.caja1,
-		.caja2,
-		.caja3 {
-			position: relative;
-			height: 72vh;
+	.swiper-slide img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 7px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.relative {
+			margin: unset;
+		}
+		.seccion__main_slide img {
+			max-height: 70vh;
+			background-position: top;
 		}
 
 		.swiper-slide img {
-			display: block;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
+			border-radius: unset;
 		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			height: 60px;
+			width: 60px;
+		}
+	}
 
-		.a,
-		.b {
-			position: absolute;
-			top: 35rem;
-			background-color: red;
-		}
+	.logos{
+		display: flex;
+	}
 	</style>
 </head>
 
@@ -153,13 +181,13 @@
 		<div class="head-div-2-part1-3">
 			<a href="/">
 				<div class="cont-icon-corazon">
-					<span class="span-corazon-mobil">4</span>
+					<span class="span-corazon-mobil">0</span>
 					<img th:src="@{/general/img/icon/corazon.svg}" alt="" />
 				</div>
 			</a>
 			<a href="/">
 				<div>
-					<span class="span-carrito-mobil">5</span>
+					<span class="span-carrito-mobil">0</span>
 					<img th:src="@{/general/img/icon/carrito.svg}" alt="" />
 				</div>
 			</a>
@@ -259,17 +287,17 @@
 	<!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 	<!-- Slider Mian -->
-	<div class="swiper mySwiper" style="overflow-x: hidden;">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide caja1" th:if="${bannerId1 != null}">
+	<div class="swiper mySwiper relative" style="overflow-x: hidden;">
+		<div class="swiper-wrapper seccion__main_slide">
+			<div class="swiper-slide" th:if="${bannerId1 != null}">
 				<img th:src="'data:image/' + ${bannerId1.typeImage} + ';base64,' + ${bannerId1.base64Image}"
 					alt="Imagen1" />
 			</div>
-			<div class="swiper-slide caja2" th:if="${bannerId2 != null}">
+			<div class="swiper-slide" th:if="${bannerId2 != null}">
 				<img th:src="'data:image/' + ${bannerId2.typeImage} + ';base64,' + ${bannerId2.base64Image}"
 					alt="Imagen2" />
 			</div>
-			<div class="swiper-slide caja3" th:if="${bannerId3 != null}">
+			<div class="swiper-slide" th:if="${bannerId3 != null}">
 				<img th:src="'data:image/' + ${bannerId3.typeImage} + ';base64,' + ${bannerId3.base64Image}"
 					alt="Imagen3" />
 			</div>
