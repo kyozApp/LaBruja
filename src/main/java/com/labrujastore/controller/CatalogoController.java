@@ -18,6 +18,7 @@ import com.labrujastore.entity.Laptop;
 import com.labrujastore.entity.Monitor;
 import com.labrujastore.entity.Placa;
 import com.labrujastore.entity.Procesador;
+import com.labrujastore.entity.Producto;
 import com.labrujastore.entity.Ram;
 import com.labrujastore.entity.Refrigeracion;
 import com.labrujastore.entity.Tarjeta;
@@ -31,6 +32,7 @@ import com.labrujastore.service.LaptopService;
 import com.labrujastore.service.MonitorService;
 import com.labrujastore.service.PlacaService;
 import com.labrujastore.service.ProcesadorService;
+import com.labrujastore.service.ProductoService;
 import com.labrujastore.service.RamService;
 import com.labrujastore.service.RefrigeracionService;
 import com.labrujastore.service.TarjetaService;
@@ -78,6 +80,9 @@ public class CatalogoController {
     @Autowired
     private CategoriaService categoriaService;
 
+    @Autowired
+    private ProductoService productoService;
+
     @GetMapping("producto")
     public String index(Model model) {
 
@@ -95,6 +100,7 @@ public class CatalogoController {
         List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
         List<Categoria> categorias = categoriaService.listarCategoria();
+        List<Producto> productos = productoService.listarProducto();
 
         model.addAttribute("bannerId6", bannerId6);
 
@@ -110,6 +116,7 @@ public class CatalogoController {
         model.addAttribute("vistaRefrigeraciones", refrigeraciones);
         model.addAttribute("vistaTarjetas", tarjetas);
         model.addAttribute("vistaCategorias", categorias);
+        model.addAttribute("vistaProductos", productos);
 
         return "catalogo/index";
     }

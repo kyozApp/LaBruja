@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin-bottom: 0;
+    /* Puedes ajustar según sea necesario */
+    text-align: left;
+}
+
+.contenido {
+    display: block;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 10px;
+    padding-bottom: 92px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* IMAGEN CENTRAL Y CARRUSEL DE IMAGENES */
+.imagen-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagen-producto {}
+
+.div-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-central {
+    width: 100%;
+}
+
+.img-lupa {
+    background-color: rgba(168, 168, 168, 0.647);
+    padding: 10px;
+    width: 10%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    transition: 0.1s;
+}
+
+.img-lupa:hover {
+    background-color: rgba(204, 204, 204, 0.608);
+    cursor: pointer;
+}
+
+.img-lupa img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.carousel img {
+    width: 130px;
+    height: 130px;
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 60px;
+    padding: 0;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 1px solid rgb(210, 2, 2);
+    font-size: 24px;
+    line-height: 24px;
+    color: #ff0000;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.arrow:focus {
+    outline: none;
+}
+
+.arrow:hover {
+    background: #ff0000;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.prev {
+    left: 7px;
+}
+
+.next {
+    right: 7px;
+}
+
+.gallery {
+    width: 390px;
+    overflow: hidden;
+}
+
+.gallery ul {
+    height: 130px;
+    width: 9999px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: margin-left 250ms;
+    font-size: 0;
+}
+
+.gallery li {
+    display: inline-block;
+}
+
+/* INFORMACION DEL PRODUCTO */
+.info-producto {
+    padding: 20px;
+    width: 50%;
+}
+
+.info-producto h1 {
+    font-size: 2em;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1;
+}
+
+.informacion-pro {
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.informacion-pro div {
+    width: 100%;
+    display: flex;
+}
+
+.informacion-pro label {
+    width: 150px;
+    font-weight: bold;
+}
+
+/* FORMULARIO PARA LA COMPRA DEL PRODUCTO */
+#formulario-comprar {
+    border-color: rgb(255, 0, 0);
+    border-width: 3px;
+    border-style: dashed;
+    border-radius: 10px;
+    padding: 6px 25px 25px 25px;
+
+}
+
+.precio-mostrar {
+    color: red;
+    font-size: 55px;
+    font-weight: bold;
+    font-family: monospace;
+    margin: 10px 25px;
+}
+
+.cont-inc-imps {
+    margin-bottom: 15px;
+}
+
+.text-recargo {
+    font-size: 17px;
+}
+
+#inc-imps {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
+}
+
+.div-añadir-carrito {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.custom-input {
+    width: 147px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 27px;
+    font-family: monospace;
+    outline: none;
+    border-top: 2px solid #aa0404;
+    border-bottom: 2px solid #aa0404;
+    border-left: none;
+    border-right: none;
+
+}
+
+.cont-boton-cantidad {
+    display: flex;
+    height: 40px;
+}
+
+.cont-boton-cantidad input[type="number"]::-webkit-inner-spin-button,
+.cont-boton-cantidad input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cont-boton-cantidad input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.cont-boton-cantidad button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.cont-boton-cantidad i {
+    font-size: 16px;
+}
+
+.cont-boton-cantidad button {
+    width: 50px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    border: 2px solid #aa0404;
+}
+
+.btn-incrementar {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn-decrementar {
+    border-radius: 0 5px 5px 0;
+}
+
+.div-carrito {
+    width: 40%;
+    height: 40px;
+}
+
+.div-carrito button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 17px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ff0000;
+    color: white;
+    border-color: #ff0000;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.div-carrito button:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+    color: red;
+}
+
+.compartir-producto {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+    align-items: center;
+}
+
+.compartir-producto li {
+    width: 24%;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.compartir-producto a {
+    display: flex;
+    color: black;
+    justify-content: space-evenly;
+}
+
+#comp-facebook {
+    color: rgb(55, 0, 255);
+    font-size: 30px;
+}
+
+#comp-instragram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+}

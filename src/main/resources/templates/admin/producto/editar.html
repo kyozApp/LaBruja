@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar Producto</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<h3>Editar Producto</h3>
+
+		<form name="editarProductoForm" method="post"
+			th:action="@{/admin/producto/editar/{productoId}(productoId=${producto.productoId})}"
+			enctype="multipart/form-data">
+
+			<input type="hidden" name="productoId" th:value="${producto.productoId}" readonly="true" />
+
+			<div>
+				<label for="nombre">Nombre:</label><br>
+				<input type="text" name="nombre" th:value="${producto.nombre}" />
+			</div>
+
+			<div>
+				<label for="imagenActual">Imagen actual:</label><br>
+				<img th:src="'data:image/' + ${producto.getTypeImage()} + ';base64,' + ${producto.getBase64Image()}"
+					width="150px" height="150px" border="1" /><br>
+			</div>
+
+			<div>
+				<label for="imagenNueva">Selecciona una nueva imagen:</label><br>
+				<input type="file" name="imagen" accept="image/*" id="imagenNueva"
+					onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
+				<br>
+				<img id="imageId" width="150px" height="150px" border="1" />
+			</div>
+
+			<div>
+				<label for="stock">Stock:</label><br>
+				<input type="number" name="stock" th:value="${producto.stock}" />
+			</div>
+
+			<div>
+				<label for="precio">Precio:</label><br>
+				<input type="number" name="precio" step="0.01" th:value="${producto.precio}" />
+			</div>
+
+			<div>
+				<label for="referencia">Ref:</label><br>
+				<input type="text" name="referencia" th:value="${producto.referencia}" />
+			</div>
+
+			<div>
+				<label for="descripcion">Descripción:</label><br>
+				<textarea name="descripcion" th:text="${producto.descripcion}"></textarea>
+			</div>
+
+			<div>
+				<label for="url">URL:</label><br>
+				<input type="text" name="url" th:value="${producto.url}" />
+			</div>
+
+			<div>
+				<label for="estado">Estado:</label><br>
+				<input type="text" name="estado" th:value="${producto.estado}" />
+			</div>
+			
+			<div>
+				<label for="categoria">Categoría:</label>
+				<select id="categoria" name="categoriaId">
+					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+						th:text="${categoria.nombre}"
+						th:selected="${categoria.categoriaId == producto.categoria.categoriaId}">
+					</option>>
+					</option>
+				</select>
+			</div>
+
+			<button type="submit">Guardar</button>
+			<button type="button" onclick="location.href='/admin/producto'">Cancelar</button>
+		</form>
+
+	</div>
+
+</body>
+
+</html>
