@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,8 +28,55 @@ public class Subcategoria implements Serializable {
 	private String nombre;
 
     @Column
-	private String nombre_url;
+	private String nombreUrl;
 
-    /*FALTA TERMINAR ME GANO EL SUEÑO*/
+	@ManyToOne
+	@JoinColumn(name = "categoria_id", nullable = false)
+	private Categoria categoria;
 
+	public Subcategoria(){}
+
+	public Subcategoria(
+		Integer subCategoriaId, 
+		String nombre, 
+		String nombreUrl,
+		Categoria categoria)
+	{
+		this.subCategoriaId = subCategoriaId;
+		this.nombre = nombre;
+		this.nombreUrl = nombreUrl;
+		this.categoria = categoria;
+	}
+
+	public Integer getSubCategoriaId() {
+		return subCategoriaId;
+	}
+
+	public void setSubCategoriaId(Integer subCategoriaId) {
+		this.subCategoriaId = subCategoriaId;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getNombreUrl() {
+		return nombreUrl;
+	}
+
+	public void setNombreUrl(String nombreUrl) {
+		this.nombreUrl = nombreUrl;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 }

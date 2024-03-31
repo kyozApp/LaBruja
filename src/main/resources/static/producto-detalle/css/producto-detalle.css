@@ -34,6 +34,8 @@ li {
     width: 45%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 20px;
 }
 
 .imagen-producto {}
@@ -47,12 +49,14 @@ li {
 
 .img-central {
     width: 100%;
+    border-color: rgb(255 179 179 / 98%);
+    border-width: 2px;
+    border-style: groove;
 }
 
 .img-lupa {
-    background-color: rgba(168, 168, 168, 0.647);
-    padding: 10px;
-    width: 10%;
+    background-color: rgb(255 179 179 / 98%);
+    padding: 14px;
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -69,6 +73,51 @@ li {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
+}
+
+.modal-imagen{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #00000079;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-img-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: hidden; /* Ocultar el desbordamiento si la imagen excede el contenedor */
+}
+
+.cont-img-modal .img-central {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Mantener la relación de aspecto */
+}
+
+.close-modal{
+    background-color: rgb(255, 24, 24);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.2s;
+}
+
+.close-modal:hover{
+    background-color: #ff0000;
+    cursor: pointer;
 }
 
 .carousel {
@@ -319,4 +368,87 @@ li {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 30px;
+}
+
+.descripcion{
+    padding: 10px;
+}
+
+@media screen and (max-width: 1010px) {
+    .div-añadir-carrito {
+        flex-direction: column;
+    }
+
+    .cont-boton-cantidad {
+        margin-bottom: 10px;
+    }
+
+    .div-carrito {
+        width: 258px;
+    }
+
+    .precio-mostrar {
+        font-size: 33px;
+    }
+
+    .text-recargo {
+        font-size: 14px;
+    }
+
+    .info-producto h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagen-container {
+        width: 80%;
+    }
+
+    .info-producto {
+        width: 80%;
+    }
+
+    .div-añadir-carrito {
+        flex-direction: row;
+    }
+
+    .cont-boton-cantidad {
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .div-añadir-carrito {
+        flex-direction: column;
+    }
+
+    .cont-boton-cantidad {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .precio-mostrar {
+        font-size: 25px;
+    }
+
+    .custom-input {
+        width: 70px;
+    }
+
+    .div-carrito {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .precio-mostrar {
+        font-size: 22px;
+    }
 }

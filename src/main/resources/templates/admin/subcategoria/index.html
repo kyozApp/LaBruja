@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Subcategorias</title>
+</head>
+
+<body>
+
+	<h1>SubCategorias</h1>
+	<a href="/admin/subcategoria/crear">Crear categorias</a>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Nombre URL</th>
+				<th>Categoria Padre</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="subcategoria : ${tablaSubCategoria}">
+				<td th:text="${subcategoria.subCategoriaId}"></td>
+				<td th:text="${subcategoria.nombre}"></td>
+				<td th:text="${subcategoria.nombreUrl}"></td>
+				<td th:text="${subcategoria.categoria.nombre}"></td>
+
+				<td><a th:href="@{/admin/subcategoria/editar/{subCategoriaId}(subCategoriaId=${subcategoria.subCategoriaId})}">Editar</a></td>
+				<td><a th:href="@{/admin/subcategoria/{subCategoriaId}(subCategoriaId=${subcategoria.subCategoriaId})}">Eliminar</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a href="/admin/perfil">Volver</a>
+
+</body>
+
+</html>

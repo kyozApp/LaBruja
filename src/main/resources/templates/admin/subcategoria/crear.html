@@ -8,16 +8,24 @@
 
 	<h1>Crear Categoria</h1>
 	
-	<form th:action="@{/admin/categoria/crear}" th:object="${formularioCrearCategoria}" method="post">
+	<form th:action="@{/admin/subcategoria/crear}" th:object="${formularioCrearSubCategoria}" method="post">
 	    <label for="nombre">Nombre:</label>
 	    <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
+		<label for="nombreUrl">Nombre URL:</label>
 		<input type="text" id="nombreUrl" name="nombreUrl" th:field="*{nombreUrl}" required>
+
+		<label for="categoria">Categoría Padre:</label>
+		<select id="categoria" name="categoria" th:field="*{categoria}" required>
+			<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+				th:text="${categoria.nombre}"></option>
+		</select>
+
 	    <br>
 	    <button type="submit">Crear</button>
 	</form>
 
 	
-	<a href="../categoria">Volver</a>
+	<a href="../subcategoria">Volver</a>
 	
 </body>
 </html>
