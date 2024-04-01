@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
@@ -127,4 +129,20 @@ public class HomeController {
 
 		return "index";
 	}
+
+	@GetMapping("/detalle/producto/{id}")
+	public String detalles(Model model, @PathVariable Integer id, @RequestParam("tipo") String tipo) {
+		if ("accesorio".equals(tipo)) {
+			Accesorio accesorio = accesorioService.obtenerIdAccesorio(id);
+			model.addAttribute("accesorio", accesorio);
+		} else if ("almacenamiento".equals(tipo)) {
+			Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(id);
+			model.addAttribute("almacenamiento", almacenamiento);
+		} else if ("casse".equals(tipo)) {
+			Casse casse = casseService.obtenerIdCasse(id);
+			model.addAttribute("casse", casse);
+		}
+		return "producto-detalle/prueba";
+	}
+
 }

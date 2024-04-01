@@ -19,81 +19,86 @@
 	<script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
 	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js}"></script>
 	<style>
-	.swiper-button-next,
-	.swiper-button-prev {
-		color: #000;
-		height: 40px;
-		width: 40px;
-		background: #eee;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 25px;
-	}
-	.relative {
-	    position: relative;
-		overflow-x: hidden;
-		margin: 1.5rem;
-	}
-	.swiper-pagination {
-		bottom: 20px;
-	}
-	.swiper-button-prev::after,
-	.swiper-button-next::after {
-		display: none;
-	}
-
-	.swiper-button-next,
-	.swiper-button-prev {
-		position: absolute;
-		color: #000;
-		height: 30px;
-		width: 30px;
-		background: #d50909;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 25px;
-		top: 45%;
-		transition: all 500ms ease;
-	}
-
-	.swiper-button-next:hover,
-	.swiper-button-prev:hover {
-		background-color: #f43838;
-	}
-
-	.swiper-slide img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		border-radius: 7px;
-	}
-
-	@media screen and (min-width: 768px) {
-		.relative {
-			margin: unset;
+		.swiper-button-next,
+		.swiper-button-prev {
+			color: #000;
+			height: 40px;
+			width: 40px;
+			background: #eee;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 25px;
 		}
-		.seccion__main_slide img {
-			max-height: 70vh;
-			background-position: top;
+
+		.relative {
+			position: relative;
+			overflow-x: hidden;
+			margin: 1.5rem;
+		}
+
+		.swiper-pagination {
+			bottom: 20px;
+		}
+
+		.swiper-button-prev::after,
+		.swiper-button-next::after {
+			display: none;
+		}
+
+		.swiper-button-next,
+		.swiper-button-prev {
+			position: absolute;
+			color: #000;
+			height: 30px;
+			width: 30px;
+			background: #d50909;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 25px;
+			top: 45%;
+			transition: all 500ms ease;
+		}
+
+		.swiper-button-next:hover,
+		.swiper-button-prev:hover {
+			background-color: #f43838;
 		}
 
 		.swiper-slide img {
-			border-radius: unset;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 7px;
 		}
-		.swiper-button-next,
-		.swiper-button-prev {
-			height: 60px;
-			width: 60px;
-		}
-	}
 
-	.logos{
-		display: flex;
-	}
+		@media screen and (min-width: 768px) {
+			.relative {
+				margin: unset;
+			}
+
+			.seccion__main_slide img {
+				max-height: 70vh;
+				background-position: top;
+			}
+
+			.swiper-slide img {
+				border-radius: unset;
+			}
+
+			.swiper-button-next,
+			.swiper-button-prev {
+				height: 60px;
+				width: 60px;
+			}
+		}
+
+		.logos {
+			display: flex;
+		}
 	</style>
 </head>
 
@@ -324,7 +329,8 @@
 							<img
 								th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
 							<div class="figure__description">
-								<a href="/producto/detalle" class="figure__link">
+								<a th:href="@{/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}"
+									class="figure__link">
 									Ver mas
 									<span>
 										<i class="fa-solid fa-eye"></i>
@@ -350,9 +356,10 @@
 					<div class="card">
 						<div class="figure-image">
 							<img
-								th:src="'data:image/' + ${almacenamiento.typeImage} + ';almacenamiento,' + ${almacenamiento.base64Image}" />
+								th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
 							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
+								<a th:href="@{/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}"
+									class="figure__link">
 									Ver mas
 									<span>
 										<i class="fa-solid fa-eye"></i>
@@ -378,7 +385,8 @@
 						<div class="figure-image">
 							<img th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
 							<div class="figure__description">
-								<a href="https://www.google.com/?hl=es" class="figure__link">
+								<a th:href="@{/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}"
+									class="figure__link">
 									Ver mas
 									<span>
 										<i class="fa-solid fa-eye"></i>

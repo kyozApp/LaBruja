@@ -7,7 +7,7 @@
 	<title>Productos</title>
 
 	<!-- CSS -->
-    <link rel="stylesheet" th:href="@{/general/css/seguimiento.css}">
+	<link rel="stylesheet" th:href="@{/general/css/seguimiento.css}">
 	<link rel="stylesheet" th:href="@{/general/css/formato.css}">
 	<link rel="stylesheet" th:href="@{/general/css/header.css}">
 	<link rel="stylesheet" th:href="@{/producto-detalle/css/producto-detalle.css}">
@@ -17,7 +17,7 @@
 	<script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
 	<script th:src="@{/general/js/header.js}"></script>
 
-    <script th:src="@{/producto-detalle/js/incrementar.js}"></script>
+	<script th:src="@{/producto-detalle/js/incrementar.js}"></script>
 
 </head>
 
@@ -212,7 +212,7 @@
 	<!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 	<section class="contenido">
-        <div class="seguimiento">
+		<div class="seguimiento">
 			<a th:href="@{/}" class="seguimiento__etiqueta">
 				Hogar
 				<i class="fa-solid fa-angle-right"></i>
@@ -223,23 +223,24 @@
 				<!-- <span th:text="${producto.nombre}"></span> -->
 			</a>
 		</div>
-        <div class="productos">
+		<div class="productos">
 
-            <!-- Producto prioncipal -->
-            <div class="row">
-                <!-- Imagenes del producto -->
-                <div class="imagen-container">
 
-                    <div class="imagen-producto">
-                        <div class="div-img">
-                            <img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt="">
-                            <!--<img class="img-central"
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt="">
+							<!--<img class="img-central"
 										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />-->
-                            <div class="img-lupa" id="img-lupa">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                        </div> <!--imagen central-->
-                    </div>
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div> <!--imagen central-->
+					</div>
 
 					<div class="modal-imagen" id="modal-imagen" style="display: none;">
 						<div class="cont-img-modal">
@@ -255,55 +256,55 @@
 					<script>
 						// Obtener el botón de cierre del modal
 						const closeButton = document.getElementById('close-modal');
-					
+
 						// Obtener el modal
 						const modal = document.getElementById('modal-imagen');
-					
+
 						// Obtener el ícono de la lupa
 						const lupaIcon = document.getElementById('img-lupa');
-					
+
 						// Función para ocultar el modal al hacer clic en el botón de cierre
 						closeButton.addEventListener('click', () => {
 							modal.style.display = 'none';
 						});
-					
+
 						// Función para mostrar el modal al hacer clic en el ícono de la lupa
 						lupaIcon.addEventListener('click', () => {
 							modal.style.display = 'flex';
 						});
 					</script>
-                    
-                    <div id="carousel" class="carousel" style="display: none;">
-                        <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
-                        <div class="gallery">
-                            <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                            </ul>
-                        </div>
-                        <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
-                    </div>
 
-                </div>
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
 
-                <script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+				</div>
 
-                <!-- Informes del producto -->
-                <div class="info-producto">
-                    <section>
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
 
-                        <!-- Titulo del producto -->
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
 						<h1>NOMBRE DEL PRODUCTO</h1>
-                        <!-- <h1 th:text="${producto.nombre}"></h1> -->
-                        <div>
-                            <!-- Informacion de producto -->
-                            <div class="informacion-pro">
-                                <!--<div>
+						<!-- <h1 th:text="${producto.nombre}"></h1> -->
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<!--<div>
                                     <label>Marca: </label>
                                     <span id="marca"></span>
                                 </div>
@@ -311,168 +312,170 @@
                                     <label>Referencia: </label>
                                     <span th:text="${producto.referencia}"></span>
                                 </div>-->
-                                <div>
-                                    <label>Estado: </label>
+								<div>
+									<label>Estado: </label>
 									<span>Nuevo</span>
-                                    <!-- <span th:text="${producto.estado}"></span> -->
-                                </div>
-                                <div>
-                                    <label>En stock: </label>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
 									<span>29</span>
-                                    <!-- <span th:text="${producto.stock}"></span> -->
-                                </div>
-                            </div>
+									<!-- <span th:text="${producto.stock}"></span> -->
+								</div>
+							</div>
 
-                            <!-- Formulario para agregar al carrito -->
-                            <div id="formulario-comprar">
-                                <form action="">
-                                    <div>
-                                        <div>
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
 											<p class="precio-mostrar">S/. 1549.99</p>
-                                            <!-- <p class="precio-mostrar">S/. <span th:text="${producto.precio}"></span></p> -->
-                                            <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
-                                                Transferencia.</p>
-                                        </div>
-                                        <div class="cont-inc-imps">
-                                            <span id="inc-imps">Impuestos incluidos</span>
-                                        </div>
-                                    </div>
-                                    <div class="div-añadir-carrito">
-                                        <div class="cont-boton-cantidad">
-                                            <button type="button" class="btn-incrementar"><i
-                                                    class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1"
-                                                max="5" required>
-                                            <!-- <input type="number" class="custom-input" value="1" min="1"
+											<!-- <p class="precio-mostrar">S/. <span th:text="${producto.precio}"></span></p> -->
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<!-- <input type="number" class="custom-input" value="1" min="1"
                                                 th:max="${producto.stock}" required> -->
-                                            <button type="button" class="btn-decrementar"><i
-                                                    class="fa-solid fa-minus"></i></button>
-                                        </div>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
 
-                                        <div class="div-carrito">
-                                            <button onclick="window.location.href='/contactanos'">
-                                                <i class="fa-solid fa-cart-shopping"></i>
-                                                <span>Consultar</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
 
-                            <div style="display: none;">
-                                <!-- Compartir en redes sociales -->
-                                <ul class="compartir-producto">
-                                    <li>
-                                        <a href="/">
-                                            <i id="comp-facebook" class="fa-brands fa-facebook"></i>
-                                            <span>Facebook</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/">
-                                            <i id="comp-instragram" class="fa-brands fa-instagram"></i>
-                                            <span>Instagram</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
 
-                        </div>
-                    </section>
-                </div>
+						</div>
+					</section>
+				</div>
 
-            </div>
+			</div>
 
-            <!-- Descripcion del producto -->
-            <div style="display: none;">
-                <ul>
-                    <li>
-                        <a href="/">
-                            <span>Descripcion</span>
-                        </a>
-                    </li>
-                </ul>
-                <div>
-                    <div>
-                        <table>
-                            <tbody>
+			<!-- Descripcion del producto -->
+			<div style="display: none;">
+				<ul>
+					<li>
+						<a href="/">
+							<span>Descripcion</span>
+						</a>
+					</li>
+				</ul>
+				<div>
+					<div>
+						<table>
+							<tbody>
 
-                                <!-- Caracteristicas -->
-                                <tr>
-                                    <td>Numero de Parte</td>
-                                    <td>:</td>
-                                    <td>BX8070811400</td>
-                                </tr>
-                                <tr>
-                                    <td>Segmento vertical</td>
-                                    <td>:</td>
-                                    <td>Escritorio</td>
-                                </tr>
-                                <tr>
-                                    <td>Tipo de CPU</td>
-                                    <td>:</td>
-                                    <td>i5-11400</td>
-                                </tr>
-                                <tr>
-                                    <td>N° de núcleos de procesador</td>
-                                    <td>:</td>
-                                    <td>6</td>
-                                </tr>
-                                <tr>
-                                    <td>N° de hilos de procesador</td>
-                                    <td>:</td>
-                                    <td>12</td>
-                                </tr>
-                                <tr>
-                                    <td>Frecuencia base del procesador</td>
-                                    <td>:</td>
-                                    <td>2,60 GHz</td>
-                                </tr>
-                                <tr>
-                                    <td>Caché</td>
-                                    <td>:</td>
-                                    <td>Caché inteligente Intel® de 12 MB</td>
-                                </tr>
-                                <tr>
-                                    <td>Gráficos del procesador</td>
-                                    <td>:</td>
-                                    <td>Gráficos Intel® UHD 730</td>
-                                </tr>
-                                <tr>
-                                    <td>Sockets compatibles</td>
-                                    <td>:</td>
-                                    <td>FCLGA1200</td>
-                                </tr>
-                                <tr>
-                                    <td>Más información</td>
-                                    <td>:</td>
-                                    <td><a href="https://intel.ly/3rU6xNQ">Leer más</a></td>
-                                </tr>
+								<!-- Caracteristicas -->
+								<tr>
+									<td>Numero de Parte</td>
+									<td>:</td>
+									<td>BX8070811400</td>
+								</tr>
+								<tr>
+									<td>Segmento vertical</td>
+									<td>:</td>
+									<td>Escritorio</td>
+								</tr>
+								<tr>
+									<td>Tipo de CPU</td>
+									<td>:</td>
+									<td>i5-11400</td>
+								</tr>
+								<tr>
+									<td>N° de núcleos de procesador</td>
+									<td>:</td>
+									<td>6</td>
+								</tr>
+								<tr>
+									<td>N° de hilos de procesador</td>
+									<td>:</td>
+									<td>12</td>
+								</tr>
+								<tr>
+									<td>Frecuencia base del procesador</td>
+									<td>:</td>
+									<td>2,60 GHz</td>
+								</tr>
+								<tr>
+									<td>Caché</td>
+									<td>:</td>
+									<td>Caché inteligente Intel® de 12 MB</td>
+								</tr>
+								<tr>
+									<td>Gráficos del procesador</td>
+									<td>:</td>
+									<td>Gráficos Intel® UHD 730</td>
+								</tr>
+								<tr>
+									<td>Sockets compatibles</td>
+									<td>:</td>
+									<td>FCLGA1200</td>
+								</tr>
+								<tr>
+									<td>Más información</td>
+									<td>:</td>
+									<td><a href="https://intel.ly/3rU6xNQ">Leer más</a></td>
+								</tr>
 
-                                <!-- Informacion adicional -->
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                                <tr></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+								<!-- Informacion adicional -->
+								<tr></tr>
+								<tr></tr>
+								<tr></tr>
+								<tr></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
 
 			<div class="descripcion">
 				<h3>Descripcion</h3>
 				<div>
-					<p>Aca va la Descripcion del producto Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, aspernatur ad dolor ipsam, distinctio repellendus corrupti, labore neque optio sequi veniam exercitationem at ea. Ullam deserunt fugit fugiat neque velit.</p>
+					<p>Aca va la Descripcion del producto Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
+						aspernatur ad dolor ipsam, distinctio repellendus corrupti, labore neque optio sequi veniam
+						exercitationem at ea. Ullam deserunt fugit fugiat neque velit.</p>
 					<!-- <p th:text="${producto.descripcion}"></p> -->
 				</div>
 			</div>
 
-            <!-- Libre para agregar -->
-            <div></div>
+			<!-- Libre para agregar -->
+			<div></div>
 
-        </div>
-    </section>
+		</div>
+	</section>
 	<!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 

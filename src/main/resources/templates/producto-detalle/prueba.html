@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+</head>
+
+<body>
+    <div th:if="${accesorio != null}">
+        <b>Producto Accesorio:</b> <br>
+        <b>ID:</b> <span th:text="${accesorio.accesorioId}"></span> <br>
+        <b>Nombre:</b> <span th:text="${accesorio.nombre}"></span> <br>
+        <b>Descripción:</b> <br>
+        <span th:utext="${#strings.replace(accesorio.descripcion, '\n', '<br>')}"></span>
+    </div>
+
+    <div th:if="${almacenamiento != null}">
+        <b>Producto Almacenamiento:</b> <br>
+        <b>ID:</b> <span th:text="${almacenamiento.almacenamientoId}"></span> <br>
+        <b>Nombre:</b> <span th:text="${almacenamiento.nombre}"></span> <br>
+        <b>Description:</b> <br>
+        <span th:utext="${#strings.replace(almacenamiento.descripcion, '\n', '<br>')}"></span>
+    </div>
+
+    <div th:if="${casse != null}">
+        <b>Producto Case:</b> <br>
+        <b>ID:</b> <span th:text="${casse.casseId}"></span> <br>
+        <b>Nombre:</b> <span th:text="${casse.nombre}"></span> <br>
+        <b>Description:</b> <br>
+        <span th:utext="${#strings.replace(casse.descripcion, '\n', '<br>')}"></span>
+    </div>
+
+</body>
+
+</html>

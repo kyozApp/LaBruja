@@ -11,25 +11,24 @@ import com.labrujastore.entity.Producto;
 import com.labrujastore.repository.ProductoRepository;
 
 @Service
-public class ProductoServiceImpl implements ProductoService
-{
+public class ProductoServiceImpl implements ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
 
     // @Autowired
     // private CategoriaRepository categoriaRepository;
-    
+
     @Override
-	public List<Producto> listarProducto() {
-		return productoRepository.findAll();
-	}
+    public List<Producto> listarProducto() {
+        return productoRepository.findAll();
+    }
 
     @SuppressWarnings("null")
     @Override
     public Producto guardarProducto(Producto producto) {
         return productoRepository.save(producto);
     }
-    
+
     @SuppressWarnings("null")
     @Override
     public Producto actualizarProducto(Producto producto) {
@@ -47,8 +46,7 @@ public class ProductoServiceImpl implements ProductoService
     public void eliminarProducto(Integer productoId) {
         productoRepository.deleteById(productoId);
     }
-    
-    @SuppressWarnings("null")
+
     @Override
     public List<Producto> obtenerProductosPorCategoria(Integer idCategoria) {
 
@@ -56,7 +54,7 @@ public class ProductoServiceImpl implements ProductoService
         List<Producto> productosFinal = new ArrayList<>();
         for (Producto producto : productos) {
             if (producto.getCategoria().getCategoriaId() == idCategoria) {
-                productosFinal.add(producto); 
+                productosFinal.add(producto);
             }
         }
 
