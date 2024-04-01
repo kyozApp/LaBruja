@@ -258,15 +258,22 @@
 
 							<!-- Accesorios -->
 							<div th:each="accesorio : ${vistaAccesorios}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${accesorio.nombre}"></a>
+									<a href="#" th:text="${accesorio.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -282,19 +289,35 @@
 										</div>
 									</div>
 								</div>
+
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Almacenamiento -->
 							<div th:each="almacenamiento : ${vistaAlmacenamientos}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${almacenamiento.nombre}"></a>
+									<a href="#" th:text="${almacenamiento.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -310,19 +333,35 @@
 										</div>
 									</div>
 								</div>
+
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Casses -->
 							<div th:each="casse : ${vistaCasses}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${casse.nombre}"></a>
+									<a href="#" th:text="${casse.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -337,19 +376,35 @@
 										</div>
 									</div>
 								</div>
+
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Fuentes de alimentación -->
 							<div th:each="fuente : ${vistaFuentes}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${fuente.nombre}"></a>
+									<a href="#" th:text="${fuente.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -364,19 +419,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Laptops -->
 							<div th:each="laptop : ${vistaLaptops}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${laptop.nombre}"></a>
+									<a href="#" th:text="${laptop.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -391,19 +461,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Monitores -->
 							<div th:each="monitor : ${vistaMonitores}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${monitor.nombre}"></a>
+									<a href="#" th:text="${monitor.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -418,19 +503,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Placa -->
 							<div th:each="placa : ${vistaPlacas}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazon" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${placa.nombre}"></a>
+									<a href="#" th:text="${placa.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -445,19 +545,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Procesador -->
 							<div th:each="procesador : ${vistaProcesadores}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazon" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${procesador.nombre}"></a>
+									<a href="#" th:text="${procesador.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -473,19 +588,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- RAM -->
 							<div th:each="ram : ${vistaRams}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${ram.nombre}"></a>
+									<a href="#" th:text="${ram.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -500,19 +630,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Sistemas de refrigeración -->
 							<div th:each="refrigeracion : ${vistaRefrigeraciones}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${refrigeracion.nombre}"></a>
+									<a href="#" th:text="${refrigeracion.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -528,19 +673,34 @@
 										</div>
 									</div>
 								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<!-- Tarjetas gráficas -->
 							<div th:each="tarjeta : ${vistaTarjetas}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a href="#" class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
+										</a>
 									</div>
-								</a>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
 								<p class="titulo-producto">
-									<a th:text="${tarjeta.nombre}"></a>
+									<a href="#" th:text="${tarjeta.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -555,34 +715,43 @@
 										</div>
 									</div>
 								</div>
-							</div>
-
-							<!-- Todos los productos -->
-							<div th:each="producto : ${vistaProductos}" class="detalle-producto">
-								<a class="con-img-fav">
-									<img class="img-producto"
-										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
-									<div class="overlay-icon">
-										<img th:src="@{/producto/img/icon/corazon.svg}" alt="Icono del corazón" />
-									</div>
-								</a>
-								<p class="titulo-producto">
-									<a th:text="${producto.nombre}"></a>
-								</p>
-								<div class="cont-producto">
-									<div class="sub-cont-produc">
-										<div class="cont-atrub-prod">
-											<p class="precio-producto" th:text="'(S/. ' + ${producto.precio} + ')'"></p>
-											<p th:text="'Stock: ' + ${producto.stock}"></p>
-										</div>
-										<div class="btn-producto">
-											<a th:href="@{'/detalle-producto/' + ${producto.productoId}}" class="con-img-fav">
-												Comprar
-											</a>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
 										</div>
 									</div>
 								</div>
 							</div>
+
+							<script>
+								document.addEventListener('DOMContentLoaded', function () {
+									const abrirModalBtns = document.querySelectorAll('.abrir-modal'); // Selecciona todos los botones de abrir modal
+
+									abrirModalBtns.forEach(function (btn) { // Itera sobre cada botón
+										btn.addEventListener('click', function (event) { // Agrega un evento de clic a cada botón
+											event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+											// Encuentra el modal correspondiente al botón clicado
+											const modal = btn.closest('.detalle-producto').querySelector('.modal-producto');
+
+											// Abre el modal
+											modal.style.display = 'flex';
+										});
+									});
+
+									// Agrega evento de cerrar modal
+									const closeBtns = document.querySelectorAll('.close-modal');
+									closeBtns.forEach(function (closeBtn) {
+										closeBtn.addEventListener('click', function () {
+											// Encuentra el modal asociado al botón de cerrar clicado
+											const modal = closeBtn.closest('.modal-producto');
+											modal.style.display = 'none';
+										});
+									});
+								});
+							</script>
 
 							<script th:src="@{/producto/js/contador-productos.js}"></script>
 						</div>
@@ -605,6 +774,7 @@
 			</div>
 		</div>
 	</section>
+
 	<!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 
