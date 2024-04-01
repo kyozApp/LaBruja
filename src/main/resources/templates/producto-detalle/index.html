@@ -211,20 +211,19 @@
 
 	<!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
-	<section class="contenido">
+
+	<!-- Seccion Accesorio -->
+	<section class="contenido" th:if="${accesorio != null}">
 		<div class="seguimiento">
 			<a th:href="@{/}" class="seguimiento__etiqueta">
 				Hogar
 				<i class="fa-solid fa-angle-right"></i>
-				<span>Nombre de Categoria</span>
-				<!-- <span th:text="${producto.categoria.nombre}"></span> -->
+				<span th:text="${accesorio.categoria.nombre}"></span>
 				<i class="fa-solid fa-angle-right"></i>
-				<span>Nombre del Producto</span>
-				<!-- <span th:text="${producto.nombre}"></span> -->
+				<span th:text="${accesorio.nombre}"></span>
 			</a>
 		</div>
 		<div class="productos">
-
 
 			<!-- Producto prioncipal -->
 			<div class="row">
@@ -233,46 +232,23 @@
 
 					<div class="imagen-producto">
 						<div class="div-img">
-							<img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt="">
-							<!--<img class="img-central"
-										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />-->
+							<img class="img-central"
+								th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}">
 							<div class="img-lupa" id="img-lupa">
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</div>
-						</div> <!--imagen central-->
+						</div>
 					</div>
 
 					<div class="modal-imagen" id="modal-imagen" style="display: none;">
 						<div class="cont-img-modal">
-							<img class="img-central" th:src="@{/producto-detalle/img/procesador.jpg}" alt="">
-							<!--<img class="img-central"
-										th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />-->
+							<img class="img-central"
+								th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}">
 							<div class="close-modal" id="close-modal">
 								<i class="fa-solid fa-xmark"></i>
 							</div>
 						</div>
 					</div>
-
-					<script>
-						// Obtener el botón de cierre del modal
-						const closeButton = document.getElementById('close-modal');
-
-						// Obtener el modal
-						const modal = document.getElementById('modal-imagen');
-
-						// Obtener el ícono de la lupa
-						const lupaIcon = document.getElementById('img-lupa');
-
-						// Función para ocultar el modal al hacer clic en el botón de cierre
-						closeButton.addEventListener('click', () => {
-							modal.style.display = 'none';
-						});
-
-						// Función para mostrar el modal al hacer clic en el ícono de la lupa
-						lupaIcon.addEventListener('click', () => {
-							modal.style.display = 'flex';
-						});
-					</script>
 
 					<div id="carousel" class="carousel" style="display: none;">
 						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
@@ -299,28 +275,18 @@
 					<section>
 
 						<!-- Titulo del producto -->
-						<h1>NOMBRE DEL PRODUCTO</h1>
-						<!-- <h1 th:text="${producto.nombre}"></h1> -->
+						<h1 th:text="${accesorio.nombre}"></h1>
 						<div>
 							<!-- Informacion de producto -->
 							<div class="informacion-pro">
-								<!--<div>
-                                    <label>Marca: </label>
-                                    <span id="marca"></span>
-                                </div>
-                                <div>
-                                    <label>Referencia: </label>
-                                    <span th:text="${producto.referencia}"></span>
-                                </div>-->
 								<div>
 									<label>Estado: </label>
-									<span>Nuevo</span>
+									<span th:text="${accesorio.estado}"></span>
 									<!-- <span th:text="${producto.estado}"></span> -->
 								</div>
 								<div>
 									<label>En stock: </label>
-									<span>29</span>
-									<!-- <span th:text="${producto.stock}"></span> -->
+									<span th:text="${accesorio.stock}"></span>
 								</div>
 							</div>
 
@@ -329,8 +295,7 @@
 								<form action="">
 									<div>
 										<div>
-											<p class="precio-mostrar">S/. 1549.99</p>
-											<!-- <p class="precio-mostrar">S/. <span th:text="${producto.precio}"></span></p> -->
+											<p class="precio-mostrar" th:text="'S/. ' + ${accesorio.precio}"></p>
 											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
 												Transferencia.</p>
 										</div>
@@ -344,8 +309,6 @@
 													class="fa-solid fa-plus"></i></button>
 											<input type="number" class="custom-input" value="1" min="1" max="5"
 												required>
-											<!-- <input type="number" class="custom-input" value="1" min="1"
-                                                th:max="${producto.stock}" required> -->
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
@@ -384,98 +347,1683 @@
 
 			</div>
 
-			<!-- Descripcion del producto -->
-			<div style="display: none;">
-				<ul>
-					<li>
-						<a href="/">
-							<span>Descripcion</span>
-						</a>
-					</li>
-				</ul>
-				<div>
-					<div>
-						<table>
-							<tbody>
-
-								<!-- Caracteristicas -->
-								<tr>
-									<td>Numero de Parte</td>
-									<td>:</td>
-									<td>BX8070811400</td>
-								</tr>
-								<tr>
-									<td>Segmento vertical</td>
-									<td>:</td>
-									<td>Escritorio</td>
-								</tr>
-								<tr>
-									<td>Tipo de CPU</td>
-									<td>:</td>
-									<td>i5-11400</td>
-								</tr>
-								<tr>
-									<td>N° de núcleos de procesador</td>
-									<td>:</td>
-									<td>6</td>
-								</tr>
-								<tr>
-									<td>N° de hilos de procesador</td>
-									<td>:</td>
-									<td>12</td>
-								</tr>
-								<tr>
-									<td>Frecuencia base del procesador</td>
-									<td>:</td>
-									<td>2,60 GHz</td>
-								</tr>
-								<tr>
-									<td>Caché</td>
-									<td>:</td>
-									<td>Caché inteligente Intel® de 12 MB</td>
-								</tr>
-								<tr>
-									<td>Gráficos del procesador</td>
-									<td>:</td>
-									<td>Gráficos Intel® UHD 730</td>
-								</tr>
-								<tr>
-									<td>Sockets compatibles</td>
-									<td>:</td>
-									<td>FCLGA1200</td>
-								</tr>
-								<tr>
-									<td>Más información</td>
-									<td>:</td>
-									<td><a href="https://intel.ly/3rU6xNQ">Leer más</a></td>
-								</tr>
-
-								<!-- Informacion adicional -->
-								<tr></tr>
-								<tr></tr>
-								<tr></tr>
-								<tr></tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-
 			<div class="descripcion">
-				<h3>Descripcion</h3>
-				<div>
-					<p>Aca va la Descripcion del producto Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-						aspernatur ad dolor ipsam, distinctio repellendus corrupti, labore neque optio sequi veniam
-						exercitationem at ea. Ullam deserunt fugit fugiat neque velit.</p>
-					<!-- <p th:text="${producto.descripcion}"></p> -->
-				</div>
-			</div>
+				<h3>Descripción:</h3>
 
-			<!-- Libre para agregar -->
-			<div></div>
+				<div>
+					<p th:utext="${#strings.replace(accesorio.descripcion, '\n', '<br>')}"></p>
+				</div>
+
+				<a th:href="${accesorio.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+
+
+			</div>
 
 		</div>
 	</section>
+
+	<!-- Seccion Almacenamiento -->
+	<section class="contenido" th:if="${almacenamiento != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${almacenamiento.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${almacenamiento.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${almacenamiento.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${almacenamiento.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${almacenamiento.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${almacenamiento.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(almacenamiento.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${almacenamiento.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Casse -->
+	<section class="contenido" th:if="${casse != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${casse.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${casse.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${casse.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${casse.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${casse.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${casse.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(casse.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${casse.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Fuente -->
+	<section class="contenido" th:if="${fuente != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${fuente.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${fuente.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${fuente.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${fuente.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${fuente.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${fuente.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(fuente.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${fuente.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Laptop -->
+	<section class="contenido" th:if="${laptop != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${laptop.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${laptop.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${laptop.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${laptop.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${laptop.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${laptop.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(laptop.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${laptop.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Monitor -->
+	<section class="contenido" th:if="${monitor != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${monitor.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${monitor.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${monitor.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${monitor.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${monitor.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${monitor.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(monitor.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${monitor.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Placa -->
+	<section class="contenido" th:if="${placa != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${placa.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${placa.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${placa.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${placa.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${placa.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${placa.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(placa.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${placa.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Procesador -->
+	<section class="contenido" th:if="${procesador != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${procesador.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${procesador.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${procesador.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${procesador.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${procesador.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${procesador.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(procesador.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${procesador.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Ram -->
+	<section class="contenido" th:if="${ram != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${ram.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${ram.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${ram.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${ram.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${ram.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${ram.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(ram.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${ram.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Refrigeracion -->
+	<section class="contenido" th:if="${refrigeracion != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${refrigeracion.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${refrigeracion.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${refrigeracion.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${refrigeracion.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${refrigeracion.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${refrigeracion.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(refrigeracion.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${refrigeracion.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Tarjeta -->
+	<section class="contenido" th:if="${tarjeta != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${tarjeta.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${tarjeta.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${tarjeta.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${tarjeta.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${tarjeta.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${tarjeta.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(tarjeta.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${tarjeta.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Seccion Combo -->
+	<section class="contenido" th:if="${combo != null}">
+		<div class="seguimiento">
+			<a th:href="@{/}" class="seguimiento__etiqueta">
+				Hogar
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${combo.categoria.nombre}"></span>
+				<i class="fa-solid fa-angle-right"></i>
+				<span th:text="${combo.nombre}"></span>
+			</a>
+		</div>
+		<div class="productos">
+
+			<!-- Producto prioncipal -->
+			<div class="row">
+				<!-- Imagenes del producto -->
+				<div class="imagen-container">
+
+					<div class="imagen-producto">
+						<div class="div-img">
+							<img class="img-central"
+								th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}">
+							<div class="img-lupa" id="img-lupa">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal-imagen" id="modal-imagen" style="display: none;">
+						<div class="cont-img-modal">
+							<img class="img-central"
+								th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}">
+							<div class="close-modal" id="close-modal">
+								<i class="fa-solid fa-xmark"></i>
+							</div>
+						</div>
+					</div>
+
+					<div id="carousel" class="carousel" style="display: none;">
+						<button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
+						<div class="gallery">
+							<ul>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+								<li><img src="" alt=""></li>
+							</ul>
+						</div>
+						<button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
+					</div>
+
+				</div>
+
+				<script th:src="@{/producto-detalle/js/carrusel-img.js}"></script>
+
+				<!-- Informes del producto -->
+				<div class="info-producto">
+					<section>
+
+						<!-- Titulo del producto -->
+						<h1 th:text="${combo.nombre}"></h1>
+						<div>
+							<!-- Informacion de producto -->
+							<div class="informacion-pro">
+								<div>
+									<label>Estado: </label>
+									<span th:text="${combo.estado}"></span>
+									<!-- <span th:text="${producto.estado}"></span> -->
+								</div>
+								<div>
+									<label>En stock: </label>
+									<span th:text="${combo.stock}"></span>
+								</div>
+							</div>
+
+							<!-- Formulario para agregar al carrito -->
+							<div id="formulario-comprar">
+								<form action="">
+									<div>
+										<div>
+											<p class="precio-mostrar" th:text="'S/. ' + ${combo.precio}"></p>
+											<p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
+												Transferencia.</p>
+										</div>
+										<div class="cont-inc-imps">
+											<span id="inc-imps">Impuestos incluidos</span>
+										</div>
+									</div>
+									<div class="div-añadir-carrito">
+										<div class="cont-boton-cantidad">
+											<button type="button" class="btn-incrementar"><i
+													class="fa-solid fa-plus"></i></button>
+											<input type="number" class="custom-input" value="1" min="1" max="5"
+												required>
+											<button type="button" class="btn-decrementar"><i
+													class="fa-solid fa-minus"></i></button>
+										</div>
+
+										<div class="div-carrito">
+											<button onclick="window.location.href='/contactanos'">
+												<i class="fa-solid fa-cart-shopping"></i>
+												<span>Consultar</span>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div style="display: none;">
+								<!-- Compartir en redes sociales -->
+								<ul class="compartir-producto">
+									<li>
+										<a href="/">
+											<i id="comp-facebook" class="fa-brands fa-facebook"></i>
+											<span>Facebook</span>
+										</a>
+									</li>
+									<li>
+										<a href="/">
+											<i id="comp-instragram" class="fa-brands fa-instagram"></i>
+											<span>Instagram</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+			<div class="descripcion">
+				<h3>Descripción:</h3>
+
+				<div>
+					<p th:utext="${#strings.replace(combo.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<a th:href="${combo.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+					+ Info
+				</a>
+			</div>
+
+		</div>
+	</section>
+
+	<script>
+		// Obtener el botón de cierre del modal
+		const closeButton = document.getElementById('close-modal');
+
+		// Obtener el modal
+		const modal = document.getElementById('modal-imagen');
+
+		// Obtener el ícono de la lupa
+		const lupaIcon = document.getElementById('img-lupa');
+
+		// Función para ocultar el modal al hacer clic en el botón de cierre
+		closeButton.addEventListener('click', () => {
+			modal.style.display = 'none';
+		});
+
+		// Función para mostrar el modal al hacer clic en el ícono de la lupa
+		lupaIcon.addEventListener('click', () => {
+			modal.style.display = 'flex';
+		});
+	</script>
+
 	<!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 

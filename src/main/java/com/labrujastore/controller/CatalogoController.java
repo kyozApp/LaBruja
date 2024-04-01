@@ -13,6 +13,7 @@ import com.labrujastore.entity.Almacenamiento;
 import com.labrujastore.entity.Banner;
 import com.labrujastore.entity.Casse;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Combo;
 import com.labrujastore.entity.Fuente;
 import com.labrujastore.entity.Laptop;
 import com.labrujastore.entity.Monitor;
@@ -27,6 +28,7 @@ import com.labrujastore.service.AlmacenamientoService;
 import com.labrujastore.service.BannerService;
 import com.labrujastore.service.CasseService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.ComboService;
 import com.labrujastore.service.FuenteService;
 import com.labrujastore.service.LaptopService;
 import com.labrujastore.service.MonitorService;
@@ -36,7 +38,6 @@ import com.labrujastore.service.ProcesadorService;
 import com.labrujastore.service.RamService;
 import com.labrujastore.service.RefrigeracionService;
 import com.labrujastore.service.TarjetaService;
-
 
 @Controller
 @RequestMapping("/catalogo")
@@ -81,8 +82,8 @@ public class CatalogoController {
     @Autowired
     private CategoriaService categoriaService;
 
-    // @Autowired
-    // private ProductoService productoService;
+    @Autowired
+    private ComboService comboService;
 
     @GetMapping("producto")
     public String index(Model model) {
@@ -101,7 +102,7 @@ public class CatalogoController {
         List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
         List<Categoria> categorias = categoriaService.listarCategoria();
-        // List<Producto> productos = productoService.listarProducto();
+        List<Combo> combos = comboService.listarCombo();
 
         model.addAttribute("bannerId6", bannerId6);
 
@@ -117,7 +118,7 @@ public class CatalogoController {
         model.addAttribute("vistaRefrigeraciones", refrigeraciones);
         model.addAttribute("vistaTarjetas", tarjetas);
         model.addAttribute("vistaCategorias", categorias);
-        // model.addAttribute("vistaProductos", productos);
+        model.addAttribute("vistaCombos", combos);
 
         return "catalogo/index";
     }
@@ -126,39 +127,5 @@ public class CatalogoController {
     public String detalle_Producto() {
         return "producto-detalle/index";
     }
-    
 
-    // @GetMapping("/categorias")
-    // public String index_categorias(Model model) {
-
-    //     Banner bannerId6 = bannerService.obtenerIdBanner(6);
-        
-    //     List<Producto> productos = productoService.listarProducto();
-    //     List<Categoria> categorias = categoriaService.listarCategoria();
-        
-    //     model.addAttribute("bannerId6", bannerId6);
-        
-    //     model.addAttribute("vistaCategorias", categorias);
-    //     model.addAttribute("vistaProductos", productos);
-        
-    //     return "categorias/index";
-    // }
-    
-
-    // @GetMapping("/categorias/{catgoriaId}")
-    // public String getProductosPorCategoria(@PathVariable("catgoriaId") Integer categoriaId, Model model) {
-
-    //     Banner bannerId6 = bannerService.obtenerIdBanner(6);
-        
-    //     List<Producto> productos = productoService.obtenerProductosPorCategoria(categoriaId);
-    //     // List<Producto> productosAll = productoService.listarProducto();
-    //     List<Categoria> categorias = categoriaService.listarCategoria();
-        
-    //     model.addAttribute("bannerId6", bannerId6);
-    //     model.addAttribute("vistaProductos", productos);
-    //     model.addAttribute("vistaCategorias", categorias);
-        
-    //     return "categorias/index";
-    // }
-    
 }

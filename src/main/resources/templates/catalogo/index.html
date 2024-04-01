@@ -260,7 +260,8 @@
 							<div th:each="accesorio : ${vistaAccesorios}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
 										</a>
@@ -304,7 +305,8 @@
 							<div th:each="almacenamiento : ${vistaAlmacenamientos}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
 										</a>
@@ -348,7 +350,8 @@
 							<div th:each="casse : ${vistaCasses}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
 										</a>
@@ -391,7 +394,8 @@
 							<div th:each="fuente : ${vistaFuentes}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
 										</a>
@@ -433,7 +437,8 @@
 							<div th:each="laptop : ${vistaLaptops}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
 										</a>
@@ -475,7 +480,8 @@
 							<div th:each="monitor : ${vistaMonitores}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
 										</a>
@@ -517,7 +523,8 @@
 							<div th:each="placa : ${vistaPlacas}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
 										</a>
@@ -559,7 +566,8 @@
 							<div th:each="procesador : ${vistaProcesadores}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
 										</a>
@@ -602,7 +610,8 @@
 							<div th:each="ram : ${vistaRams}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
 										</a>
@@ -644,7 +653,8 @@
 							<div th:each="refrigeracion : ${vistaRefrigeraciones}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
 										</a>
@@ -687,7 +697,8 @@
 							<div th:each="tarjeta : ${vistaTarjetas}" class="detalle-producto">
 								<div class="contenedor-img-mini">
 									<div class="cont-img">
-										<a href="#" class="con-img-fav">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}"
+											class="con-img-fav">
 											<img class="img-producto"
 												th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
 										</a>
@@ -707,6 +718,49 @@
 										<div class="cont-atrub-prod">
 											<p class="precio-producto" th:text="'(S/. ' + ${tarjeta.precio} + ')'"></p>
 											<p th:text="'Stock: ' + ${tarjeta.stock}"></p>
+										</div>
+										<div class="btn-producto">
+											<a th:href="@{/}" class="con-img-fav">
+												Comprar
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="modal-producto" style="display: none;">
+									<div class="cont-modal">
+										<h1>ESTE ES UN MODAL</h1>
+										<div class="close-modal">
+											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Combos -->
+							<div th:each="combo : ${vistaCombos}" class="detalle-producto">
+								<div class="contenedor-img-mini">
+									<div class="cont-img">
+										<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}"
+											class="con-img-fav">
+											<img class="img-producto"
+												th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" />
+										</a>
+									</div>
+									<div class="cont-vista-previa">
+										<a href="#" class="abrir-modal" title="Vista previa">
+											<i class="fa-solid fa-eye"></i>
+										</a>
+									</div>
+								</div>
+
+								<p class="titulo-producto">
+									<a href="#" th:text="${combo.nombre}"></a>
+								</p>
+								<div class="cont-producto">
+									<div class="sub-cont-produc">
+										<div class="cont-atrub-prod">
+											<p class="precio-producto" th:text="'(S/. ' + ${combo.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${combo.stock}"></p>
 										</div>
 										<div class="btn-producto">
 											<a th:href="@{/}" class="con-img-fav">
