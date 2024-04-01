@@ -20,6 +20,7 @@ import com.labrujastore.service.ComboService;
 @Controller
 @RequestMapping("/admin")
 public class ComboController {
+
     @Autowired
     private ComboService comboService;
 
@@ -58,6 +59,8 @@ public class ComboController {
             @RequestParam("imagen") MultipartFile imagen) throws IOException {
         Combo comboExistente = comboService.obtenerIdCombo(comboId);
         comboExistente.setNombre(combo.getNombre());
+        comboExistente.setStock(combo.getStock());
+        comboExistente.setPrecio(combo.getPrecio());
         comboExistente.setDescripcion(combo.getDescripcion());
         if (!imagen.isEmpty()) {
             comboExistente.setImagenNombre(imagen.getOriginalFilename());

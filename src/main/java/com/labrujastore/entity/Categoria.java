@@ -77,7 +77,8 @@ public class Categoria implements Serializable {
 			Collection<Almacenamiento> itemsAlmacenamiento, Collection<Casse> itemsCasse,
 			Collection<Fuente> itemsFuente, Collection<Laptop> itemsLaptop, Collection<Monitor> itemsMonitor,
 			Collection<Placa> itemsPlaca, Collection<Procesador> itemsProcesador, Collection<Ram> itemsRam,
-			Collection<Refrigeracion> itemsRefrigeracion, Collection<Tarjeta> itemsTarjeta, Collection<Producto> itemsProducto, Collection<Subcategoria> subcategorias) {
+			Collection<Refrigeracion> itemsRefrigeracion, Collection<Tarjeta> itemsTarjeta,
+			Collection<Producto> itemsProducto, Collection<Subcategoria> subcategorias) {
 		this.categoriaId = categoriaId;
 		this.nombre = nombre;
 		this.nombreUrl = nombreUrl;
@@ -97,7 +98,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Integer getCategoriaId() {
-		return categoriaId;
+		return this.categoriaId;
 	}
 
 	public void setCategoriaId(Integer categoriaId) {
@@ -105,7 +106,7 @@ public class Categoria implements Serializable {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -113,7 +114,7 @@ public class Categoria implements Serializable {
 	}
 
 	public String getNombreUrl() {
-		return nombreUrl;
+		return this.nombreUrl;
 	}
 
 	public void setNombreUrl(String nombreUrl) {
@@ -121,7 +122,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Accesorio> getItemsAccesorio() {
-		return itemsAccesorio;
+		return this.itemsAccesorio;
 	}
 
 	public void setItemsAccesorio(Collection<Accesorio> itemsAccesorio) {
@@ -129,7 +130,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Almacenamiento> getItemsAlmacenamiento() {
-		return itemsAlmacenamiento;
+		return this.itemsAlmacenamiento;
 	}
 
 	public void setItemsAlmacenamiento(Collection<Almacenamiento> itemsAlmacenamiento) {
@@ -137,7 +138,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Casse> getItemsCasse() {
-		return itemsCasse;
+		return this.itemsCasse;
 	}
 
 	public void setItemsCasse(Collection<Casse> itemsCasse) {
@@ -145,7 +146,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Fuente> getItemsFuente() {
-		return itemsFuente;
+		return this.itemsFuente;
 	}
 
 	public void setItemsFuente(Collection<Fuente> itemsFuente) {
@@ -153,7 +154,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Laptop> getItemsLaptop() {
-		return itemsLaptop;
+		return this.itemsLaptop;
 	}
 
 	public void setItemsLaptop(Collection<Laptop> itemsLaptop) {
@@ -161,7 +162,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Monitor> getItemsMonitor() {
-		return itemsMonitor;
+		return this.itemsMonitor;
 	}
 
 	public void setItemsMonitor(Collection<Monitor> itemsMonitor) {
@@ -169,7 +170,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Placa> getItemsPlaca() {
-		return itemsPlaca;
+		return this.itemsPlaca;
 	}
 
 	public void setItemsPlaca(Collection<Placa> itemsPlaca) {
@@ -177,7 +178,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Procesador> getItemsProcesador() {
-		return itemsProcesador;
+		return this.itemsProcesador;
 	}
 
 	public void setItemsProcesador(Collection<Procesador> itemsProcesador) {
@@ -185,7 +186,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Ram> getItemsRam() {
-		return itemsRam;
+		return this.itemsRam;
 	}
 
 	public void setItemsRam(Collection<Ram> itemsRam) {
@@ -193,7 +194,7 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Refrigeracion> getItemsRefrigeracion() {
-		return itemsRefrigeracion;
+		return this.itemsRefrigeracion;
 	}
 
 	public void setItemsRefrigeracion(Collection<Refrigeracion> itemsRefrigeracion) {
@@ -201,28 +202,27 @@ public class Categoria implements Serializable {
 	}
 
 	public Collection<Tarjeta> getItemsTarjeta() {
-		return itemsTarjeta;
+		return this.itemsTarjeta;
 	}
 
 	public void setItemsTarjeta(Collection<Tarjeta> itemsTarjeta) {
 		this.itemsTarjeta = itemsTarjeta;
 	}
 
-
 	public Collection<Producto> getItemsProducto() {
-		return itemsProducto;
+		return this.itemsProducto;
 	}
 
 	public void setItemsProducto(Collection<Producto> itemsProducto) {
 		this.itemsProducto = itemsProducto;
 	}
 
-	public Collection<Subcategoria> getItemsSubcategoria() {
-		return subcategorias;
+	public Collection<Subcategoria> getSubcategorias() {
+		return this.subcategorias;
 	}
 
-	public void setItemsSubcategoria(Collection<Subcategoria> itemSubcategorias) {
-		this.subcategorias = itemSubcategorias;
+	public void setSubcategorias(Collection<Subcategoria> subcategorias) {
+		this.subcategorias = subcategorias;
 	}
 
 }

@@ -1860,7 +1860,7 @@
 			<a th:href="@{/}" class="seguimiento__etiqueta">
 				Hogar
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${combo.categoria.nombre}"></span>
+				<span>Combo</span>
 				<i class="fa-solid fa-angle-right"></i>
 				<span th:text="${combo.nombre}"></span>
 			</a>
@@ -1921,11 +1921,7 @@
 						<div>
 							<!-- Informacion de producto -->
 							<div class="informacion-pro">
-								<div>
-									<label>Estado: </label>
-									<span th:text="${combo.estado}"></span>
-									<!-- <span th:text="${producto.estado}"></span> -->
-								</div>
+
 								<div>
 									<label>En stock: </label>
 									<span th:text="${combo.stock}"></span>
@@ -1995,9 +1991,7 @@
 				<div>
 					<p th:utext="${#strings.replace(combo.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${combo.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+
 			</div>
 
 		</div>

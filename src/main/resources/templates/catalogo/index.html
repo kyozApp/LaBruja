@@ -294,6 +294,10 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<h1>ESTE ES UN MODAL</h1>
+
+										<p th:text="${accesorio.nombre}"></p>
+										<p class="precio-producto" th:text="'S/. ' + ${accesorio.precio}"></p>
+										<p th:text="'Stock: ' + ${accesorio.stock}"></p>
 										<div class="close-modal">
 											<i class="fa-solid fa-xmark" aria-hidden="true"></i>
 										</div>
@@ -759,8 +763,8 @@
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<!-- <p class="precio-producto" th:text="'(S/. ' + ${combo.precio} + ')'"></p> -->
-											<!-- <p th:text="'Stock: ' + ${combo.stock}"></p> -->
+											<p class="precio-producto" th:text="'(S/. ' + ${combo.precio} + ')'"></p>
+											<p th:text="'Stock: ' + ${combo.stock}"></p>
 										</div>
 										<div class="btn-producto">
 											<a th:href="@{/}" class="con-img-fav">

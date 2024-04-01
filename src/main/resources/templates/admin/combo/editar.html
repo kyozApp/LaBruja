@@ -36,6 +36,16 @@
 			</div>
 
 			<div>
+				<label for="stock">Stock:</label><br>
+				<input type="number" name="stock" th:value="${combo.stock}" />
+			</div>
+
+			<div>
+				<label for="precio">Precio:</label><br>
+				<input type="number" name="precio" step="0.01" th:value="${combo.precio}" />
+			</div>
+
+			<div>
 				<label for="descripcion">Descripción:</label><br>
 				<textarea name="descripcion" th:text="${combo.descripcion}"></textarea>
 			</div>

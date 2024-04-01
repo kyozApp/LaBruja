@@ -25,13 +25,19 @@ public class Combo implements Serializable {
     private String nombre;
 
     @Column
-    private String descripcion;
-
-    @Column
     private String imagenNombre;
 
     @Column(columnDefinition = "longblob")
     private byte[] imagenArchivo;
+
+    @Column
+    private Integer stock;
+
+    @Column
+    private Double precio;
+
+    @Column
+    private String descripcion;
 
     // convertir file en String base64
     public String getBase64Image() {
@@ -48,12 +54,15 @@ public class Combo implements Serializable {
     public Combo() {
     }
 
-    public Combo(Integer comboId, String nombre, String descripcion, String imagenNombre, byte[] imagenArchivo) {
+    public Combo(Integer comboId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
+            Double precio, String descripcion) {
         this.comboId = comboId;
         this.nombre = nombre;
-        this.descripcion = descripcion;
         this.imagenNombre = imagenNombre;
         this.imagenArchivo = imagenArchivo;
+        this.stock = stock;
+        this.precio = precio;
+        this.descripcion = descripcion;
     }
 
     public Integer getComboId() {
@@ -72,14 +81,6 @@ public class Combo implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return this.descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public String getImagenNombre() {
         return this.imagenNombre;
     }
@@ -94,6 +95,30 @@ public class Combo implements Serializable {
 
     public void setImagenArchivo(byte[] imagenArchivo) {
         this.imagenArchivo = imagenArchivo;
+    }
+
+    public Integer getStock() {
+        return this.stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public Double getPrecio() {
+        return this.precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
 }

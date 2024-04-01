@@ -18,6 +18,8 @@
                 <th>Nombre</th>
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
+                <th>Stock</th>
+                <th>Precio</th>
                 <th>Descripción</th>
                 <th></th>
                 <th></th>
@@ -32,6 +34,8 @@
                     <img th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" width="45px"
                         height="45px" border="1" />
                 </td>
+                <td th:text="${combo.stock}"></td>
+                <td th:text="${combo.precio}"></td>
                 <td th:text="${combo.descripcion}"></td>
                 <td><a th:href="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}">Editar</a>
                 </td>
