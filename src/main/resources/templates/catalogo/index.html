@@ -274,7 +274,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${accesorio.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" th:text="${accesorio.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -284,7 +284,7 @@
 											<p th:text="'Stock: ' + ${accesorio.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -323,7 +323,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${almacenamiento.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" th:text="${almacenamiento.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -333,7 +333,7 @@
 											<p th:text="'Stock: ' + ${almacenamiento.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -368,7 +368,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${casse.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" th:text="${casse.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -377,7 +377,7 @@
 											<p th:text="'Stock: ' + ${casse.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -412,7 +412,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${fuente.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" th:text="${fuente.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -421,7 +421,7 @@
 											<p th:text="'Stock: ' + ${fuente.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -455,7 +455,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${laptop.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}"  th:text="${laptop.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -464,7 +464,7 @@
 											<p th:text="'Stock: ' + ${laptop.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -498,7 +498,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${monitor.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" th:text="${monitor.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -507,7 +507,7 @@
 											<p th:text="'Stock: ' + ${monitor.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -541,7 +541,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${placa.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" th:text="${placa.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -550,7 +550,7 @@
 											<p th:text="'Stock: ' + ${placa.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -584,7 +584,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${procesador.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" th:text="${procesador.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -594,7 +594,7 @@
 											<p th:text="'Stock: ' + ${procesador.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -628,7 +628,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${ram.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" th:text="${ram.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -637,7 +637,7 @@
 											<p th:text="'Stock: ' + ${ram.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -671,7 +671,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${refrigeracion.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" th:text="${refrigeracion.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -681,7 +681,7 @@
 											<p th:text="'Stock: ' + ${refrigeracion.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -715,7 +715,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${tarjeta.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" th:text="${tarjeta.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -724,7 +724,7 @@
 											<p th:text="'Stock: ' + ${tarjeta.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -758,7 +758,7 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a href="#" th:text="${combo.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" th:text="${combo.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -767,7 +767,7 @@
 											<p th:text="'Stock: ' + ${combo.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" class="con-img-fav">
 												Comprar
 											</a>
 										</div>
