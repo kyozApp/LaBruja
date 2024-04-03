@@ -136,6 +136,8 @@ li {
     font-family: 'Poppins', sans-serif;
     border: none;
     background: #ffffff00;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .centered-label:hover {
@@ -280,8 +282,8 @@ li {
     background-color: rgb(239 239 239);
 }
 
-.close-silebar label img{
-    width: 25px;    
+.close-silebar label img {
+    width: 25px;
 }
 
 /* Estilos para la parte de las categorias */
@@ -305,7 +307,7 @@ li {
     border-left: 5px solid rgba(243, 243, 243, 0);
 }
 
-.simnbolo{
+.simnbolo {
     width: 12px;
 }
 
@@ -315,7 +317,11 @@ li {
     color: black;
 }
 
-li:hover .simbolo{
+.listaItems span{
+    text-transform: uppercase;
+}
+
+li:hover .simbolo {
     color: red;
     font-weight: bold;
 }
@@ -346,7 +352,8 @@ li:hover .simbolo{
     color: white;
 }
 
-.contador-fav, .contador-car {
+.contador-fav,
+.contador-car {
     left: -30px;
     top: -19px;
 }
@@ -622,5 +629,26 @@ li:hover .simbolo{
 
     .form-busqueda button {
         padding: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* POR MIENTRAS */
+.ocultar {
+    display: none;
+}
+
+@media screen and (max-width: 775px) {
+    .head-div-2-part1-2 {
+        width: 70vw;
     }
 }

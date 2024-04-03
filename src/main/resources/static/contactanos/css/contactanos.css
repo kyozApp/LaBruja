@@ -76,6 +76,10 @@ hr {
     align-items: center;
 }
 
+.cont-asesor img{
+    width: 190px;
+}
+
 .cont-asesor h3, .cont-asesor p{
     margin: 3px;
     color: black;
@@ -126,6 +130,18 @@ hr {
     display: flex;
     justify-content: space-around;
     margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 800px) {
+    .cont-asesor img {
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .cont-asesor img {
+        width: 120px;
+    }
 }
 
 @media screen and (max-width: 550px) {

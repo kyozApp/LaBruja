@@ -9,7 +9,7 @@
     flex-direction: column;
     position: relative;
     align-items: left;
-    bottom: 1.7rem;
+    margin-bottom: 40px;
 }
 
 .encabezado .encabezado__input {
@@ -94,6 +94,9 @@
     margin-bottom: 80px;
 }
 
+.contacto{
+    height: 366px;
+}
 /* Footer */
 .footer {
     background-color: #000000;
@@ -133,6 +136,7 @@ figure {
 .container {
     max-width: 800px;
     text-align: left;
+    height: 106px;
 }
 
 .container .conacto__dividir,
@@ -146,7 +150,7 @@ figure {
 .contacto__iconos {
     display: flex;
     flex-direction: column;
-    gap: 1.55rem;
+    gap: 8px;
 }
 
 .contacto__iconos a {
@@ -155,6 +159,10 @@ figure {
 }
 
 /* Información */
+.informacion{
+    display: none;
+}
+
 .informacion .informacion__lista {
     list-style: none;
     padding: 0;
@@ -186,4 +194,8 @@ figure {
     .copyright p {
         text-align: center;
     }
+}
+
+.ocultar{
+    display: none;
 }

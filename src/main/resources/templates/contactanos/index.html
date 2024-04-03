@@ -39,7 +39,9 @@
                 <div class="contenedor-2">
                     <!--Logo Header-->
                     <div class="head-div-2-part1-1">
-                        <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                        <a href="/">
+                            <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                        </a>
                     </div>
 
                     <!--Buscador-->
@@ -53,7 +55,7 @@
                         </form>
                     </div>
                     <!--Favorito y Carrito-->
-                    <div class="head-div-2-part1-3 none-mobil" style="margin-left: 2rem;">
+                    <div class="head-div-2-part1-3 none-mobil ocultar" style="margin-left: 2rem;">
                         <!--Contador de favoritos-->
                         <a class="link-bnt" href="/">
                             <div>
@@ -100,7 +102,7 @@
             </form>
         </div>
 
-        <div class="head-div-2-part1-3">
+        <div class="head-div-2-part1-3 ocultar">
             <a href="/">
                 <div class="cont-icon-corazon">
                     <span class="span-corazon-mobil">4</span>
@@ -127,38 +129,27 @@
                 </div>
                 <ul>
                     <a href="/catalogo/producto">
-                        <li id="listaItems">
+                        <li class="listaItems">
                             <span>CATALOGO</span>
+                        </li>
+                    </a>
+                    <hr>
+                    <a  th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
+                        <li class="listaItems">
+                            <span th:text="${categoria.nombre}"></span>
                             <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
                                 style="width: 12px;">
                         </li>
                     </a>
+                    <hr>
                     <a href="/">
-                        <li id="listaItems">
-                            <span>Categoria 1</span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-                                style="width: 12px;">
+                        <li class="listaItems">
+                            <span>INICIO</span>
                         </li>
                     </a>
-                    <a href="/">
-                        <li id="listaItems">
-                            <span>Categoria 2</span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-                                style="width: 12px;">
-                        </li>
-                    </a>
-                    <a href="/">
-                        <li id="listaItems">
-                            <span>Categoria 3</span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-                                style="width: 12px;">
-                        </li>
-                    </a>
-                    <a href="/">
-                        <li id="listaItems">
-                            <span>Categoria 4</span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-                                style="width: 12px;">
+                    <a href="/contactanos">
+                        <li class="listaItems">
+                            <span>CONTACTANOS</span>
                         </li>
                     </a>
                 </ul>
@@ -231,8 +222,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51918310475}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>YERSON</h3>
                                     <p>918 310 475</p>
                                 </div>
@@ -241,8 +231,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51922512904}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>JERENY</h3>
                                     <p>922 512 904</p>
                                 </div>
@@ -251,8 +240,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51972563104}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>GUSTAVO</h3>
                                     <p>972 563 104</p>
                                 </div>
@@ -261,8 +249,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51972213019}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>ELIEL</h3>
                                     <p>972 213 019</p>
                                 </div>
@@ -271,8 +258,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51914994007}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>ANDY</h3>
                                     <p>914 994 007</p>
                                 </div>
@@ -281,8 +267,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51923646990}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>LUIS</h3>
                                     <p>923 646 990</p>
                                 </div>
@@ -291,8 +276,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51984737542}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>JEREMY</h3>
                                     <p>984 737 542</p>
                                 </div>
@@ -309,8 +293,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51918310475}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>FERNANDO</h3>
                                     <p>918 310 475</p>
                                 </div>
@@ -319,8 +302,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51921906558}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/11/operador.png}"
-                                        alt="">
+                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>EDINSON</h3>
                                     <p>921 906 558</p>
                                 </div>
@@ -343,7 +325,7 @@
                             width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <ul>
-                            <li>C.C. CYBERPLAZA TIENDA 140 SECTOR 2B</li>
+                            <li style="margin-bottom: 15px;">AV. GARCILAZO DE LA VEGA 1348 INTERIOR 2B-140 - CENTRO COMERCIAL CYBERPLAZA</li>
                             <li>
                                 HORARIO DE ATENCIÓN
                                 <ul>
@@ -362,7 +344,7 @@
                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <ul>
-                            <li>C.C. CYBERPLAZA TIENDA 140 SECTOR 2B</li>
+                            <li style="margin-bottom: 15px;">CALLE OCTAVIO MUÑOZ NAJAR 223 INTERIOR 133 - CENTRO COMERCIAL COMPUAREQUIPA</li>
                             <li>
                                 HORARIO DE ATENCIÓN
                                 <ul>
@@ -385,97 +367,97 @@
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <footer class="footer">
-        <main class="encabezado">
-            <span class="encabezado__titulo">Suscribete para resivir boletinis</span>
-            <div class="encabezado__contenido">
-                <input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
-                <p class="encabezado__parrafo">suscribirse</p>
-            </div>
-        </main>
-        <section class="seccion">
-            <article class="articulo">
-                <figure>
-                    <img th:src="@{https://labrujastore.com/wp-content/uploads/2023/05/labrujastore-1.png}" alt="imagen"
-                        class="articulo__imagen" loading="lazy" width="315px" />
-                </figure>
-                <div class="contenido">
-                    <p class="contenido__descripcion">
-                        Consigue las mejores marcas a los mejores
-                        <span class="contenido__span">precios, aquí en La Bruja Store.</span>
-                    </p>
-                    <p>Siguenes en nuestras redes sociales:</p>
-                    <div class="cont-redes">
-                        <div class="cad-img">
-                            <a class="style-icon" target="_blank"
-                                th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
-                            </a>
-                        </div>
-                        <div class="cad-img">
-                            <a class="style-icon" target="_blank"
-                                th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
-                            </a>
-                        </div>
-                        <div class="cad-img">
-                            <a class="style-icon" target="_blank"
-                                th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="contacto">
-                <div class="container">
-                    <h2 class="contacto__titulo">CONTÁCTANOS</h2>
-                    <div class="conacto__dividir"></div>
-                </div>
-                <div class="contacto__borde"></div>
-                <div class="contacto__iconos">
-                    <a th:href="@{/contacto}">
-                        <span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
-                    </a>
-                    <a th:href="@{/contacto}">
-                        <span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
-                        133 y 219
-                    </a>
-                    <a th:href="@{/}">
-                        <span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
-                        sector 2 B
-                    </a>
-                    <a th:href="@{/}">
-                        <span><i class="fa-solid fa-envelope"></i></span>
-                        labrujastore@uotlook.com
-                    </a>
-                </div>
-            </article>
-            <article class="informacion">
-                <div class="container">
-                    <h2 class="informacion__titulo">INFORMACIÓN</h2>
-                    <div class="informacion__dividir"></div>
-                </div>
-                <ul class="informacion__lista">
-                    <li>Nosotros</li>
-                    <li>Novedades</li>
-                    <li>Destacados</li>
-                    <li>Ofertas del día</li>
-                    <li>
-                        <a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
-                    </li>
-                </ul>
-            </article>
-        </section>
-        <div class="copyright">
-            <p>Labrujastore© 2023 todos los derechos reservados.</p>
-        </div>
-    </footer>
+		<main class="encabezado">
+			<span class="encabezado__titulo ocultar" >Suscribete para resivir boletinis</span>
+			<div class="encabezado__contenido ocultar">
+				<input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
+				<p class="encabezado__parrafo">suscribirse</p>
+			</div>
+		</main>
+		<section class="seccion">
+			<article class="articulo">
+				<figure>
+					<img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
+						width="315px" />
+				</figure>
+				<div class="contenido">
+					<p class="contenido__descripcion">
+						Consigue las mejores marcas a los mejores
+						<span class="contenido__span">precios, aquí en La Bruja Store.</span>
+					</p>
+					<p>Siguenes en nuestras redes sociales:</p>
+					<div class="cont-redes">
+						<div class="cad-img">
+							<a class="style-icon" target="_blank"
+								th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
+								<img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+							</a>
+						</div>
+						<div class="cad-img">
+							<a class="style-icon" target="_blank"
+								th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
+								<img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+							</a>
+						</div>
+						<div class="cad-img">
+							<a class="style-icon" target="_blank"
+								th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
+								<img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</article>
+			<article class="contacto">
+				<div class="container">
+					<h2 class="contacto__titulo">CONTÁCTANOS</h2>
+					<div class="conacto__dividir"></div>
+				</div>
+				<div class="contacto__borde"></div>
+				<div class="contacto__iconos">
+					<a th:href="@{/contactanos}">
+						<span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
+					</a>
+					<a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}">
+						<span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
+						133 y 219
+					</a>
+					<a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}">
+						<span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
+						sector 2 B
+					</a>
+					<a href="mailto:labrujastore@outlook.com">
+						<span><i class="fa-solid fa-envelope"></i></span>
+						labrujastore@uotlook.com
+					</a>
+				</div>
+			</article>
+			<article class="informacion">
+				<div class="container">
+					<h2 class="informacion__titulo">INFORMACIÓN</h2>
+					<div class="informacion__dividir"></div>
+				</div>
+				<ul class="informacion__lista">
+					<li>Nosotros</li>
+					<li>Novedades</li>
+					<li>Destacados</li>
+					<li>Ofertas del día</li>
+					<li>
+						<a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
+					</li>
+					<li>
+						<a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
+					</li>
+					<li>
+						<a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
+					</li>
+				</ul>
+			</article>
+		</section>
+		<div class="copyright">
+			<p>Labrujastore© 2023 todos los derechos reservados.</p>
+		</div>
+	</footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 </body>
