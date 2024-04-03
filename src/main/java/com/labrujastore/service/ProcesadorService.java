@@ -11,4 +11,5 @@ public interface ProcesadorService
 	public Procesador actualizarProcesador(Procesador procesador);
 	public Procesador obtenerIdProcesador(Integer procesadorId);
 	public void eliminarProcesador(Integer procesadorId);
+	public List<Procesador> obtenerProcesadoresPorCategoria(Integer procesadorId);
 }

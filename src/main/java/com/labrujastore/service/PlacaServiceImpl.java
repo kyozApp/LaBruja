@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class PlacaServiceImpl implements PlacaService
 		placaRepository.deleteById(placaId);
 	}
 
+	@Override
+    public List<Placa> obtenerPlacasPorCategoria(Integer placaId) {
+
+		List<Placa> placas = placaRepository.findAll();
+		List<Placa> placasFinal = new ArrayList<>();
+		for (Placa placa : placas) {
+			if (placaId.equals(placa.getCategoria().getCategoriaId())) {
+				placasFinal.add(placa);
+			}
+		}
+	
+		return placasFinal;
+	}
 }

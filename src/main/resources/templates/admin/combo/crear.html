@@ -31,6 +31,12 @@
 		<label for="descripcion">Descripción:</label>
 		<textarea id="descripcion" name="descripcion" th:field="*{descripcion}" required></textarea>
 		<br>
+		<label for="categoria">Categoría:</label>
+		<select id="categoria" name="categoria" th:field="*{categoria}" required>
+			<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+				th:text="${categoria.nombre}"></option>
+		</select>
+		<br>
 		<button type="submit">Crear</button>
 	</form>
 

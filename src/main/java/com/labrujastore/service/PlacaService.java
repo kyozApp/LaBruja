@@ -11,4 +11,5 @@ public interface PlacaService
 	public Placa actualizarPlaca(Placa placa);
 	public Placa obtenerIdPlaca(Integer placaId);
 	public void eliminarPlaca(Integer placaId);
+	public List<Placa> obtenerPlacasPorCategoria(Integer placaId);
 }

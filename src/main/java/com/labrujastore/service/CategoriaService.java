@@ -11,4 +11,5 @@ public interface CategoriaService
 	public Categoria actualizarCategoria(Categoria categoria);
 	public Categoria obtenerIdCategoria(Integer categoriaId);
 	public void eliminarCategoria(Integer categoriaId);
+	public Categoria obtenerCategoriaNombreUrl(String nombreUrl);
 }

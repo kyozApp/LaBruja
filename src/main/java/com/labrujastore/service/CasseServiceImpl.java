@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class CasseServiceImpl implements CasseService
 		casseRepository.deleteById(casseId);
 	}
 
+	@Override
+    public List<Casse> obtenerCassesPorCategoria(Integer casseId) {
+
+		List<Casse> casses = casseRepository.findAll();
+		List<Casse> cassesFinal = new ArrayList<>();
+		for (Casse casse : casses) {
+			if (casseId.equals(casse.getCategoria().getCategoriaId())) {
+				cassesFinal.add(casse);
+			}
+		}
+	
+		return cassesFinal;
+	}
 }

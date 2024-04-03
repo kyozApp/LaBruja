@@ -11,4 +11,5 @@ public interface TarjetaService
 	public Tarjeta actualizarTarjeta(Tarjeta tarjeta);
 	public Tarjeta obtenerIdTarjeta(Integer tarjetaId);
 	public void eliminarTarjeta(Integer tarjetaId);
+	public List<Tarjeta> obtenerTarjetasPorCategoria(Integer tarjetaId);
 }

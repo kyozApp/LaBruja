@@ -232,7 +232,7 @@
 						<h3>Subcategorías</h3>
 						<ul>
 							<li th:each="categoria : ${vistaCategorias}">
-								<a th:href="@{/{categoria.categoriaId}}" th:text="${categoria.nombre}"></a>
+								<a th:href="@{'/catalogo/' + ${categoria.nombreUrl}}" th:text="${categoria.nombre}"></a>
 							</li>
 						</ul>
 					</div>
@@ -274,16 +274,19 @@
 									</div>
 								</div>
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" th:text="${accesorio.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}"
+										th:text="${accesorio.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
 										<div class="cont-atrub-prod">
-											<p class="precio-producto" th:text="'(S/. ' + ${accesorio.precio} + ')'"></p>
+											<p class="precio-producto" th:text="'(S/. ' + ${accesorio.precio} + ')'">
+											</p>
 											<p th:text="'Stock: ' + ${accesorio.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -293,20 +296,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
+													th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
 														<h2 th:text="${accesorio.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${accesorio.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${accesorio.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -339,7 +345,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" th:text="${almacenamiento.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}"
+										th:text="${almacenamiento.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -349,7 +356,8 @@
 											<p th:text="'Stock: ' + ${almacenamiento.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -359,20 +367,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
+													th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
 														<h2 th:text="${almacenamiento.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${almacenamiento.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -405,7 +416,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" th:text="${casse.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}"
+										th:text="${casse.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -414,7 +426,8 @@
 											<p th:text="'Stock: ' + ${casse.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -424,20 +437,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
+													th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
 														<h2 th:text="${casse.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${casse.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${casse.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -470,7 +486,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" th:text="${fuente.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}"
+										th:text="${fuente.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -479,7 +496,8 @@
 											<p th:text="'Stock: ' + ${fuente.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -489,20 +507,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
+													th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
 														<h2 th:text="${fuente.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${fuente.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${fuente.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -535,7 +556,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}"  th:text="${laptop.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}"
+										th:text="${laptop.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -544,7 +566,8 @@
 											<p th:text="'Stock: ' + ${laptop.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -554,20 +577,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
+													th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
 														<h2 th:text="${laptop.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${laptop.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${laptop.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -600,7 +626,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" th:text="${monitor.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}"
+										th:text="${monitor.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -609,7 +636,8 @@
 											<p th:text="'Stock: ' + ${monitor.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -619,20 +647,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
+													th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
 														<h2 th:text="${monitor.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${monitor.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${monitor.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -665,7 +696,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" th:text="${placa.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}"
+										th:text="${placa.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -674,7 +706,8 @@
 											<p th:text="'Stock: ' + ${placa.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -683,20 +716,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
+													th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
 														<h2 th:text="${placa.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${placa.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${placa.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -728,7 +764,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" th:text="${procesador.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}"
+										th:text="${procesador.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -738,7 +775,8 @@
 											<p th:text="'Stock: ' + ${procesador.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -748,20 +786,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
+													th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
 														<h2 th:text="${procesador.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${procesador.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${procesador.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -794,7 +835,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" th:text="${ram.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}"
+										th:text="${ram.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -803,30 +845,34 @@
 											<p th:text="'Stock: ' + ${ram.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
+													th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
 														<h2 th:text="${ram.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${ram.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${ram.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -859,7 +905,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" th:text="${refrigeracion.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}"
+										th:text="${refrigeracion.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -869,7 +916,8 @@
 											<p th:text="'Stock: ' + ${refrigeracion.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -878,20 +926,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
+													th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
 														<h2 th:text="${refrigeracion.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${refrigeracion.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -923,7 +974,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" th:text="${tarjeta.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}"
+										th:text="${tarjeta.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -932,7 +984,8 @@
 											<p th:text="'Stock: ' + ${tarjeta.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
@@ -942,20 +995,23 @@
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
+													th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
 														<h2 th:text="${tarjeta.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${tarjeta.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${tarjeta.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -988,7 +1044,8 @@
 								</div>
 
 								<p class="titulo-producto">
-									<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" th:text="${combo.nombre}"></a>
+									<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}"
+										th:text="${combo.nombre}"></a>
 								</p>
 								<div class="cont-producto">
 									<div class="sub-cont-produc">
@@ -997,30 +1054,34 @@
 											<p th:text="'Stock: ' + ${combo.stock}"></p>
 										</div>
 										<div class="btn-producto">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" class="con-img-fav">
+											<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}"
+												class="con-img-fav">
 												Comprar
 											</a>
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="modal-producto" style="display: none;">
 									<div class="cont-modal">
 										<div class="estructura-modal">
-											<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
+											<a
+												th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
 												<img class="img-producto"
-												th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" />
+													th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" />
 											</a>
 											<div class="div-cont-modal">
 												<div class="des-modal">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
 														<h2 th:text="${combo.nombre}"></h2>
 													</a>
 													<h3 th:text="'(S/. ' + ${combo.precio} + ')'"></h3>
 													<p th:text="'Stock: ' + ${combo.stock}"></span></p>
 												</div>
 												<div class="btn-ver-detalles">
-													<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
+													<a
+														th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
 														<p>VER DETALLES</p>
 														<i class="fa-solid fa-arrow-right"></i>
 													</a>
@@ -1034,6 +1095,7 @@
 								</div>
 
 							</div>
+
 
 							<script>
 								document.addEventListener('DOMContentLoaded', function () {
@@ -1104,8 +1166,8 @@
 		<section class="seccion">
 			<article class="articulo">
 				<figure>
-					<img th:src="@{/general/img/logo.png}" alt="imagen"
-						class="articulo__imagen" loading="lazy" width="315px" />
+					<img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
+						width="315px" />
 				</figure>
 				<div class="contenido">
 					<p class="contenido__descripcion">

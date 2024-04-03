@@ -11,4 +11,5 @@ public interface LaptopService
 	public Laptop actualizarLaptop(Laptop laptop);
 	public Laptop obtenerIdLaptop(Integer laptopId);
 	public void eliminarLaptop(Integer laptopId);
+	public List<Laptop> obtenerLaptopsPorCategoria(Integer laptopId);
 }

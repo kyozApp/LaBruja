@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class TarjetaServiceImpl implements TarjetaService
 		tarjetaRepository.deleteById(tarjetaId);
 	}
 
+	@Override
+    public List<Tarjeta> obtenerTarjetasPorCategoria(Integer tarjetaId) {
+
+		List<Tarjeta> tarjetas = tarjetaRepository.findAll();
+		List<Tarjeta> tarjetasFinal = new ArrayList<>();
+		for (Tarjeta tarjeta : tarjetas) {
+			if (tarjetaId.equals(tarjeta.getCategoria().getCategoriaId())) {
+				tarjetasFinal.add(tarjeta);
+			}
+		}
+	
+		return tarjetasFinal;
+	}
 }

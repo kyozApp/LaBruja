@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Combo;
+import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.ComboService;
 
 @Controller
@@ -23,6 +25,9 @@ public class ComboController {
 
     @Autowired
     private ComboService comboService;
+
+    @Autowired
+	private CategoriaService categoriaService;
 
     @GetMapping("/combo")
     public String index(Model model) {
@@ -34,7 +39,9 @@ public class ComboController {
     @GetMapping("/combo/crear")
     public String crear(Model model) {
         Combo combo = new Combo();
+        List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearCombo", combo);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/combo/crear";
     }
 
@@ -50,18 +57,22 @@ public class ComboController {
     @GetMapping("/combo/editar/{comboId}")
     public String editar(@PathVariable Integer comboId, Model model) {
         Combo combo = comboService.obtenerIdCombo(comboId);
+        List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("combo", combo);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/combo/editar";
     }
 
     @PostMapping("/combo/editar/{comboId}")
     public String editar(@PathVariable Integer comboId, @ModelAttribute Combo combo,
-            @RequestParam("imagen") MultipartFile imagen) throws IOException {
+            @RequestParam("imagen") MultipartFile imagen, 
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Combo comboExistente = comboService.obtenerIdCombo(comboId);
         comboExistente.setNombre(combo.getNombre());
         comboExistente.setStock(combo.getStock());
         comboExistente.setPrecio(combo.getPrecio());
         comboExistente.setDescripcion(combo.getDescripcion());
+        comboExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
         if (!imagen.isEmpty()) {
             comboExistente.setImagenNombre(imagen.getOriginalFilename());
             comboExistente.setImagenArchivo(imagen.getBytes());

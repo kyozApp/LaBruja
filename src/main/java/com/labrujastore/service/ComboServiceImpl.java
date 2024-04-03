@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class ComboServiceImpl implements ComboService {
         return comboRepository.findById(comboId).get();
     }
 
+    @Override
+    public List<Combo> obtenerCombosPorCategoria(Integer comboId) {
+
+		List<Combo> combos = comboRepository.findAll();
+		List<Combo> combosFinal = new ArrayList<>();
+		for (Combo combo : combos) {
+			if (comboId.equals(combo.getCategoria().getCategoriaId())) {
+				combosFinal.add(combo);
+			}
+		}
+	
+		return combosFinal;
+	}
 }

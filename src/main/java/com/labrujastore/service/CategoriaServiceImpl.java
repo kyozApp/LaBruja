@@ -43,4 +43,18 @@ public class CategoriaServiceImpl implements CategoriaService
 		categoriaRepository.deleteById(categoriaId);
 	}
 
+	@SuppressWarnings("null")
+	@Override
+	public Categoria obtenerCategoriaNombreUrl(String nombreUrl) {
+		if (nombreUrl == null) {
+			return null; // Manejar caso de nombreUrl nulo
+		}
+		List<Categoria> categorias = categoriaRepository.findAll();
+		for (Categoria categoria : categorias) {
+			if (nombreUrl.equals(categoria.getNombreUrl())) {
+				return categoria; // Retorna la categoría encontrada
+			}
+		}
+		return null; // Si no se encuentra la categoría, retorna nulo
+	}
 }

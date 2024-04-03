@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class LaptopServiceImpl implements LaptopService
 		laptopRepository.deleteById(laptopId);
 	}
 
+	@Override
+    public List<Laptop> obtenerLaptopsPorCategoria(Integer laptopId) {
+
+		List<Laptop> laptops = laptopRepository.findAll();
+		List<Laptop> laptopsFinal = new ArrayList<>();
+		for (Laptop laptop : laptops) {
+			if (laptopId.equals(laptop.getCategoria().getCategoriaId())) {
+				laptopsFinal.add(laptop);
+			}
+		}
+	
+		return laptopsFinal;
+	}
 }

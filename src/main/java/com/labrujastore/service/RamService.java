@@ -11,4 +11,5 @@ public interface RamService
 	public Ram actualizarRam(Ram ram);
 	public Ram obtenerIdRam(Integer ramId);
 	public void eliminarRam(Integer ramId);
+	public List<Ram> obtenerRamsPorCategoria(Integer ramId);
 }

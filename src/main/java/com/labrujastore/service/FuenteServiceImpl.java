@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,20 @@ public class FuenteServiceImpl implements FuenteService
 	@Override
 	public void eliminarFuente(Integer fuenteId) {
 		fuenteRepository.deleteById(fuenteId);
+	}
+
+	@Override
+    public List<Fuente> obtenerFuentesPorCategoria(Integer fuenteId) {
+
+		List<Fuente> fuentes = fuenteRepository.findAll();
+		List<Fuente> fuentesFinal = new ArrayList<>();
+		for (Fuente fuente : fuentes) {
+			if (fuenteId.equals(fuente.getCategoria().getCategoriaId())) {
+				fuentesFinal.add(fuente);
+			}
+		}
+	
+		return fuentesFinal;
 	}
 
 }
