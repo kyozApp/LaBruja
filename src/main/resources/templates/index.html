@@ -325,21 +325,26 @@
 				<div class="swiper-slide" th:each="accesorio : ${vistaAccesorios}"
 					th:if="${accesorio.estado == 'nuevo'}">
 					<div class="card">
+						<p class="producto-id" th:text="${accesorio.accesorioId}" style="display: none;"></p>
 						<div class="figure-image">
-							<a href="#">
-								<img class="img-producto img-prin"
+							<a
+								th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
+								<img class="img-producto img-prin producto-img"
 									th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal"><span><i
-											class="fa-solid fa-eye"></i></span></a>
+								<a href="#" class="figure__link abrir-modal" data-producto="accesorio">
+									<span><i class="fa-solid fa-eye"></i></span>
+								</a>
 							</div>
 						</div>
 						<div class="description">
 							<a href="#" class="nombre-des">
-								<p th:text="${accesorio.nombre}"></p>
+								<p class="producto-nombre" th:text="${accesorio.nombre}"></p>
 							</a>
+							<p class="producto-precio" th:text="'(S/. ' + ${accesorio.precio} + ')'"></p>
+							<p class="producto-stock" th:text="'Stock: ' + ${accesorio.stock}"></p>
 							<a href="#" class="btn-comprar">COMPRAR</a>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -355,22 +360,26 @@
 				<div class="swiper-slide" th:each="almacenamiento : ${vistaAlmacenamientos}"
 					th:if="${almacenamiento.estado == 'nuevo'}">
 					<div class="card">
+						<p class="producto-id" th:text="${almacenamiento.almacenamientoId}" style="display: none;"></p>
 						<div class="figure-image">
-							<a href="#">
-								<img class="img-producto img-prin"
+							<a
+								th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
+								<img class="img-producto img-prin producto-img"
 									th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal">
+								<a href="#" class="figure__link abrir-modal" data-producto="almacenamiento">
 									<span><i class="fa-solid fa-eye"></i></span>
 								</a>
 							</div>
 						</div>
 						<div class="description">
 							<a href="#" class="nombre-des">
-								<p th:text="${almacenamiento.nombre}"></p>
+								<p class="producto-nombre" th:text="${almacenamiento.nombre}"></p>
 							</a>
+							<p class="producto-precio" th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></p>
+							<p class="producto-stock" th:text="'Stock: ' + ${almacenamiento.stock}"></p>
 							<a href="#" class="btn-comprar">COMPRAR</a>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -385,22 +394,25 @@
 				</div>
 				<div class="swiper-slide" th:each="casse : ${vistaCasses}" th:if="${casse.estado == 'nuevo'}">
 					<div class="card">
+						<p class="producto-id" th:text="${casse.casseId}" style="display: none;"></p>
 						<div class="figure-image">
-							<a href="#">
-								<img class="img-producto img-prin"
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
+								<img class="img-producto img-prin producto-img"
 									th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal">
+								<a href="#" class="figure__link abrir-modal" data-producto="casse">
 									<span><i class="fa-solid fa-eye"></i></span>
 								</a>
 							</div>
 						</div>
 						<div class="description">
 							<a href="#" class="nombre-des">
-								<p th:text="${casse.nombre}"></p>
+								<p class="producto-nombre" th:text="${casse.nombre}"></p>
 							</a>
+							<p class="producto-precio" th:text="'(S/. ' + ${casse.precio} + ')'"></p>
+							<p class="producto-stock" th:text="'Stock: ' + ${casse.stock}"></p>
 							<a href="#" class="btn-comprar">COMPRAR</a>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -417,7 +429,7 @@
 				<div class="swiper-slide" th:each="fuente : ${vistaFuentes}" th:if="${fuente.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}"
 									onclick="redireccionar()" />
@@ -446,7 +458,7 @@
 				<div class="swiper-slide" th:each="laptop : ${vistaLaptops}" th:if="${laptop.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}"
 									onclick="redireccionar()" />
@@ -476,7 +488,7 @@
 				<div class="swiper-slide" th:each="monitor : ${vistaMonitores}" th:if="${monitor.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}"
 									onclick="redireccionar()" />
@@ -506,13 +518,14 @@
 				<div class="swiper-slide" th:each="placa : ${vistaPlacas}" th:if="${placa.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal"><span><i class="fa-solid fa-eye"></i></span></a>
+								<a href="#" class="figure__link abrir-modal"><span><i
+											class="fa-solid fa-eye"></i></span></a>
 							</div>
 						</div>
 						<div class="description">
@@ -531,17 +544,20 @@
 						</div>
 					</div>
 				</div>
-				
-				<div class="swiper-slide" th:each="procesador : ${vistaProcesadores}" th:if="${procesador.estado == 'nuevo'}">
+
+				<div class="swiper-slide" th:each="procesador : ${vistaProcesadores}"
+					th:if="${procesador.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a
+								th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal"><span><i class="fa-solid fa-eye"></i></span></a>
+								<a href="#" class="figure__link abrir-modal"><span><i
+											class="fa-solid fa-eye"></i></span></a>
 							</div>
 						</div>
 						<div class="description">
@@ -560,17 +576,18 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="swiper-slide" th:each="ram : ${vistaRams}" th:if="${ram.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal"><span><i class="fa-solid fa-eye"></i></span></a>
+								<a href="#" class="figure__link abrir-modal"><span><i
+											class="fa-solid fa-eye"></i></span></a>
 							</div>
 						</div>
 						<div class="description">
@@ -589,17 +606,20 @@
 						</div>
 					</div>
 				</div>
-				
-				<div class="swiper-slide" th:each="refrigeracion : ${vistaRefrigeraciones}" th:if="${refrigeracion.estado == 'nuevo'}">
+
+				<div class="swiper-slide" th:each="refrigeracion : ${vistaRefrigeraciones}"
+					th:if="${refrigeracion.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a
+								th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal"><span><i class="fa-solid fa-eye"></i></span></a>
+								<a href="#" class="figure__link abrir-modal"><span><i
+											class="fa-solid fa-eye"></i></span></a>
 							</div>
 						</div>
 						<div class="description">
@@ -618,17 +638,18 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="swiper-slide" th:each="tarjeta : ${vistaTarjetas}" th:if="${tarjeta.estado == 'nuevo'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}"
 									onclick="redireccionar()" />
 							</a>
 							<div class="figure__description">
-								<a href="#" class="figure__link abrir-modal"><span><i class="fa-solid fa-eye"></i></span></a>
+								<a href="#" class="figure__link abrir-modal"><span><i
+											class="fa-solid fa-eye"></i></span></a>
 							</div>
 						</div>
 						<div class="description">
@@ -647,7 +668,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 
 			</div>
 			<div class="swiper-button-prev">
@@ -675,7 +696,7 @@
 				<div class="swiper-slide" th:each="laptop : ${vistaLaptops}" th:if="${laptop.oferta == 'si'}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}"
 									onclick="redireccionar()" />
@@ -730,7 +751,7 @@
 				<div class="swiper-slide" th:each="combo : ${vistaCombos}">
 					<div class="card">
 						<div class="figure-image">
-							<a href="#">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
 								<img class="img-producto img-prin"
 									th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}"
 									onclick="redireccionar()" />
@@ -767,19 +788,85 @@
 	</section>
 
 	<!-- MODAL QUE MUESTRA DETALLE DE LOS PRODUCTOS -->
-	<div class="modal-producto" style="display: none;">
+	<div class="modal-producto" style="display: none;" th:each="accesorio : ${vistaAccesorios}"
+		th:if="${accesorio.accesorioId == 5}" data-producto="accesorio">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
-					<img th:src="@{/producto/img/procesador.jpg}" alt="">
+					<img class="img-producto" id="producto-imagen-accesorio"
+						th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
 						<a href="#">
-							<h2>ESTE ES UN TEXTO DE EJEMPLO PARA EL NOMBRE DEPRODUCTO</h2>
+							<h2 id="producto-nombre-accesorio"></h2>
 						</a>
-						<h3>S/.<span id="precio-producto">1450.86</span></h3>
-						<p>Stock: <span id="Stock">12</span></p>
+						<p id="producto-id-accesorio"></p>
+						<h3>S/.<span id="producto-precio-accesorio"></span></h3>
+						<p>Stock: <span id="producto-stock-accesorio"></span></p>
+					</div>
+					<div class="btn-ver-detalles">
+						<a href="#">
+							<p>VER DETALLES</p>
+							<i class="fa-solid fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="close-modal">
+				<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal-producto" style="display: none;" th:each="almacenamiento : ${vistaAlmacenamientos}"
+		th:if="${almacenamiento.almacenamientoId == 3}" data-producto="almacenamiento">
+		<div class="cont-modal">
+			<div class="estructura-modal">
+				<a href="#">
+					<img class="img-producto" id="producto-imagen-almacenamiento"
+						th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
+				</a>
+				<div class="div-cont-modal">
+					<div class="des-modal">
+						<a href="#">
+							<h2 id="producto-nombre-almacenamiento"></h2>
+						</a>
+						<p id="producto-id-almacenamiento"></p>
+						<h3>S/.<span id="producto-precio-almacenamiento"></span></h3>
+						<p>Stock: <span id="producto-stock-almacenamiento"></span></p>
+					</div>
+					<div class="btn-ver-detalles">
+						<a href="#">
+							<p>VER DETALLES</p>
+							<i class="fa-solid fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="close-modal">
+				<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal-producto" style="display: none;" th:each="casse : ${vistaCasses}" th:if="${casse.casseId == 2}"
+		data-producto="casse">
+		<div class="cont-modal">
+			<div class="estructura-modal">
+				<a href="#">
+					<img class="img-producto" id="producto-imagen-casse"
+						th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
+				</a>
+				<div class="div-cont-modal">
+					<div class="des-modal">
+						<a href="#">
+							<h2 id="producto-nombre-casse"></h2>
+						</a>
+						<p id="producto-id-casse"></p>
+						<h3>S/.<span id="producto-precio-casse"></span></h3>
+						<p>Stock: <span id="producto-stock-casse"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a href="#">
@@ -797,33 +884,59 @@
 
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			const abrirModalBtns = document.querySelectorAll('.abrir-modal'); // Selecciona todos los botones de abrir modal
+			const abrirModalBtns = document.querySelectorAll('.abrir-modal');
 
-			abrirModalBtns.forEach(function (btn) { // Itera sobre cada botón
-				btn.addEventListener('click', function (event) { // Agrega un evento de clic a cada botón
-					event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+			abrirModalBtns.forEach(function (btn) {
+				btn.addEventListener('click', function (event) {
+					event.preventDefault();
 
-					// Encuentra el modal correspondiente al botón clicado
-					const modal = document.querySelector('.modal-producto');
+					const productoId = btn.closest('.card').querySelector('.producto-id').textContent;
+					const productoNombre = btn.closest('.card').querySelector('.producto-nombre').textContent;
+					const productoStock = btn.closest('.card').querySelector('.producto-stock').textContent;
+					const productoPrecio = btn.closest('.card').querySelector('.producto-precio').textContent;
+					const productoImagenSrc = btn.closest('.card').querySelector('.img-producto').getAttribute('src');
 
-					// Abre el modal
+					console.log("Producto ID:", productoId);
+					console.log("Producto Nombre:", productoNombre);
+					console.log("Producto Stock:", productoStock);
+					console.log("Producto Precio:", productoPrecio);
+					console.log("Producto Imagen:", productoImagenSrc);
+
+					const tipoProducto = btn.getAttribute('data-producto');
+
+					const productoIdElementId = 'producto-id-' + tipoProducto;
+					const productoNombreElementId = 'producto-nombre-' + tipoProducto;
+					const productoPrecioElementId = 'producto-precio-' + tipoProducto;
+					const productoStockElementId = 'producto-stock-' + tipoProducto;
+					const productoImagenElementId = 'producto-imagen-' + tipoProducto;
+
+					const productoIdElement = document.getElementById(productoIdElementId);
+					const productoNombreElement = document.getElementById(productoNombreElementId);
+					const productoPrecioElement = document.getElementById(productoPrecioElementId);
+					const productoStockElement = document.getElementById(productoStockElementId);
+					const productoImagenElement = document.getElementById(productoImagenElementId);
+
+					productoIdElement.textContent = productoId;
+					productoNombreElement.textContent = productoNombre;
+					productoPrecioElement.textContent = productoPrecio;
+					productoStockElement.textContent = productoStock;
+					productoImagenElement.setAttribute('src', productoImagenSrc);
+
+					const modal = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"]');
+
 					modal.style.display = 'flex';
 				});
 			});
 
-			// Agrega evento de cerrar modal
 			const closeBtns = document.querySelectorAll('.close-modal');
 			closeBtns.forEach(function (closeBtn) {
 				closeBtn.addEventListener('click', function () {
-					// Encuentra el modal asociado al botón de cerrar clicado
 					const modal = closeBtn.closest('.modal-producto');
 					modal.style.display = 'none';
 				});
 			});
 		});
 	</script>
-
-
 
 
 	<section class="marcas">
