@@ -11,4 +11,5 @@ public interface MonitorService
 	public Monitor actualizarMonitor(Monitor monitor);
 	public Monitor obtenerIdMonitor(Integer monitorId);
 	public void eliminarMonitor(Integer monitorId);
+	public List<Monitor> obtenerMonitoresPorCategoria(Integer monitorId);
 }

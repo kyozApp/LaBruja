@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,6 +41,10 @@ public class Combo implements Serializable {
     @Column
     private String descripcion;
 
+    @ManyToOne
+	@JoinColumn(name = "categoria_id", nullable = false)
+	private Categoria categoria;
+
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -55,7 +61,7 @@ public class Combo implements Serializable {
     }
 
     public Combo(Integer comboId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-            Double precio, String descripcion) {
+            Double precio, String descripcion, Categoria categoria) {
         this.comboId = comboId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -63,6 +69,7 @@ public class Combo implements Serializable {
         this.stock = stock;
         this.precio = precio;
         this.descripcion = descripcion;
+        this.categoria = categoria;
     }
 
     public Integer getComboId() {
@@ -120,5 +127,13 @@ public class Combo implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public Categoria getCategoria() {
+		return this.categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 }

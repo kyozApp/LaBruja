@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class MonitorServiceImpl implements MonitorService
 		monitorRepository.deleteById(monitorId);
 	}
 
+	@Override
+    public List<Monitor> obtenerMonitoresPorCategoria(Integer monitorId) {
+
+		List<Monitor> monitores = monitorRepository.findAll();
+		List<Monitor> monitoresFinal = new ArrayList<>();
+		for (Monitor monitor : monitores) {
+			if (monitorId.equals(monitor.getCategoria().getCategoriaId())) {
+				monitoresFinal.add(monitor);
+			}
+		}
+	
+		return monitoresFinal;
+	}
 }

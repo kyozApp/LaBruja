@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.labrujastore.entity.Accesorio;
@@ -38,6 +39,7 @@ import com.labrujastore.service.ProcesadorService;
 import com.labrujastore.service.RamService;
 import com.labrujastore.service.RefrigeracionService;
 import com.labrujastore.service.TarjetaService;
+// import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/catalogo")
@@ -105,7 +107,6 @@ public class CatalogoController {
         List<Combo> combos = comboService.listarCombo();
 
         model.addAttribute("bannerId6", bannerId6);
-
         model.addAttribute("vistaAccesorios", accesorios);
         model.addAttribute("vistaAlmacenamientos", almacenamientos);
         model.addAttribute("vistaCasses", casses);
@@ -119,6 +120,45 @@ public class CatalogoController {
         model.addAttribute("vistaTarjetas", tarjetas);
         model.addAttribute("vistaCategorias", categorias);
         model.addAttribute("vistaCombos", combos);
+
+        return "catalogo/index";
+    }
+
+    @GetMapping("/{nombreUrl}")
+    public String catalogo_categoria(Model model, @PathVariable String nombreUrl) {
+
+        Banner bannerId6 = bannerService.obtenerIdBanner(6);
+        Categoria categoria = categoriaService.obtenerCategoriaNombreUrl(nombreUrl);
+
+        List<Accesorio> accesoriosCat = accesorioService.obtenerAccesoriosPorCategoria(categoria.getCategoriaId());
+        List<Almacenamiento> almacenamientosCat = almacenamientoService.obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
+        List<Casse> cassesCat = casseService.obtenerCassesPorCategoria(categoria.getCategoriaId());
+        List<Fuente> fuentesCat = fuenteService.obtenerFuentesPorCategoria(categoria.getCategoriaId());
+        List<Laptop> laptopsCat = laptopService.obtenerLaptopsPorCategoria(categoria.getCategoriaId());
+        List<Monitor> monitoresCat = monitorService.obtenerMonitoresPorCategoria(categoria.getCategoriaId());
+        List<Placa> placasCat = placaService.obtenerPlacasPorCategoria(categoria.getCategoriaId());
+        List<Procesador> procesadoresCat = procesadorService.obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
+        List<Ram> ramsCat = ramService.obtenerRamsPorCategoria(categoria.getCategoriaId());
+        List<Refrigeracion> refrigeracionesCat = refrigeracionService.obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
+        List<Tarjeta> tarjetasCat = tarjetaService.obtenerTarjetasPorCategoria(categoria.getCategoriaId());
+        List<Combo> combosCat = comboService.obtenerCombosPorCategoria(categoria.getCategoriaId());
+
+
+        model.addAttribute("bannerId6", bannerId6);
+        model.addAttribute("categoria", categoria);
+
+        model.addAttribute("vistaAccesorios", accesoriosCat);
+        model.addAttribute("vistaAlmacenamientos", almacenamientosCat);
+        model.addAttribute("vistaCasses", cassesCat);
+        model.addAttribute("vistaFuentes", fuentesCat);
+        model.addAttribute("vistaLaptops", laptopsCat);
+        model.addAttribute("vistaMonitores", monitoresCat);
+        model.addAttribute("vistaPlacas", placasCat);
+        model.addAttribute("vistaProcesadores", procesadoresCat);
+        model.addAttribute("vistaRams", ramsCat);
+        model.addAttribute("vistaRefrigeraciones", refrigeracionesCat);
+        model.addAttribute("vistaTarjetas", tarjetasCat);
+        model.addAttribute("vistaCombos", combosCat);
 
         return "catalogo/index";
     }

@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class ProcesadorServiceImpl implements ProcesadorService
 		procesadorRepository.deleteById(procesadorId);
 	}
 
+	@Override
+    public List<Procesador> obtenerProcesadoresPorCategoria(Integer procesadorId) {
+
+		List<Procesador> procesadores = procesadorRepository.findAll();
+		List<Procesador> procesadoresFinal = new ArrayList<>();
+		for (Procesador procesador : procesadores) {
+			if (procesadorId.equals(procesador.getCategoria().getCategoriaId())) {
+				procesadoresFinal.add(procesador);
+			}
+		}
+	
+		return procesadoresFinal;
+	}
 }

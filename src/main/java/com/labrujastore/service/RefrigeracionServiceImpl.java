@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class RefrigeracionServiceImpl implements RefrigeracionService
 		refrigeracionRepository.deleteById(refrigeracionId);
 	}
 
+	@Override
+    public List<Refrigeracion> obtenerRefrigeracionesPorCategoria(Integer refrigeracionId) {
+
+		List<Refrigeracion> refrigeraciones = refrigeracionRepository.findAll();
+		List<Refrigeracion> refrigeracionesFinal = new ArrayList<>();
+		for (Refrigeracion refrigeracion : refrigeraciones) {
+			if (refrigeracionId.equals(refrigeracion.getCategoria().getCategoriaId())) {
+				refrigeracionesFinal.add(refrigeracion);
+			}
+		}
+	
+		return refrigeracionesFinal;
+	}
 }

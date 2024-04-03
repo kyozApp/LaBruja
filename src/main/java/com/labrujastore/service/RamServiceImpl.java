@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,17 @@ public class RamServiceImpl implements RamService
 		ramRepository.deleteById(ramId);
 	}
 
+	@Override
+    public List<Ram> obtenerRamsPorCategoria(Integer ramId) {
+
+		List<Ram> rams = ramRepository.findAll();
+		List<Ram> ramsFinal = new ArrayList<>();
+		for (Ram ram : rams) {
+			if (ramId.equals(ram.getCategoria().getCategoriaId())) {
+				ramsFinal.add(ram);
+			}
+		}
+	
+		return ramsFinal;
+	}
 }

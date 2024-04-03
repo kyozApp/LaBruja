@@ -11,4 +11,5 @@ public interface AlmacenamientoService
 	public Almacenamiento actualizarAlmacenamiento(Almacenamiento almacenamiento);
 	public Almacenamiento obtenerIdAlmacenamiento(Integer almacenamientoId);
 	public void eliminarAlmacenamiento(Integer almacenamientoId);
+	public List<Almacenamiento> obtenerAlmacenamientosPorCategoria(Integer almacenamientoId);
 }

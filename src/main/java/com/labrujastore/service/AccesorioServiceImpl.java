@@ -1,5 +1,6 @@
 package com.labrujastore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,20 @@ public class AccesorioServiceImpl implements AccesorioService {
 	@Override
 	public void eliminarAccesorio(Integer accesorioId) {
 		accesorioRepository.deleteById(accesorioId);
+	}
+
+	@Override
+    public List<Accesorio> obtenerAccesoriosPorCategoria(Integer idCategoria) {
+
+		List<Accesorio> accesorios = accesorioRepository.findAll();
+		List<Accesorio> accesoriosFinal = new ArrayList<>();
+		for (Accesorio accesorio : accesorios) {
+			if (idCategoria.equals(accesorio.getCategoria().getCategoriaId())) {
+				accesoriosFinal.add(accesorio);
+			}
+		}
+	
+		return accesoriosFinal;
 	}
 
 }

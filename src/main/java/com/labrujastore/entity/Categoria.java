@@ -38,6 +38,9 @@ public class Categoria implements Serializable {
 	private Collection<Almacenamiento> itemsAlmacenamiento = new ArrayList<>();
 
 	@OneToMany(mappedBy = "categoria")
+	private Collection<Combo> itemsCombo = new ArrayList<>();
+
+	@OneToMany(mappedBy = "categoria")
 	private Collection<Casse> itemsCasse = new ArrayList<>();
 
 	@OneToMany(mappedBy = "categoria")
@@ -74,7 +77,9 @@ public class Categoria implements Serializable {
 	}
 
 	public Categoria(Integer categoriaId, String nombre, String nombreUrl, Collection<Accesorio> itemsAccesorio,
-			Collection<Almacenamiento> itemsAlmacenamiento, Collection<Casse> itemsCasse,
+			Collection<Almacenamiento> itemsAlmacenamiento,
+			Collection<Combo> itemsCombo,
+			Collection<Casse> itemsCasse,
 			Collection<Fuente> itemsFuente, Collection<Laptop> itemsLaptop, Collection<Monitor> itemsMonitor,
 			Collection<Placa> itemsPlaca, Collection<Procesador> itemsProcesador, Collection<Ram> itemsRam,
 			Collection<Refrigeracion> itemsRefrigeracion, Collection<Tarjeta> itemsTarjeta,
@@ -84,6 +89,7 @@ public class Categoria implements Serializable {
 		this.nombreUrl = nombreUrl;
 		this.itemsAccesorio = itemsAccesorio;
 		this.itemsAlmacenamiento = itemsAlmacenamiento;
+		this.itemsCombo = itemsCombo;
 		this.itemsCasse = itemsCasse;
 		this.itemsFuente = itemsFuente;
 		this.itemsLaptop = itemsLaptop;
@@ -225,4 +231,11 @@ public class Categoria implements Serializable {
 		this.subcategorias = subcategorias;
 	}
 
+	public Collection<Combo> getItemsCombo() {
+		return this.itemsCombo;
+	}
+
+	public void setgetItemsCombo(Collection<Combo> itemsCombo) {
+		this.itemsCombo = itemsCombo;
+	}
 }
