@@ -336,6 +336,8 @@ button {
 	line-height: 1.3;
 	color: black;
 	transition: 0.2s;
+	margin: 0;
+    font-size: 19px;
 }
 
 .des-modal h2:hover{
