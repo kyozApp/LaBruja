@@ -332,7 +332,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${accesorio.nombre}"></p>
 							</a>
 
@@ -341,7 +341,7 @@
 									<p class="producto-precio">S/.<span th:text="${accesorio.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${accesorio.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" class="btn-comprar">COMPRAR</a>
 							</div>
 
 							<div class="icons__compra" style="display: none;">
@@ -374,7 +374,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${almacenamiento.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -382,7 +382,7 @@
 									<p class="producto-precio">S/.<span th:text="${almacenamiento.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${almacenamiento.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -412,7 +412,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${casse.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -420,7 +420,7 @@
 									<p class="producto-precio">S/.<span th:text="${casse.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${casse.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -449,7 +449,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${fuente.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -457,7 +457,7 @@
 									<p class="producto-precio">S/.<span th:text="${fuente.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${fuente.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -486,7 +486,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${laptop.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -494,7 +494,7 @@
 									<p class="producto-precio">S/.<span th:text="${laptop.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${laptop.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -523,7 +523,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${monitor.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -531,7 +531,7 @@
 									<p class="producto-precio">S/.<span th:text="${monitor.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${monitor.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -560,7 +560,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${placa.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -568,7 +568,7 @@
 									<p class="producto-precio">S/.<span th:text="${placa.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${placa.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -599,7 +599,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${procesador.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -607,7 +607,7 @@
 									<p class="producto-precio">S/.<span th:text="${procesador.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${procesador.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -636,7 +636,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${ram.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -644,7 +644,7 @@
 									<p class="producto-precio">S/.<span th:text="${ram.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${ram.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -675,7 +675,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${refrigeracion.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -683,7 +683,7 @@
 									<p class="producto-precio">S/.<span th:text="${refrigeracion.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${refrigeracion.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -712,7 +712,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${tarjeta.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -720,7 +720,7 @@
 									<p class="producto-precio">S/.<span th:text="${tarjeta.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${tarjeta.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -773,7 +773,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${laptop.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -781,7 +781,7 @@
 									<p class="producto-precio">S/.<span th:text="${laptop.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${laptop.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -833,7 +833,7 @@
 							</div>
 						</div>
 						<div class="description">
-							<a href="#" class="nombre-des">
+							<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" class="nombre-des">
 								<p class="producto-nombre" th:text="${combo.nombre}"></p>
 							</a>
 							<div class="descip-prod">
@@ -841,7 +841,7 @@
 									<p class="producto-precio">S/.<span th:text="${combo.precio}"></span></p>
 									<p class="producto-stock">Stock: <span th:text="${combo.stock}"></span></p>
 								</div>
-								<a href="#" class="btn-comprar">COMPRAR</a>
+								<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" class="btn-comprar">COMPRAR</a>
 							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
@@ -869,18 +869,18 @@
 		data-producto="accesorio">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=accesorio'}">
 					<img class="img-producto" id="producto-imagen-accesorio"
 						th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=accesorio'}">
 							<h2 id="producto-nombre-accesorio"></h2>
 						</a>
 						<p id="producto-id-accesorio" style="display: none;"></p>
 						<h3><span id="producto-precio-accesorio"></span></h3>
-						<p>Stock: <span id="producto-stock-accesorio"></span></p>
+						<p><span id="producto-stock-accesorio"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=accesorio'}">
@@ -900,18 +900,18 @@
 		data-producto="almacenamiento">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=almacenamiento'}">
 					<img class="img-producto" id="producto-imagen-almacenamiento"
 						th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=almacenamiento'}">
 							<h2 id="producto-nombre-almacenamiento"></h2>
 						</a>
 						<p id="producto-id-almacenamiento" style="display: none;"></p>
 						<h3><span id="producto-precio-almacenamiento"></span></h3>
-						<p>Stock: <span id="producto-stock-almacenamiento"></span></p>
+						<p><span id="producto-stock-almacenamiento"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=almacenamiento'}">
@@ -931,18 +931,18 @@
 		data-producto="casse">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=casse'}">
 					<img class="img-producto" id="producto-imagen-casse"
 						th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=casse'}">
 							<h2 id="producto-nombre-casse"></h2>
 						</a>
 						<p id="producto-id-casse" style="display: none;"></p>
 						<h3><span id="producto-precio-casse"></span></h3>
-						<p>Stock: <span id="producto-stock-casse"></span></p>
+						<p><span id="producto-stock-casse"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=casse'}">
@@ -961,18 +961,18 @@
 	<div class="modal-producto" style="display: none;" th:each="fuente : ${vistaFuentes}" data-producto="fuente">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=fuente'}">
 					<img class="img-producto" id="producto-imagen-fuente"
 						th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=fuente'}">
 							<h2 id="producto-nombre-fuente"></h2>
 						</a>
 						<p id="producto-id-fuente" style="display: none;"></p>
 						<h3><span id="producto-precio-fuente"></span></h3>
-						<p>Stock: <span id="producto-stock-fuente"></span></p>
+						<p><span id="producto-stock-fuente"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=fuente'}">
@@ -991,18 +991,18 @@
 	<div class="modal-producto" style="display: none;" th:each="laptop : ${vistaLaptops}" data-producto="laptop">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=laptop'}">
 					<img class="img-producto" id="producto-imagen-laptop"
 						th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=laptop'}">
 							<h2 id="producto-nombre-laptop"></h2>
 						</a>
 						<p id="producto-id-laptop" style="display: none;"></p>
 						<h3><span id="producto-precio-laptop"></span></h3>
-						<p>Stock: <span id="producto-stock-laptop"></span></p>
+						<p><span id="producto-stock-laptop"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=laptop'}">
@@ -1021,18 +1021,18 @@
 	<div class="modal-producto" style="display: none;" th:each="monitor : ${vistaMonitores}" data-producto="monitor">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=monitor'}">
 					<img class="img-producto" id="producto-imagen-monitor"
 						th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=monitor'}">
 							<h2 id="producto-nombre-monitor"></h2>
 						</a>
 						<p id="producto-id-monitor" style="display: none;"></p>
 						<h3><span id="producto-precio-monitor"></span></h3>
-						<p>Stock: <span id="producto-stock-monitor"></span></p>
+						<p><span id="producto-stock-monitor"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=monitor'}">
@@ -1052,18 +1052,18 @@
 		data-producto="placa">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=placa'}">
 					<img class="img-producto" id="producto-imagen-placa"
 						th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=placa'}">
 							<h2 id="producto-nombre-placa"></h2>
 						</a>
 						<p id="producto-id-placa" style="display: none;"></p>
 						<h3><span id="producto-precio-placa"></span></h3>
-						<p>Stock: <span id="producto-stock-placa"></span></p>
+						<p><span id="producto-stock-placa"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=placa'}">
@@ -1083,18 +1083,18 @@
 		data-producto="procesador">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=procesador'}">
 					<img class="img-producto" id="producto-imagen-procesador"
 						th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=procesador'}">
 							<h2 id="producto-nombre-procesador"></h2>
 						</a>
 						<p id="producto-id-procesador" style="display: none;"></p>
 						<h3><span id="producto-precio-procesador"></span></h3>
-						<p>Stock: <span id="producto-stock-procesador"></span></p>
+						<p><span id="producto-stock-procesador"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=procesador'}">
@@ -1114,18 +1114,18 @@
 		data-producto="ram">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=ram'}">
 					<img class="img-producto" id="producto-imagen-ram"
 						th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=ram'}">
 							<h2 id="producto-nombre-ram"></h2>
 						</a>
 						<p id="producto-id-ram" style="display: none;"></p>
 						<h3><span id="producto-precio-ram"></span></h3>
-						<p>Stock: <span id="producto-stock-ram"></span></p>
+						<p><span id="producto-stock-ram"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=ram'}">
@@ -1145,18 +1145,18 @@
 		data-producto="refrigeracion">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=refrigeracion'}">
 					<img class="img-producto" id="producto-imagen-refrigeracion"
 						th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=refrigeracion'}">
 							<h2 id="producto-nombre-refrigeracion"></h2>
 						</a>
 						<p id="producto-id-refrigeracion" style="display: none;"></p>
 						<h3><span id="producto-precio-refrigeracion"></span></h3>
-						<p>Stock: <span id="producto-stock-refrigeracion"></span></p>
+						<p><span id="producto-stock-refrigeracion"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=refrigeracion'}">
@@ -1175,18 +1175,18 @@
 	<div class="modal-producto" style="display: none;" th:each="tarjeta : ${vistaTarjetas}" data-producto="tarjeta">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=tarjeta'}">
 					<img class="img-producto" id="producto-imagen-tarjeta"
 						th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=tarjeta'}">
 							<h2 id="producto-nombre-tarjeta"></h2>
 						</a>
 						<p id="producto-id-tarjeta" style="display: none;"></p>
 						<h3><span id="producto-precio-tarjeta"></span></h3>
-						<p>Stock: <span id="producto-stock-tarjeta"></span></p>
+						<p><span id="producto-stock-tarjeta"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=tarjeta'}">
@@ -1206,18 +1206,18 @@
 		data-producto="combo">
 		<div class="cont-modal">
 			<div class="estructura-modal">
-				<a href="#">
+				<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=combo'}">
 					<img class="img-producto" id="producto-imagen-combo"
 						th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" />
 				</a>
 				<div class="div-cont-modal">
 					<div class="des-modal">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=combo'}">
 							<h2 id="producto-nombre-combo"></h2>
 						</a>
 						<p id="producto-id-combo" style="display: none;"></p>
 						<h3><span id="producto-precio-combo"></span></h3>
-						<p>Stock: <span id="producto-stock-combo"></span></p>
+						<p><span id="producto-stock-combo"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
 						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=combo'}">
@@ -1276,7 +1276,12 @@
 					const productoIdModal = productoId;
 
 					// Construir la URL del enlace "VER DETALLES" con el ID del producto
+					const enlaceVerDetallesImagen = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"] .estructura-modal a');
+					const enlaceVerDetallesNombre = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"] .des-modal a');
 					const enlaceVerDetalles = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"] .btn-ver-detalles a');
+					
+					enlaceVerDetallesImagen.href = '/catalogo/detalle/producto/' + productoIdModal + '?tipo=' + tipoProducto;
+					enlaceVerDetallesNombre.href = '/catalogo/detalle/producto/' + productoIdModal + '?tipo=' + tipoProducto;
 					enlaceVerDetalles.href = '/catalogo/detalle/producto/' + productoIdModal + '?tipo=' + tipoProducto;
 
 					const modal = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"]');

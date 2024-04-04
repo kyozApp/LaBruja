@@ -206,13 +206,18 @@
 	<!-- Seccion Accesorio -->
 	<section class="contenido" th:if="${accesorio != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${accesorio.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${accesorio.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${accesorio.categoria.nombreUrl}}"><span th:text="${accesorio.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}" th:text="${accesorio.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -298,17 +303,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${accesorio.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -359,13 +364,18 @@
 	<!-- Seccion Almacenamiento -->
 	<section class="contenido" th:if="${almacenamiento != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${almacenamiento.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${almacenamiento.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${almacenamiento.categoria.nombreUrl}}"><span th:text="${almacenamiento.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}" th:text="${almacenamiento.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -451,17 +461,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${almacenamiento.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -512,13 +522,18 @@
 	<!-- Seccion Casse -->
 	<section class="contenido" th:if="${casse != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${casse.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${casse.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${casse.categoria.nombreUrl}}"><span th:text="${casse.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}" th:text="${casse.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -604,17 +619,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${casse.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -665,13 +680,18 @@
 	<!-- Seccion Fuente -->
 	<section class="contenido" th:if="${fuente != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${fuente.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${fuente.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${fuente.categoria.nombreUrl}}"><span th:text="${fuente.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}" th:text="${fuente.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -757,17 +777,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${fuente.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -818,13 +838,18 @@
 	<!-- Seccion Laptop -->
 	<section class="contenido" th:if="${laptop != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${laptop.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${laptop.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${laptop.categoria.nombreUrl}}"><span th:text="${laptop.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}" th:text="${laptop.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -910,17 +935,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${laptop.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -971,13 +996,18 @@
 	<!-- Seccion Monitor -->
 	<section class="contenido" th:if="${monitor != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${monitor.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${monitor.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${monitor.categoria.nombreUrl}}"><span th:text="${monitor.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}" th:text="${monitor.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1063,17 +1093,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${monitor.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -1124,13 +1154,18 @@
 	<!-- Seccion Placa -->
 	<section class="contenido" th:if="${placa != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${placa.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${placa.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${placa.categoria.nombreUrl}}"><span th:text="${placa.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}" th:text="${placa.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1216,17 +1251,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${placa.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -1277,13 +1312,18 @@
 	<!-- Seccion Procesador -->
 	<section class="contenido" th:if="${procesador != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${procesador.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${procesador.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${procesador.categoria.nombreUrl}}"><span th:text="${procesador.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}" th:text="${procesador.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1369,17 +1409,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${procesador.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -1430,13 +1470,18 @@
 	<!-- Seccion Ram -->
 	<section class="contenido" th:if="${ram != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${ram.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${ram.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${ram.categoria.nombreUrl}}"><span th:text="${ram.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}" th:text="${ram.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1522,17 +1567,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${ram.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -1583,13 +1628,18 @@
 	<!-- Seccion Refrigeracion -->
 	<section class="contenido" th:if="${refrigeracion != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${refrigeracion.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${refrigeracion.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${refrigeracion.categoria.nombreUrl}}"><span th:text="${refrigeracion.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}" th:text="${refrigeracion.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1675,17 +1725,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${refrigeracion.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -1736,13 +1786,18 @@
 	<!-- Seccion Tarjeta -->
 	<section class="contenido" th:if="${tarjeta != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${tarjeta.categoria.nombre}"></span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${tarjeta.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${tarjeta.categoria.nombreUrl}}"><span th:text="${tarjeta.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}" th:text="${tarjeta.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1828,17 +1883,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${tarjeta.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>
@@ -1889,13 +1944,18 @@
 	<!-- Seccion Combo -->
 	<section class="contenido" th:if="${combo != null}">
 		<div class="seguimiento">
-			<a th:href="@{/}" class="seguimiento__etiqueta">
-				Hogar
+			<p>
+				<a th:href="@{/}"><span>Hogar</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span>Combo</span>
+				
+				<a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
 				<i class="fa-solid fa-angle-right"></i>
-				<span th:text="${combo.nombre}"></span>
-			</a>
+
+				<a th:href="@{'/catalogo/' + ${combo.categoria.nombreUrl}}"><span th:text="${combo.categoria.nombre}"></span></a>
+				<i class="fa-solid fa-angle-right"></i>
+
+				<a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}" th:text="${combo.nombre}"></a>
+			</p>
 		</div>
 		<div class="productos">
 
@@ -1977,17 +2037,17 @@
 										<div class="cont-boton-cantidad">
 											<button type="button" class="btn-incrementar"><i
 													class="fa-solid fa-plus"></i></button>
-											<input type="number" class="custom-input" value="1" min="1" max="5"
+											<input type="number" class="custom-input" value="1" min="1" th:max="${combo.stock}"
 												required>
 											<button type="button" class="btn-decrementar"><i
 													class="fa-solid fa-minus"></i></button>
 										</div>
 
 										<div class="div-carrito">
-											<button onclick="window.location.href='/contactanos'">
+											<a href="/contactanos">
 												<i class="fa-solid fa-cart-shopping"></i>
 												<span>Consultar</span>
-											</button>
+											</a>
 										</div>
 									</div>
 								</form>

@@ -5,6 +5,14 @@
     margin-bottom: 30px;
 }
 
+.seguimiento a{
+    color: #7c7c7c;
+}
+
+.seguimiento a:hover{
+    color: rgb(250, 40, 40);
+}
+
 .seguimiento .seguimiento__etiqueta {
     text-decoration: none;
     color: #818181;
