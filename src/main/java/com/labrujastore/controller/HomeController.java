@@ -13,6 +13,7 @@ import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
 import com.labrujastore.entity.Banner;
 import com.labrujastore.entity.Casse;
+import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Combo;
 import com.labrujastore.entity.Fuente;
 import com.labrujastore.entity.Laptop;
@@ -27,6 +28,7 @@ import com.labrujastore.service.AccesorioService;
 import com.labrujastore.service.AlmacenamientoService;
 import com.labrujastore.service.BannerService;
 import com.labrujastore.service.CasseService;
+import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.ComboService;
 import com.labrujastore.service.FuenteService;
 import com.labrujastore.service.LaptopService;
@@ -82,6 +84,9 @@ public class HomeController {
 	@Autowired
 	private TarjetaService tarjetaService;
 
+	@Autowired
+    private CategoriaService categoriaService;
+
 	@GetMapping("/")
 	public String index(Model model) {
 
@@ -105,9 +110,11 @@ public class HomeController {
 		List<Ram> rams = ramService.listarRam();
 		List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
 		List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
+		List<Categoria> categorias = categoriaService.listarCategoria();
 
 		model.addAttribute("vistaMarcas", marcas);
 		model.addAttribute("vistaCombos", combos);
+        model.addAttribute("vistaCategorias", categorias);
 
 		model.addAttribute("bannerId1", bannerId1);
 		model.addAttribute("bannerId2", bannerId2);
