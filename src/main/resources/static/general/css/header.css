@@ -96,7 +96,7 @@ li {
     display: flex;
     background-color: #000000;
     justify-content: space-evenly;
-    padding: 30px 14px;
+    padding: 22px 14px;
     height: 70px;
 }
 
@@ -108,7 +108,7 @@ li {
 }
 
 .head-div-2-part1-1 img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     display: block;
 }

@@ -335,9 +335,15 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${accesorio.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${accesorio.precio}"></p>
-							<p class="producto-stock" th:text="${accesorio.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${accesorio.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${accesorio.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
+
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -371,9 +377,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${almacenamiento.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${almacenamiento.precio}"></p>
-							<p class="producto-stock" th:text="${almacenamiento.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${almacenamiento.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${almacenamiento.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -405,9 +415,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${casse.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${casse.precio}"></p>
-							<p class="producto-stock" th:text="${casse.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${casse.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${casse.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -438,9 +452,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${fuente.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${fuente.precio}"></p>
-							<p class="producto-stock" th:text="${fuente.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${fuente.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${fuente.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -471,9 +489,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${laptop.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${laptop.precio}"></p>
-							<p class="producto-stock" th:text="${laptop.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${laptop.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${laptop.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -504,9 +526,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${monitor.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${monitor.precio}"></p>
-							<p class="producto-stock" th:text="${monitor.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${monitor.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${monitor.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -537,9 +563,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${placa.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${placa.precio}"></p>
-							<p class="producto-stock" th:text="${placa.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${placa.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${placa.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -572,9 +602,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${procesador.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${procesador.precio}"></p>
-							<p class="producto-stock" th:text="${procesador.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${procesador.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${procesador.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -605,9 +639,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${ram.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${ram.precio}"></p>
-							<p class="producto-stock" th:text="${ram.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${ram.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${ram.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -640,9 +678,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${refrigeracion.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${refrigeracion.precio}"></p>
-							<p class="producto-stock" th:text="${refrigeracion.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${refrigeracion.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${refrigeracion.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -673,9 +715,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${tarjeta.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${tarjeta.precio}"></p>
-							<p class="producto-stock" th:text="${tarjeta.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${tarjeta.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${tarjeta.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -730,9 +776,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${laptop.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${laptop.precio}"></p>
-							<p class="producto-stock" th:text="${laptop.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${laptop.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${laptop.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -786,9 +836,13 @@
 							<a href="#" class="nombre-des">
 								<p class="producto-nombre" th:text="${combo.nombre}"></p>
 							</a>
-							<p class="producto-precio" th:text="${combo.precio}"></p>
-							<p class="producto-stock" th:text="${combo.stock}"></p>
-							<a href="#" class="btn-comprar">COMPRAR</a>
+							<div class="descip-prod">
+								<div class="stock-precio">
+									<p class="producto-precio">S/.<span th:text="${combo.precio}"></span></p>
+									<p class="producto-stock">Stock: <span th:text="${combo.stock}"></span></p>
+								</div>
+								<a href="#" class="btn-comprar">COMPRAR</a>
+							</div>
 							<div class="icons__compra" style="display: none;">
 								<div class="heart">
 									<i class="fa-regular fa-heart"></i>
@@ -811,8 +865,7 @@
 	</section>
 
 	<!-- MODAL QUE MUESTRA DETALLE DE LOS PRODUCTOS -->
-	<div class="modal-producto" style="display: none;" th:each="accesorio : ${vistaAccesorios}"
-		th:if="${accesorio.accesorioId == 5}" data-producto="accesorio">
+	<div class="modal-producto" style="display: none;" th:each="accesorio : ${vistaAccesorios}" data-producto="accesorio">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -824,8 +877,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-accesorio"></h2>
 						</a>
-						<p id="producto-id-accesorio"></p>
-						<h3>S/.<span id="producto-precio-accesorio"></span></h3>
+						<p id="producto-id-accesorio" style="display: none;"></p>
+						<h3><span id="producto-precio-accesorio"></span></h3>
 						<p>Stock: <span id="producto-stock-accesorio"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -842,9 +895,8 @@
 		</div>
 	</div>
 
-
 	<div class="modal-producto" style="display: none;" th:each="almacenamiento : ${vistaAlmacenamientos}"
-		th:if="${almacenamiento.almacenamientoId == 3}" data-producto="almacenamiento">
+		data-producto="almacenamiento">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -856,8 +908,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-almacenamiento"></h2>
 						</a>
-						<p id="producto-id-almacenamiento"></p>
-						<h3>S/.<span id="producto-precio-almacenamiento"></span></h3>
+						<p id="producto-id-almacenamiento" style="display: none;"></p>
+						<h3><span id="producto-precio-almacenamiento"></span></h3>
 						<p>Stock: <span id="producto-stock-almacenamiento"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -887,8 +939,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-casse"></h2>
 						</a>
-						<p id="producto-id-casse"></p>
-						<h3>S/.<span id="producto-precio-casse"></span></h3>
+						<p id="producto-id-casse" style="display: none;"></p>
+						<h3><span id="producto-precio-casse"></span></h3>
 						<p>Stock: <span id="producto-stock-casse"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -906,7 +958,7 @@
 	</div>
 
 	<div class="modal-producto" style="display: none;" th:each="fuente : ${vistaFuentes}"
-		th:if="${fuente.fuenteId == 2}" data-producto="fuente">
+		data-producto="fuente">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -918,8 +970,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-fuente"></h2>
 						</a>
-						<p id="producto-id-fuente"></p>
-						<h3>S/.<span id="producto-precio-fuente"></span></h3>
+						<p id="producto-id-fuente" style="display: none;"></p>
+						<h3><span id="producto-precio-fuente"></span></h3>
 						<p>Stock: <span id="producto-stock-fuente"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -937,7 +989,7 @@
 	</div>
 
 	<div class="modal-producto" style="display: none;" th:each="laptop : ${vistaLaptops}"
-		th:if="${laptop.laptopId == 2}" data-producto="laptop">
+		data-producto="laptop">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -949,8 +1001,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-laptop"></h2>
 						</a>
-						<p id="producto-id-laptop"></p>
-						<h3>S/.<span id="producto-precio-laptop"></span></h3>
+						<p id="producto-id-laptop" style="display: none;"></p>
+						<h3><span id="producto-precio-laptop"></span></h3>
 						<p>Stock: <span id="producto-stock-laptop"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -968,7 +1020,7 @@
 	</div>
 
 	<div class="modal-producto" style="display: none;" th:each="monitor : ${vistaMonitores}"
-		th:if="${monitor.monitorId == 2}" data-producto="monitor">
+		data-producto="monitor">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -980,8 +1032,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-monitor"></h2>
 						</a>
-						<p id="producto-id-monitor"></p>
-						<h3>S/.<span id="producto-precio-monitor"></span></h3>
+						<p id="producto-id-monitor" style="display: none;"></p>
+						<h3><span id="producto-precio-monitor"></span></h3>
 						<p>Stock: <span id="producto-stock-monitor"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -1011,8 +1063,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-placa"></h2>
 						</a>
-						<p id="producto-id-placa"></p>
-						<h3>S/.<span id="producto-precio-placa"></span></h3>
+						<p id="producto-id-placa" style="display: none;"></p>
+						<h3><span id="producto-precio-placa"></span></h3>
 						<p>Stock: <span id="producto-stock-placa"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -1030,7 +1082,7 @@
 	</div>
 
 	<div class="modal-producto" style="display: none;" th:each="procesador : ${vistaProcesadores}"
-		th:if="${procesador.procesadorId == 2}" data-producto="procesador">
+		data-producto="procesador">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -1042,8 +1094,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-procesador"></h2>
 						</a>
-						<p id="producto-id-procesador"></p>
-						<h3>S/.<span id="producto-precio-procesador"></span></h3>
+						<p id="producto-id-procesador" style="display: none;"></p>
+						<h3><span id="producto-precio-procesador"></span></h3>
 						<p>Stock: <span id="producto-stock-procesador"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -1073,8 +1125,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-ram"></h2>
 						</a>
-						<p id="producto-id-ram"></p>
-						<h3>S/.<span id="producto-precio-ram"></span></h3>
+						<p id="producto-id-ram" style="display: none;"></p>
+						<h3><span id="producto-precio-ram"></span></h3>
 						<p>Stock: <span id="producto-stock-ram"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -1092,7 +1144,7 @@
 	</div>
 
 	<div class="modal-producto" style="display: none;" th:each="refrigeracion : ${vistaRefrigeraciones}"
-		th:if="${refrigeracion.refrigeracionId == 2}" data-producto="refrigeracion">
+		data-producto="refrigeracion">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -1104,8 +1156,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-refrigeracion"></h2>
 						</a>
-						<p id="producto-id-refrigeracion"></p>
-						<h3>S/.<span id="producto-precio-refrigeracion"></span></h3>
+						<p id="producto-id-refrigeracion" style="display: none;"></p>
+						<h3><span id="producto-precio-refrigeracion"></span></h3>
 						<p>Stock: <span id="producto-stock-refrigeracion"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -1123,7 +1175,7 @@
 	</div>
 
 	<div class="modal-producto" style="display: none;" th:each="tarjeta : ${vistaTarjetas}"
-		th:if="${tarjeta.tarjetaId == 2}" data-producto="tarjeta">
+		data-producto="tarjeta">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -1135,8 +1187,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-tarjeta"></h2>
 						</a>
-						<p id="producto-id-tarjeta"></p>
-						<h3>S/.<span id="producto-precio-tarjeta"></span></h3>
+						<p id="producto-id-tarjeta" style="display: none;"></p>
+						<h3><span id="producto-precio-tarjeta"></span></h3>
 						<p>Stock: <span id="producto-stock-tarjeta"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
@@ -1166,8 +1218,8 @@
 						<a href="#">
 							<h2 id="producto-nombre-combo"></h2>
 						</a>
-						<p id="producto-id-combo"></p>
-						<h3>S/.<span id="producto-precio-combo"></span></h3>
+						<p id="producto-id-combo" style="display: none;"></p>
+						<h3><span id="producto-precio-combo"></span></h3>
 						<p>Stock: <span id="producto-stock-combo"></span></p>
 					</div>
 					<div class="btn-ver-detalles">

@@ -118,6 +118,25 @@ button {
 	font-size: 12px;
 }
 
+.descip-prod{
+	display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.stock-precio{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+	margin-left: 3px;
+}
+
+.producto-precio{
+	color: #e90404 !important;
+	font-size: 18px !important;
+}
+
 @media screen and (min-width: 768px) {
 	.card {
 		width: 241px;
@@ -125,6 +144,10 @@ button {
 
 	.description p {
 		font-size: unset;
+	}
+	.producto-precio {
+		font-size: 14px !important;
+		padding-bottom: 0 !important;
 	}
 }
 
@@ -144,6 +167,10 @@ button {
     justify-content: center;
 }
 
+.figure-image > a {
+	width: 100%;
+    height: 100%;
+}
 .figure__description {
 	content: "";
     position: absolute;
@@ -230,9 +257,10 @@ button {
 .btn-comprar{
 	background-color: #ff3535;
     border-radius: 5px;
-    padding: 6px 17px;
+    padding: 8px 8px;
     margin: 10px;
     color: white;
+	font-size: 13px;
 	transition: 0.2s;
 }
 
