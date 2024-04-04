@@ -467,6 +467,15 @@
 	    border-bottom: 1px solid #EEEEEE;
 	}
 
+	.seguimiento a{
+		color: black;
+		transition: 0.2s;
+	}
+
+	.seguimiento a:hover{
+		color: red;
+	}
+
 	.seguimiento .seguimiento__etiqueta {
 	    text-decoration: none;
 	    color: #818181;
