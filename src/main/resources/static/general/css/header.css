@@ -46,10 +46,13 @@ li {
 
 .head-div-1-sub {
     margin: 0 30px;
+    display: flex;
+    align-items: center;
 }
 
 .head-div-1-sub p {
     color: #909090;
+    margin: 0;
 }
 
 .head-div-1-sub a {
@@ -94,6 +97,7 @@ li {
     background-color: #000000;
     justify-content: space-evenly;
     padding: 30px 14px;
+    height: 70px;
 }
 
 .head-div-2-part1-1 {
