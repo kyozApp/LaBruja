@@ -1,5 +1,7 @@
 package com.labrujastore.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
 import com.labrujastore.entity.Casse;
+import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Combo;
 import com.labrujastore.entity.Fuente;
 import com.labrujastore.entity.Laptop;
@@ -21,6 +24,7 @@ import com.labrujastore.entity.Tarjeta;
 import com.labrujastore.service.AccesorioService;
 import com.labrujastore.service.AlmacenamientoService;
 import com.labrujastore.service.CasseService;
+import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.ComboService;
 import com.labrujastore.service.FuenteService;
 import com.labrujastore.service.LaptopService;
@@ -69,11 +73,19 @@ public class DetalleProductoController {
 
     @Autowired
     private TarjetaService tarjetaService;
+    
     @Autowired
     private ComboService comboService;
 
+    @Autowired
+	private CategoriaService categoriaService;
+
     @GetMapping("/producto/{id}")
     public String detalles(Model model, @PathVariable Integer id, @RequestParam("tipo") String tipo) {
+
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("vistaCategorias", categorias);
+
         if ("accesorio".equals(tipo)) {
             Accesorio accesorio = accesorioService.obtenerIdAccesorio(id);
             model.addAttribute("accesorio", accesorio);
