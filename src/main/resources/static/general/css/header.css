@@ -164,6 +164,9 @@ li {
     color: #666;
     text-decoration: none;
     transition: 0.2s;
+    pointer-events: none; /* Deshabilita los eventos de puntero */
+    opacity: 0.5; /* Opcional: Cambia la opacidad para indicar visualmente que está deshabilitado */
+    cursor: not-allowed;
 }
 
 .form-busqueda button:hover {
