@@ -198,6 +198,10 @@
 	    color: rgb(255 255 255);
 	}
 
+	.cont-img{
+		width: 100%;
+	}
+
 	.cont-vista-previa a:hover {
 	    background-color: #ffffff !important;
 	    color: rgb(255, 0, 0) !important;
