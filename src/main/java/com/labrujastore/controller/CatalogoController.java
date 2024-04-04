@@ -91,6 +91,7 @@ public class CatalogoController {
     public String index(Model model) {
 
         Banner bannerId6 = bannerService.obtenerIdBanner(6);
+        model.addAttribute("catalogo", "CATALOGO");
 
         List<Accesorio> accesorios = accesorioService.listarAccesorio();
         List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
@@ -129,6 +130,11 @@ public class CatalogoController {
 
         Banner bannerId6 = bannerService.obtenerIdBanner(6);
         Categoria categoria = categoriaService.obtenerCategoriaNombreUrl(nombreUrl);
+
+        model.addAttribute("nombreCategoria", categoria.getNombre());
+        model.addAttribute("nombreURL", categoria.getNombreUrl());
+        model.addAttribute("catalogo", categoria.getNombre());
+
 
         List<Accesorio> accesoriosCat = accesorioService.obtenerAccesoriosPorCategoria(categoria.getCategoriaId());
         List<Almacenamiento> almacenamientosCat = almacenamientoService.obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
