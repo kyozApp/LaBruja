@@ -42,7 +42,9 @@
 				<div class="contenedor-2">
 					<!--Logo Header-->
 					<div class="head-div-2-part1-1">
-						<img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+						<a href="/">
+							<img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+						</a>
 					</div>
 
 					<!--Buscador-->
@@ -56,7 +58,7 @@
 						</form>
 					</div>
 					<!--Favorito y Carrito-->
-					<div class="head-div-2-part1-3 none-mobil" style="margin-left: 2rem;">
+					<div class="head-div-2-part1-3 none-mobil ocultar" style="margin-left: 2rem;">
 						<!--Contador de favoritos-->
 						<a class="link-bnt" href="/">
 							<div>
@@ -103,7 +105,7 @@
 			</form>
 		</div>
 
-		<div class="head-div-2-part1-3">
+		<div class="head-div-2-part1-3 ocultar">
 			<a href="/">
 				<div class="cont-icon-corazon">
 					<span class="span-corazon-mobil">4</span>
@@ -130,38 +132,27 @@
 				</div>
 				<ul>
 					<a href="/catalogo/producto">
-						<li id="listaItems">
+						<li class="listaItems">
 							<span>CATALOGO</span>
+						</li>
+					</a>
+					<hr>
+					<a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
+						<li class="listaItems">
+							<span th:text="${categoria.nombre}"></span>
 							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
 								style="width: 12px;">
 						</li>
 					</a>
+					<hr>
 					<a href="/">
-						<li id="listaItems">
-							<span>Categoria 1</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-								style="width: 12px;">
+						<li class="listaItems">
+							<span>INICIO</span>
 						</li>
 					</a>
-					<a href="/">
-						<li id="listaItems">
-							<span>Categoria 2</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-								style="width: 12px;">
-						</li>
-					</a>
-					<a href="/">
-						<li id="listaItems">
-							<span>Categoria 3</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-								style="width: 12px;">
-						</li>
-					</a>
-					<a href="/">
-						<li id="listaItems">
-							<span>Categoria 4</span>
-							<img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-								style="width: 12px;">
+					<a href="/contactanos">
+						<li class="listaItems">
+							<span>CONTACTANOS</span>
 						</li>
 					</a>
 				</ul>
@@ -348,17 +339,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
-					<p th:utext="${#strings.replace(accesorio.descripcion, '\n', '<br>')}"></p>
+					<h3>Descripción:</h3>
 				</div>
 
-				<a th:href="${accesorio.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
-
-
+				<div class="cont-detall">
+					<p th:utext="${#strings.replace(accesorio.descripcion, '\n', '<br>')}"></p>
+				</div>
+				<div>
+					<a th:href="${accesorio.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -500,14 +492,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(almacenamiento.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${almacenamiento.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${almacenamiento.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -649,14 +645,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(casse.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${casse.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${casse.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -798,14 +798,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(fuente.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${fuente.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${fuente.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -947,14 +951,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(laptop.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${laptop.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${laptop.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1096,14 +1104,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(monitor.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${monitor.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${monitor.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1245,14 +1257,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(placa.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${placa.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${placa.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1394,14 +1410,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(procesador.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${procesador.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${procesador.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1543,14 +1563,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(ram.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${ram.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${ram.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1692,14 +1716,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(refrigeracion.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${refrigeracion.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${refrigeracion.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1841,14 +1869,18 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(tarjeta.descripcion, '\n', '<br>')}"></p>
 				</div>
-				<a th:href="${tarjeta.url}" target="_blank" rel="noopener noreferrer" class="info-url">
-					+ Info
-				</a>
+				<div>
+					<a th:href="${tarjeta.url}" target="_blank" rel="noopener noreferrer" class="info-url">
+						LEER MÁS
+					</a>
+				</div>
 			</div>
 
 		</div>
@@ -1986,9 +2018,11 @@
 			</div>
 
 			<div class="descripcion">
-				<h3>Descripción:</h3>
-
 				<div>
+					<h3>Descripción:</h3>
+				</div>
+
+				<div class="cont-detall">
 					<p th:utext="${#strings.replace(combo.descripcion, '\n', '<br>')}"></p>
 				</div>
 
@@ -2028,8 +2062,8 @@
 	----------------------------------------------------------------------------------------------------------------------------->
 	<footer class="footer">
 		<main class="encabezado">
-			<span class="encabezado__titulo">Suscribete para resivir boletinis</span>
-			<div class="encabezado__contenido">
+			<span class="encabezado__titulo ocultar" >Suscribete para resivir boletinis</span>
+			<div class="encabezado__contenido ocultar">
 				<input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
 				<p class="encabezado__parrafo">suscribirse</p>
 			</div>
@@ -2037,8 +2071,8 @@
 		<section class="seccion">
 			<article class="articulo">
 				<figure>
-					<img th:src="@{https://labrujastore.com/wp-content/uploads/2023/05/labrujastore-1.png}" alt="imagen"
-						class="articulo__imagen" loading="lazy" width="315px" />
+					<img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
+						width="315px" />
 				</figure>
 				<div class="contenido">
 					<p class="contenido__descripcion">
@@ -2075,18 +2109,18 @@
 				</div>
 				<div class="contacto__borde"></div>
 				<div class="contacto__iconos">
-					<a th:href="@{/contacto}">
+					<a th:href="@{/contactanos}">
 						<span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
 					</a>
-					<a th:href="@{/contacto}">
+					<a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}">
 						<span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
 						133 y 219
 					</a>
-					<a th:href="@{/}">
+					<a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}">
 						<span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
 						sector 2 B
 					</a>
-					<a th:href="@{/}">
+					<a href="mailto:labrujastore@outlook.com">
 						<span><i class="fa-solid fa-envelope"></i></span>
 						labrujastore@uotlook.com
 					</a>
