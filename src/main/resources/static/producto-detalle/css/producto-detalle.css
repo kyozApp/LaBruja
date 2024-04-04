@@ -319,7 +319,7 @@ li {
     height: 40px;
 }
 
-.div-carrito button {
+.div-carrito a {
     display: flex;
     width: 100%;
     height: 100%;
@@ -333,10 +333,13 @@ li {
     transition: 0.2s;
 }
 
-.div-carrito button:hover {
+.div-carrito a:hover {
     background-color: #ffffff;
     cursor: pointer;
     color: red;
+    border-width: 1px;
+    border-color: red;
+    border-style: double;
 }
 
 .compartir-producto {
