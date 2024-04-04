@@ -865,7 +865,8 @@
 	</section>
 
 	<!-- MODAL QUE MUESTRA DETALLE DE LOS PRODUCTOS -->
-	<div class="modal-producto" style="display: none;" th:each="accesorio : ${vistaAccesorios}" data-producto="accesorio">
+	<div class="modal-producto" style="display: none;" th:each="accesorio : ${vistaAccesorios}"
+		data-producto="accesorio">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -882,7 +883,7 @@
 						<p>Stock: <span id="producto-stock-accesorio"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=accesorio'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -913,7 +914,7 @@
 						<p>Stock: <span id="producto-stock-almacenamiento"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=almacenamiento'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -944,7 +945,7 @@
 						<p>Stock: <span id="producto-stock-casse"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=casse'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -957,8 +958,7 @@
 		</div>
 	</div>
 
-	<div class="modal-producto" style="display: none;" th:each="fuente : ${vistaFuentes}"
-		data-producto="fuente">
+	<div class="modal-producto" style="display: none;" th:each="fuente : ${vistaFuentes}" data-producto="fuente">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -975,7 +975,7 @@
 						<p>Stock: <span id="producto-stock-fuente"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=fuente'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -988,8 +988,7 @@
 		</div>
 	</div>
 
-	<div class="modal-producto" style="display: none;" th:each="laptop : ${vistaLaptops}"
-		data-producto="laptop">
+	<div class="modal-producto" style="display: none;" th:each="laptop : ${vistaLaptops}" data-producto="laptop">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -1006,7 +1005,7 @@
 						<p>Stock: <span id="producto-stock-laptop"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=laptop'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1019,8 +1018,7 @@
 		</div>
 	</div>
 
-	<div class="modal-producto" style="display: none;" th:each="monitor : ${vistaMonitores}"
-		data-producto="monitor">
+	<div class="modal-producto" style="display: none;" th:each="monitor : ${vistaMonitores}" data-producto="monitor">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -1037,7 +1035,7 @@
 						<p>Stock: <span id="producto-stock-monitor"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=monitor'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1068,7 +1066,7 @@
 						<p>Stock: <span id="producto-stock-placa"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=placa'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1099,7 +1097,7 @@
 						<p>Stock: <span id="producto-stock-procesador"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=procesador'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1130,7 +1128,7 @@
 						<p>Stock: <span id="producto-stock-ram"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=ram'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1161,7 +1159,7 @@
 						<p>Stock: <span id="producto-stock-refrigeracion"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=refrigeracion'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1174,8 +1172,7 @@
 		</div>
 	</div>
 
-	<div class="modal-producto" style="display: none;" th:each="tarjeta : ${vistaTarjetas}"
-		data-producto="tarjeta">
+	<div class="modal-producto" style="display: none;" th:each="tarjeta : ${vistaTarjetas}" data-producto="tarjeta">
 		<div class="cont-modal">
 			<div class="estructura-modal">
 				<a href="#">
@@ -1192,7 +1189,7 @@
 						<p>Stock: <span id="producto-stock-tarjeta"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=tarjeta'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1223,7 +1220,7 @@
 						<p>Stock: <span id="producto-stock-combo"></span></p>
 					</div>
 					<div class="btn-ver-detalles">
-						<a href="#">
+						<a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=combo'}">
 							<p>VER DETALLES</p>
 							<i class="fa-solid fa-arrow-right"></i>
 						</a>
@@ -1275,6 +1272,12 @@
 					productoPrecioElement.textContent = productoPrecio;
 					productoStockElement.textContent = productoStock;
 					productoImagenElement.setAttribute('src', productoImagenSrc);
+
+					const productoIdModal = productoId;
+
+					// Construir la URL del enlace "VER DETALLES" con el ID del producto
+					const enlaceVerDetalles = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"] .btn-ver-detalles a');
+					enlaceVerDetalles.href = '/catalogo/detalle/producto/' + productoIdModal + '?tipo=' + tipoProducto;
 
 					const modal = document.querySelector('.modal-producto[data-producto="' + tipoProducto + '"]');
 
