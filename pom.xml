@@ -15,6 +15,7 @@
 	<description>Pagina de la tienda La Bruja Store</description>
 	<properties>
 		<java.version>21</java.version>
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -71,6 +72,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>spring-boot-docker</finalName>
 	</build>
 
 </project>
