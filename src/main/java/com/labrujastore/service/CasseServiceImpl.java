@@ -20,25 +20,21 @@ public class CasseServiceImpl implements CasseService
 		return casseRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Casse guardarCasse(Casse casse) {
 		return casseRepository.save(casse);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Casse actualizarCasse(Casse casse) {
 		return casseRepository.save(casse);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Casse obtenerIdCasse(Integer casseId) {
 		return casseRepository.findById(casseId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarCasse(Integer casseId) {
 		casseRepository.deleteById(casseId);

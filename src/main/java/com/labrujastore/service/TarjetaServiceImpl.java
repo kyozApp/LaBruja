@@ -20,25 +20,21 @@ public class TarjetaServiceImpl implements TarjetaService
 		return tarjetaRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Tarjeta guardarTarjeta(Tarjeta tarjeta) {
 		return tarjetaRepository.save(tarjeta);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Tarjeta actualizarTarjeta(Tarjeta tarjeta) {
 		return tarjetaRepository.save(tarjeta);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Tarjeta obtenerIdTarjeta(Integer tarjetaId) {
 		return tarjetaRepository.findById(tarjetaId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarTarjeta(Integer tarjetaId) {
 		tarjetaRepository.deleteById(tarjetaId);

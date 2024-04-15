@@ -15,19 +15,16 @@ public class ComboServiceImpl implements ComboService {
     @Autowired
     private ComboRepository comboRepository;
 
-    @SuppressWarnings("null")
     @Override
     public Combo actualizarCombo(Combo combo) {
         return comboRepository.save(combo);
     }
 
-    @SuppressWarnings("null")
     @Override
     public void eliminarCombo(Integer comboId) {
         comboRepository.deleteById(comboId);
     }
 
-    @SuppressWarnings("null")
     @Override
     public Combo guardarCombo(Combo combo) {
         return comboRepository.save(combo);
@@ -38,7 +35,6 @@ public class ComboServiceImpl implements ComboService {
         return comboRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     @Override
     public Combo obtenerIdCombo(Integer comboId) {
         return comboRepository.findById(comboId).get();

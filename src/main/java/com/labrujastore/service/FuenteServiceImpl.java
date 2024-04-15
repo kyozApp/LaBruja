@@ -20,25 +20,21 @@ public class FuenteServiceImpl implements FuenteService
 		return fuenteRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Fuente guardarFuente(Fuente fuente) {
 		return fuenteRepository.save(fuente);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Fuente actualizarFuente(Fuente fuente) {
 		return fuenteRepository.save(fuente);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Fuente obtenerIdFuente(Integer fuenteId) {
 		return fuenteRepository.findById(fuenteId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarFuente(Integer fuenteId) {
 		fuenteRepository.deleteById(fuenteId);

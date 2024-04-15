@@ -19,31 +19,26 @@ public class CategoriaServiceImpl implements CategoriaService
 		return categoriaRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Categoria guardarCategoria(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Categoria actualizarCategoria(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Categoria obtenerIdCategoria(Integer categoriaId) {
 		return categoriaRepository.findById(categoriaId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarCategoria(Integer categoriaId) {
 		categoriaRepository.deleteById(categoriaId);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Categoria obtenerCategoriaNombreUrl(String nombreUrl) {
 		if (nombreUrl == null) {

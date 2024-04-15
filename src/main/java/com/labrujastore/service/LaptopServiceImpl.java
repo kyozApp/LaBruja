@@ -20,25 +20,21 @@ public class LaptopServiceImpl implements LaptopService
 		return laptopRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Laptop guardarLaptop(Laptop laptop) {
 		return laptopRepository.save(laptop);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Laptop actualizarLaptop(Laptop laptop) {
 		return laptopRepository.save(laptop);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Laptop obtenerIdLaptop(Integer laptopId) {
 		return laptopRepository.findById(laptopId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarLaptop(Integer laptopId) {
 		laptopRepository.deleteById(laptopId);

@@ -20,25 +20,21 @@ public class RefrigeracionServiceImpl implements RefrigeracionService
 		return refrigeracionRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Refrigeracion guardarRefrigeracion(Refrigeracion refrigeracion) {
 		return refrigeracionRepository.save(refrigeracion);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Refrigeracion actualizarRefrigeracion(Refrigeracion refrigeracion) {
 		return refrigeracionRepository.save(refrigeracion);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Refrigeracion obtenerIdRefrigeracion(Integer refrigeracionId) {
 		return refrigeracionRepository.findById(refrigeracionId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarRefrigeracion(Integer refrigeracionId) {
 		refrigeracionRepository.deleteById(refrigeracionId);

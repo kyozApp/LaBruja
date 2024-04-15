@@ -20,25 +20,21 @@ public class PlacaServiceImpl implements PlacaService
 		return placaRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Placa guardarPlaca(Placa placa) {
 		return placaRepository.save(placa);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Placa actualizarPlaca(Placa placa) {
 		return placaRepository.save(placa);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Placa obtenerIdPlaca(Integer placaId) {
 		return placaRepository.findById(placaId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarPlaca(Integer placaId) {
 		placaRepository.deleteById(placaId);

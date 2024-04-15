@@ -20,25 +20,21 @@ public class MonitorServiceImpl implements MonitorService
 		return monitorRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Monitor guardarMonitor(Monitor monitor) {
 		return monitorRepository.save(monitor);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Monitor actualizarMonitor(Monitor monitor) {
 		return monitorRepository.save(monitor);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Monitor obtenerIdMonitor(Integer monitorId) {
 		return monitorRepository.findById(monitorId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarMonitor(Integer monitorId) {
 		monitorRepository.deleteById(monitorId);
