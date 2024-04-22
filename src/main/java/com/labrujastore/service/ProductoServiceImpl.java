@@ -23,25 +23,21 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     @Override
     public Producto guardarProducto(Producto producto) {
         return productoRepository.save(producto);
     }
 
-    @SuppressWarnings("null")
     @Override
     public Producto actualizarProducto(Producto producto) {
         return productoRepository.save(producto);
     }
 
-    @SuppressWarnings("null")
     @Override
     public Producto obtenerIdProducto(Integer productoId) {
         return productoRepository.findById(productoId).get();
     }
 
-    @SuppressWarnings("null")
     @Override
     public void eliminarProducto(Integer productoId) {
         productoRepository.deleteById(productoId);

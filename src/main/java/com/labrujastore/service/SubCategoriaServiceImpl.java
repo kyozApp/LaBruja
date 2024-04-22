@@ -20,25 +20,21 @@ public class SubCategoriaServiceImpl implements SubCategoriaService
 		return subCategoriaRepository.findAll();
 	}
 
-    @SuppressWarnings("null")
 	@Override
 	public Subcategoria guardarSubCategoria(Subcategoria subcategoria) {
 		return subCategoriaRepository.save(subcategoria);
 	}
 
-    @SuppressWarnings("null")
 	@Override
 	public Subcategoria actualizarSubCategoria(Subcategoria subcategoria) {
 		return subCategoriaRepository.save(subcategoria);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Subcategoria obtenerIdSubCategoria(Integer subcategoriaId) {
 		return subCategoriaRepository.findById(subcategoriaId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarSubCategoria(Integer subcategoriaId) {
 		subCategoriaRepository.deleteById(subcategoriaId);

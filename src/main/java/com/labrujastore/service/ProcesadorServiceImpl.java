@@ -20,25 +20,21 @@ public class ProcesadorServiceImpl implements ProcesadorService
 		return procesadorRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Procesador guardarProcesador(Procesador procesador) {
 		return procesadorRepository.save(procesador);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Procesador actualizarProcesador(Procesador procesador) {
 		return procesadorRepository.save(procesador);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Procesador obtenerIdProcesador(Integer procesadorId) {
 		return procesadorRepository.findById(procesadorId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarProcesador(Integer procesadorId) {
 		procesadorRepository.deleteById(procesadorId);

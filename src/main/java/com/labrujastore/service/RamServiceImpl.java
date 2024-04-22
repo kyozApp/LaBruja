@@ -20,25 +20,21 @@ public class RamServiceImpl implements RamService
 		return ramRepository.findAll();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Ram guardarRam(Ram ram) {
 		return ramRepository.save(ram);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Ram actualizarRam(Ram ram) {
 		return ramRepository.save(ram);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Ram obtenerIdRam(Integer ramId) {
 		return ramRepository.findById(ramId).get();
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void eliminarRam(Integer ramId) {
 		ramRepository.deleteById(ramId);

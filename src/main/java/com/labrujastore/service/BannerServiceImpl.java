@@ -14,19 +14,16 @@ public class BannerServiceImpl implements BannerService {
     @Autowired
     private BannerRepository bannerRepository;
 
-    @SuppressWarnings("null")
     @Override
     public Banner actualizarBanner(Banner banner) {
         return bannerRepository.save(banner);
     }
 
-    @SuppressWarnings("null")
     @Override
     public void eliminarBanner(Integer bannerId) {
         bannerRepository.deleteById(bannerId);
     }
 
-    @SuppressWarnings("null")
     @Override
     public Banner guardarBanner(Banner banner) {
         return bannerRepository.save(banner);
@@ -37,7 +34,6 @@ public class BannerServiceImpl implements BannerService {
         return bannerRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     @Override
     public Banner obtenerIdBanner(Integer bannerId) {
         return bannerRepository.findById(bannerId).get();

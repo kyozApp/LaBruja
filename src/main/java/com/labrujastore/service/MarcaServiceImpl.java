@@ -14,19 +14,16 @@ public class MarcaServiceImpl implements MarcaService {
     @Autowired
     private MarcaRepository marcaRepository;
 
-    @SuppressWarnings("null")
     @Override
     public Marca actualizarMarca(Marca marca) {
         return marcaRepository.save(marca);
     }
 
-    @SuppressWarnings("null")
     @Override
     public void eliminarMarca(Integer marcaId) {
         marcaRepository.deleteById(marcaId);
     }
 
-    @SuppressWarnings("null")
     @Override
     public Marca guardarMarca(Marca marca) {
         return marcaRepository.save(marca);
@@ -37,7 +34,6 @@ public class MarcaServiceImpl implements MarcaService {
         return marcaRepository.findAll();
     }
 
-    @SuppressWarnings("null")
     @Override
     public Marca obtenerIdMarca(Integer marcaId) {
         return marcaRepository.findById(marcaId).get();
