@@ -65,13 +65,20 @@ public class TarjetaController {
 
     @PostMapping("/tarjeta/editar/{tarjetaId}")
     public String editar(@PathVariable Integer tarjetaId, @ModelAttribute Tarjeta tarjeta,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Tarjeta tarjetaExistente = tarjetaService.obtenerIdTarjeta(tarjetaId);
         tarjetaExistente.setNombre(tarjeta.getNombre());
         tarjetaExistente.setStock(stock);
+        tarjetaExistente.setStock_lima(stock_lima);
+        tarjetaExistente.setStock_arequipa(stock_arequipa);
         tarjetaExistente.setPrecio(precio);
         tarjetaExistente.setDescripcion(descripcion);
         tarjetaExistente.setUrl(url);

@@ -64,13 +64,20 @@ public class CasseController {
 
     @PostMapping("/casse/editar/{casseId}")
     public String editar(@PathVariable Integer casseId, @ModelAttribute Casse casse,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Casse casseExistente = casseService.obtenerIdCasse(casseId);
         casseExistente.setNombre(casse.getNombre());
         casseExistente.setStock(stock);
+        casseExistente.setStock_lima(stock_lima);
+        casseExistente.setStock_arequipa(stock_arequipa);
         casseExistente.setPrecio(precio);
         casseExistente.setDescripcion(descripcion);
         casseExistente.setUrl(url);

@@ -64,13 +64,20 @@ public class FuenteController {
 
     @PostMapping("/fuente/editar/{fuenteId}")
     public String editar(@PathVariable Integer fuenteId, @ModelAttribute Fuente fuente,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Fuente fuenteExistente = fuenteService.obtenerIdFuente(fuenteId);
         fuenteExistente.setNombre(fuente.getNombre());
         fuenteExistente.setStock(stock);
+        fuenteExistente.setStock_lima(stock_lima);
+        fuenteExistente.setStock_arequipa(stock_arequipa);
         fuenteExistente.setPrecio(precio);
         fuenteExistente.setDescripcion(descripcion);
         fuenteExistente.setUrl(url);

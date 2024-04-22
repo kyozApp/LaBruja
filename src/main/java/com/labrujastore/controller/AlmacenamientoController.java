@@ -22,71 +22,78 @@ import com.labrujastore.service.CategoriaService;
 @Controller
 @RequestMapping("/admin")
 public class AlmacenamientoController {
-	@Autowired
-	private AlmacenamientoService almacenamientoService;
+    @Autowired
+    private AlmacenamientoService almacenamientoService;
 
-	@Autowired
-	private CategoriaService categoriaService;
+    @Autowired
+    private CategoriaService categoriaService;
 
-	@GetMapping("/almacenamiento")
-	public String index(Model model) {
-		List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
-		model.addAttribute("tablaAlmacenamiento", almacenamientos);
-		return "admin/almacenamiento/index";
-	}
+    @GetMapping("/almacenamiento")
+    public String index(Model model) {
+        List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
+        model.addAttribute("tablaAlmacenamiento", almacenamientos);
+        return "admin/almacenamiento/index";
+    }
 
-	@GetMapping("/almacenamiento/crear")
-	public String crear(Model model) {
-		Almacenamiento almacenamiento = new Almacenamiento();
-		List<Categoria> categorias = categoriaService.listarCategoria();
-		model.addAttribute("formularioCrearAlmacenamiento", almacenamiento);
-		model.addAttribute("selectorCategorias", categorias);
-		return "admin/almacenamiento/crear";
-	}
+    @GetMapping("/almacenamiento/crear")
+    public String crear(Model model) {
+        Almacenamiento almacenamiento = new Almacenamiento();
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("formularioCrearAlmacenamiento", almacenamiento);
+        model.addAttribute("selectorCategorias", categorias);
+        return "admin/almacenamiento/crear";
+    }
 
-	@PostMapping("/almacenamiento/crear")
-	public String crear(@ModelAttribute Almacenamiento almacenamiento,
-			@RequestParam("imagen") MultipartFile imagen) throws IOException {
-		almacenamiento.setImagenNombre(imagen.getOriginalFilename());
-		almacenamiento.setImagenArchivo(imagen.getBytes());
-		almacenamientoService.guardarAlmacenamiento(almacenamiento);
-		return "redirect:/admin/almacenamiento";
-	}
+    @PostMapping("/almacenamiento/crear")
+    public String crear(@ModelAttribute Almacenamiento almacenamiento,
+            @RequestParam("imagen") MultipartFile imagen) throws IOException {
+        almacenamiento.setImagenNombre(imagen.getOriginalFilename());
+        almacenamiento.setImagenArchivo(imagen.getBytes());
+        almacenamientoService.guardarAlmacenamiento(almacenamiento);
+        return "redirect:/admin/almacenamiento";
+    }
 
-	@GetMapping("/almacenamiento/editar/{almacenamientoId}")
-	public String editar(@PathVariable Integer almacenamientoId, Model model) {
-		Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
-		List<Categoria> categorias = categoriaService.listarCategoria();
-		model.addAttribute("almacenamiento", almacenamiento);
-		model.addAttribute("selectorCategorias", categorias);
-		return "admin/almacenamiento/editar";
-	}
+    @GetMapping("/almacenamiento/editar/{almacenamientoId}")
+    public String editar(@PathVariable Integer almacenamientoId, Model model) {
+        Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("almacenamiento", almacenamiento);
+        model.addAttribute("selectorCategorias", categorias);
+        return "admin/almacenamiento/editar";
+    }
 
-	@PostMapping("/almacenamiento/editar/{almacenamientoId}")
-	public String editar(@PathVariable Integer almacenamientoId, @ModelAttribute Almacenamiento almacenamiento,
-			@RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-			@RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-			@RequestParam("url") String url, @RequestParam("estado") String estado,
-			@RequestParam("categoriaId") Integer categoriaId) throws IOException {
-		Almacenamiento almacenamientoExistente = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
-		almacenamientoExistente.setNombre(almacenamiento.getNombre());
-		almacenamientoExistente.setStock(stock);
-		almacenamientoExistente.setPrecio(precio);
-		almacenamientoExistente.setDescripcion(descripcion);
-		almacenamientoExistente.setUrl(url);
-		almacenamientoExistente.setEstado(estado);
-		almacenamientoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
-		if (!imagen.isEmpty()) {
-			almacenamientoExistente.setImagenNombre(imagen.getOriginalFilename());
-			almacenamientoExistente.setImagenArchivo(imagen.getBytes());
-		}
-		almacenamientoService.guardarAlmacenamiento(almacenamientoExistente);
-		return "redirect:/admin/almacenamiento";
-	}
+    @PostMapping("/almacenamiento/editar/{almacenamientoId}")
+    public String editar(@PathVariable Integer almacenamientoId, @ModelAttribute Almacenamiento almacenamiento,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+        Almacenamiento almacenamientoExistente = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
+        almacenamientoExistente.setNombre(almacenamiento.getNombre());
+        almacenamientoExistente.setStock(stock);
+        almacenamientoExistente.setStock_lima(stock_lima);
+        almacenamientoExistente.setStock_arequipa(stock_arequipa);
+        almacenamientoExistente.setPrecio(precio);
+        almacenamientoExistente.setDescripcion(descripcion);
+        almacenamientoExistente.setUrl(url);
+        almacenamientoExistente.setEstado(estado);
+        almacenamientoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        if (!imagen.isEmpty()) {
+            almacenamientoExistente.setImagenNombre(imagen.getOriginalFilename());
+            almacenamientoExistente.setImagenArchivo(imagen.getBytes());
+        }
+        almacenamientoService.guardarAlmacenamiento(almacenamientoExistente);
+        return "redirect:/admin/almacenamiento";
+    }
 
-	@GetMapping("/almacenamiento/{almacenamientoId}")
-	public String eliminar(@PathVariable Integer almacenamientoId) {
-		almacenamientoService.eliminarAlmacenamiento(almacenamientoId);
-		return "redirect:/admin/almacenamiento";
-	}
+    @GetMapping("/almacenamiento/{almacenamientoId}")
+    public String eliminar(@PathVariable Integer almacenamientoId) {
+        almacenamientoService.eliminarAlmacenamiento(almacenamientoId);
+        return "redirect:/admin/almacenamiento";
+    }
 }

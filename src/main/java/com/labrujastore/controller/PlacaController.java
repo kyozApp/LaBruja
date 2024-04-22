@@ -65,13 +65,20 @@ public class PlacaController {
 
     @PostMapping("/placa/editar/{placaId}")
     public String editar(@PathVariable Integer placaId, @ModelAttribute Placa placa,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Placa placaExistente = placaService.obtenerIdPlaca(placaId);
         placaExistente.setNombre(placa.getNombre());
         placaExistente.setStock(stock);
+        placaExistente.setStock_lima(stock_lima);
+        placaExistente.setStock_arequipa(stock_arequipa);
         placaExistente.setPrecio(precio);
         placaExistente.setDescripcion(descripcion);
         placaExistente.setUrl(url);

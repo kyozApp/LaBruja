@@ -21,18 +21,16 @@ import com.labrujastore.service.ProductoService;
 
 @Controller
 @RequestMapping("/admin")
-public class ProductoController 
-{
+public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
 
     @Autowired
-	private CategoriaService categoriaService;
+    private CategoriaService categoriaService;
 
     @GetMapping("/producto")
-    public String index(Model model) 
-    {
+    public String index(Model model) {
         List<Producto> productos = productoService.listarProducto();
         model.addAttribute("bProducto", productos);
 
@@ -40,67 +38,71 @@ public class ProductoController
     }
 
     @GetMapping("/producto/crear")
-	public String crear(Model model) {
+    public String crear(Model model) {
 
-		Producto producto = new Producto();
+        Producto producto = new Producto();
         List<Categoria> categorias = categoriaService.listarCategoria();
-		
+
         model.addAttribute("formularioCrearProducto", producto);
-		model.addAttribute("selectorCategorias", categorias);
-		
+        model.addAttribute("selectorCategorias", categorias);
+
         return "admin/producto/crear";
-	}
+    }
 
     @PostMapping("/producto/crear")
-	public String crear(@ModelAttribute Producto producto,
-			@RequestParam("imagen") MultipartFile imagen) throws IOException {
+    public String crear(@ModelAttribute Producto producto,
+            @RequestParam("imagen") MultipartFile imagen) throws IOException {
         producto.setImagenNombre(imagen.getOriginalFilename());
         producto.setImagenArchivo(imagen.getBytes());
         productoService.guardarProducto(producto);
-		
+
         return "redirect:/admin/producto";
-	}
+    }
 
     @GetMapping("/producto/editar/{productoId}")
-	public String editar(@PathVariable Integer productoId, Model model) {
-		Producto producto = productoService.obtenerIdProducto(productoId);
-		List<Categoria> categorias = categoriaService.listarCategoria();
-		model.addAttribute("producto", producto);
-		model.addAttribute("selectorCategorias", categorias);
-		return "admin/producto/editar";
-	}
+    public String editar(@PathVariable Integer productoId, Model model) {
+        Producto producto = productoService.obtenerIdProducto(productoId);
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("producto", producto);
+        model.addAttribute("selectorCategorias", categorias);
+        return "admin/producto/editar";
+    }
 
     @PostMapping("/producto/editar/{productoId}")
-	public String editar(@PathVariable Integer productoId, @ModelAttribute Producto producto,
-			@RequestParam("imagen") MultipartFile imagen, 
+    public String editar(@PathVariable Integer productoId, @ModelAttribute Producto producto,
+            @RequestParam("imagen") MultipartFile imagen,
             @RequestParam("stock") Integer stock,
-			@RequestParam("precio") Double precio, 
-            @RequestParam("referencia") String referencia, 
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("referencia") String referencia,
             @RequestParam("descripcion") String descripcion,
-			@RequestParam("url") String url, 
+            @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-			@RequestParam("categoriaId") Integer categoriaId) throws IOException {
-		Producto productoExistente = productoService.obtenerIdProducto(productoId);
-		productoExistente.setNombre(producto.getNombre());
-		productoExistente.setStock(stock);
-		productoExistente.setPrecio(precio);
+            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+        Producto productoExistente = productoService.obtenerIdProducto(productoId);
+        productoExistente.setNombre(producto.getNombre());
+        productoExistente.setStock(stock);
+        productoExistente.setStock_lima(stock_lima);
+        productoExistente.setStock_arequipa(stock_arequipa);
+        productoExistente.setPrecio(precio);
         productoExistente.setReferencia(referencia);
-		productoExistente.setDescripcion(descripcion);
-		productoExistente.setUrl(url);
-		productoExistente.setEstado(estado);
-		productoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
-		if (!imagen.isEmpty()) {
-			productoExistente.setImagenNombre(imagen.getOriginalFilename());
-			productoExistente.setImagenArchivo(imagen.getBytes());
-		}
-		productoService.guardarProducto(productoExistente);
-		return "redirect:/admin/producto";
-	}
+        productoExistente.setDescripcion(descripcion);
+        productoExistente.setUrl(url);
+        productoExistente.setEstado(estado);
+        productoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        if (!imagen.isEmpty()) {
+            productoExistente.setImagenNombre(imagen.getOriginalFilename());
+            productoExistente.setImagenArchivo(imagen.getBytes());
+        }
+        productoService.guardarProducto(productoExistente);
+        return "redirect:/admin/producto";
+    }
 
     @GetMapping("/producto/{productoId}")
-	public String eliminar(@PathVariable Integer productoId) {
-		productoService.eliminarProducto(productoId);
-		return "redirect:/admin/producto";
-	}
+    public String eliminar(@PathVariable Integer productoId) {
+        productoService.eliminarProducto(productoId);
+        return "redirect:/admin/producto";
+    }
 
 }

@@ -65,13 +65,20 @@ public class ProcesadorController {
 
     @PostMapping("/procesador/editar/{procesadorId}")
     public String editar(@PathVariable Integer procesadorId, @ModelAttribute Procesador procesador,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Procesador procesadorExistente = procesadorService.obtenerIdProcesador(procesadorId);
         procesadorExistente.setNombre(procesador.getNombre());
         procesadorExistente.setStock(stock);
+        procesadorExistente.setStock_lima(stock_lima);
+        procesadorExistente.setStock_arequipa(stock_arequipa);
         procesadorExistente.setPrecio(precio);
         procesadorExistente.setDescripcion(descripcion);
         procesadorExistente.setUrl(url);

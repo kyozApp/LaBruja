@@ -65,13 +65,20 @@ public class RefrigeracionController {
 
     @PostMapping("/refrigeracion/editar/{refrigeracionId}")
     public String editar(@PathVariable Integer refrigeracionId, @ModelAttribute Refrigeracion refrigeracion,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Refrigeracion refrigeracionExistente = refrigeracionService.obtenerIdRefrigeracion(refrigeracionId);
         refrigeracionExistente.setNombre(refrigeracion.getNombre());
         refrigeracionExistente.setStock(stock);
+        refrigeracionExistente.setStock_lima(stock_lima);
+        refrigeracionExistente.setStock_arequipa(stock_arequipa);
         refrigeracionExistente.setPrecio(precio);
         refrigeracionExistente.setDescripcion(descripcion);
         refrigeracionExistente.setUrl(url);

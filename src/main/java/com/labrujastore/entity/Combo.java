@@ -35,6 +35,12 @@ public class Combo implements Serializable {
     @Column
     private Integer stock;
 
+    @Column(nullable = true)
+    private String stock_lima;
+
+    @Column(nullable = true)
+    private String stock_arequipa;
+
     @Column
     private Double precio;
 
@@ -42,8 +48,8 @@ public class Combo implements Serializable {
     private String descripcion;
 
     @ManyToOne
-	@JoinColumn(name = "categoria_id", nullable = false)
-	private Categoria categoria;
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
     // convertir file en String base64
     public String getBase64Image() {
@@ -60,13 +66,24 @@ public class Combo implements Serializable {
     public Combo() {
     }
 
-    public Combo(Integer comboId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-            Double precio, String descripcion, Categoria categoria) {
+    public Combo(
+            Integer comboId,
+            String nombre,
+            String imagenNombre,
+            byte[] imagenArchivo,
+            Integer stock,
+            String stock_lima,
+            String stock_arequipa,
+            Double precio,
+            String descripcion,
+            Categoria categoria) {
         this.comboId = comboId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
         this.imagenArchivo = imagenArchivo;
         this.stock = stock;
+        this.stock_lima = stock_lima;
+        this.stock_arequipa = stock_arequipa;
         this.precio = precio;
         this.descripcion = descripcion;
         this.categoria = categoria;
@@ -129,11 +146,27 @@ public class Combo implements Serializable {
     }
 
     public Categoria getCategoria() {
-		return this.categoria;
-	}
+        return this.categoria;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getStock_lima() {
+        return stock_lima;
+    }
+
+    public void setStock_lima(String stock_lima) {
+        this.stock_lima = stock_lima;
+    }
+
+    public String getStock_arequipa() {
+        return stock_arequipa;
+    }
+
+    public void setStock_arequipa(String stock_arequipa) {
+        this.stock_arequipa = stock_arequipa;
+    }
 
 }

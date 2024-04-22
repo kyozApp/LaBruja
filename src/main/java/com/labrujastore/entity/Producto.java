@@ -16,163 +16,199 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "productos")
-public class Producto implements Serializable
-{
+public class Producto implements Serializable {
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer productoId;
-
-	@Column
-	private String nombre;
-
-	@Column
-	private String imagenNombre;
-
-	@Column(columnDefinition = "longblob")
-	private byte[] imagenArchivo;
-
-	@Column
-	private Integer stock;
-
-	@Column
-	private Double precio;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer productoId;
 
     @Column
-	private String referencia;
+    private String nombre;
 
-	@Column
-	private String descripcion;
+    @Column
+    private String imagenNombre;
 
-	@Column
-	private String url;
+    @Column(columnDefinition = "longblob")
+    private byte[] imagenArchivo;
 
-	@Column
-	private String estado;
+    @Column
+    private Integer stock;
 
-	@ManyToOne
-	@JoinColumn(name = "categoria_id", nullable = false)
-	private Categoria categoria;
+    @Column(nullable = true)
+    private String stock_lima;
+
+    @Column(nullable = true)
+    private String stock_arequipa;
+
+    @Column
+    private Double precio;
+
+    @Column
+    private String referencia;
+
+    @Column
+    private String descripcion;
+
+    @Column
+    private String url;
+
+    @Column
+    private String estado;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
     // convertir file en String base64
-	public String getBase64Image() {
-		String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
-		return base64;
-	}
+    public String getBase64Image() {
+        String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
+        return base64;
+    }
 
-	// obtener tipo de imagen (jpeg,jpg,png,etc)
-	public String getTypeImage() {
-		String typeImage = new Tika().detect(this.imagenArchivo);
-		return typeImage;
-	}
+    // obtener tipo de imagen (jpeg,jpg,png,etc)
+    public String getTypeImage() {
+        String typeImage = new Tika().detect(this.imagenArchivo);
+        return typeImage;
+    }
 
-    public Producto(){}
+    public Producto() {
+    }
 
-    public Producto(Integer productoId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-			Double precio, String descripcion, String referencia, String url, String estado, Categoria categoria) {
-		this.productoId = productoId;
-		this.nombre = nombre;
-		this.imagenNombre = imagenNombre;
-		this.imagenArchivo = imagenArchivo;
-		this.stock = stock;
-		this.precio = precio;
+    public Producto(
+            Integer productoId,
+            String nombre,
+            String imagenNombre,
+            byte[] imagenArchivo,
+            Integer stock,
+            String stock_lima,
+            String stock_arequipa,
+            Double precio,
+            String descripcion,
+            String referencia,
+            String url,
+            String estado,
+            Categoria categoria) {
+        this.productoId = productoId;
+        this.nombre = nombre;
+        this.imagenNombre = imagenNombre;
+        this.imagenArchivo = imagenArchivo;
+        this.stock = stock;
+        this.stock_lima = stock_lima;
+        this.stock_arequipa = stock_arequipa;
+        this.precio = precio;
         this.referencia = referencia;
-		this.descripcion = descripcion;
-		this.url = url;
-		this.estado = estado;
-		this.categoria = categoria;
-	}
+        this.descripcion = descripcion;
+        this.url = url;
+        this.estado = estado;
+        this.categoria = categoria;
+    }
 
     public Integer getProductoId() {
-		return this.productoId;
-	}
+        return this.productoId;
+    }
 
-	public void setProductoId(Integer productoId) {
-		this.productoId = productoId;
-	}
+    public void setProductoId(Integer productoId) {
+        this.productoId = productoId;
+    }
 
-	public String getNombre() {
-		return this.nombre;
-	}
+    public String getNombre() {
+        return this.nombre;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public String getImagenNombre() {
-		return this.imagenNombre;
-	}
+    public String getImagenNombre() {
+        return this.imagenNombre;
+    }
 
-	public void setImagenNombre(String imagenNombre) {
-		this.imagenNombre = imagenNombre;
-	}
+    public void setImagenNombre(String imagenNombre) {
+        this.imagenNombre = imagenNombre;
+    }
 
-	public byte[] getImagenArchivo() {
-		return this.imagenArchivo;
-	}
+    public byte[] getImagenArchivo() {
+        return this.imagenArchivo;
+    }
 
-	public void setImagenArchivo(byte[] imagenArchivo) {
-		this.imagenArchivo = imagenArchivo;
-	}
+    public void setImagenArchivo(byte[] imagenArchivo) {
+        this.imagenArchivo = imagenArchivo;
+    }
 
-	public Integer getStock() {
-		return this.stock;
-	}
+    public Integer getStock() {
+        return this.stock;
+    }
 
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 
-	public Double getPrecio() {
-		return this.precio;
-	}
+    public Double getPrecio() {
+        return this.precio;
+    }
 
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 
     public String getReferencia() {
-		return this.referencia;
-	}
+        return this.referencia;
+    }
 
-	public void setReferencia(String referencia) {
-		this.referencia = referencia;
-	}
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
 
-	public String getDescripcion() {
-		return this.descripcion;
-	}
+    public String getDescripcion() {
+        return this.descripcion;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public String getUrl() {
-		return this.url;
-	}
+    public String getUrl() {
+        return this.url;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public String getEstado() {
-		return this.estado;
-	}
+    public String getEstado() {
+        return this.estado;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public Categoria getCategoria() {
-		return this.categoria;
-	}
+    public Categoria getCategoria() {
+        return this.categoria;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getStock_lima() {
+        return stock_lima;
+    }
+
+    public void setStock_lima(String stock_lima) {
+        this.stock_lima = stock_lima;
+    }
+
+    public String getStock_arequipa() {
+        return stock_arequipa;
+    }
+
+    public void setStock_arequipa(String stock_arequipa) {
+        this.stock_arequipa = stock_arequipa;
+    }
 
 }
