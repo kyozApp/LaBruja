@@ -2,80 +2,90 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Editar Fuente</title>
+    <meta charset="UTF-8">
+    <title>Editar Fuente</title>
 </head>
 
 <body>
 
-	<div class="container">
-		<h3>Editar Fuente</h3>
+    <div class="container">
+        <h3>Editar Fuente</h3>
 
-		<form name="editarFuenteForm" method="post"
-			th:action="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}" enctype="multipart/form-data">
+        <form name="editarFuenteForm" method="post"
+            th:action="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}" enctype="multipart/form-data">
 
-			<input type="hidden" name="fuenteId" th:value="${fuente.fuenteId}" readonly="true" />
+            <input type="hidden" name="fuenteId" th:value="${fuente.fuenteId}" readonly="true" />
 
-			<div>
-				<label for="nombre">Nombre:</label><br>
-				<input type="text" name="nombre" th:value="${fuente.nombre}" />
-			</div>
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" th:value="${fuente.nombre}" />
+            </div>
 
-			<div>
-				<label for="imagenActual">Imagen actual:</label><br>
-				<img th:src="'data:image/' + ${fuente.getTypeImage()} + ';base64,' + ${fuente.getBase64Image()}"
-					width="150px" height="150px" border="1" /><br>
-			</div>
+            <div>
+                <label for="imagenActual">Imagen actual:</label><br>
+                <img th:src="'data:image/' + ${fuente.getTypeImage()} + ';base64,' + ${fuente.getBase64Image()}"
+                    width="150px" height="150px" border="1" /><br>
+            </div>
 
-			<div>
-				<label for="imagenNueva">Selecciona una nueva imagen:</label><br>
-				<input type="file" name="imagen" accept="image/*" id="imagenNueva"
-					onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
-				<br>
-				<img id="imageId" width="150px" height="150px" border="1" />
-			</div>
+            <div>
+                <label for="imagenNueva">Selecciona una nueva imagen:</label><br>
+                <input type="file" name="imagen" accept="image/*" id="imagenNueva"
+                    onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
+                <br>
+                <img id="imageId" width="150px" height="150px" border="1" />
+            </div>
 
-			<div>
-				<label for="stock">Stock:</label><br>
-				<input type="number" name="stock" th:value="${fuente.stock}" />
-			</div>
+            <div>
+                <label for="stock">Stock:</label><br>
+                <input type="number" name="stock" th:value="${fuente.stock}" />
+            </div>
 
-			<div>
-				<label for="precio">Precio:</label><br>
-				<input type="number" name="precio" step="0.01" th:value="${fuente.precio}" />
-			</div>
+            <div>
+                <label for="stock_lima">Stock Lima:</label><br>
+                <input type="text" name="stock_lima" th:value="${fuente.stock_lima}" />
+            </div>
 
-			<div>
-				<label for="descripcion">Descripción:</label><br>
-				<textarea name="descripcion" th:text="${fuente.descripcion}"></textarea>
-			</div>
+            <div>
+                <label for="stock_arequipa">Stock Arequipa:</label><br>
+                <input type="text" name="stock_arequipa" th:value="${fuente.stock_arequipa}" />
+            </div>
 
-			<div>
-				<label for="url">URL:</label><br>
-				<input type="text" name="url" th:value="${fuente.url}" />
-			</div>
+            <div>
+                <label for="precio">Precio:</label><br>
+                <input type="number" name="precio" step="0.01" th:value="${fuente.precio}" />
+            </div>
 
-			<div>
-				<label for="estado">Estado:</label><br>
-				<input type="text" name="estado" th:value="${fuente.estado}" />
-			</div>
+            <div>
+                <label for="descripcion">Descripción:</label><br>
+                <textarea name="descripcion" th:text="${fuente.descripcion}"></textarea>
+            </div>
 
-			<div>
-				<label for="categoria">Categoría:</label>
-				<select id="categoria" name="categoriaId">
-					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
-						th:text="${categoria.nombre}"
-						th:selected="${categoria.categoriaId == fuente.categoria.categoriaId}">
-					</option>>
-					</option>
-				</select>
-			</div>
+            <div>
+                <label for="url">URL:</label><br>
+                <input type="text" name="url" th:value="${fuente.url}" />
+            </div>
 
-			<button type="submit">Guardar</button>
-			<button type="button" onclick="location.href='/admin/fuente'">Cancelar</button>
-		</form>
+            <div>
+                <label for="estado">Estado:</label><br>
+                <input type="text" name="estado" th:value="${fuente.estado}" />
+            </div>
 
-	</div>
+            <div>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoriaId">
+                    <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+                        th:text="${categoria.nombre}"
+                        th:selected="${categoria.categoriaId == fuente.categoria.categoriaId}">
+                    </option>>
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="location.href='/admin/fuente'">Cancelar</button>
+        </form>
+
+    </div>
 
 </body>
 

@@ -24,6 +24,9 @@ public class Banner implements Serializable {
     @Column
     private String nombre;
 
+    @Column(nullable = true)
+    private String url;
+
     @Column
     private String imagenNombre;
 
@@ -45,9 +48,10 @@ public class Banner implements Serializable {
     public Banner() {
     }
 
-    public Banner(Integer bannerId, String nombre, String imagenNombre, byte[] imagenArchivo) {
+    public Banner(Integer bannerId, String nombre, String url, String imagenNombre, byte[] imagenArchivo) {
         this.bannerId = bannerId;
         this.nombre = nombre;
+        this.url = url;
         this.imagenNombre = imagenNombre;
         this.imagenArchivo = imagenArchivo;
     }
@@ -82,6 +86,14 @@ public class Banner implements Serializable {
 
     public void setImagenArchivo(byte[] imagenArchivo) {
         this.imagenArchivo = imagenArchivo;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }

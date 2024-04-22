@@ -55,9 +55,11 @@ public class BannerController {
 
     @PostMapping("/banner/editar/{bannerId}")
     public String editar(@PathVariable Integer bannerId, @ModelAttribute Banner banner,
-            @RequestParam("imagen") MultipartFile imagen) throws IOException {
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("url") String url) throws IOException {
         Banner bannerExistente = bannerService.obtenerIdBanner(bannerId);
         bannerExistente.setNombre(banner.getNombre());
+        bannerExistente.setUrl(banner.getUrl());
         if (!imagen.isEmpty()) {
             bannerExistente.setImagenNombre(imagen.getOriginalFilename());
             bannerExistente.setImagenArchivo(imagen.getBytes());

@@ -19,6 +19,8 @@
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
+                <th>Stock Lima</th>
+                <th>Stock Arequipa</th>
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
@@ -39,6 +41,8 @@
                         height="45px" border="1" />
                 </td>
                 <td th:text="${laptop.stock}"></td>
+                <td th:text="${laptop.stock_lima}"></td>
+                <td th:text="${laptop.stock_arequipa}"></td>
                 <td th:text="${laptop.precio}"></td>
                 <td th:text="${laptop.descripcion}"></td>
                 <td><a th:href="${laptop.url}" th:text="${laptop.url}"></a></td>

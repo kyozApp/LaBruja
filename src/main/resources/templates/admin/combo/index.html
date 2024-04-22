@@ -19,6 +19,8 @@
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
+                <th>Stock Lima</th>
+                <th>Stock Arequipa</th>
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>Categoría</th>
@@ -36,6 +38,8 @@
                         height="45px" border="1" />
                 </td>
                 <td th:text="${combo.stock}"></td>
+                <td th:text="${combo.stock_lima}"></td>
+                <td th:text="${combo.stock_arequipa}"></td>
                 <td th:text="${combo.precio}"></td>
                 <td th:text="${combo.descripcion}"></td>
                 <td th:text="${combo.categoria.nombre}"></td>

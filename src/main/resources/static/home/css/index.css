@@ -500,3 +500,7 @@ button {
 .figure-image:hover .img-prin{
 	filter: grayscale(100%);
 }
+
+.baner{
+  margin: 10px;
+}

@@ -19,6 +19,8 @@
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
+                <th>Stock Lima</th>
+                <th>Stock Arequipa</th>
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
@@ -38,6 +40,8 @@
                         height="45px" border="1" />
                 </td>
                 <td th:text="${fuente.stock}"></td>
+                <td th:text="${fuente.stock_lima}"></td>
+                <td th:text="${fuente.stock_arequipa}"></td>
                 <td th:text="${fuente.precio}"></td>
                 <td th:text="${fuente.descripcion}"></td>
                 <td><a th:href="${fuente.url}" th:text="${fuente.url}"></a></td>

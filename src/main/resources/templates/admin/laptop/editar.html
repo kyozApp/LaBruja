@@ -2,85 +2,95 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Editar Laptop</title>
+    <meta charset="UTF-8">
+    <title>Editar Laptop</title>
 </head>
 
 <body>
 
-	<div class="container">
-		<h3>Editar Laptop</h3>
+    <div class="container">
+        <h3>Editar Laptop</h3>
 
-		<form name="editarLaptopForm" method="post"
-			th:action="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}" enctype="multipart/form-data">
+        <form name="editarLaptopForm" method="post"
+            th:action="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}" enctype="multipart/form-data">
 
-			<input type="hidden" name="laptopId" th:value="${laptop.laptopId}" readonly="true" />
+            <input type="hidden" name="laptopId" th:value="${laptop.laptopId}" readonly="true" />
 
-			<div>
-				<label for="nombre">Nombre:</label><br>
-				<input type="text" name="nombre" th:value="${laptop.nombre}" />
-			</div>
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" th:value="${laptop.nombre}" />
+            </div>
 
-			<div>
-				<label for="imagenActual">Imagen actual:</label><br>
-				<img th:src="'data:image/' + ${laptop.getTypeImage()} + ';base64,' + ${laptop.getBase64Image()}"
-					width="150px" height="150px" border="1" /><br>
-			</div>
+            <div>
+                <label for="imagenActual">Imagen actual:</label><br>
+                <img th:src="'data:image/' + ${laptop.getTypeImage()} + ';base64,' + ${laptop.getBase64Image()}"
+                    width="150px" height="150px" border="1" /><br>
+            </div>
 
-			<div>
-				<label for="imagenNueva">Selecciona una nueva imagen:</label><br>
-				<input type="file" name="imagen" accept="image/*" id="imagenNueva"
-					onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
-				<br>
-				<img id="imageId" width="150px" height="150px" border="1" />
-			</div>
+            <div>
+                <label for="imagenNueva">Selecciona una nueva imagen:</label><br>
+                <input type="file" name="imagen" accept="image/*" id="imagenNueva"
+                    onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
+                <br>
+                <img id="imageId" width="150px" height="150px" border="1" />
+            </div>
 
-			<div>
-				<label for="stock">Stock:</label><br>
-				<input type="number" name="stock" th:value="${laptop.stock}" />
-			</div>
+            <div>
+                <label for="stock">Stock:</label><br>
+                <input type="number" name="stock" th:value="${laptop.stock}" />
+            </div>
 
-			<div>
-				<label for="precio">Precio:</label><br>
-				<input type="number" name="precio" step="0.01" th:value="${laptop.precio}" />
-			</div>
+            <div>
+                <label for="stock_lima">Stock Lima:</label><br>
+                <input type="text" name="stock_lima" th:value="${laptop.stock_lima}" />
+            </div>
 
-			<div>
-				<label for="descripcion">Descripción:</label><br>
-				<textarea name="descripcion" th:text="${laptop.descripcion}"></textarea>
-			</div>
+            <div>
+                <label for="stock_arequipa">Stock Arequipa:</label><br>
+                <input type="text" name="stock_arequipa" th:value="${laptop.stock_arequipa}" />
+            </div>
 
-			<div>
-				<label for="url">URL:</label><br>
-				<input type="text" name="url" th:value="${laptop.url}" />
-			</div>
+            <div>
+                <label for="precio">Precio:</label><br>
+                <input type="number" name="precio" step="0.01" th:value="${laptop.precio}" />
+            </div>
 
-			<div>
-				<label for="estado">Estado:</label><br>
-				<input type="text" name="estado" th:value="${laptop.estado}" />
-			</div>
+            <div>
+                <label for="descripcion">Descripción:</label><br>
+                <textarea name="descripcion" th:text="${laptop.descripcion}"></textarea>
+            </div>
 
-			<div>
-				<label for="oferta">Oferta:</label><br>
-				<input type="text" name="oferta" th:value="${laptop.oferta}" />
-			</div>
+            <div>
+                <label for="url">URL:</label><br>
+                <input type="text" name="url" th:value="${laptop.url}" />
+            </div>
 
-			<div>
-				<label for="categoria">Categoría:</label>
-				<select id="categoria" name="categoriaId">
-					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
-						th:text="${categoria.nombre}"
-						th:selected="${categoria.categoriaId == laptop.categoria.categoriaId}">
-					</option>>
-					</option>
-				</select>
-			</div>
+            <div>
+                <label for="estado">Estado:</label><br>
+                <input type="text" name="estado" th:value="${laptop.estado}" />
+            </div>
 
-			<button type="submit">Guardar</button>
-			<button type="button" onclick="location.href='/admin/laptop'">Cancelar</button>
-		</form>
+            <div>
+                <label for="oferta">Oferta:</label><br>
+                <input type="text" name="oferta" th:value="${laptop.oferta}" />
+            </div>
 
-	</div>
+            <div>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoriaId">
+                    <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+                        th:text="${categoria.nombre}"
+                        th:selected="${categoria.categoriaId == laptop.categoria.categoriaId}">
+                    </option>>
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="location.href='/admin/laptop'">Cancelar</button>
+        </form>
+
+    </div>
 
 </body>
 
