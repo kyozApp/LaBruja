@@ -73,12 +73,12 @@ public class DetalleProductoController {
 
     @Autowired
     private TarjetaService tarjetaService;
-    
+
     @Autowired
     private ComboService comboService;
 
     @Autowired
-	private CategoriaService categoriaService;
+    private CategoriaService categoriaService;
 
     @GetMapping("/producto/{id}")
     public String detalles(Model model, @PathVariable Integer id, @RequestParam("tipo") String tipo) {
