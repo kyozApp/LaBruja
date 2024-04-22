@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Contactanos</title>
+    <link rel="icon" th:href="@{/general/img/logotipo.png}" type="image/png">
+
 
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/general/css/formato.css}">
@@ -134,7 +136,7 @@
                         </li>
                     </a>
                     <hr>
-                    <a  th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
+                    <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
                         <li class="listaItems">
                             <span th:text="${categoria.nombre}"></span>
                             <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
@@ -325,7 +327,8 @@
                             width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <ul>
-                            <li style="margin-bottom: 15px;">AV. GARCILAZO DE LA VEGA 1348 INTERIOR 2B-140 - CENTRO COMERCIAL CYBERPLAZA</li>
+                            <li style="margin-bottom: 15px;">AV. GARCILAZO DE LA VEGA 1348 INTERIOR 2B-140 - CENTRO
+                                COMERCIAL CYBERPLAZA</li>
                             <li>
                                 HORARIO DE ATENCIÓN
                                 <ul>
@@ -344,7 +347,8 @@
                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                         <ul>
-                            <li style="margin-bottom: 15px;">CALLE OCTAVIO MUÑOZ NAJAR 223 INTERIOR 133 - CENTRO COMERCIAL COMPUAREQUIPA</li>
+                            <li style="margin-bottom: 15px;">CALLE OCTAVIO MUÑOZ NAJAR 223 INTERIOR 133 - CENTRO
+                                COMERCIAL COMPUAREQUIPA</li>
                             <li>
                                 HORARIO DE ATENCIÓN
                                 <ul>
@@ -367,97 +371,97 @@
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <footer class="footer">
-		<main class="encabezado">
-			<span class="encabezado__titulo ocultar" >Suscribete para resivir boletinis</span>
-			<div class="encabezado__contenido ocultar">
-				<input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
-				<p class="encabezado__parrafo">suscribirse</p>
-			</div>
-		</main>
-		<section class="seccion">
-			<article class="articulo">
-				<figure>
-					<img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
-						width="315px" />
-				</figure>
-				<div class="contenido">
-					<p class="contenido__descripcion">
-						Consigue las mejores marcas a los mejores
-						<span class="contenido__span">precios, aquí en La Bruja Store.</span>
-					</p>
-					<p>Siguenes en nuestras redes sociales:</p>
-					<div class="cont-redes">
-						<div class="cad-img">
-							<a class="style-icon" target="_blank"
-								th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-								<img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
-							</a>
-						</div>
-						<div class="cad-img">
-							<a class="style-icon" target="_blank"
-								th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-								<img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
-							</a>
-						</div>
-						<div class="cad-img">
-							<a class="style-icon" target="_blank"
-								th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
-								<img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
-							</a>
-						</div>
-					</div>
-				</div>
-			</article>
-			<article class="contacto">
-				<div class="container">
-					<h2 class="contacto__titulo">CONTÁCTANOS</h2>
-					<div class="conacto__dividir"></div>
-				</div>
-				<div class="contacto__borde"></div>
-				<div class="contacto__iconos">
-					<a th:href="@{/contactanos}">
-						<span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
-					</a>
-					<a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}">
-						<span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
-						133 y 219
-					</a>
-					<a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}">
-						<span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
-						sector 2 B
-					</a>
-					<a href="mailto:labrujastore@outlook.com">
-						<span><i class="fa-solid fa-envelope"></i></span>
-						labrujastore@uotlook.com
-					</a>
-				</div>
-			</article>
-			<article class="informacion">
-				<div class="container">
-					<h2 class="informacion__titulo">INFORMACIÓN</h2>
-					<div class="informacion__dividir"></div>
-				</div>
-				<ul class="informacion__lista">
-					<li>Nosotros</li>
-					<li>Novedades</li>
-					<li>Destacados</li>
-					<li>Ofertas del día</li>
-					<li>
-						<a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
-					</li>
-					<li>
-						<a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
-					</li>
-					<li>
-						<a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
-					</li>
-				</ul>
-			</article>
-		</section>
-		<div class="copyright">
-			<p>Labrujastore© 2023 todos los derechos reservados.</p>
-		</div>
-	</footer>
+        <main class="encabezado">
+            <span class="encabezado__titulo ocultar">Suscribete para resivir boletinis</span>
+            <div class="encabezado__contenido ocultar">
+                <input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
+                <p class="encabezado__parrafo">suscribirse</p>
+            </div>
+        </main>
+        <section class="seccion">
+            <article class="articulo">
+                <figure>
+                    <img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
+                        width="315px" />
+                </figure>
+                <div class="contenido">
+                    <p class="contenido__descripcion">
+                        Consigue las mejores marcas a los mejores
+                        <span class="contenido__span">precios, aquí en La Bruja Store.</span>
+                    </p>
+                    <p>Siguenos en nuestras redes sociales:</p>
+                    <div class="cont-redes">
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
+                                <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                            </a>
+                        </div>
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
+                                <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                            </a>
+                        </div>
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
+                                <img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="contacto">
+                <div class="container">
+                    <h2 class="contacto__titulo">CONTÁCTANOS</h2>
+                    <div class="conacto__dividir"></div>
+                </div>
+                <div class="contacto__borde"></div>
+                <div class="contacto__iconos">
+                    <a th:href="@{/contactanos}">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
+                    </a>
+                    <a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}">
+                        <span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
+                        133 y 219
+                    </a>
+                    <a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}">
+                        <span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
+                        sector 2 B
+                    </a>
+                    <a href="mailto:labrujastore@outlook.com">
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        labrujastore@uotlook.com
+                    </a>
+                </div>
+            </article>
+            <article class="informacion">
+                <div class="container">
+                    <h2 class="informacion__titulo">INFORMACIÓN</h2>
+                    <div class="informacion__dividir"></div>
+                </div>
+                <ul class="informacion__lista">
+                    <li>Nosotros</li>
+                    <li>Novedades</li>
+                    <li>Destacados</li>
+                    <li>Ofertas del día</li>
+                    <li>
+                        <a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+        <div class="copyright">
+            <p>Labrujastore© 2023 todos los derechos reservados.</p>
+        </div>
+    </footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 </body>

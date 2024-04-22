@@ -2,70 +2,80 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Editar Combo</title>
+    <meta charset="UTF-8">
+    <title>Editar Combo</title>
 </head>
 
 <body>
 
-	<div class="container">
-		<h3>Editar Combo</h3>
+    <div class="container">
+        <h3>Editar Combo</h3>
 
-		<form name="editarComboForm" method="post"
-			th:action="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}" enctype="multipart/form-data">
+        <form name="editarComboForm" method="post"
+            th:action="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}" enctype="multipart/form-data">
 
-			<input type="hidden" name="comboId" th:value="${combo.comboId}" readonly="true" />
+            <input type="hidden" name="comboId" th:value="${combo.comboId}" readonly="true" />
 
-			<div>
-				<label for="nombre">Nombre:</label><br>
-				<input type="text" name="nombre" th:value="${combo.nombre}" />
-			</div>
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" th:value="${combo.nombre}" />
+            </div>
 
-			<div>
-				<label for="imagenActual">Imagen actual:</label><br>
-				<img th:src="'data:image/' + ${combo.getTypeImage()} + ';base64,' + ${combo.getBase64Image()}"
-					width="150px" height="150px" border="1" /><br>
-			</div>
+            <div>
+                <label for="imagenActual">Imagen actual:</label><br>
+                <img th:src="'data:image/' + ${combo.getTypeImage()} + ';base64,' + ${combo.getBase64Image()}"
+                    width="150px" height="150px" border="1" /><br>
+            </div>
 
-			<div>
-				<label for="imagenNueva">Selecciona una nueva imagen:</label><br>
-				<input type="file" name="imagen" accept="image/*" id="imagenNueva"
-					onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
-				<br>
-				<img id="imageId" width="150px" height="150px" border="1" />
-			</div>
+            <div>
+                <label for="imagenNueva">Selecciona una nueva imagen:</label><br>
+                <input type="file" name="imagen" accept="image/*" id="imagenNueva"
+                    onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
+                <br>
+                <img id="imageId" width="150px" height="150px" border="1" />
+            </div>
 
-			<div>
-				<label for="stock">Stock:</label><br>
-				<input type="number" name="stock" th:value="${combo.stock}" />
-			</div>
+            <div>
+                <label for="stock">Stock:</label><br>
+                <input type="number" name="stock" th:value="${combo.stock}" />
+            </div>
 
-			<div>
-				<label for="precio">Precio:</label><br>
-				<input type="number" name="precio" step="0.01" th:value="${combo.precio}" />
-			</div>
+            <div>
+                <label for="stock_lima">Stock Lima:</label><br>
+                <input type="text" name="stock_lima" th:value="${combo.stock_lima}" />
+            </div>
 
-			<div>
-				<label for="descripcion">Descripción:</label><br>
-				<textarea name="descripcion" th:text="${combo.descripcion}"></textarea>
-			</div>
+            <div>
+                <label for="stock_arequipa">Stock Arequipa:</label><br>
+                <input type="text" name="stock_arequipa" th:value="${combo.stock_arequipa}" />
+            </div>
 
-			<div>
-				<label for="categoria">Categoría:</label>
-				<select id="categoria" name="categoriaId">
-					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
-						th:text="${categoria.nombre}"
-						th:selected="${categoria.categoriaId == combo.categoria.categoriaId}">
-					</option>>
-					</option>
-				</select>
-			</div>
+            <div>
+                <label for="precio">Precio:</label><br>
+                <input type="number" name="precio" step="0.01" th:value="${combo.precio}" />
+            </div>
 
-			<button type="submit">Guardar</button>
-			<button type="button" onclick="location.href='/admin/combo'">Cancelar</button>
-		</form>
+            <div>
+                <label for="descripcion">Descripción:</label><br>
+                <textarea name="descripcion" th:text="${combo.descripcion}"></textarea>
+            </div>
 
-	</div>
+            <div>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoriaId">
+                    <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+                        th:text="${categoria.nombre}"
+                        th:selected="${categoria.categoriaId == combo.categoria.categoriaId}">
+                    </option>>
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="location.href='/admin/combo'">Cancelar</button>
+        </form>
+
+    </div>
 
 </body>
 

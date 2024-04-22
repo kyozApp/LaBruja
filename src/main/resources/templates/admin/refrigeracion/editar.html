@@ -2,81 +2,91 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Editar Refrigeración</title>
+    <meta charset="UTF-8">
+    <title>Editar Refrigeración</title>
 </head>
 
 <body>
 
-	<div class="container">
-		<h3>Editar Refrigeración</h3>
+    <div class="container">
+        <h3>Editar Refrigeración</h3>
 
-		<form name="editarRefrigeracionForm" method="post"
-			th:action="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}"
-			enctype="multipart/form-data">
+        <form name="editarRefrigeracionForm" method="post"
+            th:action="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}"
+            enctype="multipart/form-data">
 
-			<input type="hidden" name="refrigeracionId" th:value="${refrigeracion.refrigeracionId}" readonly="true" />
+            <input type="hidden" name="refrigeracionId" th:value="${refrigeracion.refrigeracionId}" readonly="true" />
 
-			<div>
-				<label for="nombre">Nombre:</label><br>
-				<input type="text" name="nombre" th:value="${refrigeracion.nombre}" />
-			</div>
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" th:value="${refrigeracion.nombre}" />
+            </div>
 
-			<div>
-				<label for="imagenActual">Imagen actual:</label><br>
-				<img th:src="'data:image/' + ${refrigeracion.getTypeImage()} + ';base64,' + ${refrigeracion.getBase64Image()}"
-					width="150px" height="150px" border="1" /><br>
-			</div>
+            <div>
+                <label for="imagenActual">Imagen actual:</label><br>
+                <img th:src="'data:image/' + ${refrigeracion.getTypeImage()} + ';base64,' + ${refrigeracion.getBase64Image()}"
+                    width="150px" height="150px" border="1" /><br>
+            </div>
 
-			<div>
-				<label for="imagenNueva">Selecciona una nueva imagen:</label><br>
-				<input type="file" name="imagen" accept="image/*" id="imagenNueva"
-					onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
-				<br>
-				<img id="imageId" width="150px" height="150px" border="1" />
-			</div>
+            <div>
+                <label for="imagenNueva">Selecciona una nueva imagen:</label><br>
+                <input type="file" name="imagen" accept="image/*" id="imagenNueva"
+                    onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
+                <br>
+                <img id="imageId" width="150px" height="150px" border="1" />
+            </div>
 
-			<div>
-				<label for="stock">Stock:</label><br>
-				<input type="number" name="stock" th:value="${refrigeracion.stock}" />
-			</div>
+            <div>
+                <label for="stock">Stock:</label><br>
+                <input type="number" name="stock" th:value="${refrigeracion.stock}" />
+            </div>
 
-			<div>
-				<label for="precio">Precio:</label><br>
-				<input type="number" name="precio" step="0.01" th:value="${refrigeracion.precio}" />
-			</div>
+            <div>
+                <label for="stock_lima">Stock Lima:</label><br>
+                <input type="text" name="stock_lima" th:value="${refrigeracion.stock_lima}" />
+            </div>
 
-			<div>
-				<label for="descripcion">Descripción:</label><br>
-				<textarea name="descripcion" th:text="${refrigeracion.descripcion}"></textarea>
-			</div>
+            <div>
+                <label for="stock_arequipa">Stock Arequipa:</label><br>
+                <input type="text" name="stock_arequipa" th:value="${refrigeracion.stock_arequipa}" />
+            </div>
 
-			<div>
-				<label for="url">URL:</label><br>
-				<input type="text" name="url" th:value="${refrigeracion.url}" />
-			</div>
+            <div>
+                <label for="precio">Precio:</label><br>
+                <input type="number" name="precio" step="0.01" th:value="${refrigeracion.precio}" />
+            </div>
 
-			<div>
-				<label for="estado">Estado:</label><br>
-				<input type="text" name="estado" th:value="${refrigeracion.estado}" />
-			</div>
+            <div>
+                <label for="descripcion">Descripción:</label><br>
+                <textarea name="descripcion" th:text="${refrigeracion.descripcion}"></textarea>
+            </div>
 
-			<div>
-				<label for="categoria">Categoría:</label>
-				<select id="categoria" name="categoriaId">
-					<option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
-						th:text="${categoria.nombre}"
-						th:selected="${categoria.categoriaId == refrigeracion.categoria.categoriaId}">
-					</option>>
-					</option>
-				</select>
-			</div>
+            <div>
+                <label for="url">URL:</label><br>
+                <input type="text" name="url" th:value="${refrigeracion.url}" />
+            </div>
 
-			<button type="submit">Guardar</button>
-			<button type="button" onclick="location.href='/admin/refrigeracion'">Cancelar</button>
-		</form>
+            <div>
+                <label for="estado">Estado:</label><br>
+                <input type="text" name="estado" th:value="${refrigeracion.estado}" />
+            </div>
 
-	</div>
+            <div>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoriaId">
+                    <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
+                        th:text="${categoria.nombre}"
+                        th:selected="${categoria.categoriaId == refrigeracion.categoria.categoriaId}">
+                    </option>>
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="location.href='/admin/refrigeracion'">Cancelar</button>
+        </form>
+
+    </div>
 
 </body>
 

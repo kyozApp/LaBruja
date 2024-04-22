@@ -18,7 +18,7 @@
                 <th>Nombre</th>
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
-                <th></th>
+                <th>Url</th>
                 <th></th>
             </tr>
         </thead>
@@ -31,10 +31,10 @@
                     <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" width="45px"
                         height="45px" border="1" />
                 </td>
+                <td th:text="${banner.url}"></td>
                 <td><a th:href="@{/admin/banner/editar/{bannerId}(bannerId=${banner.bannerId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/banner/{bannerId}(bannerId=${banner.bannerId})}">Eliminar</a>
-                </td>
+                <!-- <td><a th:href="@{/admin/banner/{bannerId}(bannerId=${banner.bannerId})}">Eliminar</a></td> -->
             </tr>
         </tbody>
     </table>

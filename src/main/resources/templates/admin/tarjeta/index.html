@@ -19,6 +19,8 @@
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th>Stock</th>
+                <th>Stock Lima</th>
+                <th>Stock Arequipa</th>
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>URL</th>
@@ -38,6 +40,8 @@
                         width="45px" height="45px" border="1" />
                 </td>
                 <td th:text="${tarjeta.stock}"></td>
+                <td th:text="${tarjeta.stock_lima}"></td>
+                <td th:text="${tarjeta.stock_arequipa}"></td>
                 <td th:text="${tarjeta.precio}"></td>
                 <td th:text="${tarjeta.descripcion}"></td>
                 <td><a th:href="${tarjeta.url}" th:text="${tarjeta.url}"></a></td>
