@@ -52,7 +52,7 @@ public class Placa implements Serializable {
     @Column
     private Double precio;
 
-    @Column
+    @Column(length = 1000)
     private String descripcion;
 
     @Column

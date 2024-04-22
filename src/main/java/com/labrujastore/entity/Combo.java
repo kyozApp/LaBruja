@@ -44,7 +44,7 @@ public class Combo implements Serializable {
     @Column
     private Double precio;
 
-    @Column
+    @Column(length = 1000)
     private String descripcion;
 
     @ManyToOne
