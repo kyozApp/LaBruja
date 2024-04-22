@@ -18,150 +18,185 @@ import jakarta.persistence.Table;
 @Table(name = "refrigeraciones")
 public class Refrigeracion implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer refrigeracionId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer refrigeracionId;
 
-	@Column
-	private String nombre;
+    @Column
+    private String nombre;
 
-	@Column
-	private String imagenNombre;
+    @Column
+    private String imagenNombre;
 
-	@Column(columnDefinition = "longblob")
-	private byte[] imagenArchivo;
+    @Column(columnDefinition = "longblob")
+    private byte[] imagenArchivo;
 
-	@Column
-	private Integer stock;
+    @Column
+    private Integer stock;
 
-	@Column
-	private Double precio;
+    @Column(nullable = true)
+    private String stock_lima;
 
-	@Column
-	private String descripcion;
+    @Column(nullable = true)
+    private String stock_arequipa;
 
-	@Column
-	private String url;
+    @Column
+    private Double precio;
 
-	@Column
-	private String estado;
+    @Column
+    private String descripcion;
 
-	@ManyToOne
-	@JoinColumn(name = "categoria_id", nullable = false)
-	private Categoria categoria;
+    @Column
+    private String url;
 
-	// convertir file en String base64
-	public String getBase64Image() {
-		String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
-		return base64;
-	}
+    @Column
+    private String estado;
 
-	// obtener tipo de imagen (jpeg,jpg,png,etc)
-	public String getTypeImage() {
-		String typeImage = new Tika().detect(this.imagenArchivo);
-		return typeImage;
-	}
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
-	public Refrigeracion() {
-	}
+    // convertir file en String base64
+    public String getBase64Image() {
+        String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
+        return base64;
+    }
 
-	public Refrigeracion(Integer refrigeracionId, String nombre, String imagenNombre, byte[] imagenArchivo,
-			Integer stock, Double precio, String descripcion, String url, String estado, Categoria categoria) {
-		this.refrigeracionId = refrigeracionId;
-		this.nombre = nombre;
-		this.imagenNombre = imagenNombre;
-		this.imagenArchivo = imagenArchivo;
-		this.stock = stock;
-		this.precio = precio;
-		this.descripcion = descripcion;
-		this.url = url;
-		this.estado = estado;
-		this.categoria = categoria;
-	}
+    // obtener tipo de imagen (jpeg,jpg,png,etc)
+    public String getTypeImage() {
+        String typeImage = new Tika().detect(this.imagenArchivo);
+        return typeImage;
+    }
 
-	public Integer getRefrigeracionId() {
-		return this.refrigeracionId;
-	}
+    public Refrigeracion() {
+    }
 
-	public void setRefrigeracionId(Integer refrigeracionId) {
-		this.refrigeracionId = refrigeracionId;
-	}
+    public Refrigeracion(
+            Integer refrigeracionId,
+            String nombre,
+            String imagenNombre,
+            byte[] imagenArchivo,
+            Integer stock,
+            String stock_lima,
+            String stock_arequipa,
+            Double precio,
+            String descripcion,
+            String url,
+            String estado,
+            Categoria categoria) {
+        this.refrigeracionId = refrigeracionId;
+        this.nombre = nombre;
+        this.imagenNombre = imagenNombre;
+        this.imagenArchivo = imagenArchivo;
+        this.stock = stock;
+        this.stock_lima = stock_lima;
+        this.stock_arequipa = stock_arequipa;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.url = url;
+        this.estado = estado;
+        this.categoria = categoria;
+    }
 
-	public String getNombre() {
-		return this.nombre;
-	}
+    public Integer getRefrigeracionId() {
+        return this.refrigeracionId;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setRefrigeracionId(Integer refrigeracionId) {
+        this.refrigeracionId = refrigeracionId;
+    }
 
-	public String getImagenNombre() {
-		return this.imagenNombre;
-	}
+    public String getNombre() {
+        return this.nombre;
+    }
 
-	public void setImagenNombre(String imagenNombre) {
-		this.imagenNombre = imagenNombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public byte[] getImagenArchivo() {
-		return this.imagenArchivo;
-	}
+    public String getImagenNombre() {
+        return this.imagenNombre;
+    }
 
-	public void setImagenArchivo(byte[] imagenArchivo) {
-		this.imagenArchivo = imagenArchivo;
-	}
+    public void setImagenNombre(String imagenNombre) {
+        this.imagenNombre = imagenNombre;
+    }
 
-	public Integer getStock() {
-		return this.stock;
-	}
+    public byte[] getImagenArchivo() {
+        return this.imagenArchivo;
+    }
 
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
+    public void setImagenArchivo(byte[] imagenArchivo) {
+        this.imagenArchivo = imagenArchivo;
+    }
 
-	public Double getPrecio() {
-		return this.precio;
-	}
+    public Integer getStock() {
+        return this.stock;
+    }
 
-	public void setPrecio(Double precio) {
-		this.precio = precio;
-	}
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 
-	public String getDescripcion() {
-		return this.descripcion;
-	}
+    public Double getPrecio() {
+        return this.precio;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 
-	public String getUrl() {
-		return this.url;
-	}
+    public String getDescripcion() {
+        return this.descripcion;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public String getEstado() {
-		return this.estado;
-	}
+    public String getUrl() {
+        return this.url;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public Categoria getCategoria() {
-		return this.categoria;
-	}
+    public String getEstado() {
+        return this.estado;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Categoria getCategoria() {
+        return this.categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getStock_lima() {
+        return stock_lima;
+    }
+
+    public void setStock_lima(String stock_lima) {
+        this.stock_lima = stock_lima;
+    }
+
+    public String getStock_arequipa() {
+        return stock_arequipa;
+    }
+
+    public void setStock_arequipa(String stock_arequipa) {
+        this.stock_arequipa = stock_arequipa;
+    }
 
 }

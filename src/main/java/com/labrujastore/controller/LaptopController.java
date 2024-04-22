@@ -65,7 +65,10 @@ public class LaptopController {
 
     @PostMapping("/laptop/editar/{laptopId}")
     public String editar(@PathVariable Integer laptopId, @ModelAttribute Laptop laptop,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url, @RequestParam("estado") String estado,
             @RequestParam("oferta") String oferta,
@@ -73,6 +76,8 @@ public class LaptopController {
         Laptop laptopExistente = laptopService.obtenerIdLaptop(laptopId);
         laptopExistente.setNombre(laptop.getNombre());
         laptopExistente.setStock(stock);
+        laptopExistente.setStock_lima(stock_lima);
+        laptopExistente.setStock_arequipa(stock_arequipa);
         laptopExistente.setPrecio(precio);
         laptopExistente.setDescripcion(descripcion);
         laptopExistente.setUrl(url);

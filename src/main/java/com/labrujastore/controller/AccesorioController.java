@@ -64,14 +64,21 @@ public class AccesorioController {
 
     @PostMapping("/accesorio/editar/{accesorioId}")
     public String editar(@PathVariable Integer accesorioId, @ModelAttribute Accesorio accesorio,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId)
             throws IOException {
         Accesorio accesorioExistente = accesorioService.obtenerIdAccesorio(accesorioId);
         accesorioExistente.setNombre(accesorio.getNombre());
         accesorioExistente.setStock(stock);
+        accesorioExistente.setStock_lima(stock_lima);
+        accesorioExistente.setStock_arequipa(stock_arequipa);
         accesorioExistente.setPrecio(precio);
         accesorioExistente.setDescripcion(descripcion);
         accesorioExistente.setUrl(url);

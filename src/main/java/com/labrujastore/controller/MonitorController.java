@@ -23,70 +23,77 @@ import com.labrujastore.service.MonitorService;
 @RequestMapping("/admin")
 public class MonitorController {
 
-	@Autowired
-	private MonitorService monitorService;
+    @Autowired
+    private MonitorService monitorService;
 
-	@Autowired
-	private CategoriaService categoriaService;
+    @Autowired
+    private CategoriaService categoriaService;
 
-	@GetMapping("/monitor")
-	public String index(Model model) {
-		List<Monitor> monitores = monitorService.listarMonitor();
-		model.addAttribute("tablaMonitor", monitores);
-		return "admin/monitor/index";
-	}
+    @GetMapping("/monitor")
+    public String index(Model model) {
+        List<Monitor> monitores = monitorService.listarMonitor();
+        model.addAttribute("tablaMonitor", monitores);
+        return "admin/monitor/index";
+    }
 
-	@GetMapping("/monitor/crear")
-	public String crear(Model model) {
-		Monitor monitor = new Monitor();
-		List<Categoria> categorias = categoriaService.listarCategoria();
-		model.addAttribute("formularioCrearMonitor", monitor);
-		model.addAttribute("selectorCategorias", categorias);
-		return "admin/monitor/crear";
-	}
+    @GetMapping("/monitor/crear")
+    public String crear(Model model) {
+        Monitor monitor = new Monitor();
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("formularioCrearMonitor", monitor);
+        model.addAttribute("selectorCategorias", categorias);
+        return "admin/monitor/crear";
+    }
 
-	@PostMapping("/monitor/crear")
-	public String crear(@ModelAttribute Monitor monitor,
-			@RequestParam("imagen") MultipartFile imagen) throws IOException {
-		monitor.setImagenNombre(imagen.getOriginalFilename());
-		monitor.setImagenArchivo(imagen.getBytes());
-		monitorService.guardarMonitor(monitor);
-		return "redirect:/admin/monitor";
-	}
+    @PostMapping("/monitor/crear")
+    public String crear(@ModelAttribute Monitor monitor,
+            @RequestParam("imagen") MultipartFile imagen) throws IOException {
+        monitor.setImagenNombre(imagen.getOriginalFilename());
+        monitor.setImagenArchivo(imagen.getBytes());
+        monitorService.guardarMonitor(monitor);
+        return "redirect:/admin/monitor";
+    }
 
-	@GetMapping("/monitor/editar/{monitorId}")
-	public String editar(@PathVariable Integer monitorId, Model model) {
-		Monitor monitor = monitorService.obtenerIdMonitor(monitorId);
-		List<Categoria> categorias = categoriaService.listarCategoria();
-		model.addAttribute("monitor", monitor);
-		model.addAttribute("categorias", categorias);
-		return "admin/monitor/editar";
-	}
+    @GetMapping("/monitor/editar/{monitorId}")
+    public String editar(@PathVariable Integer monitorId, Model model) {
+        Monitor monitor = monitorService.obtenerIdMonitor(monitorId);
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("monitor", monitor);
+        model.addAttribute("categorias", categorias);
+        return "admin/monitor/editar";
+    }
 
-	@PostMapping("/monitor/editar/{monitorId}")
-	public String editar(@PathVariable Integer monitorId, @ModelAttribute Monitor monitor,
-			@RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-			@RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-			@RequestParam("url") String url, @RequestParam("estado") String estado) throws IOException {
-		Monitor monitorExistente = monitorService.obtenerIdMonitor(monitorId);
-		monitorExistente.setNombre(monitor.getNombre());
-		monitorExistente.setStock(stock);
-		monitorExistente.setPrecio(precio);
-		monitorExistente.setDescripcion(descripcion);
-		monitorExistente.setUrl(url);
-		monitorExistente.setEstado(estado);
-		if (!imagen.isEmpty()) {
-			monitorExistente.setImagenNombre(imagen.getOriginalFilename());
-			monitorExistente.setImagenArchivo(imagen.getBytes());
-		}
-		monitorService.guardarMonitor(monitorExistente);
-		return "redirect:/admin/monitor";
-	}
+    @PostMapping("/monitor/editar/{monitorId}")
+    public String editar(@PathVariable Integer monitorId, @ModelAttribute Monitor monitor,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado) throws IOException {
+        Monitor monitorExistente = monitorService.obtenerIdMonitor(monitorId);
+        monitorExistente.setNombre(monitor.getNombre());
+        monitorExistente.setStock(stock);
+        monitorExistente.setStock_lima(stock_lima);
+        monitorExistente.setStock_arequipa(stock_arequipa);
+        monitorExistente.setPrecio(precio);
+        monitorExistente.setDescripcion(descripcion);
+        monitorExistente.setUrl(url);
+        monitorExistente.setEstado(estado);
+        if (!imagen.isEmpty()) {
+            monitorExistente.setImagenNombre(imagen.getOriginalFilename());
+            monitorExistente.setImagenArchivo(imagen.getBytes());
+        }
+        monitorService.guardarMonitor(monitorExistente);
+        return "redirect:/admin/monitor";
+    }
 
-	@GetMapping("/monitor/{monitorId}")
-	public String eliminar(@PathVariable Integer monitorId) {
-		monitorService.eliminarMonitor(monitorId);
-		return "redirect:/admin/monitor";
-	}
+    @GetMapping("/monitor/{monitorId}")
+    public String eliminar(@PathVariable Integer monitorId) {
+        monitorService.eliminarMonitor(monitorId);
+        return "redirect:/admin/monitor";
+    }
 
 }

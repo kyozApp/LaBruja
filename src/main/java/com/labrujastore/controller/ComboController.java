@@ -27,7 +27,7 @@ public class ComboController {
     private ComboService comboService;
 
     @Autowired
-	private CategoriaService categoriaService;
+    private CategoriaService categoriaService;
 
     @GetMapping("/combo")
     public String index(Model model) {
@@ -65,11 +65,15 @@ public class ComboController {
 
     @PostMapping("/combo/editar/{comboId}")
     public String editar(@PathVariable Integer comboId, @ModelAttribute Combo combo,
-            @RequestParam("imagen") MultipartFile imagen, 
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Combo comboExistente = comboService.obtenerIdCombo(comboId);
         comboExistente.setNombre(combo.getNombre());
         comboExistente.setStock(combo.getStock());
+        comboExistente.setStock_lima(stock_lima);
+        comboExistente.setStock_arequipa(stock_arequipa);
         comboExistente.setPrecio(combo.getPrecio());
         comboExistente.setDescripcion(combo.getDescripcion());
         comboExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));

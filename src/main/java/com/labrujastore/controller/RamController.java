@@ -65,13 +65,20 @@ public class RamController {
 
     @PostMapping("/ram/editar/{ramId}")
     public String editar(@PathVariable Integer ramId, @ModelAttribute Ram ram,
-            @RequestParam("imagen") MultipartFile imagen, @RequestParam("stock") Integer stock,
-            @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
-            @RequestParam("url") String url, @RequestParam("estado") String estado,
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("stock") Integer stock,
+            @RequestParam("stock_lima") String stock_lima,
+            @RequestParam("stock_arequipa") String stock_arequipa,
+            @RequestParam("precio") Double precio,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("url") String url,
+            @RequestParam("estado") String estado,
             @RequestParam("categoriaId") Integer categoriaId) throws IOException {
         Ram ramExistente = ramService.obtenerIdRam(ramId);
         ramExistente.setNombre(ram.getNombre());
         ramExistente.setStock(stock);
+        ramExistente.setStock_lima(stock_lima);
+        ramExistente.setStock_arequipa(stock_arequipa);
         ramExistente.setPrecio(precio);
         ramExistente.setDescripcion(descripcion);
         ramExistente.setUrl(url);
