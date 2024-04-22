@@ -791,8 +791,10 @@
     <!-- Banner 2 -->
     <section class="banners">
         <div class="baner" th:if="${bannerId4 != null}">
-            <img th:src="'data:image/' + ${bannerId4.typeImage} + ';base64,' + ${bannerId4.base64Image}"
-                alt="Banner 4" />
+            <a th:href="${bannerId4.url}" target="_blank">
+                <img th:src="'data:image/' + ${bannerId4.typeImage} + ';base64,' + ${bannerId4.base64Image}"
+                    alt="Banner 4" />
+            </a>
         </div>
     </section>
 
@@ -854,8 +856,10 @@
     <!-- Banner 3 -->
     <section class="banners">
         <div class="baner" th:if="${bannerId5 != null}">
-            <img th:src="'data:image/' + ${bannerId5.typeImage} + ';base64,' + ${bannerId5.base64Image}"
-                alt="Banner 5" />
+            <a th:href="${bannerId5.url}" target="_blank">
+                <img th:src="'data:image/' + ${bannerId5.typeImage} + ';base64,' + ${bannerId5.base64Image}"
+                    alt="Banner 5" />
+            </a>
         </div>
     </section>
 
