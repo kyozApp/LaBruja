@@ -14,12 +14,12 @@
     <link rel="stylesheet" th:href="@{/general/css/header.css}">
     <link rel="stylesheet" th:href="@{/producto-detalle/css/producto-detalle.css}">
     <link rel="stylesheet" th:href="@{/general/css/footer.css}">
-
     <!-- JS -->
     <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
     <script th:src="@{/general/js/header.js}"></script>
 
     <script th:src="@{/producto-detalle/js/incrementar.js}"></script>
+    <script th:src="@{/producto-detalle/js/sidebar-carrito.js}"></script>
 
 </head>
 
@@ -56,7 +56,7 @@
                         </div>
                         <form class="form-busqueda" action="" method="post">
                             <div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-                            <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button></div>
+                            <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
                         </form>
                     </div>
                     <!--Favorito y Carrito-->
@@ -206,7 +206,7 @@
     ----------------------------------------------------------------------------------------------------------------------------->
 
     <!-- Seccion Accesorio -->
-    <section class="contenido" th:if="${accesorio != null}">
+    <section class="contenido" th:if="${accesorio != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -233,7 +233,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}">
+                                th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -275,7 +275,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${accesorio.nombre}"></h1>
+                        <h1 th:text="${accesorio.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -303,7 +303,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${accesorio.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${accesorio.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -322,10 +322,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -374,7 +378,7 @@
     </section>
 
     <!-- Seccion Almacenamiento -->
-    <section class="contenido" th:if="${almacenamiento != null}">
+    <section class="contenido" th:if="${almacenamiento != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -401,7 +405,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}">
+                                th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -443,7 +447,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${almacenamiento.nombre}"></h1>
+                        <h1 th:text="${almacenamiento.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -471,7 +475,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${almacenamiento.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${almacenamiento.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -490,10 +494,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -542,7 +550,7 @@
     </section>
 
     <!-- Seccion Casse -->
-    <section class="contenido" th:if="${casse != null}">
+    <section class="contenido" th:if="${casse != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -569,7 +577,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}">
+                                th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -611,7 +619,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${casse.nombre}"></h1>
+                        <h1 th:text="${casse.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -639,7 +647,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${casse.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${casse.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -658,10 +666,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -710,7 +722,7 @@
     </section>
 
     <!-- Seccion Fuente -->
-    <section class="contenido" th:if="${fuente != null}">
+    <section class="contenido" th:if="${fuente != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -737,7 +749,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}">
+                                th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -826,10 +838,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button>
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -878,7 +894,7 @@
     </section>
 
     <!-- Seccion Laptop -->
-    <section class="contenido" th:if="${laptop != null}">
+    <section class="contenido" th:if="${laptop != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -905,7 +921,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}">
+                                th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -947,7 +963,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${laptop.nombre}"></h1>
+                        <h1 th:text="${laptop.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -975,7 +991,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${laptop.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${laptop.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -994,10 +1010,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1046,7 +1066,7 @@
     </section>
 
     <!-- Seccion Monitor -->
-    <section class="contenido" th:if="${monitor != null}">
+    <section class="contenido" th:if="${monitor != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -1073,7 +1093,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}">
+                                th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -1115,7 +1135,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${monitor.nombre}"></h1>
+                        <h1 th:text="${monitor.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -1143,7 +1163,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${monitor.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${monitor.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -1162,10 +1182,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1214,7 +1238,7 @@
     </section>
 
     <!-- Seccion Placa -->
-    <section class="contenido" th:if="${placa != null}">
+    <section class="contenido" th:if="${placa != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -1241,7 +1265,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}">
+                                th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -1283,7 +1307,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${placa.nombre}"></h1>
+                        <h1 th:text="${placa.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -1311,7 +1335,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${placa.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${placa.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -1330,10 +1354,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1382,7 +1410,7 @@
     </section>
 
     <!-- Seccion Procesador -->
-    <section class="contenido" th:if="${procesador != null}">
+    <section class="contenido" th:if="${procesador != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -1409,7 +1437,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}">
+                                th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -1451,7 +1479,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${procesador.nombre}"></h1>
+                        <h1 th:text="${procesador.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -1479,7 +1507,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${procesador.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${procesador.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -1498,10 +1526,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1550,7 +1582,7 @@
     </section>
 
     <!-- Seccion Ram -->
-    <section class="contenido" th:if="${ram != null}">
+    <section class="contenido" th:if="${ram != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -1577,7 +1609,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}">
+                                th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -1619,7 +1651,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${ram.nombre}"></h1>
+                        <h1 th:text="${ram.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -1647,7 +1679,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${ram.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${ram.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -1666,10 +1698,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1718,7 +1754,7 @@
     </section>
 
     <!-- Seccion Refrigeracion -->
-    <section class="contenido" th:if="${refrigeracion != null}">
+    <section class="contenido" th:if="${refrigeracion != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -1745,7 +1781,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}">
+                                th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -1787,7 +1823,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${refrigeracion.nombre}"></h1>
+                        <h1 th:text="${refrigeracion.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -1815,7 +1851,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${refrigeracion.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${refrigeracion.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -1834,10 +1870,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1886,7 +1926,7 @@
     </section>
 
     <!-- Seccion Tarjeta -->
-    <section class="contenido" th:if="${tarjeta != null}">
+    <section class="contenido" th:if="${tarjeta != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -1913,7 +1953,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}">
+                                th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -1955,7 +1995,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${tarjeta.nombre}"></h1>
+                        <h1 th:text="${tarjeta.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -1983,7 +2023,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${tarjeta.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${tarjeta.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -2002,10 +2042,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -2054,7 +2098,7 @@
     </section>
 
     <!-- Seccion Combo -->
-    <section class="contenido" th:if="${combo != null}">
+    <section class="contenido" th:if="${combo != null}" id="contenido_fetch">
         <div class="seguimiento">
             <p>
                 <a th:href="@{/}"><span>Hogar</span></a>
@@ -2081,7 +2125,7 @@
                     <div class="imagen-producto">
                         <div class="div-img">
                             <img class="img-central"
-                                th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}">
+                                th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
@@ -2123,7 +2167,7 @@
                     <section>
 
                         <!-- Titulo del producto -->
-                        <h1 th:text="${combo.nombre}"></h1>
+                        <h1 th:text="${combo.nombre}" id="titulo-fetch"></h1>
                         <div>
                             <!-- Informacion de producto -->
                             <div class="informacion-pro">
@@ -2147,7 +2191,7 @@
                                 <form action="">
                                     <div>
                                         <div>
-                                            <p class="precio-mostrar" th:text="'S/. ' + ${combo.precio}"></p>
+                                            <p class="precio-mostrar" th:text="'S/. ' + ${combo.precio}" id="precio-fetch"></p>
                                             <p class="text-recargo">*Sin recargo adicional por pago en Efectivo o
                                                 Transferencia.</p>
                                         </div>
@@ -2166,10 +2210,14 @@
                                         </div>
 
                                         <div class="div-carrito">
-                                            <a href="/contactanos">
+                                            <!-- <a href="/contactanos">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
-                                            </a>
+                                            </a> -->
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar" >
+                                                <i class="fa-solid fa-cart-shopping"></i>
+                                                Agregar Carrito
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -2237,7 +2285,32 @@
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
     ----------------------------------------------------------------------------------------------------------------------------->
 
+   <!-- INICIO SIDEBAR -->
+   <div id="background-silebar-carrito">
+    <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
 
+        <!-- Contenedor para la columna de categorias -->
+        <div id="silebar-categorias-carrito">
+            <div class="close-silebar-carrito">
+                <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
+        <!-- Contenedor para las subcategorias de las categorias -->
+        <div id="silebar-subcategoria-carrito">
+            <!-- Aquí van los productos -->
+        </div>
+        <div class="contenido_productos-pago">
+            <p class="cantidad_productos_contenido">Hay <span id="cantidad_productos_obtenidos" class="cantidad_producto--span"></span> articulos en su carrito</p>
+            <p class="total_pagar_productos">Total a pagar:  <span id="precio_total_productos" class="total_pagar-span"></span></p>
+        </div>
+        <a href="/contactanos">
+            <button class="comprar_productos_carrito">COMPRAR PRODUCTOS</button>
+        </a>
+    </div>
+</div>
+
+<!-- FIN SIDEBAR -->
 
 
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
