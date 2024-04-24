@@ -1,6 +1,8 @@
 package com.labrujastore.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Base64;
 
 import org.apache.tika.Tika;
@@ -12,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -63,6 +66,9 @@ public class Laptop implements Serializable {
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
+
+    @OneToMany(mappedBy = "laptop")
+    private Collection<Atributos> itemsAtributos = new ArrayList<>();
 
     // convertir file en String base64
     public String getBase64Image() {
@@ -199,6 +205,14 @@ public class Laptop implements Serializable {
 
     public void setStock_arequipa(String stock_arequipa) {
         this.stock_arequipa = stock_arequipa;
+    }
+
+    public Collection<Atributos> getItemsAtributos() {
+        return itemsAtributos;
+    }
+
+    public void setItemsAtributos(Collection<Atributos> itemsAtributos) {
+        this.itemsAtributos = itemsAtributos;
     }
 
 }

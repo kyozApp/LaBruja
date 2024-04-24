@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Editar Atributo</h1>
+
+        <form th:object="${atributo}" method="post">
+            <ul>
+                <li>
+                    <label for="titulo">Titulo: </label> <input type="text" id="titulo" name="titulo"
+                        th:field="*{titulo}" required>
+                </li>
+                <li>
+                    <label for="contenido">Contenido: </label> <input type="text" id="contenido" name="contenido"
+                        th:field="*{contenido}" required>
+                </li>
+            </ul>
+            <br>
+            <button type="submit">Actualizar</button>
+            <br>
+            <a th:href="@{'/admin/casse/atributos/' + ${atributo.casse.casseId}}">Volver</a>
+        </form>
+
+    </div>
+</body>
+
+</html>

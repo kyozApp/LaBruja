@@ -47,9 +47,14 @@
                 <td><a th:href="${fuente.url}" th:text="${fuente.url}"></a></td>
                 <td th:text="${fuente.estado}"></td>
                 <td th:text="${fuente.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/fuente/{fuenteId}(fuenteId=${fuente.fuenteId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/fuente/atributos/{fuenteId}(fuenteId=${fuente.fuenteId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/fuente/{fuenteId}(fuenteId=${fuente.fuenteId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

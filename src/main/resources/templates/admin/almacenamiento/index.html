@@ -47,10 +47,16 @@
                 <td><a th:href="${almacenamiento.url}" th:text="${almacenamiento.url}"></a></td>
                 <td th:text="${almacenamiento.estado}"></td>
                 <td th:text="${almacenamiento.categoria.nombre}"></td>
-                <td><a
+                <td>
+                    <a
                         th:href="@{/admin/almacenamiento/editar/{almacenamientoId}(almacenamientoId=${almacenamiento.almacenamientoId})}">Editar</a>
                 </td>
-                <td><a
+                <td>
+                    <a
+                        th:href="@{/admin/almacenamiento/atributos/{almacenamientoId}(almacenamientoId=${almacenamiento.almacenamientoId})}">Atributos</a>
+                </td>
+                <td>
+                    <a
                         th:href="@{/admin/almacenamiento/{almacenamientoId}(almacenamientoId=${almacenamiento.almacenamientoId})}">Eliminar</a>
                 </td>
             </tr>

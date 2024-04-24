@@ -47,10 +47,16 @@
                 <td><a th:href="${accesorio.url}" th:text="${accesorio.url}"></a></td>
                 <td th:text="${accesorio.estado}"></td>
                 <td th:text="${accesorio.categoria.nombre}"></td>
-                <td><a
+                <td>
+                    <a
                         th:href="@{/admin/accesorio/editar/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/accesorio/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Eliminar</a>
+                <td>
+                    <a
+                        th:href="@{/admin/accesorio/atributos/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/accesorio/{accesorioId}(accesorioId=${accesorio.accesorioId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

@@ -47,10 +47,16 @@
                 <td><a th:href="${procesador.url}" th:text="${procesador.url}"></a></td>
                 <td th:text="${procesador.estado}"></td>
                 <td th:text="${procesador.categoria.nombre}"></td>
-                <td><a
+                <td>
+                    <a
                         th:href="@{/admin/procesador/editar/{procesadorId}(procesadorId=${procesador.procesadorId})}">Editar</a>
                 </td>
-                <td><a
+                <td>
+                    <a
+                        th:href="@{/admin/procesador/atributos/{procesadorId}(procesadorId=${procesador.procesadorId})}">Atributos</a>
+                </td>
+                <td>
+                    <a
                         th:href="@{/admin/procesador/{procesadorId}(procesadorId=${procesador.procesadorId})}">Eliminar</a>
                 </td>
             </tr>

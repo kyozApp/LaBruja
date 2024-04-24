@@ -43,9 +43,14 @@
                 <td th:text="${combo.precio}"></td>
                 <td th:text="${combo.descripcion}"></td>
                 <td th:text="${combo.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/combo/{comboId}(comboId=${combo.comboId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/combo/atributos/{comboId}(comboId=${combo.comboId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/combo/{comboId}(comboId=${combo.comboId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>
