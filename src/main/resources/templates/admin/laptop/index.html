@@ -49,9 +49,14 @@
                 <td th:text="${laptop.estado}"></td>
                 <td th:text="${laptop.oferta}"></td>
                 <td th:text="${laptop.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/laptop/{laptopId}(laptopId=${laptop.laptopId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/laptop/atributos/{laptopId}(laptopId=${laptop.laptopId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/laptop/{laptopId}(laptopId=${laptop.laptopId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

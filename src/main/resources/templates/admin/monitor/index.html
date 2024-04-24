@@ -47,9 +47,14 @@
                 <td><a th:href="${monitor.url}" th:text="${monitor.url}"></a></td>
                 <td th:text="${monitor.estado}"></td>
                 <td th:text="${monitor.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/monitor/editar/{monitorId}(monitorId=${monitor.monitorId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/monitor/editar/{monitorId}(monitorId=${monitor.monitorId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/monitor/{monitorId}(monitorId=${monitor.monitorId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/monitor/atributos/{monitorId}(monitorId=${monitor.monitorId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/monitor/{monitorId}(monitorId=${monitor.monitorId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

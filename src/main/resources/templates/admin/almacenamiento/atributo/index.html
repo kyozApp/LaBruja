@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Atributos del Producto</h1>
+
+        <form th:action="@{'/admin/almacenamiento/atributos/' + ${almacenamientoId}}" th:object="${formularioAtributo}"
+            method="post" enctype="multipart/form-data">
+            <ul>
+                <li>
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" id="titulo" name="titulo" th:field="*{titulo}" required>
+                </li>
+                <li>
+                    <label for="contenido">Contenido:</label>
+                    <input type="text" id="contenido" name="contenido" th:field="*{contenido}" required>
+                </li>
+            </ul>
+            <button type=" submit">Crear</button>
+        </form>
+        <a href="/admin/almacenamiento">Volver</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>| Titulo</th>
+                    <th>| Contenido</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="atributo : ${tablaAtributos}">
+                    <td th:text="${atributo.atributoId}"></td>
+                    <td th:text="${atributo.titulo}"></td>
+                    <td th:text="${atributo.contenido}"></td>
+
+                    <!--BOTON DE EDITAR-->
+                    <td>
+                        <button>
+                            <a
+                                th:href="@{'/admin/almacenamiento/atributos/editar/' + ${atributo.atributoId}}">EDITAR</a>
+                        </button>
+                    </td>
+
+                    <!--BOTON DE ELIMINAR-->
+                    <td>
+                        <button th:onclick="'confirmarEliminacion(' + ${atributo.atributoId} + ')'">
+                            ELIMINAR
+                        </button>
+                    </td>
+
+                </tr>
+                <script th:inline="javascript">
+                    function confirmarEliminacion(atributoId) {
+                        if (confirm('¿Estás seguro de que quieres eliminar este atributo?')) {
+                            window.location.href = '/admin/almacenamiento/atributos/eliminar/' + atributoId;
+                        }
+                    }
+                </script>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</body>
+
+</html>

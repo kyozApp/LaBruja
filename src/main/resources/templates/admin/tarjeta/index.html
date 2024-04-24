@@ -47,9 +47,14 @@
                 <td><a th:href="${tarjeta.url}" th:text="${tarjeta.url}"></a></td>
                 <td th:text="${tarjeta.estado}"></td>
                 <td th:text="${tarjeta.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/tarjeta/editar/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/tarjeta/editar/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/tarjeta/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/tarjeta/atributos/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/tarjeta/{tarjetaId}(tarjetaId=${tarjeta.tarjetaId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

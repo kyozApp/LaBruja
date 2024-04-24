@@ -47,10 +47,16 @@
                 <td><a th:href="${refrigeracion.url}" th:text="${refrigeracion.url}"></a></td>
                 <td th:text="${refrigeracion.estado}"></td>
                 <td th:text="${refrigeracion.categoria.nombre}"></td>
-                <td><a
+                <td>
+                    <a
                         th:href="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Editar</a>
                 </td>
-                <td><a
+                <td>
+                    <a
+                        th:href="@{/admin/refrigeracion/atributos/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Atributos</a>
+                </td>
+                <td>
+                    <a
                         th:href="@{/admin/refrigeracion/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Eliminar</a>
                 </td>
             </tr>

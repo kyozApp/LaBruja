@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.apache.tika.Tika;
 
@@ -15,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -51,7 +54,7 @@ public class Ram implements Serializable {
     @Column
     private Double precio;
 
-    @Column
+    @Column(length = 1000)
     private String descripcion;
 
     @Column
@@ -63,6 +66,9 @@ public class Ram implements Serializable {
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
+
+    @OneToMany(mappedBy = "ram")
+    private Collection<Atributos> itemsAtributos = new ArrayList<>();
 
     @ManyToMany(mappedBy = "itemsRam")
     private Set<Placa> itemsPlaca = new HashSet<>();
@@ -213,5 +219,13 @@ public class Ram implements Serializable {
 
     public void setStock_arequipa(String stock_arequipa) {
         this.stock_arequipa = stock_arequipa;
+    }
+
+    public Collection<Atributos> getItemsAtributos() {
+        return itemsAtributos;
+    }
+
+    public void setItemsAtributos(Collection<Atributos> itemsAtributos) {
+        this.itemsAtributos = itemsAtributos;
     }
 }

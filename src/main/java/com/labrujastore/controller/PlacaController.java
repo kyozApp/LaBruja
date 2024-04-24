@@ -2,6 +2,8 @@ package com.labrujastore.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Placa;
+import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.PlacaService;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/admin")
@@ -28,6 +34,8 @@ public class PlacaController {
 
     @Autowired
     private CategoriaService categoriaService;
+    @Autowired
+    private AtributosService atributoService;
 
     @GetMapping("/placa")
     public String index(Model model) {
@@ -96,5 +104,70 @@ public class PlacaController {
     public String eliminar(@PathVariable Integer placaId) {
         placaService.eliminarPlaca(placaId);
         return "redirect:/admin/placa";
+    }
+
+    // ATRIBUTOS
+    @GetMapping("/placa/atributos/{placaId}")
+    public String atributos_GET(Model model, @PathVariable Integer placaId) {
+
+        // CARGA EL FORMULARIO
+        Atributos atributo = new Atributos();
+        model.addAttribute("formularioAtributo", atributo);
+
+        List<Atributos> todos_atributos = atributoService.listarAtributos();
+        Collection<Atributos> atributos_tabla = new ArrayList<>();
+        for (Atributos atributo_u : todos_atributos) {
+            if (atributo_u.getPlaca() != null && atributo_u.getPlaca().getPlacaId() != null &&
+                    atributo_u.getPlaca().getPlacaId() == placaId) {
+                atributos_tabla.add(atributo_u);
+            }
+        }
+
+        model.addAttribute("tablaAtributos", atributos_tabla);
+
+        return "/admin/placa/atributo/index";
+    }
+
+    @PostMapping("/placa/atributos/{placaId}")
+    public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
+            @PathVariable Integer placaId) throws IOException {
+
+        // PARA AGREGAR UN NUEVO ATRIBUTO
+        Placa placa = placaService.obtenerIdPlaca(placaId);
+        atributo_p.setPlaca(placa);
+        atributoService.guardarAtributos(atributo_p);
+
+        return "redirect:/admin/placa/atributos/{placaId}";
+    }
+
+    @GetMapping("/placa/atributos/editar/{atributoId}")
+    public String atributo_editar_GET(Model model, @PathVariable Integer atributoId) {
+
+        Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
+        model.addAttribute("atributo", atributo);
+
+        return "/admin/placa/atributo/editar";
+    }
+
+    @PostMapping("/placa/atributos/editar/{atributoId}")
+    public String atributo_editar_POST(
+            @PathVariable Integer atributoId,
+            @ModelAttribute("atrubto") Atributos atributo_p,
+            Model model) {
+
+        Atributos atributoExistente = atributoService.obtenerIdAtributos(atributoId);
+        atributoExistente.setTitulo(atributo_p.getTitulo());
+        atributoExistente.setContenido(atributo_p.getContenido());
+        atributoService.actualizarAtributos(atributoExistente);
+
+        return "redirect:/admin/placa/atributos/" + atributoExistente.getPlaca().getPlacaId();
+    }
+
+    @GetMapping("/placa/atributos/eliminar/{atributoId}")
+    public String atributo_eliminar_GET(@PathVariable Integer atributoId, HttpServletRequest request) {
+        atributoService.eliminarAtributos(atributoId);
+
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
     }
 }

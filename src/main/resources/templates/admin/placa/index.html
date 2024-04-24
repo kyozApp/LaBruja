@@ -47,9 +47,14 @@
                 <td><a th:href="${placa.url}" th:text="${placa.url}"></a></td>
                 <td th:text="${placa.estado}"></td>
                 <td th:text="${placa.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/placa/editar/{placaId}(placaId=${placa.placaId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/placa/editar/{placaId}(placaId=${placa.placaId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/placa/{placaId}(placaId=${placa.placaId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/placa/atributos/{placaId}(placaId=${placa.placaId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/placa/{placaId}(placaId=${placa.placaId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

@@ -47,9 +47,14 @@
                 <td><a th:href="${casse.url}" th:text="${casse.url}"></a></td>
                 <td th:text="${casse.estado}"></td>
                 <td th:text="${casse.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/casse/editar/{casseId}(casseId=${casse.casseId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/casse/editar/{casseId}(casseId=${casse.casseId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/casse/{casseId}(casseId=${casse.casseId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/casse/atributos/{casseId}(casseId=${casse.casseId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/casse/{casseId}(casseId=${casse.casseId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

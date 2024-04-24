@@ -49,9 +49,15 @@
                 <td><a th:href="${producto.url}" th:text="${producto.url}"></a></td>
                 <td th:text="${producto.estado}"></td>
                 <td th:text="${producto.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/producto/editar/{productoId}(productoId=${producto.productoId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/producto/editar/{productoId}(productoId=${producto.productoId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/producto/{productoId}(productoId=${producto.productoId})}">Eliminar</a>
+                <td>
+                    <a
+                        th:href="@{/admin/producto/atributos/{productoId}(productoId=${producto.productoId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/producto/{productoId}(productoId=${producto.productoId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>

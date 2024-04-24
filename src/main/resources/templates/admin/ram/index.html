@@ -47,9 +47,14 @@
                 <td><a th:href="${ram.url}" th:text="${ram.url}"></a></td>
                 <td th:text="${ram.estado}"></td>
                 <td th:text="${ram.categoria.nombre}"></td>
-                <td><a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a>
+                <td>
+                    <a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a>
                 </td>
-                <td><a th:href="@{/admin/ram/{ramId}(ramId=${ram.ramId})}">Eliminar</a>
+                <td>
+                    <a th:href="@{/admin/ram/atributos/{ramId}(ramId=${ram.ramId})}">Atributos</a>
+                </td>
+                <td>
+                    <a th:href="@{/admin/ram/{ramId}(ramId=${ram.ramId})}">Eliminar</a>
                 </td>
             </tr>
         </tbody>
