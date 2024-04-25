@@ -367,8 +367,8 @@ li:hover .simbolo {
 
 .contador-fav,
 .contador-car {
-    left: -30px;
-    top: -19px;
+    left: -32px;
+    top: -21px;
 }
 
 .link-bnt {
@@ -617,7 +617,8 @@ li:hover .simbolo {
     }
 
     .span-carrito-mobil {
-        left: 68px;
+        left: 13px;
+        top: -11px;
     }
 
     .cont-icon-corazon {
