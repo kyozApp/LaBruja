@@ -164,8 +164,10 @@ li {
     color: #666;
     text-decoration: none;
     transition: 0.2s;
-    pointer-events: none; /* Deshabilita los eventos de puntero */
-    opacity: 0.5; /* Opcional: Cambia la opacidad para indicar visualmente que está deshabilitado */
+    pointer-events: none;
+    /* Deshabilita los eventos de puntero */
+    opacity: 0.5;
+    /* Opcional: Cambia la opacidad para indicar visualmente que está deshabilitado */
     cursor: not-allowed;
 }
 
@@ -223,7 +225,7 @@ li {
 
 .head-div-2-part2 {
     position: sticky;
-    top: -1;
+    top: 0;
     background-color: #bc0707;
     display: flex;
     justify-content: center;
@@ -266,7 +268,7 @@ li {
     width: 100%;
 }
 
-#silebar-categorias hr{
+#silebar-categorias hr {
     width: 100%;
     height: 1px;
     background-color: red;
@@ -330,7 +332,7 @@ li {
     color: black;
 }
 
-.listaItems span{
+.listaItems span {
     text-transform: uppercase;
 }
 
@@ -349,7 +351,6 @@ li:hover .simbolo {
 .link-bnt span {
     position: relative;
     background-color: white;
-    border: 2px white solid;
     border-radius: 50%;
     color: #000000;
     height: 27px;
@@ -357,6 +358,7 @@ li:hover .simbolo {
     text-align: center;
     line-height: 30px;
     transition: 0.1s;
+    padding: 0;
 }
 
 .link-bnt span:hover {
@@ -368,7 +370,7 @@ li:hover .simbolo {
 .contador-fav,
 .contador-car {
     left: -32px;
-    top: -21px;
+    top: -16px;
 }
 
 .link-bnt {
@@ -479,10 +481,6 @@ li:hover .simbolo {
 }
 
 @media screen and (max-width: 800px) and (min-width: 429px) {
-    .head-div-2-part1-3 {
-        width: 200px;
-    }
-
     .centered-label {
         font-size: 13px;
     }
@@ -576,6 +574,7 @@ li:hover .simbolo {
         position: relative;
         width: auto;
         align-items: center;
+        margin-left: -40px;
     }
 
     .head-div-2-part1-3 .contador {
@@ -617,8 +616,8 @@ li:hover .simbolo {
     }
 
     .span-carrito-mobil {
-        left: 13px;
-        top: -11px;
+        left: 44px;
+        top: -12px;
     }
 
     .cont-icon-corazon {
@@ -661,8 +660,12 @@ li:hover .simbolo {
     display: none;
 }
 
+#mostrarPrecioTotal {
+    display: none;
+}
+
 @media screen and (max-width: 775px) {
     .head-div-2-part1-2 {
-        width: 70vw;
+        width: 56vw;
     }
 }
