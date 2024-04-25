@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/general/css/header.css}">
     <link rel="stylesheet" th:href="@{/contactanos/css/contactanos.css}">
     <link rel="stylesheet" th:href="@{/general/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/general/css/sliderMain.css}">
 
     <!-- JS -->
     <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
@@ -57,22 +58,23 @@
                             <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button></div>
                         </form>
                     </div>
-                    <!--Favorito y Carrito-->
-                    <div class="head-div-2-part1-3 none-mobil ocultar" style="margin-left: 2rem;">
+                     <!--Favorito y Carrito-->
+                     <div class="head-div-2-part1-3" style="margin-left: 2rem;">
                         <!--Contador de favoritos-->
-                        <a class="link-bnt" href="/">
+                        <a class="link-bnt" style="display: none;" href="/">
                             <div>
                                 <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
                                 <span class="contador-fav">4</span>
                             </div>
                         </a>
                         <!--Contador de carrito-->
-                        <a class="link-bnt" href="/">
+                        <button class="link-bnt" style="background: transparent; border: none; outline:none;" id="boton_abrir--slider">
                             <div>
                                 <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
-                                <span class="contador-car">2</span>
+                                <span class="contador-car" id="cantidad-contador-carrito"></span>
+                                <p id="mostrarPrecioTotal"></p>
                             </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -462,9 +464,12 @@
         <div class="copyright">
             <p>Labrujastore© 2023 todos los derechos reservados.</p>
         </div>
+        
     </footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
+    <script th:src="@{/general/js/abrir-slider.js}"></script>
+
 </body>
 
 </html>
