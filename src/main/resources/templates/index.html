@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/general/css/header.css}">
     <link rel="stylesheet" th:href="@{/general/css/footer.css}">
     <link rel="stylesheet" th:href="@{/home/css/index.css}">
+    <link rel="stylesheet" th:href="@{/general/css/sliderMain.css}">
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css}" />
 
     <!-- JS -->
@@ -141,21 +142,22 @@
                         </form>
                     </div>
                     <!--Favorito y Carrito-->
-                    <div class="head-div-2-part1-3 none-mobil ocultar" style="margin-left: 2rem;">
+                    <div class="head-div-2-part1-3 none-mobil" style="margin-left: 2rem;">
                         <!--Contador de favoritos-->
-                        <a class="link-bnt" href="/">
+                        <a class="link-bnt ocultar" href="/">
                             <div>
                                 <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
                                 <span class="contador-fav">4</span>
                             </div>
                         </a>
                         <!--Contador de carrito-->
-                        <a class="link-bnt" href="/">
+                        <button class="link-bnt" id="boton_abrir--slider">
                             <div>
                                 <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
-                                <span class="contador-car">2</span>
+                                <span class="contador-car" id="cantidad-contador-carrito"></span>
+                                <p id="mostrarPrecioTotal"></p>
                             </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -188,19 +190,19 @@
             </form>
         </div>
 
-        <div class="head-div-2-part1-3 ocultar">
-            <a href="/">
+        <div class="head-div-2-part1-3">
+            <a href="/" class="ocultar">
                 <div class="cont-icon-corazon">
                     <span class="span-corazon-mobil">4</span>
                     <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
                 </div>
             </a>
-            <a href="/">
+            <button  id="boton_abrir--slider">
                 <div>
                     <span class="span-carrito-mobil">5</span>
                     <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
                 </div>
-            </a>
+            </button>
         </div>
     </div>
 
@@ -280,7 +282,30 @@
     <!-- FIN HEADER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 
-
+    <div id="background-silebar-carrito">
+        <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
+    
+            <!-- Contenedor para la columna de categorias -->
+            <div id="silebar-categorias-carrito">
+                <div class="close-silebar-carrito">
+                    <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
+            <!-- Contenedor para las subcategorias de las categorias -->
+            <div id="silebar-subcategoria-carrito">
+                <!-- Aquí van los productos -->
+            </div>
+            <div class="contenido_productos-pago">
+                <p class="cantidad_productos_contenido">Hay <span id="cantidad_productos_obtenidos" class="cantidad_producto--span"></span> articulos en su carrito</p>
+                <p class="total_pagar_productos">Total a pagar:  <span id="precio_total_productos" class="total_pagar-span"></span></p>
+            </div>
+            <a href="/contactanos">
+                <button class="comprar_productos_carrito">COMPRAR PRODUCTOS</button>
+            </a>
+        </div>
+    </div>
+    
 
 
     <!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
@@ -1398,7 +1423,7 @@
                                 <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
                             </a>
                         </div>
-                        <div class="cad-img">
+                        <div class="cad-img ocultar">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
                                 <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
@@ -1466,6 +1491,8 @@
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <script th:src="@{/home/js/index.js}"></script>
+    <script th:src="@{/general/js/abrir-slider.js}"></script>
+
 </body>
 
 </html>
