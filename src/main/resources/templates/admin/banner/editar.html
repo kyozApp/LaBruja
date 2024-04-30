@@ -1,50 +1,61 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<form
+  name="editarBannerForm"
+  method="post"
+  th:action="@{/admin/banner/editar/{bannerId}(bannerId=${banner.bannerId})}"
+  enctype="multipart/form-data"
+>
+  <input
+    type="hidden"
+    name="bannerId"
+    th:value="${banner.bannerId}"
+    readonly="true"
+  />
 
-<head>
-    <meta charset="UTF-8">
-    <title>Editar Banner</title>
-</head>
+  <div>
+    <label for="nombre">Nombre:</label><br />
+    <input type="text" name="nombre" th:value="${banner.nombre}" />
+  </div>
 
-<body>
+  <div>
+    <label for="imagenActual">Imagen actual:</label><br />
+    <img
+      th:src="'data:image/' + ${banner.getTypeImage()} + ';base64,' + ${banner.getBase64Image()}"
+      width="150px"
+      height="150px"
+      border="1"
+    /><br />
+  </div>
 
-    <div class="container">
-        <h3>Editar Banner</h3>
+  <div>
+    <label for="imagenNueva">Selecciona una nueva imagen:</label><br />
+    <input
+      type="file"
+      name="imagen"
+      accept="image/*"
+      id="imagenNueva"
+      onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])"
+    />
+    <br />
+    <img id="imageId" width="150px" height="150px" border="1" />
+  </div>
 
-        <form name="editarBannerForm" method="post"
-            th:action="@{/admin/banner/editar/{bannerId}(bannerId=${banner.bannerId})}" enctype="multipart/form-data">
+  <div>
+    <label for="url">URL:</label><br />
+    <input type="text" name="url" th:value="${banner.url}" />
+  </div>
 
-            <input type="hidden" name="bannerId" th:value="${banner.bannerId}" readonly="true" />
+  <div>
+    <label for="tipo">Tipo:</label><br />
+    <select name="tipo">
+        <option th:each="tipo : ${T(com.labrujastore.util.TipoBanner).values()}"
+                th:value="${tipo.getTipo()}"
+                th:text="${tipo.name()}"></option>
+    </select>
+    
+  </div>
 
-            <div>
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" name="nombre" th:value="${banner.nombre}" />
-            </div>
-
-            <div>
-                <label for="imagenActual">Imagen actual:</label><br>
-                <img th:src="'data:image/' + ${banner.getTypeImage()} + ';base64,' + ${banner.getBase64Image()}"
-                    width="150px" height="150px" border="1" /><br>
-            </div>
-
-            <div>
-                <label for="imagenNueva">Selecciona una nueva imagen:</label><br>
-                <input type="file" name="imagen" accept="image/*" id="imagenNueva"
-                    onchange="document.getElementById('imageId').src=window.URL.createObjectURL(this.files[0])" />
-                <br>
-                <img id="imageId" width="150px" height="150px" border="1" />
-            </div>
-            <div>
-                <label for="url">URL:</label><br>
-                <input type="text" name="url" th:value="${banner.url}" />
-            </div>
-
-            <button type="submit">Guardar</button>
-            <button type="button" onclick="location.href='/admin/banner'">Cancelar</button>
-        </form>
-
-    </div>
-
-</body>
-
-</html>
+  <button type="submit">Guardar</button>
+  <button type="button" onclick="location.href='/admin/banner'">
+    Cancelar
+  </button>
+</form>

@@ -30,6 +30,9 @@ public class Banner implements Serializable {
     @Column
     private String imagenNombre;
 
+    @Column(nullable = true)
+    private String tipo;
+
     @Column(columnDefinition = "longblob")
     private byte[] imagenArchivo;
 
@@ -94,6 +97,14 @@ public class Banner implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
 }

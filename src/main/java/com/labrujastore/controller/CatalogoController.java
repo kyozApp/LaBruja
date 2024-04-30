@@ -40,6 +40,7 @@ import com.labrujastore.service.RamService;
 import com.labrujastore.service.RefrigeracionService;
 import com.labrujastore.service.TarjetaService;
 // import org.springframework.web.bind.annotation.RequestParam;
+import com.labrujastore.util.TipoBanner;
 
 @Controller
 @RequestMapping("/catalogo")
@@ -90,8 +91,8 @@ public class CatalogoController {
     @GetMapping("producto")
     public String index(Model model) {
 
-        Banner bannerId6 = bannerService.obtenerIdBanner(6);
         model.addAttribute("catalogo", "CATALOGO");
+        List<Banner> bannersCategoria = bannerService.obtenerBannersPorTipo(TipoBanner.CATEGORIA.getTipo());
 
         List<Accesorio> accesorios = accesorioService.listarAccesorio();
         List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
@@ -106,8 +107,9 @@ public class CatalogoController {
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
         List<Categoria> categorias = categoriaService.listarCategoria();
         List<Combo> combos = comboService.listarCombo();
+        
+        model.addAttribute("bannersCategoria", bannersCategoria);
 
-        model.addAttribute("bannerId6", bannerId6);
         model.addAttribute("vistaAccesorios", accesorios);
         model.addAttribute("vistaAlmacenamientos", almacenamientos);
         model.addAttribute("vistaCasses", casses);
@@ -128,30 +130,31 @@ public class CatalogoController {
     @GetMapping("/{nombreUrl}")
     public String catalogo_categoria(Model model, @PathVariable String nombreUrl) {
 
-        Banner bannerId6 = bannerService.obtenerIdBanner(6);
         Categoria categoria = categoriaService.obtenerCategoriaNombreUrl(nombreUrl);
 
         model.addAttribute("nombreCategoria", categoria.getNombre());
         model.addAttribute("nombreURL", categoria.getNombreUrl());
         model.addAttribute("catalogo", categoria.getNombre());
 
-
+        List<Banner> bannersCategoria = bannerService.obtenerBannersPorTipo(TipoBanner.CATEGORIA.getTipo());
         List<Accesorio> accesoriosCat = accesorioService.obtenerAccesoriosPorCategoria(categoria.getCategoriaId());
-        List<Almacenamiento> almacenamientosCat = almacenamientoService.obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
+        List<Almacenamiento> almacenamientosCat = almacenamientoService
+                .obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
         List<Casse> cassesCat = casseService.obtenerCassesPorCategoria(categoria.getCategoriaId());
         List<Fuente> fuentesCat = fuenteService.obtenerFuentesPorCategoria(categoria.getCategoriaId());
         List<Laptop> laptopsCat = laptopService.obtenerLaptopsPorCategoria(categoria.getCategoriaId());
         List<Monitor> monitoresCat = monitorService.obtenerMonitoresPorCategoria(categoria.getCategoriaId());
         List<Placa> placasCat = placaService.obtenerPlacasPorCategoria(categoria.getCategoriaId());
-        List<Procesador> procesadoresCat = procesadorService.obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
+        List<Procesador> procesadoresCat = procesadorService
+                .obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
         List<Ram> ramsCat = ramService.obtenerRamsPorCategoria(categoria.getCategoriaId());
-        List<Refrigeracion> refrigeracionesCat = refrigeracionService.obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
+        List<Refrigeracion> refrigeracionesCat = refrigeracionService
+                .obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
         List<Tarjeta> tarjetasCat = tarjetaService.obtenerTarjetasPorCategoria(categoria.getCategoriaId());
         List<Combo> combosCat = comboService.obtenerCombosPorCategoria(categoria.getCategoriaId());
 
-
-        model.addAttribute("bannerId6", bannerId6);
         model.addAttribute("categoria", categoria);
+        model.addAttribute("bannersCategoria", bannersCategoria);
 
         model.addAttribute("vistaAccesorios", accesoriosCat);
         model.addAttribute("vistaAlmacenamientos", almacenamientosCat);

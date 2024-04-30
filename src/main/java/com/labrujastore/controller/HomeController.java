@@ -39,6 +39,7 @@ import com.labrujastore.service.ProcesadorService;
 import com.labrujastore.service.RamService;
 import com.labrujastore.service.RefrigeracionService;
 import com.labrujastore.service.TarjetaService;
+import com.labrujastore.util.TipoBanner;
 
 @Controller
 public class HomeController {
@@ -85,7 +86,7 @@ public class HomeController {
 	private TarjetaService tarjetaService;
 
 	@Autowired
-    private CategoriaService categoriaService;
+	private CategoriaService categoriaService;
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -93,11 +94,11 @@ public class HomeController {
 		List<Marca> marcas = marcaService.listarMarca();
 		List<Combo> combos = comboService.listarCombo();
 
-		Banner bannerId1 = bannerService.obtenerIdBanner(1);
-		Banner bannerId2 = bannerService.obtenerIdBanner(2);
-		Banner bannerId3 = bannerService.obtenerIdBanner(3);
-		Banner bannerId4 = bannerService.obtenerIdBanner(4);
-		Banner bannerId5 = bannerService.obtenerIdBanner(5);
+		List<Banner> bannersSlider = bannerService.obtenerBannersPorTipo(TipoBanner.SLIDER.getTipo());
+		List<Banner> bannersComun = bannerService.obtenerBannersPorTipo(TipoBanner.BANNERCOMUN.getTipo());
+		List<Banner> bannersMedium = bannerService.obtenerBannersPorTipo(TipoBanner.BANNERMEDIUM.getTipo());
+		List<Banner> bannersPremium = bannerService.obtenerBannersPorTipo(TipoBanner.BANNERPREMIUN.getTipo());
+		List<Banner> bannersCategoria = bannerService.obtenerBannersPorTipo(TipoBanner.CATEGORIA.getTipo());
 
 		List<Accesorio> accesorios = accesorioService.listarAccesorio();
 		List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
@@ -114,13 +115,13 @@ public class HomeController {
 
 		model.addAttribute("vistaMarcas", marcas);
 		model.addAttribute("vistaCombos", combos);
-        model.addAttribute("vistaCategorias", categorias);
+		model.addAttribute("vistaCategorias", categorias);
 
-		model.addAttribute("bannerId1", bannerId1);
-		model.addAttribute("bannerId2", bannerId2);
-		model.addAttribute("bannerId3", bannerId3);
-		model.addAttribute("bannerId4", bannerId4);
-		model.addAttribute("bannerId5", bannerId5);
+		model.addAttribute("bannersSlider", bannersSlider);
+		model.addAttribute("bannersComun", bannersComun);
+		model.addAttribute("bannersMedium", bannersMedium);
+		model.addAttribute("bannersPremium", bannersPremium);
+		model.addAttribute("bannersCategoria", bannersCategoria);
 
 		model.addAttribute("vistaAccesorios", accesorios);
 		model.addAttribute("vistaAlmacenamientos", almacenamientos);
