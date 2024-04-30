@@ -39,4 +39,9 @@ public class BannerServiceImpl implements BannerService {
         return bannerRepository.findById(bannerId).get();
     }
 
+    @Override
+    public List<Banner> obtenerBannersPorTipo(String tipo) {
+        return bannerRepository.findByTipo(tipo);
+    }
+
 }

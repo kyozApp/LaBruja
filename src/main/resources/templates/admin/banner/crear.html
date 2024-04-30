@@ -18,6 +18,11 @@
         <label for="url">URL:</label>
         <input type="text" id="url" name="url" th:field="*{url}">
         <br>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" th:field="*{tipo}">
+            <option th:each="tipo : ${T(com.labrujastore.util.TipoBanner).values()}" th:value="${tipo.getTipo()}" th:text="${tipo.name()}"></option>
+        </select>        
+        <br>
         <input type="file" name="imagen" accept="image/*"
             onchange="document.getElementById('bannerId').src=window.URL.createObjectURL(this.files[0])" />
         <br><br>

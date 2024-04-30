@@ -36,15 +36,20 @@ public class BannerController {
         model.addAttribute("formularioCrearBanner", banner);
         return "admin/banner/crear";
     }
-
     @PostMapping("/banner/crear")
     public String crear(@ModelAttribute Banner banner,
-            @RequestParam("imagen") MultipartFile imagen) throws IOException {
+            @RequestParam("imagen") MultipartFile imagen,
+            @RequestParam("tipo") String tipo) throws IOException {
         banner.setImagenNombre(imagen.getOriginalFilename());
         banner.setImagenArchivo(imagen.getBytes());
+    
+        // Establecer el tipo de banner según lo seleccionado en el formulario
+        banner.setTipo(tipo);
+    
         bannerService.guardarBanner(banner);
         return "redirect:/admin/banner";
     }
+    
 
     @GetMapping("/banner/editar/{bannerId}")
     public String editar(@PathVariable Integer bannerId, Model model) {
@@ -56,10 +61,15 @@ public class BannerController {
     @PostMapping("/banner/editar/{bannerId}")
     public String editar(@PathVariable Integer bannerId, @ModelAttribute Banner banner,
             @RequestParam("imagen") MultipartFile imagen,
-            @RequestParam("url") String url) throws IOException {
+            @RequestParam("url") String url,
+            @RequestParam("tipo") String tipo) throws IOException {
         Banner bannerExistente = bannerService.obtenerIdBanner(bannerId);
         bannerExistente.setNombre(banner.getNombre());
         bannerExistente.setUrl(banner.getUrl());
+    
+        // Actualizar el tipo del banner según lo seleccionado en el formulario
+        bannerExistente.setTipo(tipo);
+    
         if (!imagen.isEmpty()) {
             bannerExistente.setImagenNombre(imagen.getOriginalFilename());
             bannerExistente.setImagenArchivo(imagen.getBytes());

@@ -7,6 +7,8 @@ import com.labrujastore.entity.Banner;
 public interface BannerService {
     public List<Banner> listaBanner();
 
+    public List<Banner> obtenerBannersPorTipo(String tipo);
+
     public Banner guardarBanner(Banner banner);
 
     public Banner actualizarBanner(Banner banner);

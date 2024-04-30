@@ -53,7 +53,7 @@
                         </div>
                         <form class="form-busqueda" action="" method="post">
                             <div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-                            <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button></div>
+                            <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
                         </form>
                     </div>
                     <!--Favorito y Carrito-->
@@ -237,12 +237,12 @@
         </div>
         <div class="productos">
             <div class="row">
-                <div class="left-colum" th:if="${bannerId6 != null}">
-                    <a th:href="@{#}"><img
-                            th:src="'data:image/' + ${bannerId6.typeImage} + ';base64,' + ${bannerId6.base64Image}"
-                            alt="Banner 6" /></a>
+                <div class="left-colum" th:each="banner : ${bannersCategoria}">
+                    <a th:href="${banner.url}" target="_blank">
+                        <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                    </a>
                 </div>
-
+            
                 <div class="center-colum">
                     <!-- Encabezado de los productos -->
                     <div class="producto-encabezado">
@@ -326,7 +326,7 @@
                                                         <h2 th:text="${accesorio.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${accesorio.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${accesorio.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${accesorio.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -397,7 +397,7 @@
                                                         <h2 th:text="${almacenamiento.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${almacenamiento.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${almacenamiento.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${almacenamiento.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -467,7 +467,7 @@
                                                         <h2 th:text="${casse.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${casse.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${casse.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${casse.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -537,7 +537,7 @@
                                                         <h2 th:text="${fuente.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${fuente.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${fuente.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${fuente.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -607,7 +607,7 @@
                                                         <h2 th:text="${laptop.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${laptop.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${laptop.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${laptop.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -677,7 +677,7 @@
                                                         <h2 th:text="${monitor.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${monitor.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${monitor.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${monitor.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -746,7 +746,7 @@
                                                         <h2 th:text="${placa.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${placa.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${placa.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${placa.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -816,7 +816,7 @@
                                                         <h2 th:text="${procesador.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${procesador.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${procesador.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${procesador.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -886,7 +886,7 @@
                                                         <h2 th:text="${ram.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${ram.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${ram.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${ram.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -956,7 +956,7 @@
                                                         <h2 th:text="${refrigeracion.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${refrigeracion.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${refrigeracion.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${refrigeracion.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -1025,7 +1025,7 @@
                                                         <h2 th:text="${tarjeta.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${tarjeta.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${tarjeta.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${tarjeta.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a
@@ -1095,7 +1095,7 @@
                                                         <h2 th:text="${combo.nombre}"></h2>
                                                     </a>
                                                     <h3 th:text="'(S/. ' + ${combo.precio} + ')'"></h3>
-                                                    <p th:text="'Stock: ' + ${combo.stock}"></span></p>
+                                                    <p th:text="'Stock: ' + ${combo.stock}"></p>
                                                 </div>
                                                 <div class="btn-ver-detalles">
                                                     <a

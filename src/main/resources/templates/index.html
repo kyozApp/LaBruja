@@ -313,22 +313,9 @@
     <!-- Slider Mian -->
     <div class="swiper mySwiper relative" style="overflow-x: hidden;">
         <div class="swiper-wrapper seccion__main_slide">
-            <div class="swiper-slide" th:if="${bannerId1 != null}">
-                <a th:href="${bannerId1.url}" target="_blank">
-                    <img th:src="'data:image/' + ${bannerId1.typeImage} + ';base64,' + ${bannerId1.base64Image}"
-                        alt="Imagen1" />
-                </a>
-            </div>
-            <div class="swiper-slide" th:if="${bannerId2 != null}">
-                <a th:href="${bannerId2.url}" target="_blank">
-                    <img th:src="'data:image/' + ${bannerId2.typeImage} + ';base64,' + ${bannerId2.base64Image}"
-                        alt="Imagen2" />
-                </a>
-            </div>
-            <div class="swiper-slide" th:if="${bannerId3 != null}">
-                <a th:href="${bannerId3.url}" target="_blank">
-                    <img th:src="'data:image/' + ${bannerId3.typeImage} + ';base64,' + ${bannerId3.base64Image}"
-                        alt="Imagen3" />
+            <div class="swiper-slide" th:each="banner : ${bannersSlider}">
+                <a th:href="${banner.url}" target="_blank">
+                    <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
                 </a>
             </div>
             <script>
@@ -815,10 +802,9 @@
 
     <!-- Banner 2 -->
     <section class="banners">
-        <div class="baner" th:if="${bannerId4 != null}">
-            <a th:href="${bannerId4.url}" target="_blank">
-                <img th:src="'data:image/' + ${bannerId4.typeImage} + ';base64,' + ${bannerId4.base64Image}"
-                    alt="Banner 4" />
+        <div class="baner" th:each="banner : ${bannersComun}">
+            <a th:href="${banner.url}" target="_blank">
+                <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
             </a>
         </div>
     </section>
@@ -880,10 +866,9 @@
 
     <!-- Banner 3 -->
     <section class="banners">
-        <div class="baner" th:if="${bannerId5 != null}">
-            <a th:href="${bannerId5.url}" target="_blank">
-                <img th:src="'data:image/' + ${bannerId5.typeImage} + ';base64,' + ${bannerId5.base64Image}"
-                    alt="Banner 5" />
+        <div class="baner" th:each="banner : ${bannersMedium}">
+            <a th:href="${banner.url}" target="_blank">
+                <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
             </a>
         </div>
     </section>
