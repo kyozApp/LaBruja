@@ -94,6 +94,33 @@ public class DetalleProductoController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("vistaCategorias", categorias);
 
+        List<Accesorio> accesorios = accesorioService.listarAccesorio();
+        List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
+        List<Casse> casses = casseService.listarCasse();
+        List<Fuente> fuentes = fuenteService.listarFuente();
+        List<Laptop> laptops = laptopService.listarLaptop();
+        List<Monitor> monitores = monitorService.listarMonitor();
+        List<Placa> placas = placaService.listarPlaca();
+        List<Procesador> procesadores = procesadorService.listarProcesador();
+        List<Ram> rams = ramService.listarRam();
+        List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
+        List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
+        List<Combo> combos = comboService.listarCombo();
+
+        model.addAttribute("vistaAccesorios", accesorios);
+        model.addAttribute("vistaAlmacenamientos", almacenamientos);
+        model.addAttribute("vistaCasses", casses);
+        model.addAttribute("vistaFuentes", fuentes);
+        model.addAttribute("vistaLaptops", laptops);
+        model.addAttribute("vistaMonitores", monitores);
+        model.addAttribute("vistaPlacas", placas);
+        model.addAttribute("vistaProcesadores", procesadores);
+        model.addAttribute("vistaRams", rams);
+        model.addAttribute("vistaRefrigeraciones", refrigeraciones);
+        model.addAttribute("vistaTarjetas", tarjetas);
+        model.addAttribute("vistaCombos", combos);
+
+
         if ("accesorio".equals(tipo)) {
             Accesorio accesorio = accesorioService.obtenerIdAccesorio(id);
             model.addAttribute("accesorio", accesorio);
