@@ -21,13 +21,14 @@
     <script th:src="@{/general/js/header.js}"></script>
 
     <script th:src="@{/producto-detalle/js/incrementar.js}"></script>
-    <script th:src="@{/producto-detalle/js/sidebar-carrito.js}"></script>
+    <!-- <script th:src="@{/producto-detalle/js/sidebar-carrito.js}"></script> -->
+    <script th:src="@{/general/js/contactanos.js}"></script>
 
 </head>
 
 <body>
     <!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
-    ----------------------------------------------------------------------------------------------------------------------------->
+    	----------------------------------------------------------------------------------------------------------------------------->
     <header>
         <div id="head-div-1">
             <div class="contenedor">
@@ -50,36 +51,303 @@
                             <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
                         </a>
                     </div>
-
-                    <!--Buscador-->
-                    <div class="head-div-2-part1-2 none-mobil">
-                        <div class="abrir">
-                            <label class="centered-label" for="open-silebar">Categorias</label>
+    
+                    <div class="barra-bus-btn">
+                        <!-- Amburguesa para abrir silebar isquierdo - celulares -->
+                        <div class="abrir mostrar-opc-mobil">
+                            <label for="open-silebar" class="centered-label">
+                                <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
+                            </label>
                         </div>
-                        <form class="form-busqueda" action="" method="post">
-                            <div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-                            <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
-                        </form>
-                    </div>
-                    <!--Favorito y Carrito-->
-                    <div class="head-div-2-part1-3 none-mobil" style="margin-left: 2rem;">
-                        <!--Contador de favoritos-->
-                        <a class="link-bnt ocultar" style="display: none;" href="/">
-                            <div>
-                                <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
-                                <span class="contador-fav">4</span>
+    
+                        <!--Buscador-->
+                        <div class="head-div-2-part1-2">
+                            <div class="abrir-slider">
+                                <label class="centered-label" for="open-silebar">Categorias</label>
                             </div>
-                        </a>
-                        <!--Contador de carrito-->
-                        <button class="link-bnt" style="background: transparent; border: none; outline:none;"
-                            id="boton_abrir--slider">
-                            <div>
-                                <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
-                                <span class="contador-car" id="cantidad-contador-carrito"></span>
-                                <p id="mostrarPrecioTotal"></p>
+                            <div class="cont-form-search">
+                                <div>
+                                    <form class="form-busqueda" action="" method="post">
+                                        <div class="form-busqueda-input"><input type="text" name="buscador-pro"
+                                                id="buscador-producto" placeholder="Estoy buscando..." /></div>
+                                        <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="busqueda-productos">
+                                    <ul class="grupo-productos-busqueda">
+    
+                                        <!-- Accesorio -->
+                                        <li th:each="producto : ${vistaAccesorios}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.accesorioId}, tipo='accesorio')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Almacenamiento -->
+                                        <li th:each="producto : ${vistaAlmacenamientos}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.almacenamientoId}, tipo='almacenamiento')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Casse -->
+                                        <li th:each="producto : ${vistaCasses}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Fuente -->
+                                        <li th:each="producto : ${vistaFuentes}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Laptop -->
+                                        <li th:each="producto : ${vistaLaptops}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Monitor -->
+                                        <li th:each="producto : ${vistaMonitores}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <!-- Placa Madre -->
+                                        <li th:each="producto : ${vistaPlacas}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Procesador -->
+                                        <li th:each="producto : ${vistaProcesadores}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.procesadorId}, tipo='procesador')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Memoria ram -->
+                                        <li th:each="producto : ${vistaRams}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.ramId}, tipo='ram')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Refrigeracion -->
+                                        <li th:each="producto : ${vistaRefrigeraciones}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.refrigeracionId}, tipo='refrigeracion')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Tarjeta Gráfica -->
+                                        <li th:each="producto : ${vistaTarjetas}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                        <!-- Combo -->
+                                        <li th:each="producto : ${vistaCombos}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+    
+                                    </ul>
+                                </div>
                             </div>
-                        </button>
+                        </div>
+                        <script th:src="@{/general/js/buscador-producto.js}"></script>
+                        <script th:src="@{/general/js/quitar-form-input.js}"></script>
+    
+                        <!--Favorito y Carrito-->
+                        <div class="head-div-2-part1-3">
+                            <!--Contador de favoritos-->
+                            <a class="link-bnt" style="display: none;" href="/">
+                                <div>
+                                    <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                                    <span class="contador-fav">4</span>
+                                </div>
+                            </a>
+                            <!--Contador de carrito-->
+                            <button class="link-bnt" id="boton_abrir--slider"
+                                style="background: transparent; border: none; outline:none;">
+                                <div>
+                                    <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                                    <span class="contador-car" id="cantidad-contador-carrito"></span>
+                                    <p id="mostrarPrecioTotal"></p>
+                                </div>
+                            </button>
+                        </div>
                     </div>
+    
                 </div>
             </div>
         </div>
@@ -90,48 +358,15 @@
             <a class="cont-lista-op" href="/catalogo/producto">CATALOGO</a>
             <a class="cont-lista-op" href="/contactanos">CONTACTANOS</a>
             <!-- <a class="cont-lista-op" href="/about">ACERCA DE</a>
-            <a class="cont-lista-op" href="/">CARRITO</a>
-            <a class="cont-lista-op" href="/">COTIZACIÓN</a> -->
+    			<a class="cont-lista-op" href="/">CARRITO</a>
+    			<a class="cont-lista-op" href="/">COTIZACIÓN</a> -->
         </div>
     </div>
-
-    <!--Buscador PARA MOBILES DEFAULT DISPLAY:NONE-->
-    <div class="sub-nivel-header-mobil">
-        <div class="abrir">
-            <label for="open-silebar" class="centered-label">
-                <!-- <img class="img-menu" th:src="@{/general/img/menu.png}" alt="" style="width: 15px; padding: 5px;" /> -->
-                <!-- <img class="img-menu" th:src="@{/general/img/menu.svg}" alt=""> -->
-                <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
-            </label>
-        </div>
-        <div class="head-div-2-part1-2">
-            <form class="form-busqueda" action="" method="post">
-                <div class="form-busqueda-input"><input placeholder="Estoy buscando..." /></div>
-                <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></button></div>
-            </form>
-        </div>
-
-        <div class="head-div-2-part1-3">
-            <a href="/" class="ocultar">
-                <div class="cont-icon-corazon">
-                    <span class="span-corazon-mobil">4</span>
-                    <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
-                </div>
-            </a>
-            <button class="link-bnt" style="background: transparent; border: none; outline:none;"
-                id="boton_abrir--slider">
-                <div>
-                    <span class="span-carrito-mobil">5</span>
-                    <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
-                </div>
-            </button>
-        </div>
-    </div>
-
-    <!-- INICIO SILEBAR -->
+    
+    <!-- SILEBAR CATEGORIAS -->
     <div id="background-silebar">
         <div id="contenedor-silebar">
-
+    
             <!-- Contenedor para la columna de categori -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
@@ -147,8 +382,7 @@
                     <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
                         <li class="listaItems">
                             <span th:text="${categoria.nombre}"></span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
-                                style="width: 12px;">
+                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
                         </li>
                     </a>
                     <hr>
@@ -164,7 +398,7 @@
                     </a>
                 </ul>
             </div>
-
+    
             <!-- Contenedor para las subcategorias de las categorias -->
             <div id="silebar-subcategoria">
                 <div>
@@ -179,7 +413,7 @@
                         </div>
                         <a href="/">Ver todo</a>
                     </div>
-
+    
                     <!-- Contenido de cada sub categoria -->
                     <div>
                         <ul>
@@ -201,8 +435,35 @@
             </div>
         </div>
     </div>
+    
+    <!-- SILEBAR DE CARRITO -->
+    <div id="background-silebar-carrito">
+        <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
+    
+            <!-- Contenedor para la columna de categorias -->
+            <div id="silebar-categorias-carrito">
+                <div class="close-silebar-carrito">
+                    <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
+            <!-- Contenedor para las subcategorias de las categorias -->
+            <div id="silebar-subcategoria-carrito">
+                <!-- Aquí van los productos -->
+            </div>
+            <div class="contenido_productos-pago">
+                <p class="cantidad_productos_contenido">Hay <span id="cantidad_productos_obtenidos"
+                        class="cantidad_producto--span"></span> articulos en su carrito</p>
+                <p class="total_pagar_productos">Total a pagar: <span id="precio_total_productos"
+                        class="total_pagar-span"></span></p>
+            </div>
+            <a href="/contactanos">
+                <button class="comprar_productos_carrito">COMPRAR PRODUCTOS</button>
+            </a>
+        </div>
+    </div>
     <!-- FIN HEADER ----------------------------------------------------------------------------------------------------------
-    ----------------------------------------------------------------------------------------------------------------------------->
+        ----------------------------------------------------------------------------------------------------------------------------->
 
 
 

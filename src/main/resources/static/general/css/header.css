@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -35,7 +35,6 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .contenedor-3 {
@@ -113,11 +112,22 @@ li {
     display: block;
 }
 
+.barra-bus-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.mostrar-opc-mobil {
+    display: none;
+}
+
 .head-div-2-part1-2 {
     display: flex;
     background-color: #ffffff;
     border-radius: 3px;
-    width: 50%;
+    width: 100%;
     height: 48px;
     align-items: center;
 }
@@ -129,6 +139,21 @@ li {
     text-align: center;
     display: flex;
     justify-content: center;
+    border-right-width: 2px;
+    border-right-color: black;
+    border-right-style: dashed;
+}
+
+.abrir-slider {
+    color: #1b1b1b;
+    width: 208px;
+    padding: 5px 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-right-width: 2px;
+    border-right-color: black;
+    border-right-style: dashed;
 }
 
 .centered-label {
@@ -137,7 +162,7 @@ li {
     justify-content: center;
     text-align: center;
     /* Añadir alineación de texto para asegurar el centrado horizontal */
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     border: none;
     background: #ffffff00;
     padding: 10px;
@@ -182,14 +207,12 @@ li {
     border: none;
     border-radius: 20px;
     padding-left: 15px;
-    transition: border-color 0.2s ease-in-out;
     font-size: 16px;
 }
 
 .form-busqueda input:focus {
     outline: none;
     border-color: #d7d7d7;
-    box-shadow: 0px 0px 5px rgb(211 211 211 / 50%);
 }
 
 .form-busqueda img {
@@ -221,6 +244,7 @@ li {
 
 .head-div-2-part1-3 div {
     display: flex;
+    position: relative;
 }
 
 .head-div-2-part2 {
@@ -291,8 +315,6 @@ li {
     border: none;
 }
 
-
-
 .close-silebar label:hover {
     background-color: rgb(239 239 239);
 }
@@ -348,8 +370,28 @@ li:hover .simbolo {
 
 /* FIN CSS SILEBAR */
 
+/* INICIO SILEBAR CARRITO */
+#contenedor-silebar-carrito {
+    position: fixed;
+    top: 0;
+    /* display: none; */
+    display: flex;
+    background-color: white;
+    width: 300px;
+    height: 100%;
+    right: -300px;
+    transition: left 0.3s ease;
+}
+
+/* INICIO SILEBAR CARRITO */
+
+.link-bnt {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .link-bnt span {
-    position: relative;
+    position: absolute;
     background-color: white;
     border-radius: 50%;
     color: #000000;
@@ -361,26 +403,23 @@ li:hover .simbolo {
     padding: 0;
 }
 
-.link-bnt span:hover {
+.link-bnt:hover span {
     background-color: #ff0000;
-    border: 2px #ff0000 solid;
+    border: 0px #ff0000 solid;
     color: white;
 }
 
 .contador-fav,
 .contador-car {
-    left: -32px;
+    left: 45px;
     top: -16px;
 }
 
-.link-bnt {
-    text-decoration: none;
-}
+
 
 /*para sub-nivel-header-mobil*/
 .sub-nivel-header-mobil {
     display: none;
-
 }
 
 .modal {
@@ -480,6 +519,89 @@ li:hover .simbolo {
     outline: none;
 }
 
+/* INICIO DEL BUSCADOR DE PRODUCTOS */
+.cont-form-search {
+    position: relative;
+    width: 100%;
+}
+
+.busqueda-productos {
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+    background-color: ghostwhite;
+    border-width: 1px;
+    border-color: red;
+    border-radius: 0px 0px 8px 8px;
+    border-top: none;
+}
+
+.grupo-productos-busqueda {
+    margin: 0;
+}
+
+.link-producto {
+    color: #616161;
+    transition: 0.2s ease;
+}
+
+.link-producto:hover {
+    color: red;
+}
+
+.productos-filtrados {
+    padding: 8px 5px;
+}
+
+.productos-filtrados:hover {
+    background-color: white;
+}
+
+.div-produc-filt {
+    display: flex;
+    align-items: center;
+    height: 55px;
+}
+
+.cont-img-produc-fitl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.img-produc-search {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.cont-detalle-produc-fitl {
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 13px;
+}
+
+.nombre-produc-search {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.precio-produc-search {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* FIN DEL BUSCADOR DE PRODUCTOS */
+
 @media screen and (max-width: 800px) and (min-width: 429px) {
     .centered-label {
         font-size: 13px;
@@ -499,6 +621,9 @@ li:hover .simbolo {
     .head-div-2-part1-1 {
         width: 210px;
         margin-right: 0%;
+        display: flex;
+        align-items: center;
+        height: 90px;
     }
 
     .contenedor {
@@ -553,9 +678,8 @@ li:hover .simbolo {
         margin: 0;
     }
 
+
     .head-div-2-part1-2 img {
-        width: 25px;
-        opacity: 0.6;
         transition: 0.2s;
     }
 
@@ -574,7 +698,6 @@ li:hover .simbolo {
         position: relative;
         width: auto;
         align-items: center;
-        margin-left: -40px;
     }
 
     .head-div-2-part1-3 .contador {
@@ -624,10 +747,6 @@ li:hover .simbolo {
         margin-right: 15px;
     }
 
-    .head-div-2-part1 {
-        padding-bottom: 3px;
-    }
-
     .form-busqueda {
         justify-content: space-around;
     }
@@ -643,17 +762,43 @@ li:hover .simbolo {
     .form-busqueda button {
         padding: 0;
     }
+
+    .contenedor-2 {
+        flex-direction: column;
+    }
+
+    .head-div-2-part1 {
+        height: auto;
+    }
+
+    .head-div-2-part1-2 .abrir {
+        display: none;
+    }
+
+    .mostrar-opc-mobil {
+        display: block;
+    }
+
+    .contador-fav,
+    .contador-car {
+        left: 17px;
+        top: -16px;
+    }
+
+    .barra-bus-btn {
+        padding: 10px;
+        justify-content: space-evenly;
+    }
+
+    .head-div-2-part1 {
+        padding: 0;
+    }
+
+    .abrir-slider {
+        display: none;
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
 
 /* POR MIENTRAS */
 .ocultar {
@@ -668,4 +813,8 @@ li:hover .simbolo {
     .head-div-2-part1-2 {
         width: 56vw;
     }
+}
+
+.display-none {
+    display: none;
 }

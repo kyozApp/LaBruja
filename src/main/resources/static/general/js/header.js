@@ -3,11 +3,17 @@ document.addEventListener("DOMContentLoaded", function(){
     var label_close_silebar = document.querySelector("label[for='close-silebar']");
     var img_open_silebar = document.querySelector(".img-menu");
 
+    var btn_open_silebar = document.querySelector(".abrir-slider");
+
     var contenedor_silebar = document.getElementById("background-silebar");
     var silevar = document.getElementById("contenedor-silebar");
 
     label_open_silebar.addEventListener("click", function(){
         openSidebar(); // Llama a la función para abrir el sidebar
+    });
+
+    btn_open_silebar.addEventListener("click", function () {
+      openSidebar(); // Llama a la función para abrir el sidebar
     });
 
     label_close_silebar.addEventListener("click", function(){

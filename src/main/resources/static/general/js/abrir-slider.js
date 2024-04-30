@@ -1,13 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   var botonCarritoSidebar = document.getElementById("boton_abrir--slider");
-  var label_close_silebar = document.querySelector(
-    "label[for='close-silebar-carrito']"
-  );
-  var img_open_silebar = document.querySelector(".img-menu");
+  var label_close_silebar = document.querySelector("label[for='close-silebar-carrito']");
 
-  var contenedor_silebar = document.getElementById(
-    "background-silebar-carrito"
-  );
+  var contenedor_silebar = document.getElementById("background-silebar-carrito");
   var silevar = document.getElementById("contenedor-silebar-carrito");
 
   botonCarritoSidebar.addEventListener("click", function () {
@@ -18,9 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     closeSidebar(); // Llama a la función para cerrar el sidebar
   });
 
-  img_open_silebar.addEventListener("click", function () {
-    openSidebar(); // Llama a la función para abrir el sidebar cuando se hace clic en la imagen
-  });
 
   function openSidebar() {
     silevar.style.display = "block"; // Mostrar el sidebar
@@ -30,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contenedor_silebar.style.display = "block"; // Mostrar el fondo del sidebar
 
     // Obtener los productos del localStorage
-    var productosEnCarrito =
-      JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
+    var productosEnCarrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
     // Mostrar los valores en el sidebar
     var contenedorSidebar = document.getElementById(
@@ -105,36 +96,26 @@ document.addEventListener("DOMContentLoaded", function () {
       // Incrementar la cantidad total de productos
       cantidadTotalProductos += producto.cantidad;
       // Incrementar el precio total de los productos
-      precioTotalProductos +=
-        parseFloat(producto.precio.replace("S/. ", "")) * producto.cantidad;
+      precioTotalProductos += parseFloat(producto.precio.replace("S/. ", "")) * producto.cantidad;
 
       // Resto del código para mostrar los productos en el sidebar
       // ...
     });
 
     // Mostrar la cantidad total de productos y el precio total en el DOM
-    document.getElementById("cantidad_productos_obtenidos").textContent =
-      cantidadTotalProductos;
-    document.getElementById("precio_total_productos").textContent =
-      "S/. " + precioTotalProductos.toFixed(2);
-
-    document.getElementById("cantidad-contador-carrito").textContent =
-      cantidadTotalProductos;
+    document.getElementById("cantidad_productos_obtenidos").textContent = cantidadTotalProductos;
+    document.getElementById("precio_total_productos").textContent = "S/. " + precioTotalProductos.toFixed(2);
+    document.getElementById("cantidad-contador-carrito").textContent = cantidadTotalProductos;
   }
   function actualizarCantidadProductos() {
     // Obtener los productos del localStorage
-    var productosEnCarrito =
-      JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
+    var productosEnCarrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
     // Calcular la cantidad total de productos
-    var cantidadTotalProductos = productosEnCarrito.reduce(
-      (total, producto) => total + producto.cantidad,
-      0
-    );
+    var cantidadTotalProductos = productosEnCarrito.reduce((total, producto) => total + producto.cantidad,0);
 
     // Mostrar la cantidad total de productos en el botón del carrito
-    document.getElementById("cantidad-contador-carrito").textContent =
-      cantidadTotalProductos;
+    document.getElementById("cantidad-contador-carrito").textContent = cantidadTotalProductos;
   }
 
   // Llamar a la función para actualizar la cantidad de productos al cargar la página
@@ -217,33 +198,36 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
+
+
+
 // Función para actualizar el precio total
 function actualizarPrecioTotal() {
-    // Obtener los productos del localStorage
-    var productosEnCarrito =
-      JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
-  
-    // Calcular el precio total de los productos en el carrito
-    var precioTotalProductos = productosEnCarrito.reduce(function (
-      total,
-      producto
-    ) {
-      return (
-        total +
-        parseFloat(producto.precio.replace("S/. ", "")) * producto.cantidad
-      );
-    },
-    0);
-  
-    // Mostrar el precio total en el elemento correspondiente
-    document.getElementById("mostrarPrecioTotal").textContent =
-      "S/. " + precioTotalProductos.toFixed(2);
-  }
-  
+  // Obtener los productos del localStorage
+  var productosEnCarrito =
+    JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
+  // Calcular el precio total de los productos en el carrito
+  var precioTotalProductos = productosEnCarrito.reduce(function (
+    total,
+    producto
+  ) {
+    return (
+      total +
+      parseFloat(producto.precio.replace("S/. ", "")) * producto.cantidad
+    );
+  },
+  0);
+
+  // Mostrar el precio total en el elemento correspondiente
+  document.getElementById("mostrarPrecioTotal").textContent =
+    "S/. " + precioTotalProductos.toFixed(2);
+}
 
 window.addEventListener("scroll", function () {
-  var stickyDiv = document.querySelector(".sub-nivel-header-mobil");
+  var stickyDiv = document.querySelector(".barra-bus-btn");
   var scrollPosition = window.scrollY;
 
   if (scrollPosition > 197) {

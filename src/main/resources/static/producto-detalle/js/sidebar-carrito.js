@@ -1,13 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   var botonCarritoSidebar = document.getElementById("boton_carrito_sidebar");
-  var label_close_silebar = document.querySelector(
-    "label[for='close-silebar-carrito']"
-  );
-  var img_open_silebar = document.querySelector(".img-menu");
+  var label_close_silebar = document.querySelector("label[for='close-silebar-carrito']");
 
-  var contenedor_silebar = document.getElementById(
-    "background-silebar-carrito"
-  );
+  var contenedor_silebar = document.getElementById("background-silebar-carrito");
   var silevar = document.getElementById("contenedor-silebar-carrito");
 
   botonCarritoSidebar.addEventListener("click", function () {
@@ -16,10 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   label_close_silebar.addEventListener("click", function () {
     closeSidebar(); // Llama a la función para cerrar el sidebar
-  });
-
-  img_open_silebar.addEventListener("click", function () {
-    openSidebar(); // Llama a la función para abrir el sidebar cuando se hace clic en la imagen
   });
 
   function openSidebar() {

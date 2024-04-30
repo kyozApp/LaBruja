@@ -504,3 +504,8 @@ button {
 .baner{
   margin: 10px;
 }
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    pointer-events: auto !important;
+}
