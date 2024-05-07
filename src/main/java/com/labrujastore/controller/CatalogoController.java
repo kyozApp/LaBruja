@@ -107,9 +107,24 @@ public class CatalogoController {
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
         List<Categoria> categorias = categoriaService.listarCategoria();
         List<Combo> combos = comboService.listarCombo();
-        
+
         model.addAttribute("bannersCategoria", bannersCategoria);
 
+        model.addAttribute("vistaAccesoriosC", accesorios);
+        model.addAttribute("vistaAlmacenamientosC", almacenamientos);
+        model.addAttribute("vistaCassesC", casses);
+        model.addAttribute("vistaFuentesC", fuentes);
+        model.addAttribute("vistaLaptopsC", laptops);
+        model.addAttribute("vistaMonitoresC", monitores);
+        model.addAttribute("vistaPlacasC", placas);
+        model.addAttribute("vistaProcesadoresC", procesadores);
+        model.addAttribute("vistaRamsC", rams);
+        model.addAttribute("vistaRefrigeracionesC", refrigeraciones);
+        model.addAttribute("vistaTarjetasC", tarjetas);
+        model.addAttribute("vistaCategoriasC", categorias);
+        model.addAttribute("vistaCombosC", combos);
+
+        // Para que cargue la busqueda
         model.addAttribute("vistaAccesorios", accesorios);
         model.addAttribute("vistaAlmacenamientos", almacenamientos);
         model.addAttribute("vistaCasses", casses);
@@ -121,7 +136,6 @@ public class CatalogoController {
         model.addAttribute("vistaRams", rams);
         model.addAttribute("vistaRefrigeraciones", refrigeraciones);
         model.addAttribute("vistaTarjetas", tarjetas);
-        model.addAttribute("vistaCategorias", categorias);
         model.addAttribute("vistaCombos", combos);
 
         return "catalogo/index";
@@ -138,36 +152,62 @@ public class CatalogoController {
 
         List<Banner> bannersCategoria = bannerService.obtenerBannersPorTipo(TipoBanner.CATEGORIA.getTipo());
         List<Accesorio> accesoriosCat = accesorioService.obtenerAccesoriosPorCategoria(categoria.getCategoriaId());
-        List<Almacenamiento> almacenamientosCat = almacenamientoService
-                .obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
+        List<Almacenamiento> almacenamientosCat = almacenamientoService.obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
         List<Casse> cassesCat = casseService.obtenerCassesPorCategoria(categoria.getCategoriaId());
         List<Fuente> fuentesCat = fuenteService.obtenerFuentesPorCategoria(categoria.getCategoriaId());
         List<Laptop> laptopsCat = laptopService.obtenerLaptopsPorCategoria(categoria.getCategoriaId());
         List<Monitor> monitoresCat = monitorService.obtenerMonitoresPorCategoria(categoria.getCategoriaId());
         List<Placa> placasCat = placaService.obtenerPlacasPorCategoria(categoria.getCategoriaId());
-        List<Procesador> procesadoresCat = procesadorService
-                .obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
+        List<Procesador> procesadoresCat = procesadorService.obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
         List<Ram> ramsCat = ramService.obtenerRamsPorCategoria(categoria.getCategoriaId());
-        List<Refrigeracion> refrigeracionesCat = refrigeracionService
-                .obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
+        List<Refrigeracion> refrigeracionesCat = refrigeracionService.obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
         List<Tarjeta> tarjetasCat = tarjetaService.obtenerTarjetasPorCategoria(categoria.getCategoriaId());
         List<Combo> combosCat = comboService.obtenerCombosPorCategoria(categoria.getCategoriaId());
 
         model.addAttribute("categoria", categoria);
         model.addAttribute("bannersCategoria", bannersCategoria);
 
-        model.addAttribute("vistaAccesorios", accesoriosCat);
-        model.addAttribute("vistaAlmacenamientos", almacenamientosCat);
-        model.addAttribute("vistaCasses", cassesCat);
-        model.addAttribute("vistaFuentes", fuentesCat);
-        model.addAttribute("vistaLaptops", laptopsCat);
-        model.addAttribute("vistaMonitores", monitoresCat);
-        model.addAttribute("vistaPlacas", placasCat);
-        model.addAttribute("vistaProcesadores", procesadoresCat);
-        model.addAttribute("vistaRams", ramsCat);
-        model.addAttribute("vistaRefrigeraciones", refrigeracionesCat);
-        model.addAttribute("vistaTarjetas", tarjetasCat);
-        model.addAttribute("vistaCombos", combosCat);
+        model.addAttribute("vistaAccesoriosC", accesoriosCat);
+        model.addAttribute("vistaAlmacenamientosC", almacenamientosCat);
+        model.addAttribute("vistaCassesC", cassesCat);
+        model.addAttribute("vistaFuentesC", fuentesCat);
+        model.addAttribute("vistaLaptopsC", laptopsCat);
+        model.addAttribute("vistaMonitoresC", monitoresCat);
+        model.addAttribute("vistaPlacasC", placasCat);
+        model.addAttribute("vistaProcesadoresC", procesadoresCat);
+        model.addAttribute("vistaRamsC", ramsCat);
+        model.addAttribute("vistaRefrigeracionesC", refrigeracionesCat);
+        model.addAttribute("vistaTarjetasC", tarjetasCat);
+        model.addAttribute("vistaCombosC", combosCat);
+
+        // Para mostrar en el buscador
+        List<Accesorio> accesorios = accesorioService.listarAccesorio();
+        List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
+        List<Casse> casses = casseService.listarCasse();
+        List<Fuente> fuentes = fuenteService.listarFuente();
+        List<Laptop> laptops = laptopService.listarLaptop();
+        List<Monitor> monitores = monitorService.listarMonitor();
+        List<Placa> placas = placaService.listarPlaca();
+        List<Procesador> procesadores = procesadorService.listarProcesador();
+        List<Ram> rams = ramService.listarRam();
+        List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
+        List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        List<Combo> combos = comboService.listarCombo();
+
+        model.addAttribute("vistaAccesorios", accesorios);
+        model.addAttribute("vistaAlmacenamientos", almacenamientos);
+        model.addAttribute("vistaCasses", casses);
+        model.addAttribute("vistaFuentes", fuentes);
+        model.addAttribute("vistaLaptops", laptops);
+        model.addAttribute("vistaMonitores", monitores);
+        model.addAttribute("vistaPlacas", placas);
+        model.addAttribute("vistaProcesadores", procesadores);
+        model.addAttribute("vistaRams", rams);
+        model.addAttribute("vistaRefrigeraciones", refrigeraciones);
+        model.addAttribute("vistaTarjetas", tarjetas);
+        model.addAttribute("vistaCombos", combos);
+        model.addAttribute("vistaCategoriasC", categorias);
 
         return "catalogo/index";
     }

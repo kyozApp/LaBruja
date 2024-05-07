@@ -67,7 +67,7 @@ public class RefrigeracionController {
         Refrigeracion refrigeracion = refrigeracionService.obtenerIdRefrigeracion(refrigeracionId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("refrigeracion", refrigeracion);
-        model.addAttribute("selectorCateogiras", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/refrigeracion/editar";
     }
 

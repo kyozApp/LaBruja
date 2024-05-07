@@ -67,7 +67,7 @@ public class MonitorController {
         Monitor monitor = monitorService.obtenerIdMonitor(monitorId);
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("monitor", monitor);
-        model.addAttribute("categorias", categorias);
+        model.addAttribute("selectorCategorias", categorias);
         return "admin/monitor/editar";
     }
 
