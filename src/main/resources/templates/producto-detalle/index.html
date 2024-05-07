@@ -48,7 +48,7 @@
                     <!--Logo Header-->
                     <div class="head-div-2-part1-1">
                         <a href="/">
-                            <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                            <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
                         </a>
                     </div>
     
@@ -70,7 +70,7 @@
                                     <form class="form-busqueda" action="" method="post">
                                         <div class="form-busqueda-input"><input type="text" name="buscador-pro"
                                                 id="buscador-producto" placeholder="Estoy buscando..." /></div>
-                                        <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
+                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
                                         </div>
                                     </form>
                                 </div>
@@ -84,7 +84,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.accesorioId}, tipo='accesorio')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -105,7 +105,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.almacenamientoId}, tipo='almacenamiento')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -125,7 +125,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -145,7 +145,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -165,7 +165,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -185,7 +185,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -204,7 +204,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -225,7 +225,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.procesadorId}, tipo='procesador')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -245,7 +245,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.ramId}, tipo='ram')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -266,7 +266,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.refrigeracionId}, tipo='refrigeracion')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -286,7 +286,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -306,7 +306,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -332,7 +332,7 @@
                             <!--Contador de favoritos-->
                             <a class="link-bnt" style="display: none;" href="/">
                                 <div>
-                                    <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                                    <img loading="lazy" th:src="@{/general/img/icon/corazon.svg}" alt="" />
                                     <span class="contador-fav">4</span>
                                 </div>
                             </a>
@@ -340,7 +340,7 @@
                             <button class="link-bnt" id="boton_abrir--slider"
                                 style="background: transparent; border: none; outline:none;">
                                 <div>
-                                    <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                                    <img loading="lazy" th:src="@{/general/img/icon/carrito.svg}" alt="" />
                                     <span class="contador-car" id="cantidad-contador-carrito"></span>
                                     <p id="mostrarPrecioTotal"></p>
                                 </div>
@@ -370,7 +370,7 @@
             <!-- Contenedor para la columna de categori -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
-                    <label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
                 </div>
                 <ul>
                     <a href="/catalogo/producto">
@@ -382,7 +382,7 @@
                     <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
                         <li class="listaItems">
                             <span th:text="${categoria.nombre}"></span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+                            <img loading="lazy" class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
                         </li>
                     </a>
                     <hr>
@@ -406,7 +406,7 @@
                         <!-- Encabezado -->
                         <div>
                             <div>
-                                <img src="" alt="" />
+                                <img loading="lazy" src="" alt="" />
                                 <!--Icono referente a la categoria-->
                             </div>
                             <a href="/">Productos</a>
@@ -443,7 +443,7 @@
             <!-- Contenedor para la columna de categorias -->
             <div id="silebar-categorias-carrito">
                 <div class="close-silebar-carrito">
-                    <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar-carrito"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
@@ -498,7 +498,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -509,7 +509,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -521,13 +521,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -686,7 +686,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -697,7 +697,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -709,13 +709,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -874,7 +874,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -885,7 +885,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -897,13 +897,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -1062,7 +1062,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -1073,7 +1073,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -1085,13 +1085,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -1157,7 +1157,7 @@
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 <span>Consultar</span>
                                             </a> -->
-                                            <button>
+                                            <button type="button" id="boton_carrito_sidebar" class="carrito__boton__sidebar">
                                                 <i class="fa-solid fa-cart-shopping"></i>
                                                 Agregar Carrito
                                             </button>
@@ -1248,7 +1248,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -1259,7 +1259,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -1271,13 +1271,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -1436,7 +1436,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -1447,7 +1447,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -1459,13 +1459,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -1624,7 +1624,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -1635,7 +1635,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -1647,13 +1647,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -1812,7 +1812,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -1823,7 +1823,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -1835,13 +1835,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -2000,7 +2000,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -2011,7 +2011,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -2023,13 +2023,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -2188,7 +2188,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -2199,7 +2199,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -2211,13 +2211,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -2376,7 +2376,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -2387,7 +2387,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -2399,13 +2399,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -2564,7 +2564,7 @@
 
                     <div class="imagen-producto">
                         <div class="div-img">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}"
                                 id="img-fetch">
                             <div class="img-lupa" id="img-lupa">
@@ -2575,7 +2575,7 @@
 
                     <div class="modal-imagen" id="modal-imagen" style="display: none;">
                         <div class="cont-img-modal">
-                            <img class="img-central"
+                            <img loading="lazy" class="img-central"
                                 th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}">
                             <div class="close-modal" id="close-modal">
                                 <i class="fa-solid fa-xmark"></i>
@@ -2587,13 +2587,13 @@
                         <button class="arrow prev"><i class="fa-solid fa-angle-left"></i></button>
                         <div class="gallery">
                             <ul>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
-                                <li><img src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
+                                <li><img loading="lazy" src="" alt=""></li>
                             </ul>
                         </div>
                         <button class="arrow next"><i class="fa-solid fa-angle-right"></i></button>
@@ -2737,36 +2737,7 @@
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
     ----------------------------------------------------------------------------------------------------------------------------->
 
-    <!-- INICIO SIDEBAR -->
-    <div id="background-silebar-carrito">
-        <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
-
-            <!-- Contenedor para la columna de categorias -->
-            <div id="silebar-categorias-carrito">
-                <div class="close-silebar-carrito">
-                    <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
-                </div>
-            </div>
-            <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
-            <!-- Contenedor para las subcategorias de las categorias -->
-            <div id="silebar-subcategoria-carrito">
-                <!-- Aquí van los productos -->
-            </div>
-            <div class="contenido_productos-pago">
-                <p class="cantidad_productos_contenido">Hay <span id="cantidad_productos_obtenidos"
-                        class="cantidad_producto--span"></span> articulos en su carrito</p>
-                <p class="total_pagar_productos">Total a pagar: <span id="precio_total_productos"
-                        class="total_pagar-span"></span></p>
-            </div>
-            <a href="/contactanos">
-                <button class="comprar_productos_carrito">COMPRAR PRODUCTOS</button>
-            </a>
-        </div>
-    </div>
-
-    <!-- FIN SIDEBAR -->
-
-
+    
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
     ----------------------------------------------------------------------------------------------------------------------------->
     <footer class="footer">
@@ -2780,8 +2751,7 @@
         <section class="seccion">
             <article class="articulo">
                 <figure>
-                    <img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
-                        width="315px" />
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" width="315px" />
                 </figure>
                 <div class="contenido">
                     <p class="contenido__descripcion">
@@ -2793,19 +2763,19 @@
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
                             </a>
                         </div>
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
                             </a>
                         </div>
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
                             </a>
                         </div>
                     </div>

@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function(){
     
 });
 
-window.addEventListener('scroll', function() {
-    var stickyDiv = document.querySelector('.sub-nivel-header-mobil');
-    var scrollPosition = window.scrollY;
+window.addEventListener("scroll", function () {
+  var stickyDiv = document.querySelector(".barra-bus-btn");
+  var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 197) {
-        stickyDiv.style.backgroundColor = "red";
-    } else {
-        stickyDiv.style.backgroundColor = "black";
-    }
+  if (scrollPosition > 197) {
+    stickyDiv.style.backgroundColor = "red";
+  } else {
+    stickyDiv.style.backgroundColor = "black";
+  }
 });

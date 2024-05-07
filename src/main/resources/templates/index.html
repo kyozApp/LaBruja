@@ -126,7 +126,7 @@
                     <!--Logo Header-->
                     <div class="head-div-2-part1-1">
                         <a href="/">
-                            <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                            <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
                         </a>
                     </div>
     
@@ -148,7 +148,7 @@
                                     <form class="form-busqueda" action="" method="post">
                                         <div class="form-busqueda-input"><input type="text" name="buscador-pro"
                                                 id="buscador-producto" placeholder="Estoy buscando..." /></div>
-                                        <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
+                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
                                         </div>
                                     </form>
                                 </div>
@@ -162,7 +162,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.accesorioId}, tipo='accesorio')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -183,7 +183,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.almacenamientoId}, tipo='almacenamiento')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -203,7 +203,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -223,7 +223,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -243,7 +243,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -263,7 +263,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -282,7 +282,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -303,7 +303,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.procesadorId}, tipo='procesador')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -323,7 +323,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.ramId}, tipo='ram')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -344,7 +344,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.refrigeracionId}, tipo='refrigeracion')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -364,7 +364,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -384,7 +384,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -410,7 +410,7 @@
                             <!--Contador de favoritos-->
                             <a class="link-bnt" style="display: none;" href="/">
                                 <div>
-                                    <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                                    <img loading="lazy" th:src="@{/general/img/icon/corazon.svg}" alt="" />
                                     <span class="contador-fav">4</span>
                                 </div>
                             </a>
@@ -418,7 +418,7 @@
                             <button class="link-bnt" id="boton_abrir--slider"
                                 style="background: transparent; border: none; outline:none;">
                                 <div>
-                                    <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                                    <img loading="lazy" th:src="@{/general/img/icon/carrito.svg}" alt="" />
                                     <span class="contador-car" id="cantidad-contador-carrito"></span>
                                     <p id="mostrarPrecioTotal"></p>
                                 </div>
@@ -448,7 +448,7 @@
             <!-- Contenedor para la columna de categori -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
-                    <label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
                 </div>
                 <ul>
                     <a href="/catalogo/producto">
@@ -460,7 +460,7 @@
                     <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
                         <li class="listaItems">
                             <span th:text="${categoria.nombre}"></span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+                            <img loading="lazy" class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
                         </li>
                     </a>
                     <hr>
@@ -484,7 +484,7 @@
                         <!-- Encabezado -->
                         <div>
                             <div>
-                                <img src="" alt="" />
+                                <img loading="lazy" src="" alt="" />
                                 <!--Icono referente a la categoria-->
                             </div>
                             <a href="/">Productos</a>
@@ -521,7 +521,7 @@
             <!-- Contenedor para la columna de categorias -->
             <div id="silebar-categorias-carrito">
                 <div class="close-silebar-carrito">
-                    <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar-carrito"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
@@ -553,7 +553,7 @@
         <div class="swiper-wrapper seccion__main_slide">
             <div class="swiper-slide" th:each="banner : ${bannersSlider}">
                 <a th:href="${banner.url}" target="_blank">
-                    <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                    <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
                 </a>
             </div>
             <script>
@@ -593,7 +593,7 @@
                         <div class="figure-image">
                             <a
                                 th:href="@{/catalogo/detalle/producto/{id}(id=${accesorio.accesorioId}, tipo='accesorio')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -637,7 +637,7 @@
                         <div class="figure-image">
                             <a
                                 th:href="@{/catalogo/detalle/producto/{id}(id=${almacenamiento.almacenamientoId}, tipo='almacenamiento')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -677,7 +677,7 @@
                         <p class="producto-id" th:text="${casse.casseId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${casse.casseId}, tipo='casse')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -717,7 +717,7 @@
                         <p class="producto-id" th:text="${fuente.fuenteId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${fuente.fuenteId}, tipo='fuente')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -756,7 +756,7 @@
                         <p class="producto-id" th:text="${laptop.laptopId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -795,7 +795,7 @@
                         <p class="producto-id" th:text="${monitor.monitorId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${monitor.monitorId}, tipo='monitor')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -834,7 +834,7 @@
                         <p class="producto-id" th:text="${placa.placaId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${placa.placaId}, tipo='placa')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -875,7 +875,7 @@
                         <div class="figure-image">
                             <a
                                 th:href="@{/catalogo/detalle/producto/{id}(id=${procesador.procesadorId}, tipo='procesador')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -914,7 +914,7 @@
                         <p class="producto-id" th:text="${ram.ramId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${ram.ramId}, tipo='ram')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -955,7 +955,7 @@
                         <div class="figure-image">
                             <a
                                 th:href="@{/catalogo/detalle/producto/{id}(id=${refrigeracion.refrigeracionId}, tipo='refrigeracion')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -994,7 +994,7 @@
                         <p class="producto-id" th:text="${tarjeta.tarjetaId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${tarjeta.tarjetaId}, tipo='tarjeta')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -1042,7 +1042,7 @@
     <section class="banners">
         <div class="baner" th:each="banner : ${bannersComun}">
             <a th:href="${banner.url}" target="_blank">
-                <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
             </a>
         </div>
     </section>
@@ -1058,7 +1058,7 @@
                         <p class="producto-id" th:text="${laptop.laptopId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${laptop.laptopId}, tipo='laptop')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -1106,7 +1106,7 @@
     <section class="banners">
         <div class="baner" th:each="banner : ${bannersMedium}">
             <a th:href="${banner.url}" target="_blank">
-                <img th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
             </a>
         </div>
     </section>
@@ -1121,7 +1121,7 @@
                         <p class="producto-id" th:text="${combo.comboId}" style="display: none;"></p>
                         <div class="figure-image">
                             <a th:href="@{/catalogo/detalle/producto/{id}(id=${combo.comboId}, tipo='combo')}">
-                                <img class="img-producto img-prin producto-img"
+                                <img loading="lazy" class="img-producto img-prin producto-img"
                                     th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}"
                                     onclick="redireccionar()" />
                             </a>
@@ -1170,7 +1170,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=accesorio'}">
-                    <img class="img-producto" id="producto-imagen-accesorio"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-accesorio"
                         th:src="'data:image/' + ${accesorio.typeImage} + ';base64,' + ${accesorio.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1201,7 +1201,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=almacenamiento'}">
-                    <img class="img-producto" id="producto-imagen-almacenamiento"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-almacenamiento"
                         th:src="'data:image/' + ${almacenamiento.typeImage} + ';base64,' + ${almacenamiento.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1232,7 +1232,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=casse'}">
-                    <img class="img-producto" id="producto-imagen-casse"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-casse"
                         th:src="'data:image/' + ${casse.typeImage} + ';base64,' + ${casse.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1262,7 +1262,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=fuente'}">
-                    <img class="img-producto" id="producto-imagen-fuente"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-fuente"
                         th:src="'data:image/' + ${fuente.typeImage} + ';base64,' + ${fuente.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1292,7 +1292,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=laptop'}">
-                    <img class="img-producto" id="producto-imagen-laptop"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-laptop"
                         th:src="'data:image/' + ${laptop.typeImage} + ';base64,' + ${laptop.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1322,7 +1322,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=monitor'}">
-                    <img class="img-producto" id="producto-imagen-monitor"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-monitor"
                         th:src="'data:image/' + ${monitor.typeImage} + ';base64,' + ${monitor.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1353,7 +1353,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=placa'}">
-                    <img class="img-producto" id="producto-imagen-placa"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-placa"
                         th:src="'data:image/' + ${placa.typeImage} + ';base64,' + ${placa.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1384,7 +1384,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=procesador'}">
-                    <img class="img-producto" id="producto-imagen-procesador"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-procesador"
                         th:src="'data:image/' + ${procesador.typeImage} + ';base64,' + ${procesador.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1415,7 +1415,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=ram'}">
-                    <img class="img-producto" id="producto-imagen-ram"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-ram"
                         th:src="'data:image/' + ${ram.typeImage} + ';base64,' + ${ram.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1446,7 +1446,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=refrigeracion'}">
-                    <img class="img-producto" id="producto-imagen-refrigeracion"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-refrigeracion"
                         th:src="'data:image/' + ${refrigeracion.typeImage} + ';base64,' + ${refrigeracion.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1476,7 +1476,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=tarjeta'}">
-                    <img class="img-producto" id="producto-imagen-tarjeta"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-tarjeta"
                         th:src="'data:image/' + ${tarjeta.typeImage} + ';base64,' + ${tarjeta.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1507,7 +1507,7 @@
         <div class="cont-modal">
             <div class="estructura-modal">
                 <a th:href="@{'/catalogo/detalle/producto/' + ${productoIdModal} + '?tipo=combo'}">
-                    <img class="img-producto" id="producto-imagen-combo"
+                    <img loading="lazy" class="img-producto" id="producto-imagen-combo"
                         th:src="'data:image/' + ${combo.typeImage} + ';base64,' + ${combo.base64Image}" />
                 </a>
                 <div class="div-cont-modal">
@@ -1607,7 +1607,7 @@
         </div>
         <div class="logos">
             <div class="logos-slide" th:each="marca : ${vistaMarcas}" style="display: flex;">
-                <img th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}" />
+                <img loading="lazy" th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}" />
             </div>
         </div>
     </section>
@@ -1630,8 +1630,7 @@
         <section class="seccion">
             <article class="articulo">
                 <figure>
-                    <img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
-                        width="315px" />
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" width="315px" />
                 </figure>
                 <div class="contenido">
                     <p class="contenido__descripcion">
@@ -1643,19 +1642,19 @@
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
                             </a>
                         </div>
                         <div class="cad-img ocultar">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
                             </a>
                         </div>
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
                             </a>
                         </div>
                     </div>

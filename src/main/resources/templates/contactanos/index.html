@@ -49,7 +49,7 @@
                     <!--Logo Header-->
                     <div class="head-div-2-part1-1">
                         <a href="/">
-                            <img th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                            <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
                         </a>
                     </div>
 
@@ -71,7 +71,7 @@
                                     <form class="form-busqueda" action="" method="post">
                                         <div class="form-busqueda-input"><input type="text" name="buscador-pro"
                                                 id="buscador-producto" placeholder="Estoy buscando..." /></div>
-                                        <div><button><img th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
+                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
                                         </div>
                                     </form>
                                 </div>
@@ -85,7 +85,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.accesorioId}, tipo='accesorio')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -106,7 +106,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.almacenamientoId}, tipo='almacenamiento')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -127,7 +127,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -148,7 +148,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -169,7 +169,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -190,7 +190,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -210,7 +210,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -231,7 +231,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.procesadorId}, tipo='procesador')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -251,7 +251,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.ramId}, tipo='ram')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -272,7 +272,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.refrigeracionId}, tipo='refrigeracion')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -293,7 +293,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -314,7 +314,7 @@
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
                                                 <div class="div-produc-filt">
                                                     <div class="cont-img-produc-fitl">
-                                                        <img class="img-produc-search"
+                                                        <img loading="lazy" class="img-produc-search"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
                                                             alt="imagen-producto-buscado">
                                                     </div>
@@ -340,7 +340,7 @@
                             <!--Contador de favoritos-->
                             <a class="link-bnt" style="display: none;" href="/">
                                 <div>
-                                    <img th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                                    <img loading="lazy" th:src="@{/general/img/icon/corazon.svg}" alt="" />
                                     <span class="contador-fav">4</span>
                                 </div>
                             </a>
@@ -348,7 +348,7 @@
                             <button class="link-bnt" id="boton_abrir--slider"
                                 style="background: transparent; border: none; outline:none;">
                                 <div>
-                                    <img th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                                    <img loading="lazy" th:src="@{/general/img/icon/carrito.svg}" alt="" />
                                     <span class="contador-car" id="cantidad-contador-carrito"></span>
                                     <p id="mostrarPrecioTotal"></p>
                                 </div>
@@ -378,7 +378,7 @@
             <!-- Contenedor para la columna de categori -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
-                    <label for="close-silebar"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
                 </div>
                 <ul>
                     <a href="/catalogo/producto">
@@ -390,7 +390,7 @@
                     <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
                         <li class="listaItems">
                             <span th:text="${categoria.nombre}"></span>
-                            <img class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                            <img loading="lazy" class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
                                 style="width: 12px;">
                         </li>
                     </a>
@@ -415,7 +415,7 @@
                         <!-- Encabezado -->
                         <div>
                             <div>
-                                <img src="" alt="" />
+                                <img loading="lazy" src="" alt="" />
                                 <!--Icono referente a la categoria-->
                             </div>
                             <a href="/">Productos</a>
@@ -452,7 +452,7 @@
             <!-- Contenedor para la columna de categorias -->
             <div id="silebar-categorias-carrito">
                 <div class="close-silebar-carrito">
-                    <label for="close-silebar-carrito"><img th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar-carrito"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
@@ -501,7 +501,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51984162557}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>YERSON</h3>
                                     <p>984 162 557</p>
                                 </div>
@@ -510,7 +510,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51922512904}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>JERENY</h3>
                                     <p>922 512 904</p>
                                 </div>
@@ -519,7 +519,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51972563104}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>GUSTAVO</h3>
                                     <p>972 563 104</p>
                                 </div>
@@ -528,7 +528,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51972213019}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>ELIEL</h3>
                                     <p>972 213 019</p>
                                 </div>
@@ -537,7 +537,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51914994007}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>ANDY</h3>
                                     <p>914 994 007</p>
                                 </div>
@@ -546,7 +546,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51923646990}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>LUIS</h3>
                                     <p>923 646 990</p>
                                 </div>
@@ -555,7 +555,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51984737542}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>JEREMY</h3>
                                     <p>984 737 542</p>
                                 </div>
@@ -572,7 +572,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51918310475}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>FERNANDO</h3>
                                     <p>918 310 475</p>
                                 </div>
@@ -581,7 +581,7 @@
                         <li>
                             <a th:href="@{https://wa.me/51921906558}" target="_blank">
                                 <div class="cont-asesor">
-                                    <img th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
+                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}" alt="Logo La Bruja Store" />
                                     <h3>EDINSON</h3>
                                     <p>921 906 558</p>
                                 </div>
@@ -658,8 +658,7 @@
         <section class="seccion">
             <article class="articulo">
                 <figure>
-                    <img th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" loading="lazy"
-                        width="315px" />
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" width="315px" />
                 </figure>
                 <div class="contenido">
                     <p class="contenido__descripcion">
@@ -671,19 +670,19 @@
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
                             </a>
                         </div>
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
                             </a>
                         </div>
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
-                                <img class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
                             </a>
                         </div>
                     </div>
