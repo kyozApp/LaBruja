@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   var botonCarritoSidebar = document.getElementById("boton_abrir--slider");
-  var label_close_silebar = document.querySelector("label[for='close-silebar-carrito']");
-
-  var contenedor_silebar = document.getElementById("background-silebar-carrito");
+  var label_close_silebar = document.querySelector(
+    "label[for='close-silebar-carrito']"
+  );
+  var contenedor_silebar = document.getElementById(
+    "background-silebar-carrito"
+  );
   var silevar = document.getElementById("contenedor-silebar-carrito");
 
   botonCarritoSidebar.addEventListener("click", function () {
@@ -13,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     closeSidebar(); // Llama a la función para cerrar el sidebar
   });
 
-
   function openSidebar() {
     silevar.style.display = "block"; // Mostrar el sidebar
     setTimeout(() => {
@@ -22,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
     contenedor_silebar.style.display = "block"; // Mostrar el fondo del sidebar
 
     // Obtener los productos del localStorage
-    var productosEnCarrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
+    var productosEnCarrito =
+      JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
     // Mostrar los valores en el sidebar
     var contenedorSidebar = document.getElementById(
@@ -33,93 +36,85 @@ document.addEventListener("DOMContentLoaded", function () {
     contenedorSidebar.innerHTML = "";
 
     // Crear elementos para mostrar en el sidebar
-    productosEnCarrito.forEach(function (producto) {
-      var productoContainer = document.createElement("div");
-      var descriptionContainer = document.createElement("div");
-      var containerPrecioIncrmento = document.createElement("div");
-      var botonEliminarProducto = document.createElement("button");
-      botonEliminarProducto.textContent = "X";
-      botonEliminarProducto.classList.add("boton-eliminar-carrito");
-      botonEliminarProducto.onclick = () => {
-        filtradoEliminarProducto(producto.id); // Pasar el ID del producto como argumento
-      };
-      var cantidadProductoTotal = document.createElement("span");
-      // Dentro de la función openSidebar()
-      cantidadProductoTotal.textContent = `x${producto.cantidad}`;
-      var productName = document.createElement("h1");
-      var productPrice = document.createElement("p");
-      var productImage = document.createElement("img");
+    var totalAPagar = 0; // Variable para calcular el total a pagar
 
-      // Configurar los valores de los elementos
-      productName.textContent = producto.nombre;
-      productPrice.textContent = producto.precio;
-      productImage.setAttribute("src", producto.imagen);
+    if (productosEnCarrito.length === 0) {
+      // Si no hay productos en el carrito, ocultar el mensaje y el botón
+      document.getElementById("cantidad_productos_obtenidos").textContent =
+        "No hay artículos en su carrito";
+      document.getElementById("precio_total_productos").textContent = "";
+      document.querySelector(".comprar_productos_carrito").style.display =
+        "none";
+      document.querySelector(".total_pagar_productos").style.display = "none";
+    } else {
+      // Si hay productos en el carrito, mostrar los detalles del producto y el total a pagar
+      productosEnCarrito.forEach(function (producto) {
+        var productoContainer = document.createElement("div");
+        var descriptionContainer = document.createElement("div");
+        var containerPrecioIncrmento = document.createElement("div");
+        var botonEliminarProducto = document.createElement("button");
+        botonEliminarProducto.textContent = "X";
+        botonEliminarProducto.classList.add("boton-eliminar-carrito");
+        botonEliminarProducto.onclick = () => {
+          filtradoEliminarProducto(producto.id); // Pasar el ID del producto como argumento
+        };
+        var cantidadProductoTotal = document.createElement("span");
+        cantidadProductoTotal.textContent = `x${producto.cantidad}`;
+        var productName = document.createElement("h1");
+        var productPrice = document.createElement("p");
+        var productImage = document.createElement("img");
 
-      // Agregar clases y estilos si es necesario
-      productoContainer.style.display = "flex";
-      productoContainer.style.gap = "2rem";
-      productoContainer.style.alignItems = "center";
-      productoContainer.style.margin = "1rem 1rem";
-      productoContainer.style.paddingBottom = "1rem";
-      productoContainer.style.borderBottom = "2px dashed red";
-      productImage.style.width = "80px";
-      productImage.style.height = "80px";
-      productImage.style.marginRight = "10px";
-      descriptionContainer.style.display = "flex";
-      descriptionContainer.style.flexDirection = "column";
-      descriptionContainer.style.justifyContent = "space-between";
-      descriptionContainer.style.alignItems = "center";
-      productName.style.fontSize = "12px";
-      productName.style.margin = "0px";
-      containerPrecioIncrmento.style.display = "flex";
-      containerPrecioIncrmento.style.alignItems = "center";
-      cantidadProductoTotal.style.paddingLeft = "11px";
+        // Configurar los valores de los elementos
+        productName.textContent = producto.nombre;
+        productPrice.textContent = producto.precio;
+        productImage.setAttribute("src", producto.imagen);
 
-      // Agregar elementos al contenedor de la barra lateral
-      productoContainer.appendChild(productImage);
-      descriptionContainer.appendChild(productName);
-      containerPrecioIncrmento.appendChild(productPrice);
-      containerPrecioIncrmento.appendChild(cantidadProductoTotal);
-      descriptionContainer.appendChild(containerPrecioIncrmento);
-      productoContainer.appendChild(descriptionContainer);
-      productoContainer.appendChild(botonEliminarProducto);
-      contenedorSidebar.appendChild(productoContainer);
-    });
+        // Agregar clases y estilos si es necesario
+        productoContainer.style.display = "flex";
+        productoContainer.style.gap = "2rem";
+        productoContainer.style.alignItems = "center";
+        productoContainer.style.margin = "1rem 1rem";
+        productoContainer.style.paddingBottom = "1rem";
+        productoContainer.style.borderBottom = "2px dashed red";
+        productImage.style.width = "80px";
+        productImage.style.height = "80px";
+        productImage.style.marginRight = "10px";
+        descriptionContainer.style.display = "flex";
+        descriptionContainer.style.flexDirection = "column";
+        descriptionContainer.style.justifyContent = "space-between";
+        descriptionContainer.style.alignItems = "center";
+        productName.style.fontSize = "12px";
+        productName.style.margin = "0px";
+        containerPrecioIncrmento.style.display = "flex";
+        containerPrecioIncrmento.style.alignItems = "center";
+        cantidadProductoTotal.style.paddingLeft = "11px";
 
-    // Variable para calcular la cantidad total de productos
-    var cantidadTotalProductos = 0;
-    // Variable para calcular el precio total de los productos
-    var precioTotalProductos = 0;
+        // Calcular el precio total del producto
+        var precioProducto = parseFloat(producto.precio.replace("S/. ", ""));
+        var precioTotalProducto = precioProducto * producto.cantidad;
+        totalAPagar += precioTotalProducto;
 
-    // Crear elementos para mostrar en el sidebar
-    productosEnCarrito.forEach(function (producto) {
-      // Incrementar la cantidad total de productos
-      cantidadTotalProductos += producto.cantidad;
-      // Incrementar el precio total de los productos
-      precioTotalProductos += parseFloat(producto.precio.replace("S/. ", "")) * producto.cantidad;
+        // Agregar elementos al contenedor de la barra lateral
+        productoContainer.appendChild(productImage);
+        descriptionContainer.appendChild(productName);
+        containerPrecioIncrmento.appendChild(productPrice);
+        containerPrecioIncrmento.appendChild(cantidadProductoTotal);
+        descriptionContainer.appendChild(containerPrecioIncrmento);
+        productoContainer.appendChild(descriptionContainer);
+        productoContainer.appendChild(botonEliminarProducto);
+        contenedorSidebar.appendChild(productoContainer);
+      });
 
-      // Resto del código para mostrar los productos en el sidebar
-      // ...
-    });
+      // Mostrar el total a pagar y el botón COMPRAR PRODUCTOS
+      document.getElementById("precio_total_productos").textContent =
+        "S/. " + totalAPagar.toFixed(2);
+      document.querySelector(".comprar_productos_carrito").style.display =
+        "block";
+    }
 
-    // Mostrar la cantidad total de productos y el precio total en el DOM
-    document.getElementById("cantidad_productos_obtenidos").textContent = cantidadTotalProductos;
-    document.getElementById("precio_total_productos").textContent = "S/. " + precioTotalProductos.toFixed(2);
-    document.getElementById("cantidad-contador-carrito").textContent = cantidadTotalProductos;
+    // Actualizar el contador de productos en el carrito
+    actualizarContadorCarrito();
   }
-  function actualizarCantidadProductos() {
-    // Obtener los productos del localStorage
-    var productosEnCarrito = JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
-
-    // Calcular la cantidad total de productos
-    var cantidadTotalProductos = productosEnCarrito.reduce((total, producto) => total + producto.cantidad,0);
-
-    // Mostrar la cantidad total de productos en el botón del carrito
-    document.getElementById("cantidad-contador-carrito").textContent = cantidadTotalProductos;
-  }
-
-  // Llamar a la función para actualizar la cantidad de productos al cargar la página
-  actualizarCantidadProductos();
 
   function filtradoEliminarProducto(id) {
     // Obtener los productos del localStorage
@@ -149,90 +144,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300); // Esperar la duración de la animación (0.3s)
   }
 
-  function agregarAlCarrito(producto) {
+  function actualizarContadorCarrito() {
     // Obtener los productos del localStorage
     var productosEnCarrito =
       JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
 
-    // Verificar si el producto ya está en el carrito
-    var productoExistente = productosEnCarrito.find(
-      (p) => p.nombre === producto.nombre
+    // Calcular la cantidad total de productos
+    var cantidadTotalProductos = productosEnCarrito.reduce(function (
+      total,
+      producto
+    ) {
+      return total + producto.cantidad;
+    },
+    0);
+
+    // Actualizar el contador en el DOM
+    document.getElementById("cantidad-contador-carrito").textContent =
+      cantidadTotalProductos;
+
+    // Actualizar la cantidad de productos en el mensaje del carrito
+    var cantidadProductosObtenidos = document.getElementById(
+      "cantidad_productos_obtenidos"
     );
 
-    if (productoExistente) {
-      // Si el producto ya está en el carrito, incrementar su cantidad
-      productoExistente.cantidad++;
+    if (cantidadTotalProductos === 0) {
+      cantidadProductosObtenidos.textContent = `No hay artículos en su carrito`;
     } else {
-      // Si el producto no está en el carrito, agregarlo con cantidad 1
-      producto.cantidad = 1;
-      productosEnCarrito.push(producto);
+      cantidadProductosObtenidos.textContent = `Hay ${cantidadTotalProductos} ${
+        cantidadTotalProductos === 1 ? "artículo" : "artículos"
+      } en su carrito`;
     }
-
-    // Guardar la lista actualizada en el localStorage
-    localStorage.setItem(
-      "productosEnCarrito",
-      JSON.stringify(productosEnCarrito)
-    );
   }
 
-  // Obtener el botón de agregar al carrito y agregar un evento de clic
-  var botonAgregarCarrito = document.getElementById("boton_carrito_sidebar");
-  botonAgregarCarrito.addEventListener("click", function () {
-    // Obtener los datos del producto
-    var producto = {
-      id: Date.now(),
-      nombre: document.querySelector("#titulo-fetch").textContent,
-      precio: document.querySelector("#precio-fetch").textContent,
-      imagen: document.querySelector("#img-fetch").getAttribute("src"),
-      cantidad: 1, // Agregamos la propiedad cantidad con valor inicial 1
-    };
-
-    // Agregar el producto al carrito
-    agregarAlCarrito(producto);
-
-    // Actualizar el sidebar
-    openSidebar();
-  });
-
-  actualizarPrecioTotal();
+  actualizarContadorCarrito();
 });
 
+// window.addEventListener("scroll", function () {
+//   var stickyDiv = document.querySelector(".barra-bus-btn");
+//   var scrollPosition = window.scrollY;
 
-
-
-
-
-
-// Función para actualizar el precio total
-function actualizarPrecioTotal() {
-  // Obtener los productos del localStorage
-  var productosEnCarrito =
-    JSON.parse(localStorage.getItem("productosEnCarrito")) || [];
-
-  // Calcular el precio total de los productos en el carrito
-  var precioTotalProductos = productosEnCarrito.reduce(function (
-    total,
-    producto
-  ) {
-    return (
-      total +
-      parseFloat(producto.precio.replace("S/. ", "")) * producto.cantidad
-    );
-  },
-  0);
-
-  // Mostrar el precio total en el elemento correspondiente
-  document.getElementById("mostrarPrecioTotal").textContent =
-    "S/. " + precioTotalProductos.toFixed(2);
-}
-
-window.addEventListener("scroll", function () {
-  var stickyDiv = document.querySelector(".barra-bus-btn");
-  var scrollPosition = window.scrollY;
-
-  if (scrollPosition > 197) {
-    stickyDiv.style.backgroundColor = "red";
-  } else {
-    stickyDiv.style.backgroundColor = "black";
-  }
-});
+//   if (scrollPosition > 197) {
+//     stickyDiv.style.backgroundColor = "red";
+//   } else {
+//     stickyDiv.style.backgroundColor = "black";
+//   }
+// });
