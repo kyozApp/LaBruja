@@ -1,6 +1,7 @@
 package com.labrujastore.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,8 @@ public class AtributoServiceImpl implements AtributosService {
 
     @Override
     public Atributos obtenerIdAtributos(Integer atributoId) {
-        return repository.findById(atributoId).get();
+        Optional<Atributos> atributoOptional = repository.findById(atributoId);
+        return atributoOptional.orElse(null);
     }
 
     @Override
