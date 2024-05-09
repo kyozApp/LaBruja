@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "background-silebar-carrito"
   );
   var silevar = document.getElementById("contenedor-silebar-carrito");
+  const input = document.getElementById("cantidadProductoInput");
 
   botonCarritoSidebar.addEventListener("click", function () {
     openSidebar(); // Llama a la función para abrir el sidebar
@@ -131,6 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "productosEnCarrito",
       JSON.stringify(nuevosProductosEnCarrito)
     );
+
+    input.value = 1;
 
     // Actualizar el sidebar
     openSidebar();

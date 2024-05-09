@@ -7,9 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
       // Obtener el número de teléfono de la URL de WhatsApp
       var numeroWhatsApp = this.getAttribute("href").split("/").pop();
 
+      // Obtener la hora actual
+      var horaActual = new Date().getHours();
+
+      // Definir el saludo según la hora actual
+      var saludo;
+      if (horaActual >= 6 && horaActual < 13) {
+        saludo = "Buenos días";
+      } else if (horaActual >= 13 && horaActual < 19) {
+        saludo = "Buenas tardes";
+      } else {
+        saludo = "Buenas noches";
+      }
+
       // Construir el mensaje con los productos del carrito
-      var mensaje =
-        "¡La Bruja Store, la tienda online que mejor te atiende!\n\nProductos:\n";
+      var mensaje = `¡${saludo}, deseo comprar estos productos!\n\nProductos:\n`;
 
       // Obtener los productos del carrito del localStorage
       var productosEnCarrito =
