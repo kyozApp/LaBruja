@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const input = document.querySelector(".custom-input");
+  const input = document.getElementById("cantidadProductoInput");
   const btnIncrementar = document.querySelector(".btn-incrementar");
   const btnDecrementar = document.querySelector(".btn-decrementar");
   const botonAgregarCarrito = document.getElementById("boton_carrito_sidebar");
@@ -172,6 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "productosEnCarrito",
       JSON.stringify(nuevosProductosEnCarrito)
     );
+
+    input.value = 1;
 
     // Actualizar el sidebar
     openSidebar();
