@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-    <link rel="icon" th:href="@{/general/img/logotipo.png}" type="image/png">
 
+    <!-- Metas para la busqueda de google -->
+    <title th:text="${titulo}">Producto</title>
+    <meta name="description" th:content="${descripcion}">
+    <meta name="robots" content="index">
+    <meta name="keywords" content=""> <!--Palabras claves o tags-->
+
+    <link rel="icon" th:href="@{/general/img/logotipo.png}" type="image/png">
 
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/general/css/seguimiento.css}">
