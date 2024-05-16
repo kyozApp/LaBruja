@@ -3,12 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atributos</title>
 </head>
 
 <body>
-    <div align="center">
+    <div>
         <h1>Atributos del Producto</h1>
 
         <form th:action="@{'/admin/ram/atributos/' + ${ramId}}" th:object="${formularioAtributo}" method="post"

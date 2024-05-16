@@ -88,6 +88,9 @@ public class DetalleProductoController {
     @Autowired
     private AtributosService atributosService;
 
+    private String nombreProducto = "Producto";
+    private String descripcionProducto = "Desciipcion";
+
     @GetMapping("/producto/{id}")
     public String detalles(Model model, @PathVariable Integer id, @RequestParam("tipo") String tipo) {
         List<Atributos> todos_atributos = atributosService.listarAtributos();
@@ -123,6 +126,8 @@ public class DetalleProductoController {
 
         if ("accesorio".equals(tipo)) {
             Accesorio accesorio = accesorioService.obtenerIdAccesorio(id);
+            this.nombreProducto = accesorio.getNombre().toUpperCase();
+            this.descripcionProducto = accesorio.getDescripcion();
             model.addAttribute("accesorio", accesorio);
             model.addAttribute("leermas", accesorio.getUrl());
 
@@ -137,6 +142,8 @@ public class DetalleProductoController {
 
         } else if ("almacenamiento".equals(tipo)) {
             Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(id);
+            this.nombreProducto = almacenamiento.getNombre().toUpperCase();
+            this.descripcionProducto = almacenamiento.getDescripcion();
             model.addAttribute("almacenamiento", almacenamiento);
             model.addAttribute("leermas", almacenamiento.getUrl());
 
@@ -151,6 +158,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("casse".equals(tipo)) {
             Casse casse = casseService.obtenerIdCasse(id);
+            this.nombreProducto = casse.getNombre().toUpperCase();
+            this.descripcionProducto = casse.getDescripcion();
             model.addAttribute("casse", casse);
             model.addAttribute("leermas", casse.getUrl());
 
@@ -165,6 +174,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("fuente".equals(tipo)) {
             Fuente fuente = fuenteService.obtenerIdFuente(id);
+            this.nombreProducto = fuente.getNombre().toUpperCase();
+            this.descripcionProducto = fuente.getDescripcion();
             model.addAttribute("fuente", fuente);
             model.addAttribute("leermas", fuente.getUrl());
 
@@ -179,6 +190,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("laptop".equals(tipo)) {
             Laptop laptop = laptopService.obtenerIdLaptop(id);
+            this.nombreProducto = laptop.getNombre().toUpperCase();
+            this.descripcionProducto = laptop.getDescripcion();
             model.addAttribute("laptop", laptop);
             model.addAttribute("leermas", laptop.getUrl());
 
@@ -193,6 +206,8 @@ public class DetalleProductoController {
 
         } else if ("monitor".equals(tipo)) {
             Monitor monitor = monitorService.obtenerIdMonitor(id);
+            this.nombreProducto = monitor.getNombre().toUpperCase();
+            this.descripcionProducto = monitor.getDescripcion();
             model.addAttribute("monitor", monitor);
             model.addAttribute("leermas", monitor.getUrl());
 
@@ -207,6 +222,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("placa".equals(tipo)) {
             Placa placa = placaService.obtenerIdPlaca(id);
+            this.nombreProducto = placa.getNombre().toUpperCase();
+            this.descripcionProducto = placa.getDescripcion();
             model.addAttribute("placa", placa);
             model.addAttribute("leermas", placa.getUrl());
 
@@ -221,6 +238,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("procesador".equals(tipo)) {
             Procesador procesador = procesadorService.obtenerIdProcesador(id);
+            this.nombreProducto = procesador.getNombre().toUpperCase();
+            this.descripcionProducto = procesador.getDescripcion();
             model.addAttribute("procesador", procesador);
             model.addAttribute("leermas", procesador.getUrl());
 
@@ -235,6 +254,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("ram".equals(tipo)) {
             Ram ram = ramService.obtenerIdRam(id);
+            this.nombreProducto = ram.getNombre().toUpperCase();
+            this.descripcionProducto = ram.getDescripcion();
             model.addAttribute("ram", ram);
             model.addAttribute("leermas", ram.getUrl());
 
@@ -249,6 +270,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("refrigeracion".equals(tipo)) {
             Refrigeracion refrigeracion = refrigeracionService.obtenerIdRefrigeracion(id);
+            this.nombreProducto = refrigeracion.getNombre().toUpperCase();
+            this.descripcionProducto = refrigeracion.getDescripcion();
             model.addAttribute("refrigeracion", refrigeracion);
             model.addAttribute("leermas", refrigeracion.getUrl());
 
@@ -263,6 +286,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("tarjeta".equals(tipo)) {
             Tarjeta tarjeta = tarjetaService.obtenerIdTarjeta(id);
+            this.nombreProducto = tarjeta.getNombre().toUpperCase();
+            this.descripcionProducto = tarjeta.getDescripcion();
             model.addAttribute("tarjeta", tarjeta);
             model.addAttribute("leermas", tarjeta.getUrl());
 
@@ -277,6 +302,8 @@ public class DetalleProductoController {
             model.addAttribute("listaAtrinutos", atributos_tabla);
         } else if ("combo".equals(tipo)) {
             Combo combo = comboService.obtenerIdCombo(id);
+            this.nombreProducto = combo.getNombre().toUpperCase();
+            this.descripcionProducto = combo.getDescripcion();
             model.addAttribute("combo", combo);
 
             Collection<Atributos> atributos_tabla = new ArrayList<>();
@@ -289,6 +316,10 @@ public class DetalleProductoController {
             }
             model.addAttribute("listaAtrinutos", atributos_tabla);
         }
+
+        model.addAttribute("titulo", nombreProducto);
+        model.addAttribute("descripcion", descripcionProducto);
+
         return "producto-detalle/index";
     }
 
