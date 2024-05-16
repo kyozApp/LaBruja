@@ -441,56 +441,76 @@ button {
 	text-align: center;
 }
 
-@keyframes slide {
-	from {
-		transform: translateX(0);
+/*** Slider infinito ***/
+@-webkit-keyframes scroll {
+	0% {
+	  -webkit-transform: translateX(0);
+			  transform: translateX(0);
 	}
-
-	to {
-		transform: translateX(-100%);
-		/* Ajuste necesario para evitar espacio entre imágenes */
+	100% {
+	  -webkit-transform: translateX(calc(-250px * 6));
+			  transform: translateX(calc(-250px * 6));
 	}
-}
-
-.logos {
+  }
+  
+  @keyframes scroll {
+	0% {
+	  -webkit-transform: translateX(0);
+			  transform: translateX(0);
+	}
+	100% {
+	  -webkit-transform: translateX(calc(-250px * 6));
+			  transform: translateX(calc(-250px * 6));
+	}
+  }
+  .slider {
+	background: white;
+	/*box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);*/
+	height: 100px;
+	margin: auto;
 	overflow: hidden;
-	padding: 20px 0;
-	background: #f5f5f5cc;
-	white-space: nowrap;
 	position: relative;
-}
-
-.logos:before,
-.logos:after {
-	position: absolute;
-	top: 0;
-	width: 250px;
-	height: 100%;
+	width: 95%;
+  }
+  .slider::before, .slider::after {
+	background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
 	content: "";
+	height: 100px;
+	position: absolute;
+	width: 200px;
 	z-index: 2;
-}
-
-.logos:before {
-	left: 0;
-	background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-
-.logos:after {
+  }
+  .slider::after {
 	right: 0;
-	background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
-
-.logos-slide {
+	top: 0;
+	-webkit-transform: rotateZ(180deg);
+			transform: rotateZ(180deg);
+  }
+  .slider::before {
+	left: 0;
+	top: 0;
+  }
+  .slider .slide-track {
+	-webkit-animation: scroll 40s linear infinite;
+			animation: scroll 40s linear infinite;
 	display: flex;
-	animation: 30s slide infinite linear;
-}
+	gap: 1rem;
+	width: calc(250px * 6);
+  }
+  .slider .logos-slide {
+	height: 50px;
+	width: 250px;
+	cursor: pointer;
+  }
 
-.logos-slide img {
-	height: 80px;
-	margin: 0 40px;
-	/* Ajuste necesario para evitar espacio entre imágenes */
-}
+  .slide img{
+	max-width: 100%;
+	cursor: pointer;
+  }
+  
+  /*** Fin de Slider infinito ***/
 
+  
 .img-prin{
 	max-width: 100% !important;
     height: auto !important;
