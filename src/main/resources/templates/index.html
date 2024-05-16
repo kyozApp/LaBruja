@@ -19,6 +19,7 @@
     <!-- JS -->
     <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
     <script th:src="@{/general/js/header.js}"></script>
+    <script th:src="@{/home/js/marca.js}"></script>
     <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js}"></script>
     <style>
         .swiper-button-next,
@@ -148,7 +149,7 @@
                                     <form class="form-busqueda" action="" method="post">
                                         <div class="form-busqueda-input"><input type="text" name="buscador-pro"
                                                 id="buscador-producto" placeholder="Estoy buscando..." /></div>
-                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}" alt="" /></i></button>
+                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}" alt="" /></button>
                                         </div>
                                     </form>
                                 </div>
@@ -1605,9 +1606,13 @@
         <div>
             <h1 class="marcas__title">Marcas con las que trabajamos</h1>
         </div>
-        <div class="logos">
-            <div class="logos-slide" th:each="marca : ${vistaMarcas}" style="display: flex;">
-                <img loading="lazy" th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}" />
+        <div class="slider">
+            <div class="slide-track">
+                <div class="logos-slide" th:each="marca : ${vistaMarcas}" style="display: flex;">
+                    <a  th:src="${marca.nombre}">
+                        <img loading="lazy" th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}" th:id="${marca.nombre}" height="100" width="250"/>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
