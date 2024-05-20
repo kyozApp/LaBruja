@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Metas para la busqueda de google -->
     <title>La Bruja Store</title>
-    <meta name="description" content="Pagina principal de La BrujaStore, tienda de partes de Computadoras en Lima y Arequipa.">
+    <meta name="description"
+        content="Pagina principal de La BrujaStore, tienda de partes de Computadoras en Lima y Arequipa.">
     <meta name="robots" content="index">
     <meta name="keywords" content=""> <!--Palabras claves o tags-->
-    
+
     <link rel="icon" th:href="@{/general/img/logotipo.png}" type="image/png">
 
 
@@ -23,9 +24,6 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css}" />
 
     <!-- JS -->
-    <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
-    <script th:src="@{/general/js/header.js}"></script>
-    <script th:src="@{/home/js/marca.js}"></script>
     <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js}"></script>
     <style>
         .swiper-button-next,
@@ -136,7 +134,7 @@
                             <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
                         </a>
                     </div>
-    
+
                     <div class="barra-bus-btn">
                         <!-- Amburguesa para abrir silebar isquierdo - celulares -->
                         <div class="abrir mostrar-opc-mobil">
@@ -144,7 +142,7 @@
                                 <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
                             </label>
                         </div>
-    
+
                         <!--Buscador-->
                         <div class="head-div-2-part1-2">
                             <div class="abrir-slider">
@@ -155,13 +153,14 @@
                                     <form class="form-busqueda" action="" method="post">
                                         <div class="form-busqueda-input"><input type="text" name="buscador-pro"
                                                 id="buscador-producto" placeholder="Estoy buscando..." /></div>
-                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}" alt="" /></button>
+                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}"
+                                                    alt="" /></button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="busqueda-productos">
                                     <ul class="grupo-productos-busqueda">
-    
+
                                         <!-- Accesorio -->
                                         <li th:each="producto : ${vistaAccesorios}"
                                             class="productos-filtrados display-none">
@@ -182,7 +181,7 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Almacenamiento -->
                                         <li th:each="producto : ${vistaAlmacenamientos}"
                                             class="productos-filtrados display-none">
@@ -203,9 +202,10 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Casse -->
-                                        <li th:each="producto : ${vistaCasses}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaCasses}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
                                                 <div class="div-produc-filt">
@@ -223,9 +223,10 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Fuente -->
-                                        <li th:each="producto : ${vistaFuentes}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaFuentes}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
                                                 <div class="div-produc-filt">
@@ -243,9 +244,10 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Laptop -->
-                                        <li th:each="producto : ${vistaLaptops}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaLaptops}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
                                                 <div class="div-produc-filt">
@@ -263,9 +265,10 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Monitor -->
-                                        <li th:each="producto : ${vistaMonitores}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaMonitores}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
                                                 <div class="div-produc-filt">
@@ -284,7 +287,8 @@
                                             </a>
                                         </li>
                                         <!-- Placa Madre -->
-                                        <li th:each="producto : ${vistaPlacas}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaPlacas}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
                                                 <div class="div-produc-filt">
@@ -302,7 +306,7 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Procesador -->
                                         <li th:each="producto : ${vistaProcesadores}"
                                             class="productos-filtrados display-none">
@@ -323,7 +327,7 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Memoria ram -->
                                         <li th:each="producto : ${vistaRams}" class="productos-filtrados display-none">
                                             <a class="link-producto"
@@ -343,7 +347,7 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Refrigeracion -->
                                         <li th:each="producto : ${vistaRefrigeraciones}"
                                             class="productos-filtrados display-none">
@@ -364,9 +368,10 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Tarjeta Gráfica -->
-                                        <li th:each="producto : ${vistaTarjetas}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaTarjetas}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
                                                 <div class="div-produc-filt">
@@ -384,9 +389,10 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                         <!-- Combo -->
-                                        <li th:each="producto : ${vistaCombos}" class="productos-filtrados display-none">
+                                        <li th:each="producto : ${vistaCombos}"
+                                            class="productos-filtrados display-none">
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
                                                 <div class="div-produc-filt">
@@ -404,14 +410,14 @@
                                                 </div>
                                             </a>
                                         </li>
-    
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <script th:src="@{/general/js/buscador-producto.js}"></script>
                         <script th:src="@{/general/js/quitar-form-input.js}"></script>
-    
+
                         <!--Favorito y Carrito-->
                         <div class="head-div-2-part1-3">
                             <!--Contador de favoritos-->
@@ -432,7 +438,7 @@
                             </button>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
         </div>
@@ -447,15 +453,16 @@
     			<a class="cont-lista-op" href="/">COTIZACIÓN</a> -->
         </div>
     </div>
-    
+
     <!-- SILEBAR CATEGORIAS -->
     <div id="background-silebar">
         <div id="contenedor-silebar">
-    
+
             <!-- Contenedor para la columna de categori -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
-                    <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
+                            alt=""></label>
                 </div>
                 <ul>
                     <a href="/catalogo/producto">
@@ -467,7 +474,8 @@
                     <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
                         <li class="listaItems">
                             <span th:text="${categoria.nombre}"></span>
-                            <img loading="lazy" class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt="" style="width: 12px;">
+                            <img loading="lazy" class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
                         </li>
                     </a>
                     <hr>
@@ -483,7 +491,7 @@
                     </a>
                 </ul>
             </div>
-    
+
             <!-- Contenedor para las subcategorias de las categorias -->
             <div id="silebar-subcategoria">
                 <div>
@@ -498,7 +506,7 @@
                         </div>
                         <a href="/">Ver todo</a>
                     </div>
-    
+
                     <!-- Contenido de cada sub categoria -->
                     <div>
                         <ul>
@@ -520,15 +528,16 @@
             </div>
         </div>
     </div>
-    
+
     <!-- SILEBAR DE CARRITO -->
     <div id="background-silebar-carrito">
         <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
-    
+
             <!-- Contenedor para la columna de categorias -->
             <div id="silebar-categorias-carrito">
                 <div class="close-silebar-carrito">
-                    <label for="close-silebar-carrito"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}" alt=""></label>
+                    <label for="close-silebar-carrito"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
+                            alt=""></label>
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
@@ -550,7 +559,7 @@
     <!-- FIN HEADER ----------------------------------------------------------------------------------------------------------
         ----------------------------------------------------------------------------------------------------------------------------->
 
-    
+
 
 
     <!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
@@ -560,7 +569,9 @@
         <div class="swiper-wrapper seccion__main_slide">
             <div class="swiper-slide" th:each="banner : ${bannersSlider}">
                 <a th:href="${banner.url}" target="_blank">
-                    <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                    <img loading="lazy"
+                        th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}"
+                        th:alt="${banner.nombre}" />
                 </a>
             </div>
             <script>
@@ -1049,7 +1060,8 @@
     <section class="banners">
         <div class="baner" th:each="banner : ${bannersComun}">
             <a th:href="${banner.url}" target="_blank">
-                <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}"
+                    th:alt="${banner.nombre}" />
             </a>
         </div>
     </section>
@@ -1113,7 +1125,8 @@
     <section class="banners">
         <div class="baner" th:each="banner : ${bannersMedium}">
             <a th:href="${banner.url}" target="_blank">
-                <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}" th:alt="${banner.nombre}" />
+                <img loading="lazy" th:src="'data:image/' + ${banner.typeImage} + ';base64,' + ${banner.base64Image}"
+                    th:alt="${banner.nombre}" />
             </a>
         </div>
     </section>
@@ -1614,14 +1627,28 @@
         </div>
         <div class="slider">
             <div class="slide-track">
-                <div class="logos-slide" th:each="marca : ${vistaMarcas}" style="display: flex;">
-                    <a  th:src="${marca.nombre}">
-                        <img loading="lazy" th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}" th:id="${marca.nombre}" height="100" width="250"/>
+                <!-- MARCAS -->
+                <div class="slide" th:each="marca : ${vistaMarcas}">
+                    <a th:src="${marca.nombre}">
+                        <img loading="lazy"
+                            th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}"
+                            th:id="${marca.nombre}" />
+                    </a>
+                </div>
+
+                <!-- DUPLICADO PARA EFECTO INFINITO -->
+                <div class="slide" th:each="marca : ${vistaMarcas}">
+                    <a th:src="${marca.nombre}">
+                        <img loading="lazy"
+                            th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}"
+                            th:id="${marca.nombre}" />
                     </a>
                 </div>
             </div>
         </div>
+
     </section>
+    <script th:src="@{/home/js/marca.js}"></script>
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
 
@@ -1641,7 +1668,8 @@
         <section class="seccion">
             <article class="articulo">
                 <figure>
-                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" width="315px" />
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen"
+                        width="315px" />
                 </figure>
                 <div class="contenido">
                     <p class="contenido__descripcion">
@@ -1653,13 +1681,15 @@
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}"
+                                    alt="">
                             </a>
                         </div>
                         <div class="cad-img ocultar">
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}"
+                                    alt="">
                             </a>
                         </div>
                         <div class="cad-img">
@@ -1725,7 +1755,8 @@
 	----------------------------------------------------------------------------------------------------------------------------->
     <script th:src="@{/home/js/index.js}"></script>
     <script th:src="@{/general/js/abrir-slider.js}"></script>
-
+    <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
+    <script th:src="@{/general/js/header.js}"></script>
 </body>
 
 </html>
