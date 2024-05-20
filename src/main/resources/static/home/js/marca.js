@@ -1,26 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var imagenes = document.querySelectorAll(".logos-slide img");
+  const slideTrack = document.querySelector(".slide-track");
+  const slides = document.querySelectorAll(".slide");
 
-  imagenes.forEach(function (imagen) {
-    imagen.addEventListener("click", function () {
-      var nombreMarca = imagen.id; // Obtener el nombre de la marca
-      window.location.href =
-        "/catalogo/producto?marca=" + encodeURIComponent(nombreMarca); // Redirigir a la página de productos con el nombre de la marca como parámetro
-      filtrarSubcategoriasPorMarca(nombreMarca); // Filtrar subcategorías
-    });
-  });
+  const slideWidth = 200; // El ancho de cada slide
+  const numSlides = slides.length; // Número de slides
+  const totalWidth = slideWidth * numSlides; // Ancho total del track
 
-  // Función para filtrar subcategorías por marca
-  function filtrarSubcategoriasPorMarca(marca) {
-    var subcategorias = document.querySelectorAll(
-      ".producto-encabezado ul li a"
-    );
-    subcategorias.forEach(function (subcategoria) {
-      if (subcategoria.textContent === marca) {
-        subcategoria.parentNode.style.display = "block";
-      } else {
-        subcategoria.parentNode.style.display = "none";
-      }
-    });
-  }
+  // Establece el ancho del track
+  slideTrack.style.width = `${totalWidth}px`;
+
+  // Crear una nueva hoja de estilo
+  const styleSheet = document.createElement("style");
+  document.head.appendChild(styleSheet);
+
+  // Añadir la nueva regla de keyframes
+  const keyframes = `
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+                -webkit-transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-${totalWidth / 2}px);
+                -webkit-transform: translateX(-${totalWidth / 2}px);
+            }
+        }
+    `;
+  styleSheet.sheet.insertRule(keyframes, styleSheet.sheet.cssRules.length);
+
+  // Actualizar la animación en el slide-track
+  slideTrack.style.animation = `scroll 40s linear infinite`;
+  slideTrack.style.webkitAnimation = `scroll 40s linear infinite`;
 });
