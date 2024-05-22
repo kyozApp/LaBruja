@@ -43,15 +43,29 @@ public class AlmacenamientoServiceImpl implements AlmacenamientoService
 	@Override
     public List<Almacenamiento> obtenerAlmacenamientosPorCategoria(Integer almacenamientoId) {
 
-		List<Almacenamiento> almacenamientos = almacenamientoRepository.findAll();
-		List<Almacenamiento> almacenamientosFinal = new ArrayList<>();
-		for (Almacenamiento almacenamiento : almacenamientos) {
-			if (almacenamientoId.equals(almacenamiento.getCategoria().getCategoriaId())) {
-				almacenamientosFinal.add(almacenamiento);
-			}
-		}
-	
-		return almacenamientosFinal;
-	}
+        List<Almacenamiento> almacenamientos = almacenamientoRepository.findAll();
+        List<Almacenamiento> almacenamientosFinal = new ArrayList<>();
+        for (Almacenamiento almacenamiento : almacenamientos) {
+            if (almacenamientoId.equals(almacenamiento.getCategoria().getCategoriaId())) {
+                almacenamientosFinal.add(almacenamiento);
+            }
+        }
+
+        return almacenamientosFinal;
+    }
+    
+    @Override
+    public List<Almacenamiento> obtenerAlmacenamientosPorMarca(Integer marcaId) {
+
+        List<Almacenamiento> almacenamientos = almacenamientoRepository.findAll();
+        List<Almacenamiento> almacenamientosFinal = new ArrayList<>();
+        for (Almacenamiento almacenamiento : almacenamientos) {
+            if (almacenamiento.getMarca() != null && marcaId.equals(almacenamiento.getMarca().getMarcaId())) {
+                almacenamientosFinal.add(almacenamiento);
+            }
+        }
+
+        return almacenamientosFinal;
+    }
 
 }

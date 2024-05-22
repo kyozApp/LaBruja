@@ -43,14 +43,28 @@ public class RamServiceImpl implements RamService
 	@Override
     public List<Ram> obtenerRamsPorCategoria(Integer ramId) {
 
-		List<Ram> rams = ramRepository.findAll();
-		List<Ram> ramsFinal = new ArrayList<>();
-		for (Ram ram : rams) {
-			if (ramId.equals(ram.getCategoria().getCategoriaId())) {
-				ramsFinal.add(ram);
-			}
-		}
-	
-		return ramsFinal;
-	}
+        List<Ram> rams = ramRepository.findAll();
+        List<Ram> ramsFinal = new ArrayList<>();
+        for (Ram ram : rams) {
+            if (ramId.equals(ram.getCategoria().getCategoriaId())) {
+                ramsFinal.add(ram);
+            }
+        }
+
+        return ramsFinal;
+    }
+    
+    @Override
+    public List<Ram> obtenerRamsPorMarca(Integer marcaId) {
+
+        List<Ram> rams = ramRepository.findAll();
+        List<Ram> ramsFinal = new ArrayList<>();
+        for (Ram ram : rams) {
+            if (ram.getMarca() != null && marcaId.equals(ram.getMarca().getMarcaId())) {
+                ramsFinal.add(ram);
+            }
+        }
+
+        return ramsFinal;
+    }
 }

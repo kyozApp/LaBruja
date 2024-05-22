@@ -10,6 +10,7 @@
 
     <h1>Productos</h1>
     <a href="/admin/producto/crear">Registrar Producto</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -27,6 +28,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -49,6 +51,7 @@
                 <td><a th:href="${producto.url}" th:text="${producto.url}"></a></td>
                 <td th:text="${producto.estado}"></td>
                 <td th:text="${producto.categoria.nombre}"></td>
+                <td th:text="${producto.marca != null ? producto.marca.nombre : 'Sin Marca'}"></td>
                 <td>
                     <a th:href="@{/admin/producto/editar/{productoId}(productoId=${producto.productoId})}">Editar</a>
                 </td>

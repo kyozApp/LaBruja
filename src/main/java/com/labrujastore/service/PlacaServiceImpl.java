@@ -43,14 +43,28 @@ public class PlacaServiceImpl implements PlacaService
 	@Override
     public List<Placa> obtenerPlacasPorCategoria(Integer placaId) {
 
-		List<Placa> placas = placaRepository.findAll();
-		List<Placa> placasFinal = new ArrayList<>();
-		for (Placa placa : placas) {
-			if (placaId.equals(placa.getCategoria().getCategoriaId())) {
-				placasFinal.add(placa);
-			}
-		}
-	
-		return placasFinal;
-	}
+        List<Placa> placas = placaRepository.findAll();
+        List<Placa> placasFinal = new ArrayList<>();
+        for (Placa placa : placas) {
+            if (placaId.equals(placa.getCategoria().getCategoriaId())) {
+                placasFinal.add(placa);
+            }
+        }
+
+        return placasFinal;
+    }
+    
+    @Override
+    public List<Placa> obtenerPlacasPorMarca(Integer marcaId) {
+
+        List<Placa> placas = placaRepository.findAll();
+        List<Placa> placasFinal = new ArrayList<>();
+        for (Placa placa : placas) {
+            if (placa.getMarca() != null && marcaId.equals(placa.getMarca().getMarcaId())) {
+                placasFinal.add(placa);
+            }
+        }
+
+        return placasFinal;
+    }
 }

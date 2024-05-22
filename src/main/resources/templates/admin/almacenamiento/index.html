@@ -10,6 +10,7 @@
 
     <h1>Almacenamiento</h1>
     <a href="/admin/almacenamiento/crear">Crear almacenamiento</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,8 @@
                 <td><a th:href="${almacenamiento.url}" th:text="${almacenamiento.url}"></a></td>
                 <td th:text="${almacenamiento.estado}"></td>
                 <td th:text="${almacenamiento.categoria.nombre}"></td>
+                <td th:text="${almacenamiento.marca != null ? almacenamiento.marca.nombre : 'Sin Marca'}"></td>
+
                 <td>
                     <a
                         th:href="@{/admin/almacenamiento/editar/{almacenamientoId}(almacenamientoId=${almacenamiento.almacenamientoId})}">Editar</a>

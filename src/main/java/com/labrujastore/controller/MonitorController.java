@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Monitor;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.MonitorService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class MonitorController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/monitor")
     public String index(Model model) {
@@ -50,6 +56,9 @@ public class MonitorController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearMonitor", monitor);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/monitor/crear";
     }
 
@@ -68,6 +77,9 @@ public class MonitorController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("monitor", monitor);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/monitor/editar";
     }
 
@@ -80,7 +92,9 @@ public class MonitorController {
             @RequestParam("precio") Double precio,
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
-            @RequestParam("estado") String estado) throws IOException {
+            @RequestParam("estado") String estado,
+            @RequestParam("marcaId") Integer marcaId
+            ) throws IOException {
         Monitor monitorExistente = monitorService.obtenerIdMonitor(monitorId);
         monitorExistente.setNombre(monitor.getNombre());
         monitorExistente.setStock(stock);
@@ -90,6 +104,8 @@ public class MonitorController {
         monitorExistente.setDescripcion(descripcion);
         monitorExistente.setUrl(url);
         monitorExistente.setEstado(estado);
+        monitorExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             monitorExistente.setImagenNombre(imagen.getOriginalFilename());
             monitorExistente.setImagenArchivo(imagen.getBytes());

@@ -67,6 +67,10 @@ public class Refrigeracion implements Serializable {
     @OneToMany(mappedBy = "refrigeracion")
     private Collection<Atributos> itemsAtributos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", nullable = true)
+    private Marca marca;
+    
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -94,7 +98,8 @@ public class Refrigeracion implements Serializable {
             String descripcion,
             String url,
             String estado,
-            Categoria categoria) {
+            Categoria categoria,
+            Marca marca) {
         this.refrigeracionId = refrigeracionId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -107,8 +112,17 @@ public class Refrigeracion implements Serializable {
         this.url = url;
         this.estado = estado;
         this.categoria = categoria;
+        this.marca = marca;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+    
     public Integer getRefrigeracionId() {
         return this.refrigeracionId;
     }

@@ -14,6 +14,8 @@
 		enctype="multipart/form-data">
 		<label for="nombre">Nombre:</label>
 		<input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
+        <label for="nombreUrl">NombreUrl:</label>
+        <input type="text" id="nombreUrl" name="nombreUrl" th:field="*{nombreUrl}" required>
 		<br>
 		<input type="file" name="imagen" accept="image/*"
 			onchange="document.getElementById('marcaId').src=window.URL.createObjectURL(this.files[0])" />

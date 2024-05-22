@@ -10,6 +10,7 @@
 
     <h1>Procesador</h1>
     <a href="/admin/procesador/crear">Crear procesador</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,7 @@
                 <td><a th:href="${procesador.url}" th:text="${procesador.url}"></a></td>
                 <td th:text="${procesador.estado}"></td>
                 <td th:text="${procesador.categoria.nombre}"></td>
+                <td th:text="${procesador.marca != null ? procesador.marca.nombre : 'Sin Marca'}"></td>
                 <td>
                     <a
                         th:href="@{/admin/procesador/editar/{procesadorId}(procesadorId=${procesador.procesadorId})}">Editar</a>

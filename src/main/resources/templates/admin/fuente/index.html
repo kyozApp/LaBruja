@@ -10,6 +10,7 @@
 
     <h1>Fuente</h1>
     <a href="/admin/fuente/crear">Crear fuente</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,8 @@
                 <td><a th:href="${fuente.url}" th:text="${fuente.url}"></a></td>
                 <td th:text="${fuente.estado}"></td>
                 <td th:text="${fuente.categoria.nombre}"></td>
+                <td th:text="${fuente.marca != null ? fuente.marca.nombre : 'Sin Marca'}"></td>
+
                 <td>
                     <a th:href="@{/admin/fuente/editar/{fuenteId}(fuenteId=${fuente.fuenteId})}">Editar</a>
                 </td>

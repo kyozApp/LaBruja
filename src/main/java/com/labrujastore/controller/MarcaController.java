@@ -58,6 +58,7 @@ public class MarcaController {
             @RequestParam("imagen") MultipartFile imagen) throws IOException {
         Marca marcarExistente = marcaService.obtenerIdMarca(marcaId);
         marcarExistente.setNombre(marca.getNombre());
+        marcarExistente.setNombreUrl(marca.getNombreUrl());
         if (!imagen.isEmpty()) {
             marcarExistente.setImagenNombre(imagen.getOriginalFilename());
             marcarExistente.setImagenArchivo(imagen.getBytes());

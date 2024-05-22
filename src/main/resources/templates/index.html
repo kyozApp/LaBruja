@@ -1629,7 +1629,7 @@
             <div class="slide-track">
                 <!-- MARCAS -->
                 <div class="slide" th:each="marca : ${vistaMarcas}">
-                    <a th:src="${marca.nombre}">
+                    <a th:href="@{'/catalogo/marca/' + ${marca.nombreUrl} + '/' + ${marca.marcaId}}">
                         <img loading="lazy"
                             th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}"
                             th:id="${marca.nombre}" />
@@ -1638,7 +1638,7 @@
 
                 <!-- DUPLICADO PARA EFECTO INFINITO -->
                 <div class="slide" th:each="marca : ${vistaMarcas}">
-                    <a th:src="${marca.nombre}">
+                    <a th:href="@{'/catalogo/marca/' + ${marca.nombreUrl} + '/' + ${marca.marcaId}}">
                         <img loading="lazy"
                             th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}"
                             th:id="${marca.nombre}" />

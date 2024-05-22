@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Combo;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.ComboService;
+import com.labrujastore.service.MarcaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -38,6 +40,9 @@ public class ComboController {
     @Autowired
     private AtributosService atributoService;
 
+    @Autowired
+    private MarcaService marcaService;
+
     @GetMapping("/combo")
     public String index(Model model) {
         List<Combo> combos = comboService.listarCombo();
@@ -51,6 +56,9 @@ public class ComboController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearCombo", combo);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/combo/crear";
     }
 
@@ -69,15 +77,21 @@ public class ComboController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("combo", combo);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/combo/editar";
     }
 
     @PostMapping("/combo/editar/{comboId}")
-    public String editar(@PathVariable Integer comboId, @ModelAttribute Combo combo,
+    public String editar(
+            @PathVariable Integer comboId,
+            @ModelAttribute Combo combo,
             @RequestParam("imagen") MultipartFile imagen,
             @RequestParam("stock_lima") String stock_lima,
             @RequestParam("stock_arequipa") String stock_arequipa,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId) throws IOException {
         Combo comboExistente = comboService.obtenerIdCombo(comboId);
         comboExistente.setNombre(combo.getNombre());
         comboExistente.setStock(combo.getStock());
@@ -86,6 +100,8 @@ public class ComboController {
         comboExistente.setPrecio(combo.getPrecio());
         comboExistente.setDescripcion(combo.getDescripcion());
         comboExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        comboExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             comboExistente.setImagenNombre(imagen.getOriginalFilename());
             comboExistente.setImagenArchivo(imagen.getBytes());

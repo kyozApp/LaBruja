@@ -43,14 +43,28 @@ public class RefrigeracionServiceImpl implements RefrigeracionService
 	@Override
     public List<Refrigeracion> obtenerRefrigeracionesPorCategoria(Integer refrigeracionId) {
 
-		List<Refrigeracion> refrigeraciones = refrigeracionRepository.findAll();
-		List<Refrigeracion> refrigeracionesFinal = new ArrayList<>();
-		for (Refrigeracion refrigeracion : refrigeraciones) {
-			if (refrigeracionId.equals(refrigeracion.getCategoria().getCategoriaId())) {
-				refrigeracionesFinal.add(refrigeracion);
-			}
-		}
-	
-		return refrigeracionesFinal;
-	}
+        List<Refrigeracion> refrigeraciones = refrigeracionRepository.findAll();
+        List<Refrigeracion> refrigeracionesFinal = new ArrayList<>();
+        for (Refrigeracion refrigeracion : refrigeraciones) {
+            if (refrigeracionId.equals(refrigeracion.getCategoria().getCategoriaId())) {
+                refrigeracionesFinal.add(refrigeracion);
+            }
+        }
+
+        return refrigeracionesFinal;
+    }
+    
+    @Override
+    public List<Refrigeracion> obtenerRefrigeracionesPorMarca(Integer marcaId) {
+
+        List<Refrigeracion> refrigeraciones = refrigeracionRepository.findAll();
+        List<Refrigeracion> refrigeracionesFinal = new ArrayList<>();
+        for (Refrigeracion refrigeracion : refrigeraciones) {
+            if (refrigeracion.getMarca() != null && marcaId.equals(refrigeracion.getMarca().getMarcaId())) {
+                refrigeracionesFinal.add(refrigeracion);
+            }
+        }
+
+        return refrigeracionesFinal;
+    }
 }

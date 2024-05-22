@@ -11,5 +11,6 @@ public interface RefrigeracionService
 	public Refrigeracion actualizarRefrigeracion(Refrigeracion refrigeracion);
 	public Refrigeracion obtenerIdRefrigeracion(Integer refrigeracionId);
 	public void eliminarRefrigeracion(Integer refrigeracionId);
-	public List<Refrigeracion> obtenerRefrigeracionesPorCategoria(Integer refrigeracionId);
+    public List<Refrigeracion> obtenerRefrigeracionesPorCategoria(Integer refrigeracionId);
+    public List<Refrigeracion> obtenerRefrigeracionesPorMarca(Integer marcaId);
 }

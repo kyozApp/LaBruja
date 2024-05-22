@@ -67,6 +67,10 @@ public class Accesorio implements Serializable {
     @OneToMany(mappedBy = "accesorio")
     private Collection<Atributos> itemsAtributos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", nullable = true)
+    private Marca marca;
+
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -82,9 +86,20 @@ public class Accesorio implements Serializable {
     public Accesorio() {
     }
 
-    public Accesorio(Integer accesorioId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-            String stock_lima, String stock_arequipa,
-            Double precio, String descripcion, String url, String estado, Categoria categoria) {
+    public Accesorio(
+            Integer accesorioId,
+            String nombre,
+            String imagenNombre,
+            byte[] imagenArchivo,
+            Integer stock,
+            String stock_lima,
+            String stock_arequipa,
+            Double precio,
+            String descripcion,
+            String url,
+            String estado,
+            Categoria categoria,
+            Marca marca) {
         this.accesorioId = accesorioId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -97,6 +112,7 @@ public class Accesorio implements Serializable {
         this.url = url;
         this.estado = estado;
         this.categoria = categoria;
+        this.marca = marca;
     }
 
     public Integer getAccesorioId() {
@@ -203,4 +219,13 @@ public class Accesorio implements Serializable {
         this.itemsAtributos = itemsAtributos;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
+    
 }

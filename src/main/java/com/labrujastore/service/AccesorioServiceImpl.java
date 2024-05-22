@@ -42,15 +42,30 @@ public class AccesorioServiceImpl implements AccesorioService {
 	@Override
     public List<Accesorio> obtenerAccesoriosPorCategoria(Integer idCategoria) {
 
-		List<Accesorio> accesorios = accesorioRepository.findAll();
-		List<Accesorio> accesoriosFinal = new ArrayList<>();
-		for (Accesorio accesorio : accesorios) {
-			if (idCategoria.equals(accesorio.getCategoria().getCategoriaId())) {
-				accesoriosFinal.add(accesorio);
-			}
-		}
-	
-		return accesoriosFinal;
-	}
+        List<Accesorio> accesorios = accesorioRepository.findAll();
+        List<Accesorio> accesoriosFinal = new ArrayList<>();
+        for (Accesorio accesorio : accesorios) {
+            if (idCategoria.equals(accesorio.getCategoria().getCategoriaId())) {
+                accesoriosFinal.add(accesorio);
+            }
+        }
+
+        return accesoriosFinal;
+    }
+    
+    @Override
+    public List<Accesorio> obtenerAccesoriosPorMarca(Integer marcaId) {
+
+        List<Accesorio> accesorios = accesorioRepository.findAll();
+        List<Accesorio> accesoriosFinal = new ArrayList<>();
+        for (Accesorio accesorio : accesorios) {
+            if (accesorio.getMarca() != null && marcaId.equals(accesorio.getMarca().getMarcaId())) {
+                accesoriosFinal.add(accesorio);
+            }
+
+        }
+
+        return accesoriosFinal;
+    }
 
 }

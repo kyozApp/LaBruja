@@ -73,6 +73,10 @@ public class Ram implements Serializable {
     @ManyToMany(mappedBy = "itemsRam")
     private Set<Placa> itemsPlaca = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", nullable = true)
+    private Marca marca;
+    
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -101,7 +105,8 @@ public class Ram implements Serializable {
             String url,
             String estado,
             Categoria categoria,
-            Set<Placa> itemsPlaca) {
+            Set<Placa> itemsPlaca,
+            Marca marca) {
         this.ramId = ramId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -115,8 +120,17 @@ public class Ram implements Serializable {
         this.estado = estado;
         this.categoria = categoria;
         this.itemsPlaca = itemsPlaca;
+        this.marca = marca;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+    
     public Integer getRamId() {
         return this.ramId;
     }

@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Laptop;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.LaptopService;
+import com.labrujastore.service.MarcaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -38,6 +40,9 @@ public class LaptopController {
     @Autowired
     private AtributosService atributoService;
 
+    @Autowired
+    private MarcaService marcaService;
+
     @GetMapping("/laptop")
     public String index(Model model) {
         List<Laptop> laptops = laptopService.listarLaptop();
@@ -51,6 +56,9 @@ public class LaptopController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearLaptop", laptop);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/laptop/crear";
     }
 
@@ -69,6 +77,9 @@ public class LaptopController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("laptop", laptop);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/laptop/editar";
     }
 
@@ -81,7 +92,9 @@ public class LaptopController {
             @RequestParam("precio") Double precio, @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url, @RequestParam("estado") String estado,
             @RequestParam("oferta") String oferta,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId
+            ) throws IOException {
         Laptop laptopExistente = laptopService.obtenerIdLaptop(laptopId);
         laptopExistente.setNombre(laptop.getNombre());
         laptopExistente.setStock(stock);
@@ -93,6 +106,7 @@ public class LaptopController {
         laptopExistente.setEstado(estado);
         laptopExistente.setOferta(oferta);
         laptopExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        laptopExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
         if (!imagen.isEmpty()) {
             laptopExistente.setImagenNombre(imagen.getOriginalFilename());
             laptopExistente.setImagenArchivo(imagen.getBytes());

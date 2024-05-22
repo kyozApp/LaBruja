@@ -10,6 +10,7 @@
 
     <h1>Laptop</h1>
     <a href="/admin/laptop/crear">Crear laptop</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -49,6 +50,8 @@
                 <td th:text="${laptop.estado}"></td>
                 <td th:text="${laptop.oferta}"></td>
                 <td th:text="${laptop.categoria.nombre}"></td>
+                <td th:text="${laptop.marca != null ? laptop.marca.nombre : 'Sin Marca'}"></td>
+
                 <td>
                     <a th:href="@{/admin/laptop/editar/{laptopId}(laptopId=${laptop.laptopId})}">Editar</a>
                 </td>

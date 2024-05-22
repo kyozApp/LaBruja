@@ -12,4 +12,5 @@ public interface ComboService
     public Combo obtenerIdCombo(Integer comboId);
     public void eliminarCombo(Integer comboId);
     public List<Combo> obtenerCombosPorCategoria(Integer comboId);
+    public List<Combo> obtenerCombosPorMarca(Integer marcaId);
 }

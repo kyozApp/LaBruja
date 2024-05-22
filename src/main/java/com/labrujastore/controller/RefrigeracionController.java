@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Refrigeracion;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.RefrigeracionService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class RefrigeracionController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/refrigeracion")
     public String index(Model model) {
@@ -50,6 +56,9 @@ public class RefrigeracionController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearRefrigeracion", refrigeracion);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/refrigeracion/crear";
     }
 
@@ -68,6 +77,9 @@ public class RefrigeracionController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("refrigeracion", refrigeracion);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/refrigeracion/editar";
     }
 
@@ -81,7 +93,9 @@ public class RefrigeracionController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
+            throws IOException {
         Refrigeracion refrigeracionExistente = refrigeracionService.obtenerIdRefrigeracion(refrigeracionId);
         refrigeracionExistente.setNombre(refrigeracion.getNombre());
         refrigeracionExistente.setStock(stock);
@@ -92,6 +106,8 @@ public class RefrigeracionController {
         refrigeracionExistente.setUrl(url);
         refrigeracionExistente.setEstado(estado);
         refrigeracionExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        refrigeracionExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             refrigeracionExistente.setImagenNombre(imagen.getOriginalFilename());
             refrigeracionExistente.setImagenArchivo(imagen.getBytes());

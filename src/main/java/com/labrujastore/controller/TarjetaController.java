@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Tarjeta;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.TarjetaService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class TarjetaController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/tarjeta")
     public String index(Model model) {
@@ -50,6 +56,9 @@ public class TarjetaController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearTarjeta", tarjeta);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/tarjeta/crear";
     }
 
@@ -68,6 +77,9 @@ public class TarjetaController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("tarjeta", tarjeta);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/tarjeta/editar";
     }
 
@@ -81,7 +93,9 @@ public class TarjetaController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
+            throws IOException {
         Tarjeta tarjetaExistente = tarjetaService.obtenerIdTarjeta(tarjetaId);
         tarjetaExistente.setNombre(tarjeta.getNombre());
         tarjetaExistente.setStock(stock);
@@ -92,6 +106,8 @@ public class TarjetaController {
         tarjetaExistente.setUrl(url);
         tarjetaExistente.setEstado(estado);
         tarjetaExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        tarjetaExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             tarjetaExistente.setImagenNombre(imagen.getOriginalFilename());
             tarjetaExistente.setImagenArchivo(imagen.getBytes());

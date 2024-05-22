@@ -10,6 +10,7 @@
 
     <h1>Placa</h1>
     <a href="/admin/placa/crear">Crear placa</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,8 @@
                 <td><a th:href="${placa.url}" th:text="${placa.url}"></a></td>
                 <td th:text="${placa.estado}"></td>
                 <td th:text="${placa.categoria.nombre}"></td>
+                <td th:text="${placa.marca != null ? placa.marca.nombre : 'Sin Marca'}"></td>
+
                 <td>
                     <a th:href="@{/admin/placa/editar/{placaId}(placaId=${placa.placaId})}">Editar</a>
                 </td>

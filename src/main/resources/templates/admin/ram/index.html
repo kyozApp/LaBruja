@@ -10,6 +10,7 @@
 
     <h1>RAM</h1>
     <a href="/admin/ram/crear">Crear RAM</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,7 @@
                 <td><a th:href="${ram.url}" th:text="${ram.url}"></a></td>
                 <td th:text="${ram.estado}"></td>
                 <td th:text="${ram.categoria.nombre}"></td>
+                <td th:text="${ram.marca != null ? ram.marca.nombre : 'Sin Marca'}"></td>
                 <td>
                     <a th:href="@{/admin/ram/editar/{ramId}(ramId=${ram.ramId})}">Editar</a>
                 </td>

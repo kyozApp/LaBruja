@@ -12,4 +12,5 @@ public interface CasseService
 	public Casse obtenerIdCasse(Integer casseId);
 	public void eliminarCasse(Integer casseId);
 	public List<Casse> obtenerCassesPorCategoria(Integer casseId);
+    public List<Casse> obtenerCassesPorMarca(Integer marcaId);
 }

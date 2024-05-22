@@ -49,6 +49,12 @@
                 th:text="${categoria.nombre}"></option>
         </select>
         <br>
+        <label for="marca">Marcas:</label>
+        <select id="marca" name="marca" th:field="*{marca}" required>
+            <option th:each="marca : ${selectorMarcas}" th:value="${marca.marcaId}" th:text="${marca.nombre}"></option>
+        </select>
+        <br>
+
         <button type="submit">Crear</button>
     </form>
 

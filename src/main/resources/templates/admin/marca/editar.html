@@ -21,6 +21,11 @@
 				<input type="text" name="nombre" th:value="${marca.nombre}" />
 			</div>
 
+            <div>
+                <label for="nombreUrl">NombreUrl:</label><br>
+                <input type="text" name="nombreUrl" th:value="${marca.nombreUrl}" />
+            </div>
+
 			<div>
 				<label for="imagenActual">Imagen actual:</label><br>
 				<img th:src="'data:image/' + ${marca.getTypeImage()} + ';base64,' + ${marca.getBase64Image()}"

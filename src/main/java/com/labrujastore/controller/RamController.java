@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Ram;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.RamService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class RamController {
 
     @Autowired
     private CategoriaService categoriaService;
+    
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/ram")
     public String index(Model model) {
@@ -50,6 +56,9 @@ public class RamController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearRam", ram);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/ram/crear";
     }
 
@@ -68,6 +77,9 @@ public class RamController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("ram", ram);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/ram/editar";
     }
 
@@ -81,7 +93,9 @@ public class RamController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
+            throws IOException {
         Ram ramExistente = ramService.obtenerIdRam(ramId);
         ramExistente.setNombre(ram.getNombre());
         ramExistente.setStock(stock);
@@ -92,6 +106,8 @@ public class RamController {
         ramExistente.setUrl(url);
         ramExistente.setEstado(estado);
         ramExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        ramExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             ramExistente.setImagenNombre(imagen.getOriginalFilename());
             ramExistente.setImagenArchivo(imagen.getBytes());

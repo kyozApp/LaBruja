@@ -11,5 +11,6 @@ public interface FuenteService
 	public Fuente actualizarFuente(Fuente fuente);
 	public Fuente obtenerIdFuente(Integer fuenteId);
 	public void eliminarFuente(Integer fuenteId);
-	public List<Fuente> obtenerFuentesPorCategoria(Integer fuenteId);
+    public List<Fuente> obtenerFuentesPorCategoria(Integer fuenteId);
+    public List<Fuente> obtenerFuentesPorMarca(Integer marcaId);
 }

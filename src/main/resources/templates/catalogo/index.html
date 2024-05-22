@@ -450,8 +450,9 @@
                 <i class="fa-solid fa-angle-right"></i>
                 <a th:href="@{/catalogo/producto}"><span>Catalogo</span></a>
                 <i class="fa-solid fa-angle-right" th:if="${nombreCategoria != null}"></i>
-                <a th:href="@{/catalogo/${nombreUrl}}" th:text="${nombreCategoria}"
-                    th:if="${nombreCategoria != null}"></a>
+                <a th:href="@{'/catalogo/marca/' + ${marca.nombreUrl} + '/' + ${marca.marcaId}}" th:text="${nombreCategoria}"
+                    th:if="${marca != null && nombreCategoria != null}"></a>
+
             </p>
         </div>
         <div class="productos">

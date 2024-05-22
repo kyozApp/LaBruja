@@ -10,6 +10,7 @@
 
     <h1>Combo</h1>
     <a href="/admin/combo/crear">Crear combo</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -24,6 +25,7 @@
                 <th>Precio</th>
                 <th>Descripción</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -43,6 +45,8 @@
                 <td th:text="${combo.precio}"></td>
                 <td th:text="${combo.descripcion}"></td>
                 <td th:text="${combo.categoria.nombre}"></td>
+                <td th:text="${combo.marca != null ? combo.marca.nombre : 'Sin Marca'}"></td>
+
                 <td>
                     <a th:href="@{/admin/combo/editar/{comboId}(comboId=${combo.comboId})}">Editar</a>
                 </td>

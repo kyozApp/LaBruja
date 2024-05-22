@@ -67,6 +67,10 @@ public class Tarjeta implements Serializable {
     @OneToMany(mappedBy = "tarjeta")
     private Collection<Atributos> itemsAtributos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", nullable = true)
+    private Marca marca;
+    
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -94,7 +98,8 @@ public class Tarjeta implements Serializable {
             String descripcion,
             String url,
             String estado,
-            Categoria categoria) {
+            Categoria categoria,
+            Marca marca) {
         this.tarjetaId = tarjetaId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -107,8 +112,17 @@ public class Tarjeta implements Serializable {
         this.url = url;
         this.estado = estado;
         this.categoria = categoria;
+        this.marca = marca;
     }
 
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+    
     public Integer getTarjetaId() {
         return this.tarjetaId;
     }

@@ -43,15 +43,28 @@ public class FuenteServiceImpl implements FuenteService
 	@Override
     public List<Fuente> obtenerFuentesPorCategoria(Integer fuenteId) {
 
-		List<Fuente> fuentes = fuenteRepository.findAll();
-		List<Fuente> fuentesFinal = new ArrayList<>();
-		for (Fuente fuente : fuentes) {
-			if (fuenteId.equals(fuente.getCategoria().getCategoriaId())) {
-				fuentesFinal.add(fuente);
-			}
-		}
-	
-		return fuentesFinal;
-	}
+        List<Fuente> fuentes = fuenteRepository.findAll();
+        List<Fuente> fuentesFinal = new ArrayList<>();
+        for (Fuente fuente : fuentes) {
+            if (fuenteId.equals(fuente.getCategoria().getCategoriaId())) {
+                fuentesFinal.add(fuente);
+            }
+        }
 
+        return fuentesFinal;
+    }
+
+    @Override
+    public List<Fuente> obtenerFuentesPorMarca(Integer marcaId) {
+
+        List<Fuente> fuentes = fuenteRepository.findAll();
+        List<Fuente> fuentesFinal = new ArrayList<>();
+        for (Fuente fuente : fuentes) {
+            if (fuente.getMarca() != null && marcaId.equals(fuente.getMarca().getMarcaId())) {
+                fuentesFinal.add(fuente);
+            }
+        }
+
+        return fuentesFinal;
+    }
 }

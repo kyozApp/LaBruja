@@ -43,14 +43,28 @@ public class CasseServiceImpl implements CasseService
 	@Override
     public List<Casse> obtenerCassesPorCategoria(Integer casseId) {
 
-		List<Casse> casses = casseRepository.findAll();
-		List<Casse> cassesFinal = new ArrayList<>();
-		for (Casse casse : casses) {
-			if (casseId.equals(casse.getCategoria().getCategoriaId())) {
-				cassesFinal.add(casse);
-			}
-		}
-	
-		return cassesFinal;
-	}
+        List<Casse> casses = casseRepository.findAll();
+        List<Casse> cassesFinal = new ArrayList<>();
+        for (Casse casse : casses) {
+            if (casseId.equals(casse.getCategoria().getCategoriaId())) {
+                cassesFinal.add(casse);
+            }
+        }
+
+        return cassesFinal;
+    }
+    
+    @Override
+    public List<Casse> obtenerCassesPorMarca(Integer marcaId) {
+
+        List<Casse> casses = casseRepository.findAll();
+        List<Casse> cassesFinal = new ArrayList<>();
+        for (Casse casse : casses) {
+            if (casse.getMarca() != null && marcaId.equals(casse.getMarca().getMarcaId())) {
+                cassesFinal.add(casse);
+            }
+        }
+
+        return cassesFinal;
+    }
 }

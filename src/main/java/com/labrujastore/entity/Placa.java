@@ -78,6 +78,10 @@ public class Placa implements Serializable {
     @JoinTable(name = "placas_rams", joinColumns = @JoinColumn(name = "placa_id"), inverseJoinColumns = @JoinColumn(name = "ram_id"))
     private Set<Ram> itemsRam = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", nullable = true)
+    private Marca marca;
+    
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -107,7 +111,8 @@ public class Placa implements Serializable {
             String estado,
             Categoria categoria,
             Set<Procesador> itemsProcesador,
-            Set<Ram> itemsRam) {
+            Set<Ram> itemsRam,
+            Marca marca) {
         this.placaId = placaId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -122,6 +127,15 @@ public class Placa implements Serializable {
         this.categoria = categoria;
         this.itemsProcesador = itemsProcesador;
         this.itemsRam = itemsRam;
+        this.marca = marca;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
     public Integer getPlacaId() {

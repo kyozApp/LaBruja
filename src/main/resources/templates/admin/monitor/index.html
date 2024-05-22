@@ -10,6 +10,7 @@
 
     <h1>Monitor</h1>
     <a href="/admin/monitor/crear">Crear monitor</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,8 @@
                 <td><a th:href="${monitor.url}" th:text="${monitor.url}"></a></td>
                 <td th:text="${monitor.estado}"></td>
                 <td th:text="${monitor.categoria.nombre}"></td>
+                <td th:text="${monitor.marca != null ? monitor.marca.nombre : 'Sin Marca'}"></td>
+
                 <td>
                     <a th:href="@{/admin/monitor/editar/{monitorId}(monitorId=${monitor.monitorId})}">Editar</a>
                 </td>

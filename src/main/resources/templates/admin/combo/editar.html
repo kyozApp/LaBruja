@@ -63,10 +63,17 @@
             <div>
                 <label for="categoria">Categoría:</label>
                 <select id="categoria" name="categoriaId">
-                    <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
-                        th:text="${categoria.nombre}"
+                    <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}" th:text="${categoria.nombre}"
                         th:selected="${categoria.categoriaId == combo.categoria.categoriaId}">
-                    </option>>
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="marca">Marca:</label>
+                <select id="marca" name="marcaId">
+                    <option th:each="marca : ${selectorMarcas}" th:value="${marca.marcaId}" th:text="${marca.nombre}"
+                        th:selected="${marca.marcaId == (combo.marca != null ? combo.marca.marcaId : '')}">
                     </option>
                 </select>
             </div>

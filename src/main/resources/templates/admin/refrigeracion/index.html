@@ -10,6 +10,7 @@
 
     <h1>Refrigeración</h1>
     <a href="/admin/refrigeracion/crear">Crear refrigeración</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,7 @@
                 <td><a th:href="${refrigeracion.url}" th:text="${refrigeracion.url}"></a></td>
                 <td th:text="${refrigeracion.estado}"></td>
                 <td th:text="${refrigeracion.categoria.nombre}"></td>
+                <td th:text="${refrigeracion.marca != null ? refrigeracion.marca.nombre : 'Sin Marca'}"></td>
                 <td>
                     <a
                         th:href="@{/admin/refrigeracion/editar/{refrigeracionId}(refrigeracionId=${refrigeracion.refrigeracionId})}">Editar</a>

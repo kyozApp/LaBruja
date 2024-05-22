@@ -10,6 +10,7 @@
 
     <h1>Casse</h1>
     <a href="/admin/casse/crear">Crear casse</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
@@ -26,6 +27,7 @@
                 <th>URL</th>
                 <th>Estado</th>
                 <th>Categoría</th>
+                <th>Marca</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -47,6 +49,7 @@
                 <td><a th:href="${casse.url}" th:text="${casse.url}"></a></td>
                 <td th:text="${casse.estado}"></td>
                 <td th:text="${casse.categoria.nombre}"></td>
+                <td th:text="${casse.marca != null ? casse.marca.nombre : 'Sin Marca'}"></td>
                 <td>
                     <a th:href="@{/admin/casse/editar/{casseId}(casseId=${casse.casseId})}">Editar</a>
                 </td>

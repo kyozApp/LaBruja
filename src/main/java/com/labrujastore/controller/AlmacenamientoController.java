@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.labrujastore.entity.Almacenamiento;
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.service.AlmacenamientoService;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -33,8 +35,12 @@ public class AlmacenamientoController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/almacenamiento")
     public String index(Model model) {
@@ -49,6 +55,9 @@ public class AlmacenamientoController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearAlmacenamiento", almacenamiento);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/almacenamiento/crear";
     }
 
@@ -67,6 +76,9 @@ public class AlmacenamientoController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("almacenamiento", almacenamiento);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/almacenamiento/editar";
     }
 
@@ -80,7 +92,8 @@ public class AlmacenamientoController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId) throws IOException {
         Almacenamiento almacenamientoExistente = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
         almacenamientoExistente.setNombre(almacenamiento.getNombre());
         almacenamientoExistente.setStock(stock);
@@ -91,6 +104,8 @@ public class AlmacenamientoController {
         almacenamientoExistente.setUrl(url);
         almacenamientoExistente.setEstado(estado);
         almacenamientoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        almacenamientoExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             almacenamientoExistente.setImagenNombre(imagen.getOriginalFilename());
             almacenamientoExistente.setImagenArchivo(imagen.getBytes());

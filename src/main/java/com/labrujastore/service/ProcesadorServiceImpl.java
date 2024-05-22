@@ -43,14 +43,28 @@ public class ProcesadorServiceImpl implements ProcesadorService
 	@Override
     public List<Procesador> obtenerProcesadoresPorCategoria(Integer procesadorId) {
 
-		List<Procesador> procesadores = procesadorRepository.findAll();
-		List<Procesador> procesadoresFinal = new ArrayList<>();
-		for (Procesador procesador : procesadores) {
-			if (procesadorId.equals(procesador.getCategoria().getCategoriaId())) {
-				procesadoresFinal.add(procesador);
-			}
-		}
-	
-		return procesadoresFinal;
-	}
+        List<Procesador> procesadores = procesadorRepository.findAll();
+        List<Procesador> procesadoresFinal = new ArrayList<>();
+        for (Procesador procesador : procesadores) {
+            if (procesadorId.equals(procesador.getCategoria().getCategoriaId())) {
+                procesadoresFinal.add(procesador);
+            }
+        }
+
+        return procesadoresFinal;
+    }
+    
+    @Override
+    public List<Procesador> obtenerProcesadoresPorMarca(Integer marcaId) {
+
+        List<Procesador> procesadores = procesadorRepository.findAll();
+        List<Procesador> procesadoresFinal = new ArrayList<>();
+        for (Procesador procesador : procesadores) {
+            if (procesador.getMarca() != null && marcaId.equals(procesador.getMarca().getMarcaId())) {
+                procesadoresFinal.add(procesador);
+            }
+        }
+
+        return procesadoresFinal;
+    }
 }

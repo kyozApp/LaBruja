@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Producto;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.ProductoService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class ProductoController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/producto")
     public String index(Model model) {
@@ -53,7 +59,9 @@ public class ProductoController {
 
         model.addAttribute("formularioCrearProducto", producto);
         model.addAttribute("selectorCategorias", categorias);
-
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/producto/crear";
     }
 
@@ -73,6 +81,9 @@ public class ProductoController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("producto", producto);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/producto/editar";
     }
 
@@ -87,7 +98,9 @@ public class ProductoController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
+            throws IOException {
         Producto productoExistente = productoService.obtenerIdProducto(productoId);
         productoExistente.setNombre(producto.getNombre());
         productoExistente.setStock(stock);
@@ -99,6 +112,8 @@ public class ProductoController {
         productoExistente.setUrl(url);
         productoExistente.setEstado(estado);
         productoExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        productoExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             productoExistente.setImagenNombre(imagen.getOriginalFilename());
             productoExistente.setImagenArchivo(imagen.getBytes());

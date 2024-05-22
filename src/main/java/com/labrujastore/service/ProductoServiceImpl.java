@@ -57,4 +57,18 @@ public class ProductoServiceImpl implements ProductoService {
         return productosFinal;
     }
 
+    @Override
+    public List<Producto> obtenerProductosPorMarca(Integer marcaId) {
+
+        List<Producto> productos = productoRepository.findAll();
+        List<Producto> productosFinal = new ArrayList<>();
+        for (Producto producto : productos) {
+            if (producto.getMarca() != null && marcaId.equals(producto.getMarca().getMarcaId())) {
+                productosFinal.add(producto);
+            }
+        }
+
+        return productosFinal;
+    }
+
 }

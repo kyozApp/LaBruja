@@ -12,4 +12,5 @@ public interface AccesorioService
 	public Accesorio obtenerIdAccesorio(Integer accesorioId);
 	public void eliminarAccesorio(Integer accesorioId);
 	public List<Accesorio> obtenerAccesoriosPorCategoria(Integer idCategoria);
+    public List<Accesorio> obtenerAccesoriosPorMarca(Integer marcaId);
 }

@@ -43,14 +43,28 @@ public class MonitorServiceImpl implements MonitorService
 	@Override
     public List<Monitor> obtenerMonitoresPorCategoria(Integer monitorId) {
 
-		List<Monitor> monitores = monitorRepository.findAll();
-		List<Monitor> monitoresFinal = new ArrayList<>();
-		for (Monitor monitor : monitores) {
-			if (monitorId.equals(monitor.getCategoria().getCategoriaId())) {
-				monitoresFinal.add(monitor);
-			}
-		}
-	
-		return monitoresFinal;
-	}
+        List<Monitor> monitores = monitorRepository.findAll();
+        List<Monitor> monitoresFinal = new ArrayList<>();
+        for (Monitor monitor : monitores) {
+            if (monitorId.equals(monitor.getCategoria().getCategoriaId())) {
+                monitoresFinal.add(monitor);
+            }
+        }
+
+        return monitoresFinal;
+    }
+    
+    @Override
+    public List<Monitor> obtenerMonitoresPorMarca(Integer marcaId) {
+
+        List<Monitor> monitores = monitorRepository.findAll();
+        List<Monitor> monitoresFinal = new ArrayList<>();
+        for (Monitor monitor : monitores) {
+            if (monitor.getMarca() != null && marcaId.equals(monitor.getMarca().getMarcaId())) {
+                monitoresFinal.add(monitor);
+            }
+        }
+
+        return monitoresFinal;
+    }
 }

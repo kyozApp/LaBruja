@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Fuente;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.FuenteService;
+import com.labrujastore.service.MarcaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -33,8 +35,12 @@ public class FuenteController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/fuente")
     public String index(Model model) {
@@ -49,6 +55,9 @@ public class FuenteController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearFuente", fuente);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/fuente/crear";
     }
 
@@ -67,6 +76,9 @@ public class FuenteController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("fuente", fuente);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/fuente/editar";
     }
 
@@ -80,7 +92,9 @@ public class FuenteController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
+            throws IOException {
         Fuente fuenteExistente = fuenteService.obtenerIdFuente(fuenteId);
         fuenteExistente.setNombre(fuente.getNombre());
         fuenteExistente.setStock(stock);
@@ -91,6 +105,8 @@ public class FuenteController {
         fuenteExistente.setUrl(url);
         fuenteExistente.setEstado(estado);
         fuenteExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        fuenteExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             fuenteExistente.setImagenNombre(imagen.getOriginalFilename());
             fuenteExistente.setImagenArchivo(imagen.getBytes());

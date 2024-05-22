@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Casse;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CasseService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -33,8 +35,12 @@ public class CasseController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/casse")
     public String index(Model model) {
@@ -49,6 +55,9 @@ public class CasseController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearCasse", casse);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/casse/crear";
     }
 
@@ -67,6 +76,9 @@ public class CasseController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("casse", casse);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/casse/editar";
     }
 
@@ -80,7 +92,8 @@ public class CasseController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId) throws IOException {
         Casse casseExistente = casseService.obtenerIdCasse(casseId);
         casseExistente.setNombre(casse.getNombre());
         casseExistente.setStock(stock);
@@ -91,6 +104,8 @@ public class CasseController {
         casseExistente.setUrl(url);
         casseExistente.setEstado(estado);
         casseExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        casseExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             casseExistente.setImagenNombre(imagen.getOriginalFilename());
             casseExistente.setImagenArchivo(imagen.getBytes());

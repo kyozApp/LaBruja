@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.service.AccesorioService;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -33,8 +35,12 @@ public class AccesorioController {
 
     @Autowired
     private CategoriaService categoriaService;
+    
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/accesorio")
     public String index(Model model) {
@@ -49,6 +55,9 @@ public class AccesorioController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearAccesorio", accesorio);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/accesorio/crear";
     }
 
@@ -67,6 +76,9 @@ public class AccesorioController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("accesorio", accesorio);
         model.addAttribute("selectorCategorias", categorias);
+
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/accesorio/editar";
     }
 
@@ -80,7 +92,8 @@ public class AccesorioController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId)
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
             throws IOException {
         Accesorio accesorioExistente = accesorioService.obtenerIdAccesorio(accesorioId);
         accesorioExistente.setNombre(accesorio.getNombre());
@@ -92,6 +105,7 @@ public class AccesorioController {
         accesorioExistente.setUrl(url);
         accesorioExistente.setEstado(estado);
         accesorioExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        accesorioExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
         if (!imagen.isEmpty()) {
             accesorioExistente.setImagenNombre(imagen.getOriginalFilename());
             accesorioExistente.setImagenArchivo(imagen.getBytes());

@@ -10,12 +10,14 @@
 
     <h1>Marca</h1>
     <a href="/admin/marca/crear">Crear marca</a>
+    <a href="/admin/perfil">Volver</a>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>NombreUrl</th>
                 <th>Nombre de la Imagen</th>
                 <th>Imagen</th>
                 <th></th>
@@ -26,6 +28,7 @@
             <tr th:each="marca : ${tablaMarca}">
                 <td th:text="${marca.marcaId}"></td>
                 <td th:text="${marca.nombre}"></td>
+                <td th:text="${marca.nombreUrl}"></td>
                 <td th:text="${marca.imagenNombre}"></td>
                 <td>
                     <img th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}" width="45px"

@@ -43,14 +43,28 @@ public class LaptopServiceImpl implements LaptopService
 	@Override
     public List<Laptop> obtenerLaptopsPorCategoria(Integer laptopId) {
 
-		List<Laptop> laptops = laptopRepository.findAll();
-		List<Laptop> laptopsFinal = new ArrayList<>();
-		for (Laptop laptop : laptops) {
-			if (laptopId.equals(laptop.getCategoria().getCategoriaId())) {
-				laptopsFinal.add(laptop);
-			}
-		}
-	
-		return laptopsFinal;
-	}
+        List<Laptop> laptops = laptopRepository.findAll();
+        List<Laptop> laptopsFinal = new ArrayList<>();
+        for (Laptop laptop : laptops) {
+            if (laptopId.equals(laptop.getCategoria().getCategoriaId())) {
+                laptopsFinal.add(laptop);
+            }
+        }
+
+        return laptopsFinal;
+    }
+    
+    @Override
+    public List<Laptop> obtenerLaptopsPorMarca(Integer marcaId) {
+
+        List<Laptop> laptops = laptopRepository.findAll();
+        List<Laptop> laptopsFinal = new ArrayList<>();
+        for (Laptop laptop : laptops) {
+            if (laptop.getMarca() != null && marcaId.equals(laptop.getMarca().getMarcaId())) {
+                laptopsFinal.add(laptop);
+            }
+        }
+
+        return laptopsFinal;
+    }
 }

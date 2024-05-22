@@ -76,7 +76,16 @@
                 <select id="categoria" name="categoriaId">
                     <option th:each="categoria : ${selectorCategorias}" th:value="${categoria.categoriaId}"
                         th:text="${categoria.nombre}"
-                        th:selected="${categoria.categoriaId == accesorio.categoria.categoriaId}"></option>>
+                        th:selected="${categoria.categoriaId == accesorio.categoria.categoriaId}">
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="marca">Marca:</label>
+                <select id="marca" name="marcaId">
+                    <option th:each="marca : ${selectorMarcas}" th:value="${marca.marcaId}" th:text="${marca.nombre}"
+                        th:selected="${marca.marcaId == (accesorio.marca != null ? accesorio.marca.marcaId : '')}">
                     </option>
                 </select>
             </div>

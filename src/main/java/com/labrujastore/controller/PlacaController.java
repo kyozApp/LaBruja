@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Placa;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.PlacaService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class PlacaController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/placa")
     public String index(Model model) {
@@ -50,6 +56,9 @@ public class PlacaController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearPlaca", placa);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/placa/crear";
     }
 
@@ -68,6 +77,9 @@ public class PlacaController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("placa", placa);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/placa/editar";
     }
 
@@ -81,7 +93,9 @@ public class PlacaController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId
+            ) throws IOException {
         Placa placaExistente = placaService.obtenerIdPlaca(placaId);
         placaExistente.setNombre(placa.getNombre());
         placaExistente.setStock(stock);
@@ -92,6 +106,8 @@ public class PlacaController {
         placaExistente.setUrl(url);
         placaExistente.setEstado(estado);
         placaExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        placaExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             placaExistente.setImagenNombre(imagen.getOriginalFilename());
             placaExistente.setImagenArchivo(imagen.getBytes());

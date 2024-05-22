@@ -18,9 +18,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.labrujastore.entity.Atributos;
 import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Procesador;
 import com.labrujastore.service.AtributosService;
 import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.ProcesadorService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,8 +36,12 @@ public class ProcesadorController {
 
     @Autowired
     private CategoriaService categoriaService;
+
     @Autowired
     private AtributosService atributoService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("/procesador")
     public String index(Model model) {
@@ -50,6 +56,9 @@ public class ProcesadorController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("formularioCrearProcesador", procesador);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/procesador/crear";
     }
 
@@ -68,6 +77,9 @@ public class ProcesadorController {
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("procesador", procesador);
         model.addAttribute("selectorCategorias", categorias);
+        
+        List<Marca> marcas = marcaService.listarMarca();
+        model.addAttribute("selectorMarcas", marcas);
         return "admin/procesador/editar";
     }
 
@@ -81,7 +93,9 @@ public class ProcesadorController {
             @RequestParam("descripcion") String descripcion,
             @RequestParam("url") String url,
             @RequestParam("estado") String estado,
-            @RequestParam("categoriaId") Integer categoriaId) throws IOException {
+            @RequestParam("categoriaId") Integer categoriaId,
+            @RequestParam("marcaId") Integer marcaId)
+            throws IOException {
         Procesador procesadorExistente = procesadorService.obtenerIdProcesador(procesadorId);
         procesadorExistente.setNombre(procesador.getNombre());
         procesadorExistente.setStock(stock);
@@ -92,6 +106,8 @@ public class ProcesadorController {
         procesadorExistente.setUrl(url);
         procesadorExistente.setEstado(estado);
         procesadorExistente.setCategoria(categoriaService.obtenerIdCategoria(categoriaId));
+        procesadorExistente.setMarca(marcaService.obtenerIdMarca(marcaId));
+
         if (!imagen.isEmpty()) {
             procesadorExistente.setImagenNombre(imagen.getOriginalFilename());
             procesadorExistente.setImagenArchivo(imagen.getBytes());

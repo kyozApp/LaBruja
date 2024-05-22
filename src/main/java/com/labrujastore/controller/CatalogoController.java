@@ -17,6 +17,7 @@ import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Combo;
 import com.labrujastore.entity.Fuente;
 import com.labrujastore.entity.Laptop;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Monitor;
 import com.labrujastore.entity.Placa;
 import com.labrujastore.entity.Procesador;
@@ -32,6 +33,7 @@ import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.ComboService;
 import com.labrujastore.service.FuenteService;
 import com.labrujastore.service.LaptopService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.MonitorService;
 import com.labrujastore.service.PlacaService;
 import com.labrujastore.service.ProcesadorService;
@@ -87,6 +89,9 @@ public class CatalogoController {
 
     @Autowired
     private ComboService comboService;
+
+    @Autowired
+    private MarcaService marcaService;
 
     @GetMapping("producto")
     public String index(Model model) {
@@ -152,15 +157,18 @@ public class CatalogoController {
 
         List<Banner> bannersCategoria = bannerService.obtenerBannersPorTipo(TipoBanner.CATEGORIA.getTipo());
         List<Accesorio> accesoriosCat = accesorioService.obtenerAccesoriosPorCategoria(categoria.getCategoriaId());
-        List<Almacenamiento> almacenamientosCat = almacenamientoService.obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
+        List<Almacenamiento> almacenamientosCat = almacenamientoService
+                .obtenerAlmacenamientosPorCategoria(categoria.getCategoriaId());
         List<Casse> cassesCat = casseService.obtenerCassesPorCategoria(categoria.getCategoriaId());
         List<Fuente> fuentesCat = fuenteService.obtenerFuentesPorCategoria(categoria.getCategoriaId());
         List<Laptop> laptopsCat = laptopService.obtenerLaptopsPorCategoria(categoria.getCategoriaId());
         List<Monitor> monitoresCat = monitorService.obtenerMonitoresPorCategoria(categoria.getCategoriaId());
         List<Placa> placasCat = placaService.obtenerPlacasPorCategoria(categoria.getCategoriaId());
-        List<Procesador> procesadoresCat = procesadorService.obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
+        List<Procesador> procesadoresCat = procesadorService
+                .obtenerProcesadoresPorCategoria(categoria.getCategoriaId());
         List<Ram> ramsCat = ramService.obtenerRamsPorCategoria(categoria.getCategoriaId());
-        List<Refrigeracion> refrigeracionesCat = refrigeracionService.obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
+        List<Refrigeracion> refrigeracionesCat = refrigeracionService
+                .obtenerRefrigeracionesPorCategoria(categoria.getCategoriaId());
         List<Tarjeta> tarjetasCat = tarjetaService.obtenerTarjetasPorCategoria(categoria.getCategoriaId());
         List<Combo> combosCat = comboService.obtenerCombosPorCategoria(categoria.getCategoriaId());
 
@@ -215,6 +223,74 @@ public class CatalogoController {
     @GetMapping("/producto-detalle")
     public String detalle_Producto() {
         return "producto-detalle/index";
+    }
+
+    @GetMapping("/marca/{nombreUrl}/{marcaId}")
+    public String index(Model model, @PathVariable String nombreUrl, @PathVariable int marcaId) {
+
+        Marca marca = marcaService.obtenerIdMarca(marcaId);
+
+        model.addAttribute("nombreCategoria", marca.getNombre());
+        model.addAttribute("catalogo", marca.getNombre());
+        model.addAttribute("marca", marca);
+
+        List<Banner> bannersCategoria = bannerService.obtenerBannersPorTipo(TipoBanner.CATEGORIA.getTipo());
+
+        List<Accesorio> accesoriosCat = accesorioService.obtenerAccesoriosPorMarca(marcaId);
+        List<Almacenamiento> almacenamientosCat = almacenamientoService.obtenerAlmacenamientosPorMarca(marcaId);
+        List<Casse> cassesCat = casseService.obtenerCassesPorMarca(marcaId);
+        List<Fuente> fuentesCat = fuenteService.obtenerFuentesPorMarca(marcaId);
+        List<Laptop> laptopsCat = laptopService.obtenerLaptopsPorMarca(marcaId);
+        List<Monitor> monitoresCat = monitorService.obtenerMonitoresPorMarca(marcaId);
+        List<Placa> placasCat = placaService.obtenerPlacasPorMarca(marcaId);
+        List<Procesador> procesadoresCat = procesadorService.obtenerProcesadoresPorMarca(marcaId);
+        List<Ram> ramsCat = ramService.obtenerRamsPorMarca(marcaId);
+        List<Refrigeracion> refrigeracionesCat = refrigeracionService.obtenerRefrigeracionesPorMarca(marcaId);
+        List<Tarjeta> tarjetasCat = tarjetaService.obtenerTarjetasPorMarca(marcaId);
+        List<Combo> combosCat = comboService.obtenerCombosPorMarca(marcaId);
+
+        model.addAttribute("bannersCategoria", bannersCategoria);
+
+        model.addAttribute("vistaAccesoriosC", accesoriosCat);
+        model.addAttribute("vistaAlmacenamientosC", almacenamientosCat);
+        model.addAttribute("vistaCassesC", cassesCat);
+        model.addAttribute("vistaFuentesC", fuentesCat);
+        model.addAttribute("vistaLaptopsC", laptopsCat);
+        model.addAttribute("vistaMonitoresC", monitoresCat);
+        model.addAttribute("vistaPlacasC", placasCat);
+        model.addAttribute("vistaProcesadoresC", procesadoresCat);
+        model.addAttribute("vistaRamsC", ramsCat);
+        model.addAttribute("vistaRefrigeracionesC", refrigeracionesCat);
+        model.addAttribute("vistaTarjetasC", tarjetasCat);
+        model.addAttribute("vistaCombosC", combosCat);
+
+        //Para mostrar en el buscador
+        List<Accesorio> accesorios = accesorioService.listarAccesorio();
+        List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
+        List<Casse> casses = casseService.listarCasse();
+        List<Fuente> fuentes = fuenteService.listarFuente();
+        List<Laptop> laptops = laptopService.listarLaptop();
+        List<Monitor> monitores = monitorService.listarMonitor();
+        List<Placa> placas = placaService.listarPlaca();
+        List<Procesador> procesadores = procesadorService.listarProcesador();
+        List<Ram> rams = ramService.listarRam();
+        List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
+        List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
+        List<Combo> combos = comboService.listarCombo();
+
+        model.addAttribute("vistaAccesorios", accesorios);
+        model.addAttribute("vistaAlmacenamientos", almacenamientos);
+        model.addAttribute("vistaCasses", casses);
+        model.addAttribute("vistaFuentes", fuentes);
+        model.addAttribute("vistaLaptops", laptops);
+        model.addAttribute("vistaMonitores", monitores);
+        model.addAttribute("vistaPlacas", placas);
+        model.addAttribute("vistaProcesadores", procesadores);
+        model.addAttribute("vistaRams", rams);
+        model.addAttribute("vistaRefrigeraciones", refrigeraciones);
+        model.addAttribute("vistaTarjetas", tarjetas);
+        model.addAttribute("vistaCombos", combos);
+        return "catalogo/index";
     }
 
 }

@@ -43,14 +43,28 @@ public class ComboServiceImpl implements ComboService {
     @Override
     public List<Combo> obtenerCombosPorCategoria(Integer comboId) {
 
-		List<Combo> combos = comboRepository.findAll();
-		List<Combo> combosFinal = new ArrayList<>();
-		for (Combo combo : combos) {
-			if (comboId.equals(combo.getCategoria().getCategoriaId())) {
-				combosFinal.add(combo);
-			}
-		}
-	
-		return combosFinal;
-	}
+        List<Combo> combos = comboRepository.findAll();
+        List<Combo> combosFinal = new ArrayList<>();
+        for (Combo combo : combos) {
+            if (comboId.equals(combo.getCategoria().getCategoriaId())) {
+                combosFinal.add(combo);
+            }
+        }
+
+        return combosFinal;
+    }
+    
+    @Override
+    public List<Combo> obtenerCombosPorMarca(Integer marcaId) {
+
+        List<Combo> combos = comboRepository.findAll();
+        List<Combo> combosFinal = new ArrayList<>();
+        for (Combo combo : combos) {
+            if (combo.getMarca() != null && marcaId.equals(combo.getMarca().getMarcaId())) {
+                combosFinal.add(combo);
+            }
+        }
+
+        return combosFinal;
+    }
 }

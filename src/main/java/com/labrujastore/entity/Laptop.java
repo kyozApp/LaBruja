@@ -70,6 +70,10 @@ public class Laptop implements Serializable {
     @OneToMany(mappedBy = "laptop")
     private Collection<Atributos> itemsAtributos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", nullable = true)
+    private Marca marca;
+    
     // convertir file en String base64
     public String getBase64Image() {
         String base64 = Base64.getEncoder().encodeToString(this.imagenArchivo);
@@ -85,9 +89,21 @@ public class Laptop implements Serializable {
     public Laptop() {
     }
 
-    public Laptop(Integer laptopId, String nombre, String imagenNombre, byte[] imagenArchivo, Integer stock,
-            String stock_lima, String stock_arequipa, Double precio, String descripcion, String url, String estado,
-            String oferta, Categoria categoria) {
+    public Laptop(
+            Integer laptopId,
+            String nombre,
+            String imagenNombre,
+            byte[] imagenArchivo,
+            Integer stock,
+            String stock_lima,
+            String stock_arequipa,
+            Double precio,
+            String descripcion,
+            String url,
+            String estado,
+            String oferta,
+            Categoria categoria,
+            Marca marca) {
         this.laptopId = laptopId;
         this.nombre = nombre;
         this.imagenNombre = imagenNombre;
@@ -101,6 +117,15 @@ public class Laptop implements Serializable {
         this.estado = estado;
         this.oferta = oferta;
         this.categoria = categoria;
+        this.marca = marca;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
     }
 
     public Integer getLaptopId() {

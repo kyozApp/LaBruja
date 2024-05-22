@@ -43,14 +43,28 @@ public class TarjetaServiceImpl implements TarjetaService
 	@Override
     public List<Tarjeta> obtenerTarjetasPorCategoria(Integer tarjetaId) {
 
-		List<Tarjeta> tarjetas = tarjetaRepository.findAll();
-		List<Tarjeta> tarjetasFinal = new ArrayList<>();
-		for (Tarjeta tarjeta : tarjetas) {
-			if (tarjetaId.equals(tarjeta.getCategoria().getCategoriaId())) {
-				tarjetasFinal.add(tarjeta);
-			}
-		}
-	
-		return tarjetasFinal;
-	}
+        List<Tarjeta> tarjetas = tarjetaRepository.findAll();
+        List<Tarjeta> tarjetasFinal = new ArrayList<>();
+        for (Tarjeta tarjeta : tarjetas) {
+            if (tarjetaId.equals(tarjeta.getCategoria().getCategoriaId())) {
+                tarjetasFinal.add(tarjeta);
+            }
+        }
+
+        return tarjetasFinal;
+    }
+    
+    @Override
+    public List<Tarjeta> obtenerTarjetasPorMarca(Integer marcaId) {
+
+        List<Tarjeta> tarjetas = tarjetaRepository.findAll();
+        List<Tarjeta> tarjetasFinal = new ArrayList<>();
+        for (Tarjeta tarjeta : tarjetas) {
+            if (tarjeta.getMarca() != null && marcaId.equals(tarjeta.getMarca().getMarcaId())) {
+                tarjetasFinal.add(tarjeta);
+            }
+        }
+
+        return tarjetasFinal;
+    }
 }
