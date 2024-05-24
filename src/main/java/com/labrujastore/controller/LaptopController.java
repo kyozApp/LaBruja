@@ -121,8 +121,9 @@ public class LaptopController {
         return "redirect:/admin/laptop";
     }
 
-    @GetMapping("/laptop/atributos/{laptopId}")
-    public String atributos_GET(Model model, @PathVariable Integer laptopId) {
+    //ATRIBUTOS
+    @GetMapping("/laptop/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -132,26 +133,27 @@ public class LaptopController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getLaptop() != null && atributo_u.getLaptop().getLaptopId() != null &&
-                    atributo_u.getLaptop().getLaptopId() == laptopId) {
+                    atributo_u.getLaptop().getLaptopId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "laptop");
 
-        return "/admin/accesorio/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/laptop/atributos/{laptopId}")
+    @PostMapping("/laptop/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer laptopId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Laptop laptop = laptopService.obtenerIdLaptop(laptopId);
+        Laptop laptop = laptopService.obtenerIdLaptop(productoId);
         atributo_p.setLaptop(laptop);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/laptop/atributos/{laptopId}";
+        return "redirect:/admin/laptop/atributos/{productoId}";
     }
 
     @GetMapping("/laptop/atributos/editar/{atributoId}")
@@ -160,7 +162,10 @@ public class LaptopController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/laptop/atributo/editar";
+        model.addAttribute("categoria", "laptop");
+        model.addAttribute("categoriaId", atributo.getLaptop().getLaptopId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/laptop/atributos/editar/{atributoId}")

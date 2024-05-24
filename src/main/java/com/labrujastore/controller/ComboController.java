@@ -117,8 +117,8 @@ public class ComboController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/combo/atributos/{comboId}")
-    public String atributos_GET(Model model, @PathVariable Integer comboId) {
+    @GetMapping("/combo/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -128,26 +128,27 @@ public class ComboController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getCombo() != null && atributo_u.getCombo().getComboId() != null &&
-                    atributo_u.getCombo().getComboId() == comboId) {
+                    atributo_u.getCombo().getComboId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "combo");
 
-        return "/admin/combo/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/combo/atributos/{comboId}")
+    @PostMapping("/combo/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer comboId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Combo combo = comboService.obtenerIdCombo(comboId);
+        Combo combo = comboService.obtenerIdCombo(productoId);
         atributo_p.setCombo(combo);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/combo/atributos/{comboId}";
+        return "redirect:/admin/combo/atributos/{productoId}";
     }
 
     @GetMapping("/combo/atributos/editar/{atributoId}")
@@ -156,7 +157,10 @@ public class ComboController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/combo/atributo/editar";
+        model.addAttribute("categoria", "combo");
+        model.addAttribute("categoriaId", atributo.getCombo().getComboId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/combo/atributos/editar/{atributoId}")

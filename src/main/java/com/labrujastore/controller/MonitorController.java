@@ -121,8 +121,8 @@ public class MonitorController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/monitor/atributos/{monitorId}")
-    public String atributos_GET(Model model, @PathVariable Integer monitorId) {
+    @GetMapping("/monitor/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -132,26 +132,27 @@ public class MonitorController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getMonitor() != null && atributo_u.getMonitor().getMonitorId() != null &&
-                    atributo_u.getMonitor().getMonitorId() == monitorId) {
+                    atributo_u.getMonitor().getMonitorId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "monitor");
 
-        return "/admin/monitor/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/monitor/atributos/{monitorId}")
+    @PostMapping("/monitor/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer monitorId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Monitor monitor = monitorService.obtenerIdMonitor(monitorId);
+        Monitor monitor = monitorService.obtenerIdMonitor(productoId);
         atributo_p.setMonitor(monitor);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/monitor/atributos/{monitorId}";
+        return "redirect:/admin/monitor/atributos/{productoId}";
     }
 
     @GetMapping("/monitor/atributos/editar/{atributoId}")
@@ -160,7 +161,10 @@ public class MonitorController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/monitor/atributo/editar";
+        model.addAttribute("categoria", "monitor");
+        model.addAttribute("categoriaId", atributo.getMonitor().getMonitorId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/monitor/atributos/editar/{atributoId}")

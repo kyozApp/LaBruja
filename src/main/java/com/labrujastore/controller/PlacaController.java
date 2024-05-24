@@ -123,8 +123,8 @@ public class PlacaController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/placa/atributos/{placaId}")
-    public String atributos_GET(Model model, @PathVariable Integer placaId) {
+    @GetMapping("/placa/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -134,26 +134,27 @@ public class PlacaController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getPlaca() != null && atributo_u.getPlaca().getPlacaId() != null &&
-                    atributo_u.getPlaca().getPlacaId() == placaId) {
+                    atributo_u.getPlaca().getPlacaId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "placa");
 
-        return "/admin/placa/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/placa/atributos/{placaId}")
+    @PostMapping("/placa/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer placaId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Placa placa = placaService.obtenerIdPlaca(placaId);
+        Placa placa = placaService.obtenerIdPlaca(productoId);
         atributo_p.setPlaca(placa);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/placa/atributos/{placaId}";
+        return "redirect:/admin/placa/atributos/{productoId}";
     }
 
     @GetMapping("/placa/atributos/editar/{atributoId}")
@@ -162,7 +163,10 @@ public class PlacaController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/placa/atributo/editar";
+        model.addAttribute("categoria", "placa");
+        model.addAttribute("categoriaId", atributo.getPlaca().getPlacaId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/placa/atributos/editar/{atributoId}")

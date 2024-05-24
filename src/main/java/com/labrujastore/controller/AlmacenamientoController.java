@@ -121,8 +121,8 @@ public class AlmacenamientoController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/almacenamiento/atributos/{almacenamientoId}")
-    public String atributos_GET(Model model, @PathVariable Integer almacenamientoId) {
+    @GetMapping("/almacenamiento/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -133,26 +133,27 @@ public class AlmacenamientoController {
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getAlmacenamiento() != null && atributo_u.getAlmacenamiento().getAlmacenamientoId() != null
                     &&
-                    atributo_u.getAlmacenamiento().getAlmacenamientoId() == almacenamientoId) {
+                    atributo_u.getAlmacenamiento().getAlmacenamientoId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "almacenamiento");
 
-        return "/admin/almacenamiento/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/almacenamiento/atributos/{almacenamientoId}")
+    @PostMapping("/almacenamiento/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer almacenamientoId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(almacenamientoId);
+        Almacenamiento almacenamiento = almacenamientoService.obtenerIdAlmacenamiento(productoId);
         atributo_p.setAlmacenamiento(almacenamiento);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/almacenamiento/atributos/{almacenamientoId}";
+        return "redirect:/admin/almacenamiento/atributos/{productoId}";
     }
 
     @GetMapping("/almacenamiento/atributos/editar/{atributoId}")
@@ -161,7 +162,10 @@ public class AlmacenamientoController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/almacenamiento/atributo/editar";
+        model.addAttribute("categoria", "almacenamiento");
+        model.addAttribute("categoriaId", atributo.getAlmacenamiento().getAlmacenamientoId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/almacenamiento/atributos/editar/{atributoId}")

@@ -11,8 +11,8 @@
     <div align="center">
         <h1>Atributos del Producto</h1>
 
-        <form th:action="@{'/admin/laptop/atributos/' + ${laptopId}}" th:object="${formularioAtributo}" method="post"
-            enctype="multipart/form-data">
+        <form th:action="@{'/admin/' + ${categoria} + '/atributos/' + ${productoId}}" th:object="${formularioAtributo}"
+            method="post" enctype="multipart/form-data">
             <ul>
                 <li>
                     <label for="titulo">Titulo:</label>
@@ -25,7 +25,8 @@
             </ul>
             <button type=" submit">Crear</button>
         </form>
-        <a href="/admin/laptop">Volver</a>
+        <a th:href="@{'/admin/' + ${categoria}}">Volver</a>
+
 
         <table>
             <thead>
@@ -46,30 +47,29 @@
                     <!--BOTON DE EDITAR-->
                     <td>
                         <button>
-                            <a th:href="@{'/admin/laptop/atributos/editar/' + ${atributo.atributoId}}">EDITAR</a>
+                            <a
+                                th:href="@{'/admin/' + ${categoria} + '/atributos/editar/' + ${atributo.atributoId}}">EDITAR</a>
                         </button>
                     </td>
 
                     <!--BOTON DE ELIMINAR-->
                     <td>
-                        <button th:onclick="'confirmarEliminacion(' + ${atributo.atributoId} + ')'">
+                        <button
+                            th:attr="onclick='confirmarEliminacion(\'/admin/' + ${categoria} + '/atributos/eliminar/' + ${atributo.atributoId} + '\')'">
                             ELIMINAR
                         </button>
                     </td>
 
                 </tr>
-                <script th:inline="javascript">
-                    function confirmarEliminacion(atributoId) {
-                        if (confirm('¿Estás seguro de que quieres eliminar este atributo?')) {
-                            window.location.href = '/admin/laptop/atributos/eliminar/' + atributoId;
-                        }
-                    }
-                </script>
             </tbody>
         </table>
-
-
-
+        <script th:inline="javascript">
+            function confirmarEliminacion(url) {
+                if (confirm('¿Estás seguro de que quieres eliminar este atributo?')) {
+                    window.location.href = url;
+                }
+            }
+        </script>
     </div>
 </body>
 
