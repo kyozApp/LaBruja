@@ -123,8 +123,8 @@ public class ProcesadorController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/procesador/atributos/{procesadorId}")
-    public String atributos_GET(Model model, @PathVariable Integer procesadorId) {
+    @GetMapping("/procesador/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -134,26 +134,27 @@ public class ProcesadorController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getProcesador() != null && atributo_u.getProcesador().getProcesadorId() != null &&
-                    atributo_u.getProcesador().getProcesadorId() == procesadorId) {
+                    atributo_u.getProcesador().getProcesadorId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "procesador");
 
-        return "/admin/procesador/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/procesador/atributos/{procesadorId}")
+    @PostMapping("/procesador/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer procesadorId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Procesador procesador = procesadorService.obtenerIdProcesador(procesadorId);
+        Procesador procesador = procesadorService.obtenerIdProcesador(productoId);
         atributo_p.setProcesador(procesador);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/procesador/atributos/{procesadorId}";
+        return "redirect:/admin/procesador/atributos/{productoId}";
     }
 
     @GetMapping("/procesador/atributos/editar/{atributoId}")
@@ -162,7 +163,10 @@ public class ProcesadorController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/procesador/atributo/editar";
+        model.addAttribute("categoria", "procesador");
+        model.addAttribute("categoriaId", atributo.getProcesador().getProcesadorId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/procesador/atributos/editar/{atributoId}")

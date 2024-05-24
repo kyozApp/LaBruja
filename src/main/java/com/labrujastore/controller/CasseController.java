@@ -120,8 +120,9 @@ public class CasseController {
         return "redirect:/admin/casse";
     }
 
-    @GetMapping("/casse/atributos/{casseId}")
-    public String atributos_GET(Model model, @PathVariable Integer casseId) {
+    // ATRIBUTOS
+    @GetMapping("/casse/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -131,26 +132,27 @@ public class CasseController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getCasse() != null && atributo_u.getCasse().getCasseId() != null &&
-                    atributo_u.getCasse().getCasseId() == casseId) {
+                    atributo_u.getCasse().getCasseId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "casse");
 
-        return "/admin/casse/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/casse/atributos/{casseId}")
+    @PostMapping("/casse/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer casseId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Casse casse = casseService.obtenerIdCasse(casseId);
+        Casse casse = casseService.obtenerIdCasse(productoId);
         atributo_p.setCasse(casse);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/casse/atributos/{casseId}";
+        return "redirect:/admin/casse/atributos/{productoId}";
     }
 
     @GetMapping("/casse/atributos/editar/{atributoId}")
@@ -159,7 +161,10 @@ public class CasseController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/casse/atributo/editar";
+        model.addAttribute("categoria", "casse");
+        model.addAttribute("categoriaId", atributo.getCasse().getCasseId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/casse/atributos/editar/{atributoId}")

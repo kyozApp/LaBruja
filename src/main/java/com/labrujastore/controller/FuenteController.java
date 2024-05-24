@@ -122,8 +122,8 @@ public class FuenteController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/fuente/atributos/{fuenteId}")
-    public String atributos_GET(Model model, @PathVariable Integer fuenteId) {
+    @GetMapping("/fuente/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -133,26 +133,27 @@ public class FuenteController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getFuente() != null && atributo_u.getFuente().getFuenteId() != null &&
-                    atributo_u.getFuente().getFuenteId() == fuenteId) {
+                    atributo_u.getFuente().getFuenteId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "fuente");
 
-        return "/admin/fuente/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/fuente/atributos/{fuenteId}")
+    @PostMapping("/fuente/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer fuenteId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Fuente fuente = fuenteService.obtenerIdFuente(fuenteId);
+        Fuente fuente = fuenteService.obtenerIdFuente(productoId);
         atributo_p.setFuente(fuente);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/fuente/atributos/{fuenteId}";
+        return "redirect:/admin/fuente/atributos/{productoId}";
     }
 
     @GetMapping("/fuente/atributos/editar/{atributoId}")
@@ -160,8 +161,10 @@ public class FuenteController {
 
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
+        model.addAttribute("categoria", "fuente");
+        model.addAttribute("categoriaId", atributo.getFuente().getFuenteId());
 
-        return "/admin/fuente/atributo/editar";
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/fuente/atributos/editar/{atributoId}")

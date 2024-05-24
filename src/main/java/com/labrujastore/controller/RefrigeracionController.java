@@ -123,8 +123,8 @@ public class RefrigeracionController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/refrigeracion/atributos/{refrigeracionId}")
-    public String atributos_GET(Model model, @PathVariable Integer refrigeracionId) {
+    @GetMapping("/refrigeracion/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -134,26 +134,27 @@ public class RefrigeracionController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getRefrigeracion() != null && atributo_u.getRefrigeracion().getRefrigeracionId() != null &&
-                    atributo_u.getRefrigeracion().getRefrigeracionId() == refrigeracionId) {
+                    atributo_u.getRefrigeracion().getRefrigeracionId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "refrigeracion");
 
-        return "/admin/refrigeracion/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/refrigeracion/atributos/{refrigeracionId}")
+    @PostMapping("/refrigeracion/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer refrigeracionId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Refrigeracion refrigeracion = refrigeracionService.obtenerIdRefrigeracion(refrigeracionId);
+        Refrigeracion refrigeracion = refrigeracionService.obtenerIdRefrigeracion(productoId);
         atributo_p.setRefrigeracion(refrigeracion);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/refrigeracion/atributos/{refrigeracionId}";
+        return "redirect:/admin/refrigeracion/atributos/{productoId}";
     }
 
     @GetMapping("/refrigeracion/atributos/editar/{atributoId}")
@@ -162,7 +163,10 @@ public class RefrigeracionController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/refrigeracion/atributo/editar";
+        model.addAttribute("categoria", "refrigeracion");
+        model.addAttribute("categoriaId", atributo.getRefrigeracion().getRefrigeracionId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/refrigeracion/atributos/editar/{atributoId}")

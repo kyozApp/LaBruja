@@ -123,8 +123,8 @@ public class RamController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/ram/atributos/{ramId}")
-    public String atributos_GET(Model model, @PathVariable Integer ramId) {
+    @GetMapping("/ram/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -134,26 +134,27 @@ public class RamController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getRam() != null && atributo_u.getRam().getRamId() != null &&
-                    atributo_u.getRam().getRamId() == ramId) {
+                    atributo_u.getRam().getRamId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "ram");
 
-        return "/admin/ram/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/ram/atributos/{ramId}")
+    @PostMapping("/ram/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer ramId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Ram ram = ramService.obtenerIdRam(ramId);
+        Ram ram = ramService.obtenerIdRam(productoId);
         atributo_p.setRam(ram);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/ram/atributos/{ramId}";
+        return "redirect:/admin/ram/atributos/{productoId}";
     }
 
     @GetMapping("/ram/atributos/editar/{atributoId}")
@@ -162,7 +163,10 @@ public class RamController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/ram/atributo/editar";
+        model.addAttribute("categoria", "ram");
+        model.addAttribute("categoriaId", atributo.getRam().getRamId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/ram/atributos/editar/{atributoId}")

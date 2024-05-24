@@ -123,8 +123,8 @@ public class TarjetaController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/tarjeta/atributos/{tarjetaId}")
-    public String atributos_GET(Model model, @PathVariable Integer tarjetaId) {
+    @GetMapping("/tarjeta/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -134,26 +134,27 @@ public class TarjetaController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getTarjeta() != null && atributo_u.getTarjeta().getTarjetaId() != null &&
-                    atributo_u.getTarjeta().getTarjetaId() == tarjetaId) {
+                    atributo_u.getTarjeta().getTarjetaId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "tarjeta");
 
-        return "/admin/tarjeta/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/tarjeta/atributos/{tarjetaId}")
+    @PostMapping("/tarjeta/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer tarjetaId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Tarjeta tarjeta = tarjetaService.obtenerIdTarjeta(tarjetaId);
+        Tarjeta tarjeta = tarjetaService.obtenerIdTarjeta(productoId);
         atributo_p.setTarjeta(tarjeta);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/tarjeta/atributos/{tarjetaId}";
+        return "redirect:/admin/tarjeta/atributos/{productoId}";
     }
 
     @GetMapping("/tarjeta/atributos/editar/{atributoId}")
@@ -162,7 +163,10 @@ public class TarjetaController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/tarjeta/atributo/editar";
+        model.addAttribute("categoria", "tarjeta");
+        model.addAttribute("categoriaId", atributo.getTarjeta().getTarjetaId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/tarjeta/atributos/editar/{atributoId}")

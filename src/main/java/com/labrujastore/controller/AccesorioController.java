@@ -121,8 +121,8 @@ public class AccesorioController {
     }
 
     // ATRIBUTOS
-    @GetMapping("/accesorio/atributos/{accesorioId}")
-    public String atributos_GET(Model model, @PathVariable Integer accesorioId) {
+    @GetMapping("/accesorio/atributos/{productoId}")
+    public String atributos_GET(Model model, @PathVariable Integer productoId) {
 
         // CARGA EL FORMULARIO
         Atributos atributo = new Atributos();
@@ -132,26 +132,27 @@ public class AccesorioController {
         Collection<Atributos> atributos_tabla = new ArrayList<>();
         for (Atributos atributo_u : todos_atributos) {
             if (atributo_u.getAccesorio() != null && atributo_u.getAccesorio().getAccesorioId() != null &&
-                    atributo_u.getAccesorio().getAccesorioId() == accesorioId) {
+                    atributo_u.getAccesorio().getAccesorioId() == productoId) {
                 atributos_tabla.add(atributo_u);
             }
         }
 
         model.addAttribute("tablaAtributos", atributos_tabla);
+        model.addAttribute("categoria", "accesorio");
 
-        return "/admin/accesorio/atributo/index";
+        return "/admin/atributo/index";
     }
 
-    @PostMapping("/accesorio/atributos/{accesorioId}")
+    @PostMapping("/accesorio/atributos/{productoId}")
     public String atributos_POST(Model model, @ModelAttribute("formularioAtributo") Atributos atributo_p,
-            @PathVariable Integer accesorioId) throws IOException {
+            @PathVariable Integer productoId) throws IOException {
 
         // PARA AGREGAR UN NUEVO ATRIBUTO
-        Accesorio accesorio = accesorioService.obtenerIdAccesorio(accesorioId);
+        Accesorio accesorio = accesorioService.obtenerIdAccesorio(productoId);
         atributo_p.setAccesorio(accesorio);
         atributoService.guardarAtributos(atributo_p);
 
-        return "redirect:/admin/accesorio/atributos/{accesorioId}";
+        return "redirect:/admin/accesorio/atributos/{productoId}";
     }
 
     @GetMapping("/accesorio/atributos/editar/{atributoId}")
@@ -160,7 +161,10 @@ public class AccesorioController {
         Atributos atributo = atributoService.obtenerIdAtributos(atributoId);
         model.addAttribute("atributo", atributo);
 
-        return "/admin/accesorio/atributo/editar";
+        model.addAttribute("categoria", "accesorio");
+        model.addAttribute("categoriaId", atributo.getAccesorio().getAccesorioId());
+
+        return "/admin/atributo/editar";
     }
 
     @PostMapping("/accesorio/atributos/editar/{atributoId}")
