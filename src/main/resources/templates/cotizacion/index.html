@@ -16,152 +16,173 @@
             <option value="">-- Seleccione --</option>
             <th:block th:each="procesador : ${vistaProcesadores}">
                 <option th:value="${procesador.procesadorId}" th:text="${procesador.nombre}"
-                    th:data-precio="${procesador.precio}"></option>
+                    th:data-precio="${procesador.precio}" th:data-stock="${procesador.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioProcesador">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockProcesador">Stock: 0 </span><br><br>
 
         <b>Placa:</b>
         <select name="placaId" id="selectPlacaId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="placa : ${vistaPlacas}">
-                <option th:value="${placa.placaId}" th:text="${placa.nombre}" th:data-precio="${placa.precio}"></option>
+                <option th:value="${placa.placaId}" th:text="${placa.nombre}" 
+                th:data-precio="${placa.precio}" th:data-stock="${placa.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioPlaca">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockPlaca">Stock: 0 </span><br><br>
 
         <b>Ram:</b>
         <select name="ramId" id="selectRamId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="ram : ${vistaRams}">
-                <option th:value="${ram.ramId}" th:text="${ram.nombre}" th:data-precio="${ram.precio}"></option>
+                <option th:value="${ram.ramId}" th:text="${ram.nombre}" 
+                th:data-precio="${ram.precio}" th:data-stock="${ram.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioRam">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockRam">Stock: 0 </span><br><br>
 
         <b>Ram 2:</b>
         <select name="ramId2" id="selectRamId2">
             <option value="">-- Seleccione --</option>
             <th:block th:each="ram : ${vistaRams}">
-                <option th:value="${ram.ramId}" th:text="${ram.nombre}" th:data-precio="${ram.precio}"></option>
+                <option th:value="${ram.ramId}" th:text="${ram.nombre}" 
+                th:data-precio="${ram.precio}" th:data-stock="${ram.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioRam2">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockRam2">Stock: 0 </span><br><br>
 
         <b>Almacenamiento:</b>
         <select name="almacenamientoId" id="selectAlmacenamientoId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="almacenamiento : ${vistaAlmacenamientos}">
                 <option th:value="${almacenamiento.almacenamientoId}" th:text="${almacenamiento.nombre}"
-                    th:data-precio="${almacenamiento.precio}"></option>
+                    th:data-precio="${almacenamiento.precio}" th:data-stock="${almacenamiento.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioAlmacenamiento">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockAlmacenamiento">Stock: 0 </span><br><br>
 
         <b>Tarjeta:</b>
         <select name="tarjetaId" id="selectTarjetaId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="tarjeta : ${vistaTarjetas}">
-                <option th:value="${tarjeta.tarjetaId}" th:text="${tarjeta.nombre}" th:data-precio="${tarjeta.precio}">
+                <option th:value="${tarjeta.tarjetaId}" th:text="${tarjeta.nombre}" 
+                th:data-precio="${tarjeta.precio}" th:data-stock="${tarjeta.stock}">
                 </option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioTarjeta">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockTarjeta">Stock: 0 </span><br><br>
 
         <b>Fuente:</b>
         <select name="fuenteId" id="selectFuenteId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="fuente : ${vistaFuentes}">
-                <option th:value="${fuente.fuenteId}" th:text="${fuente.nombre}" th:data-precio="${fuente.precio}">
+                <option th:value="${fuente.fuenteId}" th:text="${fuente.nombre}" 
+                th:data-precio="${fuente.precio}" th:data-stock="${fuente.stock}">
                 </option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioFuente">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockFuente">Stock: 0 </span><br><br>
 
         <b>Case:</b>
         <select name="casseId" id="selectCasseId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="casse : ${vistaCasses}">
-                <option th:value="${casse.casseId}" th:text="${casse.nombre}" th:data-precio="${casse.precio}"></option>
+                <option th:value="${casse.casseId}" th:text="${casse.nombre}" 
+                th:data-precio="${casse.precio}" th:data-stock="${casse.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioCasse">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockCasse">Stock: 0 </span><br><br>
 
         <b>Monitor:</b>
         <select name="monitorId" id="selectMonitorId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="monitor : ${vistaMonitores}">
-                <option th:value="${monitor.monitorId}" th:text="${monitor.nombre}" th:data-precio="${monitor.precio}">
+                <option th:value="${monitor.monitorId}" th:text="${monitor.nombre}" 
+                th:data-precio="${monitor.precio}" th:data-stock="${monitor.stock}">
                 </option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioMonitor">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockMonitor">Stock: 0 </span><br><br>
 
         <b>Refrigeracion:</b>
         <select name="refrigeracionId" id="selectRefrigeracionId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="refrigeracion : ${vistaRefrigeraciones}">
                 <option th:value="${refrigeracion.refrigeracionId}" th:text="${refrigeracion.nombre}"
-                    th:data-precio="${refrigeracion.precio}"></option>
+                    th:data-precio="${refrigeracion.precio}" th:data-stock="${refrigeracion.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioRefrigeracion">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockRefrigeracion">Stock: 0 </span><br><br>
 
         <b>Accesorio:</b>
         <select name="accesorioId" id="selectAccesorioId">
             <option value="">-- Seleccione --</option>
             <th:block th:each="accesorio : ${vistaAccesorios}">
                 <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}"></option>
+                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioAccesorio">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockAccesorio">Stock: 0 </span><br><br>
 
         <b>Accesorio 2:</b>
         <select name="accesorioId2" id="selectAccesorioId2">
             <option value="">-- Seleccione --</option>
             <th:block th:each="accesorio : ${vistaAccesorios}">
                 <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}"></option>
+                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioAccesorio2">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockAccesorio2">Stock: 0 </span><br><br>
 
         <b>Accesorio 3:</b>
         <select name="accesorioId3" id="selectAccesorioId3">
             <option value="">-- Seleccione --</option>
             <th:block th:each="accesorio : ${vistaAccesorios}">
                 <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}">
+                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}">
                 </option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioAccesorio3">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockAccesorio3">Stock: 0 </span><br><br>
 
         <b>Accesorio 4:</b>
         <select name="accesorioId4" id="selectAccesorioId4">
             <option value="">-- Seleccione --</option>
             <th:block th:each="accesorio : ${vistaAccesorios}">
                 <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}">
+                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}">
                 </option>
             </th:block>
         </select>
 
         <span id="mostrarPrecioAccesorio4">Precio seleccionado: S/.0 </span><br><br>
+        <span id="mostrarStockAccesorio4">Stock: 0 </span><br><br>
 
 
         <span id="totalPrecio">Total: S/.0 </span><br><br>

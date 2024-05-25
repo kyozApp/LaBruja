@@ -6,6 +6,12 @@ document.getElementById("selectProcesadorId").addEventListener("change", functio
         precioProcesador = "0";
     }
     document.getElementById("mostrarPrecioProcesador").textContent = "Precio seleccionado: S/." + precioProcesador;
+    var stockProcesador = selectedOption.getAttribute("data-stock");
+    if (stockProcesador === null) {
+        stockProcesador = "0";
+    }
+    document.getElementById("mostrarStockProcesador").textContent = "Stock: " +stockProcesador;
+    
 });
 
 document.getElementById("selectPlacaId").addEventListener("change", function () {
@@ -16,6 +22,11 @@ document.getElementById("selectPlacaId").addEventListener("change", function () 
         precioPlaca = "0";
     }
     document.getElementById("mostrarPrecioPlaca").textContent = "Precio seleccionado: S/." + precioPlaca;
+    var stockPlaca = selectedOption.getAttribute("data-stock");
+    if (stockPlaca === null) {
+        stockPlaca = "0";
+    }
+    document.getElementById("mostrarStockPlaca").textContent = "Stock: " +stockPlaca;
 });
 
 document.getElementById("selectRamId").addEventListener("change", function () {
@@ -26,6 +37,11 @@ document.getElementById("selectRamId").addEventListener("change", function () {
         precioRam = "0";
     }
     document.getElementById("mostrarPrecioRam").textContent = "Precio seleccionado: S/." + precioRam;
+    var stockRam = selectedOption.getAttribute("data-stock");
+    if (stockRam === null) {
+        stockRam = "0";
+    }
+    document.getElementById("mostrarStockRam").textContent = "Stock: " +stockRam;
 });
 
 document.getElementById("selectRamId2").addEventListener("change", function () {
@@ -36,6 +52,11 @@ document.getElementById("selectRamId2").addEventListener("change", function () {
         precioRam2 = "0";
     }
     document.getElementById("mostrarPrecioRam2").textContent = "Precio seleccionado: S/." + precioRam2;
+    var stockRam2 = selectedOption.getAttribute("data-stock");
+    if (stockRam2 === null) {
+        stockRam2 = "0";
+    }
+    document.getElementById("mostrarStockRam2").textContent = "Stock: " +stockRam2;
 });
 
 document.getElementById("selectAlmacenamientoId").addEventListener("change", function () {
@@ -46,6 +67,11 @@ document.getElementById("selectAlmacenamientoId").addEventListener("change", fun
         precioAlmacenamiento = "0";
     }
     document.getElementById("mostrarPrecioAlmacenamiento").textContent = "Precio seleccionado: S/." + precioAlmacenamiento;
+    var stockAlmacenamiento = selectedOption.getAttribute("data-stock");
+    if (stockAlmacenamiento === null) {
+        stockAlmacenamiento = "0";
+    }
+    document.getElementById("mostrarStockAlmacenamiento").textContent = "Stock: " +stockAlmacenamiento;
 });
 
 document.getElementById("selectTarjetaId").addEventListener("change", function () {
@@ -56,6 +82,11 @@ document.getElementById("selectTarjetaId").addEventListener("change", function (
         precioTarjeta = "0";
     }
     document.getElementById("mostrarPrecioTarjeta").textContent = "Precio seleccionado: S/." + precioTarjeta;
+    var stockTarjeta = selectedOption.getAttribute("data-stock");
+    if (stockTarjeta === null) {
+        stockTarjeta = "0";
+    }
+    document.getElementById("mostrarStockTarjeta").textContent = "Stock: " +stockTarjeta;
 });
 
 document.getElementById("selectFuenteId").addEventListener("change", function () {
@@ -66,6 +97,11 @@ document.getElementById("selectFuenteId").addEventListener("change", function ()
         precioFuente = "0";
     }
     document.getElementById("mostrarPrecioFuente").textContent = "Precio seleccionado: S/." + precioFuente;
+    var stockFuente = selectedOption.getAttribute("data-stock");
+    if (stockFuente === null) {
+        stockFuente = "0";
+    }
+    document.getElementById("mostrarStockFuente").textContent = "Stock: " +stockFuente;
 });
 
 document.getElementById("selectCasseId").addEventListener("change", function () {
@@ -76,6 +112,11 @@ document.getElementById("selectCasseId").addEventListener("change", function () 
         precioCasse = "0";
     }
     document.getElementById("mostrarPrecioCasse").textContent = "Precio seleccionado: S/." + precioCasse;
+    var stockCasse = selectedOption.getAttribute("data-stock");
+    if (stockCasse === null) {
+        stockCasse = "0";
+    }
+    document.getElementById("mostrarStockCasse").textContent = "Stock: " +stockCasse;
 });
 
 document.getElementById("selectMonitorId").addEventListener("change", function () {
@@ -86,6 +127,11 @@ document.getElementById("selectMonitorId").addEventListener("change", function (
         precioMonitor = "0";
     }
     document.getElementById("mostrarPrecioMonitor").textContent = "Precio seleccionado: S/." + precioMonitor;
+    var stockMonitor = selectedOption.getAttribute("data-stock");
+    if (stockMonitor === null) {
+        stockMonitor = "0";
+    }
+    document.getElementById("mostrarStockMonitor").textContent = "Stock: " +stockMonitor;
 });
 
 document.getElementById("selectRefrigeracionId").addEventListener("change", function () {
@@ -96,6 +142,11 @@ document.getElementById("selectRefrigeracionId").addEventListener("change", func
         precioRefrigeracion = "0";
     }
     document.getElementById("mostrarPrecioRefrigeracion").textContent = "Precio seleccionado: S/." + precioRefrigeracion;
+    var stockRefrigeracion = selectedOption.getAttribute("data-stock");
+    if (stockRefrigeracion === null) {
+        stockRefrigeracion = "0";
+    }
+    document.getElementById("mostrarStockRefrigeracion").textContent = "Stock: " +stockRefrigeracion;
 });
 
 document.getElementById("selectAccesorioId").addEventListener("change", function () {
@@ -106,6 +157,11 @@ document.getElementById("selectAccesorioId").addEventListener("change", function
         precioAccesorio = "0";
     }
     document.getElementById("mostrarPrecioAccesorio").textContent = "Precio seleccionado: S/." + precioAccesorio;
+    var stockAccesorio = selectedOption.getAttribute("data-stock");
+    if (stockAccesorio === null) {
+        stockAccesorio = "0";
+    }
+    document.getElementById("mostrarStockAccesorio").textContent = "Stock: " +stockAccesorio;
 });
 
 document.getElementById("selectAccesorioId2").addEventListener("change", function () {
@@ -116,6 +172,11 @@ document.getElementById("selectAccesorioId2").addEventListener("change", functio
         precioAccesorio2 = "0";
     }
     document.getElementById("mostrarPrecioAccesorio2").textContent = "Precio seleccionado: S/." + precioAccesorio2;
+    var stockAccesorio2 = selectedOption.getAttribute("data-stock");
+    if (stockAccesorio2 === null) {
+        stockAccesorio2 = "0";
+    }
+    document.getElementById("mostrarStockAccesorio2").textContent = "Stock: " +stockAccesorio2;
 });
 
 document.getElementById("selectAccesorioId3").addEventListener("change", function () {
@@ -126,6 +187,11 @@ document.getElementById("selectAccesorioId3").addEventListener("change", functio
         precioAccesorio3 = "0";
     }
     document.getElementById("mostrarPrecioAccesorio3").textContent = "Precio seleccionado: S/." + precioAccesorio3;
+    var stockAccesorio3 = selectedOption.getAttribute("data-stock");
+    if (stockAccesorio3 === null) {
+        stockAccesorio3 = "0";
+    }
+    document.getElementById("mostrarStockAccesorio3").textContent = "Stock: " +stockAccesorio3;
 });
 
 document.getElementById("selectAccesorioId4").addEventListener("change", function () {
@@ -136,6 +202,11 @@ document.getElementById("selectAccesorioId4").addEventListener("change", functio
         precioAccesorio4 = "0";
     }
     document.getElementById("mostrarPrecioAccesorio4").textContent = "Precio seleccionado: S/." + precioAccesorio4;
+    var stockAccesorio4 = selectedOption.getAttribute("data-stock");
+    if (stockAccesorio4 === null) {
+        stockAccesorio4 = "0";
+    }
+    document.getElementById("mostrarStockAccesorio4").textContent = "Stock: " +stockAccesorio4;
 });
 
 
@@ -188,7 +259,3 @@ document.getElementById("selectAccesorioId3").addEventListener("change", actuali
 document.getElementById("selectAccesorioId4").addEventListener("change", actualizarTotal);
 
 actualizarTotal();
-
-
-
-
