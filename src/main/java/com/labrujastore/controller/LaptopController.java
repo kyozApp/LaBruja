@@ -141,7 +141,7 @@ public class LaptopController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "laptop");
 
-        return "/admin/atributo/index";
+        return "/atributo/index";
     }
 
     @PostMapping("/laptop/atributos/{productoId}")
@@ -165,7 +165,7 @@ public class LaptopController {
         model.addAttribute("categoria", "laptop");
         model.addAttribute("categoriaId", atributo.getLaptop().getLaptopId());
 
-        return "/admin/atributo/editar";
+        return "/atributo/editar";
     }
 
     @PostMapping("/laptop/atributos/editar/{atributoId}")

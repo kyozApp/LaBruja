@@ -140,7 +140,7 @@ public class AccesorioController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "accesorio");
 
-        return "/admin/atributo/index";
+        return "/atributo/index";
     }
 
     @PostMapping("/accesorio/atributos/{productoId}")
@@ -164,7 +164,7 @@ public class AccesorioController {
         model.addAttribute("categoria", "accesorio");
         model.addAttribute("categoriaId", atributo.getAccesorio().getAccesorioId());
 
-        return "/admin/atributo/editar";
+        return "/atributo/editar";
     }
 
     @PostMapping("/accesorio/atributos/editar/{atributoId}")
