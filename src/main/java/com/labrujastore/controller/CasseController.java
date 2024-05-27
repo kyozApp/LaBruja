@@ -140,7 +140,7 @@ public class CasseController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "casse");
 
-        return "/admin/atributo/index";
+        return "/atributo/index";
     }
 
     @PostMapping("/casse/atributos/{productoId}")
@@ -164,7 +164,7 @@ public class CasseController {
         model.addAttribute("categoria", "casse");
         model.addAttribute("categoriaId", atributo.getCasse().getCasseId());
 
-        return "/admin/atributo/editar";
+        return "/atributo/editar";
     }
 
     @PostMapping("/casse/atributos/editar/{atributoId}")

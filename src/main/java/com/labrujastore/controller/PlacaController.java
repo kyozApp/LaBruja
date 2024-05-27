@@ -142,7 +142,7 @@ public class PlacaController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "placa");
 
-        return "/admin/atributo/index";
+        return "/atributo/index";
     }
 
     @PostMapping("/placa/atributos/{productoId}")
@@ -166,7 +166,7 @@ public class PlacaController {
         model.addAttribute("categoria", "placa");
         model.addAttribute("categoriaId", atributo.getPlaca().getPlacaId());
 
-        return "/admin/atributo/editar";
+        return "/atributo/editar";
     }
 
     @PostMapping("/placa/atributos/editar/{atributoId}")

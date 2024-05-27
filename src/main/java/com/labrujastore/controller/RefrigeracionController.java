@@ -142,7 +142,7 @@ public class RefrigeracionController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "refrigeracion");
 
-        return "/admin/atributo/index";
+        return "/atributo/index";
     }
 
     @PostMapping("/refrigeracion/atributos/{productoId}")
@@ -166,7 +166,7 @@ public class RefrigeracionController {
         model.addAttribute("categoria", "refrigeracion");
         model.addAttribute("categoriaId", atributo.getRefrigeracion().getRefrigeracionId());
 
-        return "/admin/atributo/editar";
+        return "/atributo/editar";
     }
 
     @PostMapping("/refrigeracion/atributos/editar/{atributoId}")
