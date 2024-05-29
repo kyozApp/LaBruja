@@ -3,198 +3,863 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Metas para la busqueda de google -->
+    <title>Cotización - LaBrujaStore</title>
+    <meta name="description" content="Realiza tus cotizaciones de forma Virtual aquí en La Bruja Store.">
+    <meta name="robots" content="index">
+    <meta name="keywords" content=""> <!--Palabras claves o tags-->
+
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <link rel="icon" th:href="@{/general/img/logotipo.png}" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/general/css/formato.css}">
+    <link rel="stylesheet" th:href="@{/general/css/header.css}">
+    <link rel="stylesheet" th:href="@{/contactanos/css/contactanos.css}">
+    <link rel="stylesheet" th:href="@{/general/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/general/css/sliderMain.css}">
+
     <link rel="stylesheet" th:href="@{/cotizacion/css/estilos.css}">
+
+    <!-- JS -->
+    <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
+    <script th:src="@{/general/js/header.js}"></script>
+    <script th:src="@{/general/js/contactanos.js}"></script>
 </head>
 
 <body>
-    <h1>Crea tu Cotizacion</h1>
+    <!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+    <header>
+        <div id="head-div-1">
+            <div class="contenedor">
+                <div class="head-div-1-sub">
+                    <p>
+                        Correo electrónico: <a href="mailto:labrujastore@outlook.com">labrujastore@outlook.com</a>
+                    </p>
+                </div>
+                <div class="dropdown">
+                    <button class="dropdown-toggle" on:click={openModal}>Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+        <div id="head-div-2">
+            <div class="head-div-2-part1">
+                <div class="contenedor-2">
+                    <!--Logo Header-->
+                    <div class="head-div-2-part1-1">
+                        <a href="/">
+                            <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                        </a>
+                    </div>
 
-    <form>
-        <b>Procesador:</b>
-        <select name="procesadorId" id="selectProcesadorId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="procesador : ${vistaProcesadores}">
-                <option th:value="${procesador.procesadorId}" th:text="${procesador.nombre}"
-                    th:data-precio="${procesador.precio}" th:data-stock="${procesador.stock}"></option>
-            </th:block>
-        </select>
+                    <div class="barra-bus-btn">
+                        <!-- Amburguesa para abrir silebar isquierdo - celulares -->
+                        <div class="abrir mostrar-opc-mobil">
+                            <label for="open-silebar" class="centered-label">
+                                <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
+                            </label>
+                        </div>
 
-        <span id="mostrarPrecioProcesador">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockProcesador">Stock: 0 </span><br><br>
+                        <!--Buscador-->
+                        <div class="head-div-2-part1-2">
+                            <div class="abrir-slider">
+                                <label class="centered-label" for="open-silebar">Categorias</label>
+                            </div>
+                            <div class="cont-form-search">
+                                <div>
+                                    <form class="form-busqueda" action="" method="post">
+                                        <div class="form-busqueda-input"><input type="text" name="buscador-pro"
+                                                id="buscador-producto" placeholder="Estoy buscando..." /></div>
+                                        <div><button><img loading="lazy" th:src="@{/general/img/icon/lupa.svg}"
+                                                    alt="" /></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="busqueda-productos">
+                                    <ul class="grupo-productos-busqueda">
 
-        <b>Placa:</b>
-        <select name="placaId" id="selectPlacaId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="placa : ${vistaPlacas}">
-                <option th:value="${placa.placaId}" th:text="${placa.nombre}" 
-                th:data-precio="${placa.precio}" th:data-stock="${placa.stock}"></option>
-            </th:block>
-        </select>
+                                        <!-- Accesorio -->
+                                        <li th:each="producto : ${vistaAccesorios}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.accesorioId}, tipo='accesorio')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <span id="mostrarPrecioPlaca">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockPlaca">Stock: 0 </span><br><br>
+                                        <!-- Almacenamiento -->
+                                        <li th:each="producto : ${vistaAlmacenamientos}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.almacenamientoId}, tipo='almacenamiento')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <b>Ram:</b>
-        <select name="ramId" id="selectRamId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="ram : ${vistaRams}">
-                <option th:value="${ram.ramId}" th:text="${ram.nombre}" 
-                th:data-precio="${ram.precio}" th:data-stock="${ram.stock}"></option>
-            </th:block>
-        </select>
+                                        <!-- Casse -->
+                                        <li th:each="producto : ${vistaCasses}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <span id="mostrarPrecioRam">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockRam">Stock: 0 </span><br><br>
+                                        <!-- Fuente -->
+                                        <li th:each="producto : ${vistaFuentes}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <b>Ram 2:</b>
-        <select name="ramId2" id="selectRamId2">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="ram : ${vistaRams}">
-                <option th:value="${ram.ramId}" th:text="${ram.nombre}" 
-                th:data-precio="${ram.precio}" th:data-stock="${ram.stock}"></option>
-            </th:block>
-        </select>
+                                        <!-- Laptop -->
+                                        <li th:each="producto : ${vistaLaptops}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <span id="mostrarPrecioRam2">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockRam2">Stock: 0 </span><br><br>
+                                        <!-- Monitor -->
+                                        <li th:each="producto : ${vistaMonitores}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <!-- Placa Madre -->
+                                        <li th:each="producto : ${vistaPlacas}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <b>Almacenamiento:</b>
-        <select name="almacenamientoId" id="selectAlmacenamientoId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="almacenamiento : ${vistaAlmacenamientos}">
-                <option th:value="${almacenamiento.almacenamientoId}" th:text="${almacenamiento.nombre}"
-                    th:data-precio="${almacenamiento.precio}" th:data-stock="${almacenamiento.stock}"></option>
-            </th:block>
-        </select>
+                                        <!-- Procesador -->
+                                        <li th:each="producto : ${vistaProcesadores}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.procesadorId}, tipo='procesador')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <span id="mostrarPrecioAlmacenamiento">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockAlmacenamiento">Stock: 0 </span><br><br>
+                                        <!-- Memoria ram -->
+                                        <li th:each="producto : ${vistaRams}" class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.ramId}, tipo='ram')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <b>Tarjeta:</b>
-        <select name="tarjetaId" id="selectTarjetaId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="tarjeta : ${vistaTarjetas}">
-                <option th:value="${tarjeta.tarjetaId}" th:text="${tarjeta.nombre}" 
-                th:data-precio="${tarjeta.precio}" th:data-stock="${tarjeta.stock}">
-                </option>
-            </th:block>
-        </select>
+                                        <!-- Refrigeracion -->
+                                        <li th:each="producto : ${vistaRefrigeraciones}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.refrigeracionId}, tipo='refrigeracion')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <span id="mostrarPrecioTarjeta">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockTarjeta">Stock: 0 </span><br><br>
+                                        <!-- Tarjeta Gráfica -->
+                                        <li th:each="producto : ${vistaTarjetas}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <b>Fuente:</b>
-        <select name="fuenteId" id="selectFuenteId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="fuente : ${vistaFuentes}">
-                <option th:value="${fuente.fuenteId}" th:text="${fuente.nombre}" 
-                th:data-precio="${fuente.precio}" th:data-stock="${fuente.stock}">
-                </option>
-            </th:block>
-        </select>
+                                        <!-- Combo -->
+                                        <li th:each="producto : ${vistaCombos}"
+                                            class="productos-filtrados display-none">
+                                            <a class="link-producto"
+                                                th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
+                                                <div class="div-produc-filt">
+                                                    <div class="cont-img-produc-fitl">
+                                                        <img loading="lazy" class="img-produc-search"
+                                                            th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}"
+                                                            alt="imagen-producto-buscado">
+                                                    </div>
+                                                    <div class="cont-detalle-produc-fitl">
+                                                        <h4 class="nombre-produc-search" th:text="${producto.nombre}">
+                                                        </h4>
+                                                        <p class="precio-produc-search">S/.<span
+                                                                th:text="${producto.precio}"></span></p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
 
-        <span id="mostrarPrecioFuente">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockFuente">Stock: 0 </span><br><br>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <script th:src="@{/general/js/buscador-producto.js}"></script>
+                        <script th:src="@{/general/js/quitar-form-input.js}"></script>
 
-        <b>Case:</b>
-        <select name="casseId" id="selectCasseId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="casse : ${vistaCasses}">
-                <option th:value="${casse.casseId}" th:text="${casse.nombre}" 
-                th:data-precio="${casse.precio}" th:data-stock="${casse.stock}"></option>
-            </th:block>
-        </select>
+                        <!--Favorito y Carrito-->
+                        <div class="head-div-2-part1-3">
+                            <!--Contador de favoritos-->
+                            <a class="link-bnt" style="display: none;" href="/">
+                                <div>
+                                    <img loading="lazy" th:src="@{/general/img/icon/corazon.svg}" alt="" />
+                                    <span class="contador-fav">4</span>
+                                </div>
+                            </a>
+                            <!--Contador de carrito-->
+                            <button class="link-bnt" id="boton_abrir--slider"
+                                style="background: transparent; border: none; outline:none;">
+                                <div>
+                                    <img loading="lazy" th:src="@{/general/img/icon/carrito.svg}" alt="" />
+                                    <span class="contador-car" id="cantidad-contador-carrito"></span>
+                                    <p id="mostrarPrecioTotal"></p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
 
-        <span id="mostrarPrecioCasse">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockCasse">Stock: 0 </span><br><br>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="head-div-2-part2">
+        <div class="contenedor-3">
+            <a class="cont-lista-op" href="/">INICIO</a>
+            <a class="cont-lista-op" href="/catalogo/producto">CATALOGO</a>
+            <a class="cont-lista-op" href="/contactanos">CONTACTANOS</a>
+            <a class="cont-lista-op" href="/about">ACERCA DE</a>
+            <a class="cont-lista-op" href="/cotizacion">COTIZACIÓN</a>
+            <!-- <a class="cont-lista-op" href="/">CARRITO</a>-->
+        </div>
+    </div>
 
-        <b>Monitor:</b>
-        <select name="monitorId" id="selectMonitorId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="monitor : ${vistaMonitores}">
-                <option th:value="${monitor.monitorId}" th:text="${monitor.nombre}" 
-                th:data-precio="${monitor.precio}" th:data-stock="${monitor.stock}">
-                </option>
-            </th:block>
-        </select>
+    <!-- SILEBAR CATEGORIAS -->
+    <div id="background-silebar">
+        <div id="contenedor-silebar">
 
-        <span id="mostrarPrecioMonitor">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockMonitor">Stock: 0 </span><br><br>
+            <!-- Contenedor para la columna de categori -->
+            <div id="silebar-categorias">
+                <div class="close-silebar">
+                    <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
+                            alt=""></label>
+                </div>
+                <ul>
+                    <a href="/catalogo/producto">
+                        <li class="listaItems">
+                            <span>CATALOGO</span>
+                        </li>
+                    </a>
+                    <hr>
+                    <a th:each="categoria : ${vistaCategorias}" th:href="@{'/catalogo/' + ${categoria.nombreUrl}}">
+                        <li class="listaItems">
+                            <span th:text="${categoria.nombre}"></span>
+                            <img loading="lazy" class="simbolo" th:src="@{/general/img/icon/angle-right.svg}" alt=""
+                                style="width: 12px;">
+                        </li>
+                    </a>
+                    <hr>
+                    <a href="/">
+                        <li class="listaItems">
+                            <span>INICIO</span>
+                        </li>
+                    </a>
+                    <a href="/contactanos">
+                        <li class="listaItems">
+                            <span>CONTACTANOS</span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
 
-        <b>Refrigeracion:</b>
-        <select name="refrigeracionId" id="selectRefrigeracionId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="refrigeracion : ${vistaRefrigeraciones}">
-                <option th:value="${refrigeracion.refrigeracionId}" th:text="${refrigeracion.nombre}"
-                    th:data-precio="${refrigeracion.precio}" th:data-stock="${refrigeracion.stock}"></option>
-            </th:block>
-        </select>
+            <!-- Contenedor para las subcategorias de las categorias -->
+            <div id="silebar-subcategoria">
+                <div>
+                    <div>
+                        <!-- Encabezado -->
+                        <div>
+                            <div>
+                                <img loading="lazy" src="" alt="" />
+                                <!--Icono referente a la categoria-->
+                            </div>
+                            <a href="/">Productos</a>
+                        </div>
+                        <a href="/">Ver todo</a>
+                    </div>
 
-        <span id="mostrarPrecioRefrigeracion">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockRefrigeracion">Stock: 0 </span><br><br>
+                    <!-- Contenido de cada sub categoria -->
+                    <div>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <b>Accesorio:</b>
-        <select name="accesorioId" id="selectAccesorioId">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="accesorio : ${vistaAccesorios}">
-                <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
-            </th:block>
-        </select>
+    <!-- SILEBAR DE CARRITO -->
+    <div id="background-silebar-carrito">
+        <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
 
-        <span id="mostrarPrecioAccesorio">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockAccesorio">Stock: 0 </span><br><br>
-
-        <b>Accesorio 2:</b>
-        <select name="accesorioId2" id="selectAccesorioId2">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="accesorio : ${vistaAccesorios}">
-                <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
-            </th:block>
-        </select>
-
-        <span id="mostrarPrecioAccesorio2">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockAccesorio2">Stock: 0 </span><br><br>
-
-        <b>Accesorio 3:</b>
-        <select name="accesorioId3" id="selectAccesorioId3">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="accesorio : ${vistaAccesorios}">
-                <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}">
-                </option>
-            </th:block>
-        </select>
-
-        <span id="mostrarPrecioAccesorio3">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockAccesorio3">Stock: 0 </span><br><br>
-
-        <b>Accesorio 4:</b>
-        <select name="accesorioId4" id="selectAccesorioId4">
-            <option value="">-- Seleccione --</option>
-            <th:block th:each="accesorio : ${vistaAccesorios}">
-                <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
-                    th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}">
-                </option>
-            </th:block>
-        </select>
-
-        <span id="mostrarPrecioAccesorio4">Precio seleccionado: S/.0 </span><br><br>
-        <span id="mostrarStockAccesorio4">Stock: 0 </span><br><br>
+            <!-- Contenedor para la columna de categorias -->
+            <div id="silebar-categorias-carrito">
+                <div class="close-silebar-carrito">
+                    <label for="close-silebar-carrito"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
+                            alt=""></label>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
+            <!-- Contenedor para las subcategorias de las categorias -->
+            <div id="silebar-subcategoria-carrito">
+                <!-- Aquí van los productos -->
+            </div>
+            <div class="contenido_productos-pago">
+                <p class="cantidad_productos_contenido"><span id="cantidad_productos_obtenidos"
+                        class="cantidad_producto--span"></span></p>
+                <p class="total_pagar_productos">Total a pagar: <span id="precio_total_productos"
+                        class="total_pagar-span"></span></p>
+            </div>
+            <a href="/contactanos">
+                <button class="comprar_productos_carrito">COMPRAR PRODUCTOS</button>
+            </a>
+        </div>
+    </div>
+    <!-- FIN HEADER ----------------------------------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------------------------------------------------------->
 
 
-        <span id="totalPrecio">Total: S/.0 </span><br><br>
+    <!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------------------------------------------------->
+    <section class="contactos">
+        <div class="contactos__header">
+            <div class="seguimiento">
+                <p>
+                    <a th:href="@{/}"><span class="seguimiento__etiqueta">Hogar </span></a>
+                    <i class="fa-solid fa-angle-right"></i>
+                    <a href="/cotizacion"><span class="seguimiento__contacto"> Cotizacion</span></a>
+                </p>
+            </div>
+            <div class="seguimiento__dos">
+                <h2 class="seguimiento__titulo">COTIZACION</h2>
+            </div>
+        </div>
+        <hr />
 
-        <button type="button" onclick="generarCotizacion()">Generar cotización</button>
+        <div>
+            <h1>Crea tu Cotizacion</h1>
 
-    </form>
+            <form>
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Procesador:</h5>
+                    </div>
+                    <select class="cont-select" name="procesadorId" id="selectProcesadorId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="procesador : ${vistaProcesadores}">
+                            <option th:value="${procesador.procesadorId}" th:text="${procesador.nombre}"
+                                th:data-precio="${procesador.precio}" th:data-stock="${procesador.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioProcesador">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockProcesador">Stock: 0 </span></p>
+                    </div>
+                </div>
 
-    <footer>
-        <p>&copy; 2023 La Bruja Store. Todos los derechos reservados.</p>
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Placa:</h5>
+                    </div>
+                    <select class="cont-select" name="placaId" id="selectPlacaId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="placa : ${vistaPlacas}">
+                            <option th:value="${placa.placaId}" th:text="${placa.nombre}"
+                                th:data-precio="${placa.precio}" th:data-stock="${placa.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioPlaca">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockPlaca">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Ram:</h5>
+                    </div>
+                    <select class="cont-select" name="ramId" id="selectRamId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="ram : ${vistaRams}">
+                            <option th:value="${ram.ramId}" th:text="${ram.nombre}" th:data-precio="${ram.precio}"
+                                th:data-stock="${ram.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioRam">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockRam">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Ram 2:</h5>
+                    </div>
+                    <select class="cont-select" name="ramId2" id="selectRamId2">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="ram : ${vistaRams}">
+                            <option th:value="${ram.ramId}" th:text="${ram.nombre}" th:data-precio="${ram.precio}"
+                                th:data-stock="${ram.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioRam2">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockRam2">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Almacenamiento:</h5>
+                    </div>
+                    <select class="cont-select" name="almacenamientoId" id="selectAlmacenamientoId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="almacenamiento : ${vistaAlmacenamientos}">
+                            <option th:value="${almacenamiento.almacenamientoId}" th:text="${almacenamiento.nombre}"
+                                th:data-precio="${almacenamiento.precio}" th:data-stock="${almacenamiento.stock}">
+                            </option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioAlmacenamiento">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockAlmacenamiento">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Tarjeta:</h5>
+                    </div>
+                    <select class="cont-select" name="tarjetaId" id="selectTarjetaId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="tarjeta : ${vistaTarjetas}">
+                            <option th:value="${tarjeta.tarjetaId}" th:text="${tarjeta.nombre}"
+                                th:data-precio="${tarjeta.precio}" th:data-stock="${tarjeta.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioTarjeta">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockTarjeta">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Fuente:</h5>
+                    </div>
+                    <select class="cont-select" name="fuenteId" id="selectFuenteId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="fuente : ${vistaFuentes}">
+                            <option th:value="${fuente.fuenteId}" th:text="${fuente.nombre}"
+                                th:data-precio="${fuente.precio}" th:data-stock="${fuente.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioFuente">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockFuente">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Case:</h5>
+                    </div>
+                    <select class="cont-select" name="casseId" id="selectCasseId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="casse : ${vistaCasses}">
+                            <option th:value="${casse.casseId}" th:text="${casse.nombre}"
+                                th:data-precio="${casse.precio}" th:data-stock="${casse.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioCasse">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockCasse">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Monitor:</h5>
+                    </div>
+                    <select class="cont-select" name="monitorId" id="selectMonitorId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="monitor : ${vistaMonitores}">
+                            <option th:value="${monitor.monitorId}" th:text="${monitor.nombre}"
+                                th:data-precio="${monitor.precio}" th:data-stock="${monitor.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioMonitor">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockMonitor">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Refrigeracion:</h5>
+                    </div>
+                    <select class="cont-select" name="refrigeracionId" id="selectRefrigeracionId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="refrigeracion : ${vistaRefrigeraciones}">
+                            <option th:value="${refrigeracion.refrigeracionId}" th:text="${refrigeracion.nombre}"
+                                th:data-precio="${refrigeracion.precio}" th:data-stock="${refrigeracion.stock}">
+                            </option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioRefrigeracion">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockRefrigeracion">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Accesorio:</h5>
+                    </div>
+                    <select class="cont-select" name="accesorioId" id="selectAccesorioId">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="accesorio : ${vistaAccesorios}">
+                            <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
+                                th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioAccesorio">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockAccesorio">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Accesorio 2:</h5>
+                    </div>
+                    <select class="cont-select" name="accesorioId2" id="selectAccesorioId2">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="accesorio : ${vistaAccesorios}">
+                            <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
+                                th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioAccesorio2">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockAccesorio2">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Accesorio 3:</h5>
+                    </div>
+                    <select class="cont-select" name="accesorioId3" id="selectAccesorioId3">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="accesorio : ${vistaAccesorios}">
+                            <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
+                                th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioAccesorio3">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockAccesorio3">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-categoria">
+                    <div class="cont-nombre-categoria">
+                        <h5>Accesorio 4:</h5>
+                    </div>
+                    <select class="cont-select" name="accesorioId4" id="selectAccesorioId4">
+                        <option value="">-- Seleccione --</option>
+                        <th:block th:each="accesorio : ${vistaAccesorios}">
+                            <option th:value="${accesorio.accesorioId}" th:text="${accesorio.nombre}"
+                                th:data-precio="${accesorio.precio}" th:data-stock="${accesorio.stock}"></option>
+                        </th:block>
+                    </select>
+                    <div class="div-cont-prduc">
+                        <p class="precio-produc"><span id="mostrarPrecioAccesorio4">Precio: S/.0 </span></p>
+                        <p class="stock-produc"><span id="mostrarStockAccesorio4">Stock: 0 </span></p>
+                    </div>
+                </div>
+
+                <div class="cont-precio-total">
+                    <span id="totalPrecio">Total: S/.0 </span>
+                    <div class="cont-btn-cotizacion">
+                        <button type="button" onclick="generarCotizacion()">Generar cotización</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
+    <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
+        	----------------------------------------------------------------------------------------------------------------------------->
+    <footer class="footer">
+        <main class="encabezado">
+            <span class="encabezado__titulo ocultar">Suscribete para resivir boletinis</span>
+            <div class="encabezado__contenido ocultar">
+                <input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
+                <p class="encabezado__parrafo">suscribirse</p>
+            </div>
+        </main>
+        <section class="seccion">
+            <article class="articulo">
+                <figure>
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen"
+                        width="315px" />
+                </figure>
+                <div class="contenido">
+                    <p class="contenido__descripcion">
+                        Consigue las mejores marcas a los mejores
+                        <span class="contenido__span">precios, aquí en La Bruja Store.</span>
+                    </p>
+                    <p>Siguenos en nuestras redes sociales:</p>
+                    <div class="cont-redes">
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}"
+                                    alt="">
+                            </a>
+                        </div>
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}"
+                                    alt="">
+                            </a>
+                        </div>
+                        <div class="cad-img">
+                            <a class="style-icon" target="_blank"
+                                th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="contacto">
+                <div class="container">
+                    <h2 class="contacto__titulo">CONTÁCTANOS</h2>
+                    <div class="conacto__dividir"></div>
+                </div>
+                <div class="contacto__borde"></div>
+                <div class="contacto__iconos">
+                    <a th:href="@{/contactanos}">
+                        <span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
+                    </a>
+                    <a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}">
+                        <span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
+                        133 y 219
+                    </a>
+                    <a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}">
+                        <span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
+                        sector 2 B
+                    </a>
+                    <a href="mailto:labrujastore@outlook.com">
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        labrujastore@uotlook.com
+                    </a>
+                </div>
+            </article>
+            <article class="informacion">
+                <div class="container">
+                    <h2 class="informacion__titulo">INFORMACIÓN</h2>
+                    <div class="informacion__dividir"></div>
+                </div>
+                <ul class="informacion__lista">
+                    <li>Nosotros</li>
+                    <li>Novedades</li>
+                    <li>Destacados</li>
+                    <li>Ofertas del día</li>
+                    <li>
+                        <a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+        <div class="copyright">
+            <p>Labrujastore© 2023 todos los derechos reservados.</p>
+        </div>
+
     </footer>
-
+    <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
+        	----------------------------------------------------------------------------------------------------------------------------->
+    <script th:src="@{/general/js/abrir-slider.js}"></script>
     <script th:src="@{/cotizacion/js/index.js}"></script>
 </body>
 

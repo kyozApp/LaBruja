@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.labrujastore.entity.Accesorio;
 import com.labrujastore.entity.Almacenamiento;
 import com.labrujastore.entity.Casse;
+import com.labrujastore.entity.Categoria;
+import com.labrujastore.entity.Combo;
 import com.labrujastore.entity.Fuente;
+import com.labrujastore.entity.Laptop;
 import com.labrujastore.entity.Monitor;
 import com.labrujastore.entity.Placa;
 import com.labrujastore.entity.Procesador;
@@ -21,7 +24,10 @@ import com.labrujastore.entity.Tarjeta;
 import com.labrujastore.service.AccesorioService;
 import com.labrujastore.service.AlmacenamientoService;
 import com.labrujastore.service.CasseService;
+import com.labrujastore.service.CategoriaService;
+import com.labrujastore.service.ComboService;
 import com.labrujastore.service.FuenteService;
+import com.labrujastore.service.LaptopService;
 import com.labrujastore.service.MonitorService;
 import com.labrujastore.service.PlacaService;
 import com.labrujastore.service.ProcesadorService;
@@ -63,8 +69,26 @@ public class CotizacionController {
     @Autowired
     private AccesorioService accesorioService;
 
-    @GetMapping("/producto")
+    @Autowired
+    private CategoriaService categoriaService;
+
+    @Autowired
+    private LaptopService laptopService;
+
+    @Autowired
+    private ComboService comboService;
+
+    @GetMapping("")
     public String index(Model model) {
+
+        List<Categoria> categorias = categoriaService.listarCategoria();
+        model.addAttribute("vistaCategorias", categorias);
+        List<Laptop> laptops = laptopService.listarLaptop();
+        List<Combo> combos = comboService.listarCombo();
+        model.addAttribute("vistaCombos", combos);
+        model.addAttribute("vistaLaptops", laptops);
+
+        //CODIGO INICO
         List<Accesorio> accesorios = accesorioService.listarAccesorio();
         List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
         List<Casse> casses = casseService.listarCasse();
