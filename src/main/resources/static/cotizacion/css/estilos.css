@@ -1,3 +1,82 @@
-h1 {
-    background-color: brown;
+.cont-categoria {
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+}
+
+.cont-categoria h5,
+.cont-categoria p {
+    margin: 0;
+}
+
+.cont-categoria h5 {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.cont-nombre-categoria {
+    width: 20%;
+}
+
+.cont-select {
+    width: 50%;
+    height: 80%;
+    cursor: pointer;
+}
+
+.div-cont-prduc {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.div-cont-prduc p {
+    width: 40%;
+    padding: 5px;
+    background-color: rgb(255 94 94);
+    color: white;
+    border-radius: 5px;
+}
+
+.div-cont-prduc .stock-produc {
+    background-color: #e5e5e5;
+    color: black;
+    width: 25%;
+}
+
+.cont-precio-total {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0px;
+}
+
+.cont-precio-total span {
+    font-weight: 700;
+}
+
+.cont-btn-cotizacion {
+    width: 200px;
+    height: 50px;
+}
+
+.cont-btn-cotizacion button {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    font-weight: 700;
+    border-width: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cont-btn-cotizacion button:hover{
+    color: white;
+    background-color: black;
 }
