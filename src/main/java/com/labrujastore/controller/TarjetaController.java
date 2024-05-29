@@ -142,7 +142,7 @@ public class TarjetaController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "tarjeta");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/tarjeta/atributos/{productoId}")
@@ -166,7 +166,7 @@ public class TarjetaController {
         model.addAttribute("categoria", "tarjeta");
         model.addAttribute("categoriaId", atributo.getTarjeta().getTarjetaId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/tarjeta/atributos/editar/{atributoId}")

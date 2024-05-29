@@ -44,7 +44,6 @@
                     <td th:text="${atributo.titulo}"></td>
                     <td th:text="${atributo.contenido}"></td>
 
-                    <!--BOTON DE EDITAR-->
                     <td>
                         <button>
                             <a
@@ -52,7 +51,6 @@
                         </button>
                     </td>
 
-                    <!--BOTON DE ELIMINAR-->
                     <td>
                         <button
                             th:attr="onclick='confirmarEliminacion(\'/admin/' + ${categoria} + '/atributos/eliminar/' + ${atributo.atributoId} + '\')'">

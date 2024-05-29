@@ -141,7 +141,7 @@ public class FuenteController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "fuente");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/fuente/atributos/{productoId}")
@@ -164,7 +164,7 @@ public class FuenteController {
         model.addAttribute("categoria", "fuente");
         model.addAttribute("categoriaId", atributo.getFuente().getFuenteId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/fuente/atributos/editar/{atributoId}")

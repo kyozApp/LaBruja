@@ -140,7 +140,7 @@ public class MonitorController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "monitor");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/monitor/atributos/{productoId}")
@@ -164,7 +164,7 @@ public class MonitorController {
         model.addAttribute("categoria", "monitor");
         model.addAttribute("categoriaId", atributo.getMonitor().getMonitorId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/monitor/atributos/editar/{atributoId}")

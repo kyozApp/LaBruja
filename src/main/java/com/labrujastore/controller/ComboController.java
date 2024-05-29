@@ -136,7 +136,7 @@ public class ComboController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "combo");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/combo/atributos/{productoId}")
@@ -160,7 +160,7 @@ public class ComboController {
         model.addAttribute("categoria", "combo");
         model.addAttribute("categoriaId", atributo.getCombo().getComboId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/combo/atributos/editar/{atributoId}")
