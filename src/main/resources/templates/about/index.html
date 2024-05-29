@@ -489,11 +489,11 @@
     <section class="contactos">
         <div class="contactos__header">
             <div class="seguimiento">
-                <a href="/contactanos" class="seguimiento__etiqueta">
-                    Hogar
+                <p>
+                    <a th:href="@{/}"><span class="seguimiento__etiqueta">Hogar </span></a>
                     <i class="fa-solid fa-angle-right"></i>
-                    <span class="seguimiento__contacto"> Sobre Nosotros </span>
-                </a>
+                    <a href="/about"><span class="seguimiento__contacto"> Sobre Nosotros</span></a>
+                </p>
             </div>
             <div class="seguimiento__dos">
                 <h2 class="seguimiento__titulo">SOBRE NOSOTROS</h2>
@@ -501,7 +501,9 @@
         </div>
         <hr />
 
-        <div><p>prueba commit :v</p></div>
+        <div style="height: 500px;">
+            <!-- CONTENIDO -->
+        </div>
 
     </section>
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------

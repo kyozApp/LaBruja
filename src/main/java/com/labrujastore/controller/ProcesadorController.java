@@ -142,7 +142,7 @@ public class ProcesadorController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "procesador");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/procesador/atributos/{productoId}")
@@ -166,7 +166,7 @@ public class ProcesadorController {
         model.addAttribute("categoria", "procesador");
         model.addAttribute("categoriaId", atributo.getProcesador().getProcesadorId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/procesador/atributos/editar/{atributoId}")

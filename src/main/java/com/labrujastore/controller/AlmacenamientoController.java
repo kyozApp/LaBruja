@@ -141,7 +141,7 @@ public class AlmacenamientoController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "almacenamiento");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/almacenamiento/atributos/{productoId}")
@@ -165,7 +165,7 @@ public class AlmacenamientoController {
         model.addAttribute("categoria", "almacenamiento");
         model.addAttribute("categoriaId", atributo.getAlmacenamiento().getAlmacenamientoId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/almacenamiento/atributos/editar/{atributoId}")

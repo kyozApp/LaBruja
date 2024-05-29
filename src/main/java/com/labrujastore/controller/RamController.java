@@ -142,7 +142,7 @@ public class RamController {
         model.addAttribute("tablaAtributos", atributos_tabla);
         model.addAttribute("categoria", "ram");
 
-        return "/atributo/index";
+        return "admin/atributo/index";
     }
 
     @PostMapping("/ram/atributos/{productoId}")
@@ -166,7 +166,7 @@ public class RamController {
         model.addAttribute("categoria", "ram");
         model.addAttribute("categoriaId", atributo.getRam().getRamId());
 
-        return "/atributo/editar";
+        return "admin/atributo/editar";
     }
 
     @PostMapping("/ram/atributos/editar/{atributoId}")
