@@ -67,4 +67,9 @@ public class RamServiceImpl implements RamService
 
         return ramsFinal;
     }
+
+	@Override
+	public List<Ram> obtenerRamsCompatibles(Integer placaId) {
+		return ramRepository.findByItemsPlaca_PlacaId(placaId);
+	}
 }

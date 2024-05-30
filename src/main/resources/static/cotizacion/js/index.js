@@ -1,3 +1,75 @@
+var placasOriginales = document.getElementById("selectPlacaId").innerHTML;
+var rams1Originales = document.getElementById("selectRamId").innerHTML;
+var rams2Originales = document.getElementById("selectRamId2").innerHTML;
+
+function actualizarPlacas() {
+    var procesadorId = document.getElementById("selectProcesadorId").value;
+    var placaSelect = document.getElementById("selectPlacaId");
+    placaSelect.disabled = true;
+
+    placaSelect.innerHTML = placasOriginales;
+
+    document.getElementById("selectRamId").innerHTML = rams1Originales;
+    document.getElementById("selectRamId2").innerHTML = rams2Originales;
+    document.getElementById("mostrarPrecioPlaca").textContent = "Precio: ";
+    document.getElementById("mostrarStockPlaca").textContent = "Stock: ";
+    document.getElementById("mostrarPrecioRam").textContent = "Precio: ";
+    document.getElementById("mostrarStockRam").textContent = "Stock: ";
+    document.getElementById("mostrarPrecioRam2").textContent = "Precio: ";
+    document.getElementById("mostrarStockRam2").textContent = "Stock: ";
+
+    if (procesadorId !== "") {
+        placaSelect.disabled = false;
+        var placas = document.querySelectorAll('#selectPlacaId option:not([value=""])');
+        placas.forEach(function (option) {
+            if (option.getAttribute('data-procesadores').includes(procesadorId)) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        });
+    }
+}
+
+function actualizarRams() {
+    var placaId = document.getElementById("selectPlacaId").value;
+    var ram1Select = document.getElementById("selectRamId");
+    var ram2Select = document.getElementById("selectRamId2");
+    ram1Select.disabled = true;
+    ram2Select.disabled = true;
+
+    ram1Select.innerHTML = rams1Originales;
+    ram2Select.innerHTML = rams2Originales;
+
+    document.getElementById("selectRamId").innerHTML = rams1Originales;
+    document.getElementById("selectRamId2").innerHTML = rams2Originales;
+    document.getElementById("mostrarPrecioRam").textContent = "Precio: ";
+    document.getElementById("mostrarStockRam").textContent = "Stock: ";
+    document.getElementById("mostrarPrecioRam2").textContent = "Precio: ";
+    document.getElementById("mostrarStockRam2").textContent = "Stock: ";
+
+    if (placaId !== "") {
+        ram1Select.disabled = false;
+        ram2Select.disabled = false;
+        var rams1 = document.querySelectorAll('#selectRamId option:not([value=""])');
+        rams1.forEach(function (option) {
+            if (option.getAttribute('data-placas').includes(placaId)) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        });
+        var rams2 = document.querySelectorAll('#selectRamId2 option:not([value=""])');
+        rams2.forEach(function (option) {
+            if (option.getAttribute('data-placas').includes(placaId)) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        });
+    }
+}
+
 document.getElementById("selectProcesadorId").addEventListener("change", function () {
     var select = document.getElementById("selectProcesadorId");
     var selectedOption = select.options[select.selectedIndex];
@@ -10,8 +82,8 @@ document.getElementById("selectProcesadorId").addEventListener("change", functio
     if (stockProcesador === null) {
         stockProcesador = "0";
     }
-    document.getElementById("mostrarStockProcesador").textContent = "Stock: " +stockProcesador;
-    
+    document.getElementById("mostrarStockProcesador").textContent = "Stock: " + stockProcesador;
+
 });
 
 document.getElementById("selectPlacaId").addEventListener("change", function () {
@@ -26,7 +98,7 @@ document.getElementById("selectPlacaId").addEventListener("change", function () 
     if (stockPlaca === null) {
         stockPlaca = "0";
     }
-    document.getElementById("mostrarStockPlaca").textContent = "Stock: " +stockPlaca;
+    document.getElementById("mostrarStockPlaca").textContent = "Stock: " + stockPlaca;
 });
 
 document.getElementById("selectRamId").addEventListener("change", function () {
@@ -41,7 +113,7 @@ document.getElementById("selectRamId").addEventListener("change", function () {
     if (stockRam === null) {
         stockRam = "0";
     }
-    document.getElementById("mostrarStockRam").textContent = "Stock: " +stockRam;
+    document.getElementById("mostrarStockRam").textContent = "Stock: " + stockRam;
 });
 
 document.getElementById("selectRamId2").addEventListener("change", function () {
@@ -56,7 +128,7 @@ document.getElementById("selectRamId2").addEventListener("change", function () {
     if (stockRam2 === null) {
         stockRam2 = "0";
     }
-    document.getElementById("mostrarStockRam2").textContent = "Stock: " +stockRam2;
+    document.getElementById("mostrarStockRam2").textContent = "Stock: " + stockRam2;
 });
 
 document.getElementById("selectAlmacenamientoId").addEventListener("change", function () {
@@ -71,7 +143,7 @@ document.getElementById("selectAlmacenamientoId").addEventListener("change", fun
     if (stockAlmacenamiento === null) {
         stockAlmacenamiento = "0";
     }
-    document.getElementById("mostrarStockAlmacenamiento").textContent = "Stock: " +stockAlmacenamiento;
+    document.getElementById("mostrarStockAlmacenamiento").textContent = "Stock: " + stockAlmacenamiento;
 });
 
 document.getElementById("selectTarjetaId").addEventListener("change", function () {
@@ -86,7 +158,7 @@ document.getElementById("selectTarjetaId").addEventListener("change", function (
     if (stockTarjeta === null) {
         stockTarjeta = "0";
     }
-    document.getElementById("mostrarStockTarjeta").textContent = "Stock: " +stockTarjeta;
+    document.getElementById("mostrarStockTarjeta").textContent = "Stock: " + stockTarjeta;
 });
 
 document.getElementById("selectFuenteId").addEventListener("change", function () {
@@ -101,7 +173,7 @@ document.getElementById("selectFuenteId").addEventListener("change", function ()
     if (stockFuente === null) {
         stockFuente = "0";
     }
-    document.getElementById("mostrarStockFuente").textContent = "Stock: " +stockFuente;
+    document.getElementById("mostrarStockFuente").textContent = "Stock: " + stockFuente;
 });
 
 document.getElementById("selectCasseId").addEventListener("change", function () {
@@ -116,7 +188,7 @@ document.getElementById("selectCasseId").addEventListener("change", function () 
     if (stockCasse === null) {
         stockCasse = "0";
     }
-    document.getElementById("mostrarStockCasse").textContent = "Stock: " +stockCasse;
+    document.getElementById("mostrarStockCasse").textContent = "Stock: " + stockCasse;
 });
 
 document.getElementById("selectMonitorId").addEventListener("change", function () {
@@ -131,7 +203,7 @@ document.getElementById("selectMonitorId").addEventListener("change", function (
     if (stockMonitor === null) {
         stockMonitor = "0";
     }
-    document.getElementById("mostrarStockMonitor").textContent = "Stock: " +stockMonitor;
+    document.getElementById("mostrarStockMonitor").textContent = "Stock: " + stockMonitor;
 });
 
 document.getElementById("selectRefrigeracionId").addEventListener("change", function () {
@@ -146,7 +218,7 @@ document.getElementById("selectRefrigeracionId").addEventListener("change", func
     if (stockRefrigeracion === null) {
         stockRefrigeracion = "0";
     }
-    document.getElementById("mostrarStockRefrigeracion").textContent = "Stock: " +stockRefrigeracion;
+    document.getElementById("mostrarStockRefrigeracion").textContent = "Stock: " + stockRefrigeracion;
 });
 
 document.getElementById("selectAccesorioId").addEventListener("change", function () {
@@ -161,7 +233,7 @@ document.getElementById("selectAccesorioId").addEventListener("change", function
     if (stockAccesorio === null) {
         stockAccesorio = "0";
     }
-    document.getElementById("mostrarStockAccesorio").textContent = "Stock: " +stockAccesorio;
+    document.getElementById("mostrarStockAccesorio").textContent = "Stock: " + stockAccesorio;
 });
 
 document.getElementById("selectAccesorioId2").addEventListener("change", function () {
@@ -176,7 +248,7 @@ document.getElementById("selectAccesorioId2").addEventListener("change", functio
     if (stockAccesorio2 === null) {
         stockAccesorio2 = "0";
     }
-    document.getElementById("mostrarStockAccesorio2").textContent = "Stock: " +stockAccesorio2;
+    document.getElementById("mostrarStockAccesorio2").textContent = "Stock: " + stockAccesorio2;
 });
 
 document.getElementById("selectAccesorioId3").addEventListener("change", function () {
@@ -191,7 +263,7 @@ document.getElementById("selectAccesorioId3").addEventListener("change", functio
     if (stockAccesorio3 === null) {
         stockAccesorio3 = "0";
     }
-    document.getElementById("mostrarStockAccesorio3").textContent = "Stock: " +stockAccesorio3;
+    document.getElementById("mostrarStockAccesorio3").textContent = "Stock: " + stockAccesorio3;
 });
 
 document.getElementById("selectAccesorioId4").addEventListener("change", function () {
@@ -206,7 +278,7 @@ document.getElementById("selectAccesorioId4").addEventListener("change", functio
     if (stockAccesorio4 === null) {
         stockAccesorio4 = "0";
     }
-    document.getElementById("mostrarStockAccesorio4").textContent = "Stock: " +stockAccesorio4;
+    document.getElementById("mostrarStockAccesorio4").textContent = "Stock: " + stockAccesorio4;
 });
 
 

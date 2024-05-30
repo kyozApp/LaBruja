@@ -13,4 +13,5 @@ public interface RamService
 	public void eliminarRam(Integer ramId);
     public List<Ram> obtenerRamsPorCategoria(Integer ramId);
     public List<Ram> obtenerRamsPorMarca(Integer marcaId);
+	List<Ram> obtenerRamsCompatibles(Integer placaId);
 }

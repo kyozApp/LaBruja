@@ -13,4 +13,5 @@ public interface PlacaService
 	public void eliminarPlaca(Integer placaId);
     public List<Placa> obtenerPlacasPorCategoria(Integer placaId);
     public List<Placa> obtenerPlacasPorMarca(Integer marcaId);
+	List<Placa> obtenerPlacasCompatibles(Integer procesadorId);
 }

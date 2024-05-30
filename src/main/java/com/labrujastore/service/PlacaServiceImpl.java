@@ -67,4 +67,11 @@ public class PlacaServiceImpl implements PlacaService
 
         return placasFinal;
     }
+
+	@Override
+	public List<Placa> obtenerPlacasCompatibles(Integer procesadorId) {
+		return placaRepository.findByItemsProcesador_ProcesadorId(procesadorId);
+	}
+
+	
 }

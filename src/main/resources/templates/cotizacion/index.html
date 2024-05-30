@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Metas para la busqueda de google -->
+    <!-- Metas para la búsqueda de google -->
     <title>Cotización - LaBrujaStore</title>
     <meta name="description" content="Realiza tus cotizaciones de forma Virtual aquí en La Bruja Store.">
     <meta name="robots" content="index">
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
+    <!-- INICIO HEADER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <header>
         <div id="head-div-1">
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="barra-bus-btn">
-                        <!-- Amburguesa para abrir silebar isquierdo - celulares -->
+                        <!-- Hamburguesa para abrir sidebar izquierdo - celulares -->
                         <div class="abrir mostrar-opc-mobil">
                             <label for="open-silebar" class="centered-label">
                                 <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
@@ -378,11 +378,11 @@
         </div>
     </div>
 
-    <!-- SILEBAR CATEGORIAS -->
+    <!-- SIDEBAR CATEGORIAS -->
     <div id="background-silebar">
         <div id="contenedor-silebar">
 
-            <!-- Contenedor para la columna de categori -->
+            <!-- Contenedor para la columna de categoria -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
                     <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
@@ -416,7 +416,7 @@
                 </ul>
             </div>
 
-            <!-- Contenedor para las subcategorias de las categorias -->
+            <!-- Contenedor para las subcategoria de las categorias -->
             <div id="silebar-subcategoria">
                 <div>
                     <div>
@@ -453,7 +453,7 @@
         </div>
     </div>
 
-    <!-- SILEBAR DE CARRITO -->
+    <!-- SIDEBAR DE CARRITO -->
     <div id="background-silebar-carrito">
         <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
 
@@ -465,7 +465,7 @@
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
-            <!-- Contenedor para las subcategorias de las categorias -->
+            <!-- Contenedor para las subcategoria de las categorias -->
             <div id="silebar-subcategoria-carrito">
                 <!-- Aquí van los productos -->
             </div>
@@ -504,68 +504,65 @@
         <div>
             <h1>Crea tu Cotizacion</h1>
 
-            <form>
+            <form action="/cotizacion">
+
                 <div class="cont-categoria">
                     <div class="cont-nombre-categoria">
                         <h5>Procesador:</h5>
                     </div>
-                    <select class="cont-select" name="procesadorId" id="selectProcesadorId">
-                        <option value="">-- Seleccione --</option>
-                        <th:block th:each="procesador : ${vistaProcesadores}">
-                            <option th:value="${procesador.procesadorId}" th:text="${procesador.nombre}"
-                                th:data-precio="${procesador.precio}" th:data-stock="${procesador.stock}"></option>
-                        </th:block>
+                    <select name="procesadorId" id="selectProcesadorId" onchange="actualizarPlacas()">
+                        <option value="">Selecciona un procesador</option>
+                        <option th:each="procesador : ${procesadores}" th:value="${procesador.procesadorId}" th:text="${procesador.nombre}" 
+                        th:data-precio="${procesador.precio}" th:data-stock="${procesador.stock}"></option>
                     </select>
                     <div class="div-cont-prduc">
                         <p class="precio-produc"><span id="mostrarPrecioProcesador">Precio: S/.0 </span></p>
                         <p class="stock-produc"><span id="mostrarStockProcesador">Stock: 0 </span></p>
                     </div>
                 </div>
-
+        
                 <div class="cont-categoria">
                     <div class="cont-nombre-categoria">
                         <h5>Placa:</h5>
                     </div>
-                    <select class="cont-select" name="placaId" id="selectPlacaId">
-                        <option value="">-- Seleccione --</option>
-                        <th:block th:each="placa : ${vistaPlacas}">
-                            <option th:value="${placa.placaId}" th:text="${placa.nombre}"
-                                th:data-precio="${placa.precio}" th:data-stock="${placa.stock}"></option>
-                        </th:block>
+                    <select name="placaId" id="selectPlacaId" onchange="actualizarRams()" disabled>
+                        <option value="" selected>Selecciona una placa</option>
+                        <option th:each="placa : ${placas}" th:value="${placa.placaId}" th:text="${placa.nombre}" 
+                        th:data-precio="${placa.precio}" th:data-stock="${placa.stock}" 
+                        th:attr="data-procesadores=${procesadoresCompatibles[__${placa.placaId}__]}" style="display: none;"></option>
                     </select>
                     <div class="div-cont-prduc">
                         <p class="precio-produc"><span id="mostrarPrecioPlaca">Precio: S/.0 </span></p>
                         <p class="stock-produc"><span id="mostrarStockPlaca">Stock: 0 </span></p>
                     </div>
                 </div>
-
+        
                 <div class="cont-categoria">
                     <div class="cont-nombre-categoria">
                         <h5>Ram:</h5>
                     </div>
-                    <select class="cont-select" name="ramId" id="selectRamId">
-                        <option value="">-- Seleccione --</option>
-                        <th:block th:each="ram : ${vistaRams}">
-                            <option th:value="${ram.ramId}" th:text="${ram.nombre}" th:data-precio="${ram.precio}"
-                                th:data-stock="${ram.stock}"></option>
-                        </th:block>
+                    <select name="ramId1" id="selectRamId" disabled>
+                        <option value="" selected>Selecciona una RAM</option>
+                        <option th:each="ram : ${rams}" th:value="${ram.ramId}" th:text="${ram.nombre}" 
+                        th:data-precio="${ram.precio}" th:data-stock="${ram.stock}" 
+                        th:attr="data-placas=${placasCompatibles[__${ram.ramId}__]}" style="display: none;"></option>
                     </select>
                     <div class="div-cont-prduc">
                         <p class="precio-produc"><span id="mostrarPrecioRam">Precio: S/.0 </span></p>
                         <p class="stock-produc"><span id="mostrarStockRam">Stock: 0 </span></p>
                     </div>
                 </div>
-
+        
                 <div class="cont-categoria">
                     <div class="cont-nombre-categoria">
                         <h5>Ram 2:</h5>
                     </div>
-                    <select class="cont-select" name="ramId2" id="selectRamId2">
-                        <option value="">-- Seleccione --</option>
-                        <th:block th:each="ram : ${vistaRams}">
-                            <option th:value="${ram.ramId}" th:text="${ram.nombre}" th:data-precio="${ram.precio}"
-                                th:data-stock="${ram.stock}"></option>
-                        </th:block>
+                    <select name="ramId2" id="selectRamId2" disabled>
+                        <option value="" selected>Selecciona una RAM</option>
+                        <option th:each="ram : ${rams}" th:value="${ram.ramId}" th:text="${ram.nombre}" 
+                        th:data-precio="${ram.precio}" th:data-stock="${ram.stock}" 
+                        th:attr="data-placas=${placasCompatibles[__${ram.ramId}__]}" style="display: none;"></option>
+                    </select>
                     </select>
                     <div class="div-cont-prduc">
                         <p class="precio-produc"><span id="mostrarPrecioRam2">Precio: S/.0 </span></p>
@@ -764,9 +761,9 @@
         	----------------------------------------------------------------------------------------------------------------------------->
     <footer class="footer">
         <main class="encabezado">
-            <span class="encabezado__titulo ocultar">Suscribete para resivir boletinis</span>
+            <span class="encabezado__titulo ocultar">Suscribete para recibir boletines</span>
             <div class="encabezado__contenido ocultar">
-                <input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
+                <input type="email" class="encabezado__input" placeholder="Su dirección electrónico" />
                 <p class="encabezado__parrafo">suscribirse</p>
             </div>
         </main>
@@ -781,7 +778,7 @@
                         Consigue las mejores marcas a los mejores
                         <span class="contenido__span">precios, aquí en La Bruja Store.</span>
                     </p>
-                    <p>Siguenos en nuestras redes sociales:</p>
+                    <p>Síguenos en nuestras redes sociales:</p>
                     <div class="cont-redes">
                         <div class="cad-img">
                             <a class="style-icon" target="_blank"
@@ -808,7 +805,7 @@
             </article>
             <article class="contacto">
                 <div class="container">
-                    <h2 class="contacto__titulo">CONTÁCTANOS</h2>
+                    <h2 class="contacto__titulo">CONTACTANOS</h2>
                     <div class="conacto__dividir"></div>
                 </div>
                 <div class="contacto__borde"></div>
@@ -841,10 +838,10 @@
                     <li>Destacados</li>
                     <li>Ofertas del día</li>
                     <li>
-                        <a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
+                        <a th:href="@{/politica_de_privacidad}">Políticas de Privacidad</a>
                     </li>
                     <li>
-                        <a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
+                        <a th:href="@{/terminos_y_condiciones}">Términos y Condiciones</a>
                     </li>
                     <li>
                         <a th:href="@{/eliminar_datos_cuenta}">Store Data</a>

@@ -1,6 +1,10 @@
 package com.labrujastore.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -88,15 +92,15 @@ public class CotizacionController {
         model.addAttribute("vistaCombos", combos);
         model.addAttribute("vistaLaptops", laptops);
 
-        //CODIGO INICO
+        //CÓDIGO INICIO
         List<Accesorio> accesorios = accesorioService.listarAccesorio();
         List<Almacenamiento> almacenamientos = almacenamientoService.listarAlmacenamiento();
         List<Casse> casses = casseService.listarCasse();
         List<Fuente> fuentes = fuenteService.listarFuente();
         List<Monitor> monitores = monitorService.listarMonitor();
-        List<Placa> placas = placaService.listarPlaca();
-        List<Procesador> procesadores = procesadorService.listarProcesador();
-        List<Ram> rams = ramService.listarRam();
+        // List<Placa> placas = placaService.listarPlaca();
+        // List<Procesador> procesadores = procesadorService.listarProcesador();
+        // List<Ram> rams = ramService.listarRam();
         List<Refrigeracion> refrigeraciones = refrigeracionService.listarRefrigeracion();
         List<Tarjeta> tarjetas = tarjetaService.listarTarjeta();
 
@@ -105,12 +109,40 @@ public class CotizacionController {
         model.addAttribute("vistaCasses", casses);
         model.addAttribute("vistaFuentes", fuentes);
         model.addAttribute("vistaMonitores", monitores);
-        model.addAttribute("vistaPlacas", placas);
-        model.addAttribute("vistaProcesadores", procesadores);
-        model.addAttribute("vistaRams", rams);
+        // model.addAttribute("vistaPlacas", placas);
+        // model.addAttribute("vistaProcesadores", procesadores);
+        // model.addAttribute("vistaRams", rams);
         model.addAttribute("vistaRefrigeraciones", refrigeraciones);
         model.addAttribute("vistaTarjetas", tarjetas);
+
+        // Agregando para tener relación
+        List<Procesador> procesadores = procesadorService.listarProcesador();
+        model.addAttribute("procesadores", procesadores);
+        List<Placa> placas = placaService.listarPlaca();
+        model.addAttribute("placas", placas);
+        Map<Integer, List<Integer>> procesadoresCompatibles = new HashMap<>();
+        for (Placa placa : placas) {
+            Set<Procesador> procesadoresPlaca = placa.getItemsProcesador();
+            List<Integer> idsProcesadores = procesadoresPlaca.stream().map(Procesador::getProcesadorId).collect(Collectors.toList());
+            procesadoresCompatibles.put(placa.getPlacaId(), idsProcesadores);
+        }
+        model.addAttribute("procesadoresCompatibles", procesadoresCompatibles);
+
+        List<Ram> rams = ramService.listarRam();
+        model.addAttribute("rams", rams);
+        Map<Integer, List<Integer>> placasCompatibles = new HashMap<>();
+        for (Ram ram : rams) {
+            Set<Placa> placasRams = ram.getItemsPlaca();
+            List<Integer> idsPlacas = placasRams.stream().map(Placa::getPlacaId).collect(Collectors.toList());
+            placasCompatibles.put(ram.getRamId(), idsPlacas);
+        }
+        model.addAttribute("placasCompatibles", placasCompatibles);
+
         return "cotizacion/index";
     }
+
+
+    
+
 
 }
