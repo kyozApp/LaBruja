@@ -11,11 +11,11 @@ function actualizarPlacas() {
 
     document.getElementById("selectRamId").innerHTML = rams1Originales;
     document.getElementById("selectRamId2").innerHTML = rams2Originales;
-    document.getElementById("mostrarPrecioPlaca").textContent = "Precio: ";
+    document.getElementById("mostrarPrecioPlaca").textContent = "Precio: S/.";
     document.getElementById("mostrarStockPlaca").textContent = "Stock: ";
-    document.getElementById("mostrarPrecioRam").textContent = "Precio: ";
+    document.getElementById("mostrarPrecioRam").textContent = "Precio: S/.";
     document.getElementById("mostrarStockRam").textContent = "Stock: ";
-    document.getElementById("mostrarPrecioRam2").textContent = "Precio: ";
+    document.getElementById("mostrarPrecioRam2").textContent = "Precio: S/.";
     document.getElementById("mostrarStockRam2").textContent = "Stock: ";
 
     if (procesadorId !== "") {
@@ -43,9 +43,9 @@ function actualizarRams() {
 
     document.getElementById("selectRamId").innerHTML = rams1Originales;
     document.getElementById("selectRamId2").innerHTML = rams2Originales;
-    document.getElementById("mostrarPrecioRam").textContent = "Precio: ";
+    document.getElementById("mostrarPrecioRam").textContent = "Precio: S/.";
     document.getElementById("mostrarStockRam").textContent = "Stock: ";
-    document.getElementById("mostrarPrecioRam2").textContent = "Precio: ";
+    document.getElementById("mostrarPrecioRam2").textContent = "Precio: S/.";
     document.getElementById("mostrarStockRam2").textContent = "Stock: ";
 
     if (placaId !== "") {

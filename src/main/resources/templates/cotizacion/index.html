@@ -510,7 +510,7 @@
                     <div class="cont-nombre-categoria">
                         <h5>Procesador:</h5>
                     </div>
-                    <select name="procesadorId" id="selectProcesadorId" onchange="actualizarPlacas()">
+                    <select class="cont-select" name="procesadorId" id="selectProcesadorId" onchange="actualizarPlacas()">
                         <option value="">Selecciona un procesador</option>
                         <option th:each="procesador : ${procesadores}" th:value="${procesador.procesadorId}" th:text="${procesador.nombre}" 
                         th:data-precio="${procesador.precio}" th:data-stock="${procesador.stock}"></option>
@@ -525,7 +525,7 @@
                     <div class="cont-nombre-categoria">
                         <h5>Placa:</h5>
                     </div>
-                    <select name="placaId" id="selectPlacaId" onchange="actualizarRams()" disabled>
+                    <select class="cont-select" name="placaId" id="selectPlacaId" onchange="actualizarRams()" disabled>
                         <option value="" selected>Selecciona una placa</option>
                         <option th:each="placa : ${placas}" th:value="${placa.placaId}" th:text="${placa.nombre}" 
                         th:data-precio="${placa.precio}" th:data-stock="${placa.stock}" 
@@ -541,7 +541,7 @@
                     <div class="cont-nombre-categoria">
                         <h5>Ram:</h5>
                     </div>
-                    <select name="ramId1" id="selectRamId" disabled>
+                    <select class="cont-select" name="ramId1" id="selectRamId" disabled>
                         <option value="" selected>Selecciona una RAM</option>
                         <option th:each="ram : ${rams}" th:value="${ram.ramId}" th:text="${ram.nombre}" 
                         th:data-precio="${ram.precio}" th:data-stock="${ram.stock}" 
@@ -557,7 +557,7 @@
                     <div class="cont-nombre-categoria">
                         <h5>Ram 2:</h5>
                     </div>
-                    <select name="ramId2" id="selectRamId2" disabled>
+                    <select class="cont-select" name="ramId2" id="selectRamId2" disabled>
                         <option value="" selected>Selecciona una RAM</option>
                         <option th:each="ram : ${rams}" th:value="${ram.ramId}" th:text="${ram.nombre}" 
                         th:data-precio="${ram.precio}" th:data-stock="${ram.stock}" 
