@@ -11,11 +11,11 @@ function actualizarPlacas() {
 
     document.getElementById("selectRamId").innerHTML = rams1Originales;
     document.getElementById("selectRamId2").innerHTML = rams2Originales;
-    document.getElementById("mostrarPrecioPlaca").textContent = "Precio: S/.";
+    document.getElementById("mostrarPrecioPlaca").textContent = "S/.";
     document.getElementById("mostrarStockPlaca").textContent = "Stock: ";
-    document.getElementById("mostrarPrecioRam").textContent = "Precio: S/.";
+    document.getElementById("mostrarPrecioRam").textContent = "S/.";
     document.getElementById("mostrarStockRam").textContent = "Stock: ";
-    document.getElementById("mostrarPrecioRam2").textContent = "Precio: S/.";
+    document.getElementById("mostrarPrecioRam2").textContent = "S/.";
     document.getElementById("mostrarStockRam2").textContent = "Stock: ";
 
     if (procesadorId !== "") {
@@ -43,9 +43,9 @@ function actualizarRams() {
 
     document.getElementById("selectRamId").innerHTML = rams1Originales;
     document.getElementById("selectRamId2").innerHTML = rams2Originales;
-    document.getElementById("mostrarPrecioRam").textContent = "Precio: S/.";
+    document.getElementById("mostrarPrecioRam").textContent = "S/.";
     document.getElementById("mostrarStockRam").textContent = "Stock: ";
-    document.getElementById("mostrarPrecioRam2").textContent = "Precio: S/.";
+    document.getElementById("mostrarPrecioRam2").textContent = "S/.";
     document.getElementById("mostrarStockRam2").textContent = "Stock: ";
 
     if (placaId !== "") {
@@ -77,7 +77,7 @@ document.getElementById("selectProcesadorId").addEventListener("change", functio
     if (precioProcesador === null) {
         precioProcesador = "0";
     }
-    document.getElementById("mostrarPrecioProcesador").textContent = "Precio: S/." + precioProcesador;
+    document.getElementById("mostrarPrecioProcesador").textContent = "S/." + precioProcesador;
     var stockProcesador = selectedOption.getAttribute("data-stock");
     if (stockProcesador === null) {
         stockProcesador = "0";
@@ -93,7 +93,7 @@ document.getElementById("selectPlacaId").addEventListener("change", function () 
     if (precioPlaca === null) {
         precioPlaca = "0";
     }
-    document.getElementById("mostrarPrecioPlaca").textContent = "Precio: S/." + precioPlaca;
+    document.getElementById("mostrarPrecioPlaca").textContent = "S/." + precioPlaca;
     var stockPlaca = selectedOption.getAttribute("data-stock");
     if (stockPlaca === null) {
         stockPlaca = "0";
@@ -108,7 +108,7 @@ document.getElementById("selectRamId").addEventListener("change", function () {
     if (precioRam === null) {
         precioRam = "0";
     }
-    document.getElementById("mostrarPrecioRam").textContent = "Precio: S/." + precioRam;
+    document.getElementById("mostrarPrecioRam").textContent = "S/." + precioRam;
     var stockRam = selectedOption.getAttribute("data-stock");
     if (stockRam === null) {
         stockRam = "0";
@@ -123,7 +123,7 @@ document.getElementById("selectRamId2").addEventListener("change", function () {
     if (precioRam2 === null) {
         precioRam2 = "0";
     }
-    document.getElementById("mostrarPrecioRam2").textContent = "Precio: S/." + precioRam2;
+    document.getElementById("mostrarPrecioRam2").textContent = "S/." + precioRam2;
     var stockRam2 = selectedOption.getAttribute("data-stock");
     if (stockRam2 === null) {
         stockRam2 = "0";
@@ -138,7 +138,7 @@ document.getElementById("selectAlmacenamientoId").addEventListener("change", fun
     if (precioAlmacenamiento === null) {
         precioAlmacenamiento = "0";
     }
-    document.getElementById("mostrarPrecioAlmacenamiento").textContent = "Precio: S/." + precioAlmacenamiento;
+    document.getElementById("mostrarPrecioAlmacenamiento").textContent = "S/." + precioAlmacenamiento;
     var stockAlmacenamiento = selectedOption.getAttribute("data-stock");
     if (stockAlmacenamiento === null) {
         stockAlmacenamiento = "0";
@@ -153,7 +153,7 @@ document.getElementById("selectTarjetaId").addEventListener("change", function (
     if (precioTarjeta === null) {
         precioTarjeta = "0";
     }
-    document.getElementById("mostrarPrecioTarjeta").textContent = "Precio: S/." + precioTarjeta;
+    document.getElementById("mostrarPrecioTarjeta").textContent = "S/." + precioTarjeta;
     var stockTarjeta = selectedOption.getAttribute("data-stock");
     if (stockTarjeta === null) {
         stockTarjeta = "0";
@@ -168,7 +168,7 @@ document.getElementById("selectFuenteId").addEventListener("change", function ()
     if (precioFuente === null) {
         precioFuente = "0";
     }
-    document.getElementById("mostrarPrecioFuente").textContent = "Precio: S/." + precioFuente;
+    document.getElementById("mostrarPrecioFuente").textContent = "S/." + precioFuente;
     var stockFuente = selectedOption.getAttribute("data-stock");
     if (stockFuente === null) {
         stockFuente = "0";
@@ -183,7 +183,7 @@ document.getElementById("selectCasseId").addEventListener("change", function () 
     if (precioCasse === null) {
         precioCasse = "0";
     }
-    document.getElementById("mostrarPrecioCasse").textContent = "Precio: S/." + precioCasse;
+    document.getElementById("mostrarPrecioCasse").textContent = "S/." + precioCasse;
     var stockCasse = selectedOption.getAttribute("data-stock");
     if (stockCasse === null) {
         stockCasse = "0";
@@ -198,7 +198,7 @@ document.getElementById("selectMonitorId").addEventListener("change", function (
     if (precioMonitor === null) {
         precioMonitor = "0";
     }
-    document.getElementById("mostrarPrecioMonitor").textContent = "Precio: S/." + precioMonitor;
+    document.getElementById("mostrarPrecioMonitor").textContent = "S/." + precioMonitor;
     var stockMonitor = selectedOption.getAttribute("data-stock");
     if (stockMonitor === null) {
         stockMonitor = "0";
@@ -213,7 +213,7 @@ document.getElementById("selectRefrigeracionId").addEventListener("change", func
     if (precioRefrigeracion === null) {
         precioRefrigeracion = "0";
     }
-    document.getElementById("mostrarPrecioRefrigeracion").textContent = "Precio: S/." + precioRefrigeracion;
+    document.getElementById("mostrarPrecioRefrigeracion").textContent = "S/." + precioRefrigeracion;
     var stockRefrigeracion = selectedOption.getAttribute("data-stock");
     if (stockRefrigeracion === null) {
         stockRefrigeracion = "0";
@@ -228,7 +228,7 @@ document.getElementById("selectAccesorioId").addEventListener("change", function
     if (precioAccesorio === null) {
         precioAccesorio = "0";
     }
-    document.getElementById("mostrarPrecioAccesorio").textContent = "Precio: S/." + precioAccesorio;
+    document.getElementById("mostrarPrecioAccesorio").textContent = "S/." + precioAccesorio;
     var stockAccesorio = selectedOption.getAttribute("data-stock");
     if (stockAccesorio === null) {
         stockAccesorio = "0";
@@ -243,7 +243,7 @@ document.getElementById("selectAccesorioId2").addEventListener("change", functio
     if (precioAccesorio2 === null) {
         precioAccesorio2 = "0";
     }
-    document.getElementById("mostrarPrecioAccesorio2").textContent = "Precio: S/." + precioAccesorio2;
+    document.getElementById("mostrarPrecioAccesorio2").textContent = "S/." + precioAccesorio2;
     var stockAccesorio2 = selectedOption.getAttribute("data-stock");
     if (stockAccesorio2 === null) {
         stockAccesorio2 = "0";
@@ -258,7 +258,7 @@ document.getElementById("selectAccesorioId3").addEventListener("change", functio
     if (precioAccesorio3 === null) {
         precioAccesorio3 = "0";
     }
-    document.getElementById("mostrarPrecioAccesorio3").textContent = "Precio: S/." + precioAccesorio3;
+    document.getElementById("mostrarPrecioAccesorio3").textContent = "S/." + precioAccesorio3;
     var stockAccesorio3 = selectedOption.getAttribute("data-stock");
     if (stockAccesorio3 === null) {
         stockAccesorio3 = "0";
@@ -273,7 +273,7 @@ document.getElementById("selectAccesorioId4").addEventListener("change", functio
     if (precioAccesorio4 === null) {
         precioAccesorio4 = "0";
     }
-    document.getElementById("mostrarPrecioAccesorio4").textContent = "Precio: S/." + precioAccesorio4;
+    document.getElementById("mostrarPrecioAccesorio4").textContent = "S/." + precioAccesorio4;
     var stockAccesorio4 = selectedOption.getAttribute("data-stock");
     if (stockAccesorio4 === null) {
         stockAccesorio4 = "0";

@@ -1,3 +1,7 @@
+.no-scroll {
+    overflow: hidden;
+}
+
 .cont-categoria {
     height: 40px;
     display: flex;
@@ -76,7 +80,203 @@
     transition: 0.2s ease;
 }
 
-.cont-btn-cotizacion button:hover{
+.cont-btn-cotizacion button:hover {
     color: white;
     background-color: black;
+}
+
+/* Modal de personal de Contacto */
+.bg-modal {
+    z-index: 30;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+    background-color: rgb(0 0 0 / 50%);
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-modal {
+    background-color: white;
+    max-width: 80%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.head-modal {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.head-modal button {
+    height: 100%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 0px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.head-modal button:hover {
+    background-color: black;
+}
+
+.body-modal h4,
+.body-modal p {
+    margin: 0;
+    text-align: center;
+}
+
+.body-modal {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px 10px;
+    align-items: center;
+}
+
+.text-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.cont-opc-coti {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.btns-conts-modal {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    justify-content: center;
+}
+
+.body-modal button {
+    width: 100%;
+    height: 100px;
+    cursor: pointer;
+}
+
+.cont-personal {
+    display: none;
+    width: 100%;
+}
+
+.cont-personal ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.cont-personal li {
+    width: 25%;
+}
+
+.cont-asesor-coti {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.cont-asesor-coti img {
+    width: 100%;
+}
+
+.cont-asesor-coti h3 {
+    margin: 0;
+}
+
+@media screen and (max-width: 430px) {
+    option{
+        font-size: 10px;
+    }
+
+    .cont-categoria{
+        height: 60px;
+        margin: 8px 0px;
+    }
+
+    .cont-nombre-categoria{
+        width: 30%;
+    }   
+
+    .div-cont-prduc .stock-produc,
+    .div-cont-prduc .precio-produc {
+        width: auto;
+    }
+
+    .div-cont-prduc {
+        width: 15%;
+        flex-direction: column;
+    }
+
+    .div-cont-prduc p {
+        font-size: 10px;
+    }
+
+    .cont-asesor-coti img {
+        width: 85px;
+    }
+
+    .cont-asesor-coti h3 {
+        font-size: 14px;
+    }
+
+    .cont-asesor-coti p {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    .cont-asesor-coti img {
+        width: 80px;
+    }
+
+    .cont-asesor-coti h3 {
+        font-size: 12px;
+    }
+
+    .cont-asesor-coti p {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .cont-asesor-coti img {
+        width: 85px;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .cont-asesor-coti img {
+        width: 70px;
+    }
+
+    .cont-asesor-coti h3 {
+        font-size: 11px;
+    }
+
+    .cont-asesor-coti p {
+        font-size: 9px;
+    }
 }
