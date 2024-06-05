@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Metas para la busqueda de google -->
-    <title>Contactanos</title>
-    <meta name="description"
-        content="Tenemos asesores en Lima y Arequipa, no dude en consultar en una de las mejores tiendas de Computadoras.">
+    <!-- Metas para la búsqueda de google -->
+    <title>Política de privacidad - LaBrujaStore</title>
+    <meta name="description" content="Políticas de privacidad de la tienda La Bruja Store.">
     <meta name="robots" content="index">
     <meta name="keywords" content=""> <!--Palabras claves o tags-->
 
@@ -26,6 +25,8 @@
     <link rel="stylesheet" th:href="@{/general/css/footer.css}">
     <link rel="stylesheet" th:href="@{/general/css/sliderMain.css}">
 
+    <link rel="stylesheet" th:href="@{/politica-privacidad/css/style.css}">
+
     <!-- JS -->
     <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
     <script th:src="@{/general/js/header.js}"></script>
@@ -33,7 +34,7 @@
 </head>
 
 <body>
-    <!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
+    <!-- INICIO HEADER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <header>
         <div id="head-div-1">
@@ -59,7 +60,7 @@
                     </div>
 
                     <div class="barra-bus-btn">
-                        <!-- Amburguesa para abrir silebar isquierdo - celulares -->
+                        <!-- Hamburguesa para abrir sidebar izquierdo - celulares -->
                         <div class="abrir mostrar-opc-mobil">
                             <label for="open-silebar" class="centered-label">
                                 <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
@@ -377,11 +378,11 @@
         </div>
     </div>
 
-    <!-- SILEBAR CATEGORIAS -->
+    <!-- SIDEBAR CATEGORIAS -->
     <div id="background-silebar">
         <div id="contenedor-silebar">
 
-            <!-- Contenedor para la columna de categori -->
+            <!-- Contenedor para la columna de categoria -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
                     <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
@@ -412,7 +413,6 @@
                             <span>CONTACTANOS</span>
                         </li>
                     </a>
-                    </a>
                     <a href="/about">
                         <li class="listaItems">
                             <span>SOBRE NOSOTROS</span>
@@ -431,7 +431,7 @@
                 </ul>
             </div>
 
-            <!-- Contenedor para las subcategorias de las categorias -->
+            <!-- Contenedor para las subcategoria de las categorias -->
             <div id="silebar-subcategoria">
                 <div>
                     <div>
@@ -468,7 +468,7 @@
         </div>
     </div>
 
-    <!-- SILEBAR DE CARRITO -->
+    <!-- SIDEBAR DE CARRITO -->
     <div id="background-silebar-carrito">
         <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
 
@@ -480,7 +480,7 @@
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
-            <!-- Contenedor para las subcategorias de las categorias -->
+            <!-- Contenedor para las subcategoria de las categorias -->
             <div id="silebar-subcategoria-carrito">
                 <!-- Aquí van los productos -->
             </div>
@@ -499,187 +499,113 @@
     ----------------------------------------------------------------------------------------------------------------------------->
 
 
-
     <!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <section class="contactos">
         <div class="contactos__header">
             <div class="seguimiento">
-                <a href="/contactanos" class="seguimiento__etiqueta">
-                    Hogar
+                <p>
+                    <a th:href="@{/}"><span class="seguimiento__etiqueta">Hogar </span></a>
                     <i class="fa-solid fa-angle-right"></i>
-                    <span class="seguimiento__contacto"> Contactanos </span>
-                </a>
+                    <a href="/politica-privacidad"><span class="seguimiento__contacto"> Política de privacidad</span></a>
+                </p>
             </div>
             <div class="seguimiento__dos">
-                <h2 class="seguimiento__titulo">CONTACTANOS</h2>
+                <h2 class="seguimiento__titulo">POLÍTICA DE PRIVACIDAD</h2>
             </div>
         </div>
         <hr />
 
-        <article class="main">
-            <div class="flex__cajas">
-                <div class="bloques">
-                    <h1 class="bloque__titulo">Lima <span>(ASESORES)</span></h1>
-                    <ul>
-                        <li>
-                            <a th:href="@{https://wa.me/51984162557}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>YERSON</h3>
-                                    <p>984 162 557</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51922512904}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>JERENY</h3>
-                                    <p>922 512 904</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51972563104}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>GUSTAVO</h3>
-                                    <p>972 563 104</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51972213019}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>ELIEL</h3>
-                                    <p>972 213 019</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51914994007}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>ANDY</h3>
-                                    <p>914 994 007</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51923646990}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>LUIS</h3>
-                                    <p>923 646 990</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51984737542}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>JEREMY</h3>
-                                    <p>984 737 542</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                        <!-- AGREGAR LOS NUMEROS DE CONTACTO -->
-                </div>
-                <div class="linea-roja"></div>
-                <div class="bloques">
-                    <h1 class="bloque__titulo">Arequipa <span>(ASESORES)</span></h1>
-                    <ul>
+        <div>
+            <h2 class="privacidad__title">POLÍTICA DE PRIVACIDAD</h2>
+            <p class="privacidad__description">
+                El presente Política de Privacidad establece los términos en que La Bruja Store usa y
+                protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio
+                web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando
+                le pedimos llenar los campos de información personal con la cual usted pueda ser
+                identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este
+                documento. Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser
+                actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para
+                asegurarse que está de acuerdo con dichos cambios.
+            </p>
+            <span class="privacidad__subtitle">Información que es recogida </span>
+            <p class="privacidad__description">
+                Nuestro sitio web podrá recoger información personal por ejemplo: Nombre, información de
+                contacto como su dirección de correo electrónica e información demográfica. Así mismo cuando
+                sea necesario podrá ser requerida información específica para procesar algún pedido o
+                realizar una entrega o facturación.
+            </p>
+            <span class="privacidad__subtitle">Uso de la información recogida</span>
+            <p class="privacidad__description">
+                Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio
+                posible, particularmente para mantener un registro de usuarios, de pedidos en caso que
+                aplique, y mejorar nuestros productos y servicios. Es posible que sean enviados correos
+                electrónicos periódicamente a través de nuestro sitio con ofertas especiales, nuevos
+                productos y otra información publicitaria que consideremos relevante para usted o que pueda
+                brindarle algún beneficio, estos correos electrónicos serán enviados a la dirección que
+                usted proporcione y podrán ser cancelados en cualquier momento.
+            </p>
+            <p class="privacidad__description">
+                La Bruja Store está altamente comprometido para cumplir con el compromiso de mantener su
+                información segura. Usamos los sistemas más avanzados y los actualizamos constantemente para
+                asegurarnos que no exista ningún acceso no autorizado.
+            </p>
+            <span class="privacidad__subtitle">Cookies</span>
+            <p class="privacidad__description">
+                Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar permiso para
+                almacenarse en su ordenador, al aceptar dicho fichero se crea y la cookie sirve entonces
+                para tener información respecto al tráfico web, y también facilita las futuras visitas a una
+                web recurrente. Otra función que tienen las cookies es que con ellas las web pueden
+                reconocerte individualmente y por tanto brindarte el mejor servicio personalizado de su web.
+            </p>
+            <p class="privacidad__description">
+                Nuestro sitio web emplea las cookies para poder identificar las páginas que son visitadas y
+                su frecuencia. Esta información es empleada únicamente para análisis estadístico y después
+                la información se elimina de forma permanente. Usted puede eliminar las cookies en cualquier
+                momento desde su ordenador. Sin embargo las cookies ayudan a proporcionar un mejor servicio
+                de los sitios web, estás no dan acceso a información de su ordenador ni de usted, a menos de
+                que usted así lo quiera y la proporcione directamente . Usted puede aceptar o negar el uso
+                de cookies, sin embargo la mayoría de navegadores aceptan cookies automáticamente pues sirve
+                para tener un mejor servicio web. También usted puede cambiar la configuración de su
+                ordenador para declinar las cookies. Si se declinan es posible que no pueda utilizar algunos
+                de nuestros servicios.
+            </p>
+            <span class="privacidad__subtitle">Enlaces a Terceros </span>
+            <p class="privacidad__description">
+                Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una
+                vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control
+                sobre al sitio al que es redirigido y por lo tanto no somos responsables de los términos o
+                privacidad ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios
+                están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los
+                consulte para confirmar que usted está de acuerdo con estas.
+            </p>
+            <span class="privacidad__subtitle">Control de su información personal </span>
+            <p class="privacidad__description">
+                En cualquier momento usted puede restringir la recopilación o el uso de la información
+                personal que es proporcionada a nuestro sitio web. Cada vez que se le solicite rellenar un
+                formulario, como el de alta de usuario, puede marcar o desmarcar la opción de recibir
+                información por correo electrónico. En caso de que haya marcado la opción de recibir nuestro
+                boletín o publicidad usted puede cancelarla en cualquier momento.
+            </p>
+            <p class="privacidad__description">
+                Esta compañía no venderá, cederá ni distribuirá la información personal que es recopilada
+                sin su consentimiento, salvo que sea requerido por un juez con un orden judicial.
+            </p>
+            <p class="privacidad__description">
+                La Bruja Store Se reserva el derecho de cambiar los términos de la presente Política de
+                Privacidad en cualquier momento.
+            </p>
+        </div>
 
-                        <li>
-                            <a th:href="@{https://wa.me/51918310475}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>FERNANDO</h3>
-                                    <p>918 310 475</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51921906558}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>EDINSON</h3>
-                                    <p>921 906 558</p>
-                                </div>
-                            </a>
-                        </li>
+        
 
-                    </ul>
-                </div>
-            </div>
-        </article>
-
-        <article class="ubicacion">
-            <h1 class="ubicacion__titulo">Ubicanos</h1>
-            <div class="mapas">
-                <div class="cont-ubics">
-                    <h3>(Lima)</h3>
-                    <div>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.804184383345!2d-77.0418232249387!3d-12.056989988180627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9babbe694bd%3A0x282693d962c25f2f!2sLa%20Bruja%20Store!5e0!3m2!1ses-419!2spe!4v1709167610627!5m2!1ses-419!2spe"
-                            width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <ul>
-                            <li style="margin-bottom: 15px;">AV. GARCILAZO DE LA VEGA 1348 INTERIOR 2B-140 - CENTRO
-                                COMERCIAL CYBERPLAZA</li>
-                            <li>
-                                HORARIO DE ATENCIÓN
-                                <ul>
-                                    <li><strong>LUNES - SABADO:</strong> 10:00 AM a 8:00 PM</li>
-                                    <li><strong>DOMINGO:</strong> 10:00 AM a 6:00 PM</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="cont-ubics">
-                    <h3>(Arequipa)</h3>
-                    <div>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.4521393418995!2d-71.53245272485692!3d-16.401847784326904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b09520c21dd%3A0x384ea64a00d604d8!2sLa%20Bruja%20Store!5e0!3m2!1ses-419!2spe!4v1710342662889!5m2!1ses-419!2spe"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <ul>
-                            <li style="margin-bottom: 15px;">CALLE OCTAVIO MUÑOZ NAJAR 223 INTERIOR 133 - CENTRO
-                                COMERCIAL COMPUAREQUIPA</li>
-                            <li>
-                                HORARIO DE ATENCIÓN
-                                <ul>
-                                    <li><strong>LUNES - SABADO:</strong> 10:00 AM a 8:00 PM</li>
-                                    <li><strong>DOMINGO:</strong> 10:00 AM a 6:00 PM</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </article>
     </section>
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
-	----------------------------------------------------------------------------------------------------------------------------->
-
-
+    ----------------------------------------------------------------------------------------------------------------------------->
 
 
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
-	----------------------------------------------------------------------------------------------------------------------------->
+        	----------------------------------------------------------------------------------------------------------------------------->
     <footer>
         <div class="line-red"></div>
         <div class="body-footer">
@@ -754,8 +680,9 @@
     
     </footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
-	----------------------------------------------------------------------------------------------------------------------------->
+        	----------------------------------------------------------------------------------------------------------------------------->
     <script th:src="@{/general/js/abrir-slider.js}"></script>
+
 </body>
 
 </html>

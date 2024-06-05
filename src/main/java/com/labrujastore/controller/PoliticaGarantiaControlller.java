@@ -1,10 +1,6 @@
 package com.labrujastore.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,9 +36,8 @@ import com.labrujastore.service.RefrigeracionService;
 import com.labrujastore.service.TarjetaService;
 
 @Controller
-@RequestMapping("/cotizacion")
-public class CotizacionController {
-
+@RequestMapping("/politica-garantia")
+public class PoliticaGarantiaControlller {
     @Autowired
     private ProcesadorService procesadorService;
 
@@ -83,7 +78,7 @@ public class CotizacionController {
     private ComboService comboService;
 
     @GetMapping("")
-    public String index(Model model) {
+    public String index_GET(Model model) {
 
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("vistaCategorias", categorias);
@@ -114,32 +109,6 @@ public class CotizacionController {
         model.addAttribute("vistaTarjetas", tarjetas);
         model.addAttribute("vistaCombos", combos);
 
-        //CÓDIGO INICIO
-
-        // Agregando para tener relación
-        model.addAttribute("procesadores", procesadores);
-        model.addAttribute("placas", placas);
-        Map<Integer, List<Integer>> procesadoresCompatibles = new HashMap<>();
-        for (Placa placa : placas) {
-            Set<Procesador> procesadoresPlaca = placa.getItemsProcesador();
-            List<Integer> idsProcesadores = procesadoresPlaca.stream().map(Procesador::getProcesadorId).collect(Collectors.toList());
-            procesadoresCompatibles.put(placa.getPlacaId(), idsProcesadores);
-        }
-        model.addAttribute("procesadoresCompatibles", procesadoresCompatibles);
-        model.addAttribute("rams", rams);
-        Map<Integer, List<Integer>> placasCompatibles = new HashMap<>();
-        for (Ram ram : rams) {
-            Set<Placa> placasRams = ram.getItemsPlaca();
-            List<Integer> idsPlacas = placasRams.stream().map(Placa::getPlacaId).collect(Collectors.toList());
-            placasCompatibles.put(ram.getRamId(), idsPlacas);
-        }
-        model.addAttribute("placasCompatibles", placasCompatibles);
-
-        return "cotizacion/index";
+        return "politica-garantia/index";
     }
-
-
-    
-
-
 }
