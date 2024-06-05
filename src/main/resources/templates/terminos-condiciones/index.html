@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Metas para la busqueda de google -->
-    <title>Contactanos</title>
+    <!-- Metas para la búsqueda de google -->
+    <title>Términos y condiciones - LaBrujaStore</title>
     <meta name="description"
-        content="Tenemos asesores en Lima y Arequipa, no dude en consultar en una de las mejores tiendas de Computadoras.">
+        content="Da un vistaso a nuestros terminos y condicones de nuestra empresa La Bruja Store.">
     <meta name="robots" content="index">
     <meta name="keywords" content=""> <!--Palabras claves o tags-->
 
@@ -26,6 +26,8 @@
     <link rel="stylesheet" th:href="@{/general/css/footer.css}">
     <link rel="stylesheet" th:href="@{/general/css/sliderMain.css}">
 
+    <link rel="stylesheet" th:href="@{/terminos-condiciones/css/style.css}">
+
     <!-- JS -->
     <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
     <script th:src="@{/general/js/header.js}"></script>
@@ -33,7 +35,7 @@
 </head>
 
 <body>
-    <!-- INCIO HEADER ----------------------------------------------------------------------------------------------------------
+    <!-- INICIO HEADER ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <header>
         <div id="head-div-1">
@@ -59,7 +61,7 @@
                     </div>
 
                     <div class="barra-bus-btn">
-                        <!-- Amburguesa para abrir silebar isquierdo - celulares -->
+                        <!-- Hamburguesa para abrir sidebar izquierdo - celulares -->
                         <div class="abrir mostrar-opc-mobil">
                             <label for="open-silebar" class="centered-label">
                                 <i class="fa-solid fa-bars img-menu" style="color: #000000; padding: 10px;"></i>
@@ -377,11 +379,11 @@
         </div>
     </div>
 
-    <!-- SILEBAR CATEGORIAS -->
+    <!-- SIDEBAR CATEGORIAS -->
     <div id="background-silebar">
         <div id="contenedor-silebar">
 
-            <!-- Contenedor para la columna de categori -->
+            <!-- Contenedor para la columna de categoria -->
             <div id="silebar-categorias">
                 <div class="close-silebar">
                     <label for="close-silebar"><img loading="lazy" th:src="@{/general/img/icon/equis.svg}"
@@ -431,7 +433,7 @@
                 </ul>
             </div>
 
-            <!-- Contenedor para las subcategorias de las categorias -->
+            <!-- Contenedor para las subcategoria de las categorias -->
             <div id="silebar-subcategoria">
                 <div>
                     <div>
@@ -468,7 +470,7 @@
         </div>
     </div>
 
-    <!-- SILEBAR DE CARRITO -->
+    <!-- SIDEBAR DE CARRITO -->
     <div id="background-silebar-carrito">
         <div id="contenedor-silebar-carrito" style="overflow: hidden scroll;">
 
@@ -480,7 +482,7 @@
                 </div>
             </div>
             <p style="text-align: center; font-size: 18px; font-weight: 700;">Carrito</p>
-            <!-- Contenedor para las subcategorias de las categorias -->
+            <!-- Contenedor para las subcategoria de las categorias -->
             <div id="silebar-subcategoria-carrito">
                 <!-- Aquí van los productos -->
             </div>
@@ -499,187 +501,239 @@
     ----------------------------------------------------------------------------------------------------------------------------->
 
 
-
     <!-- INICIO CONTENIDO ----------------------------------------------------------------------------------------------------------
 	----------------------------------------------------------------------------------------------------------------------------->
     <section class="contactos">
         <div class="contactos__header">
             <div class="seguimiento">
-                <a href="/contactanos" class="seguimiento__etiqueta">
-                    Hogar
+                <p>
+                    <a th:href="@{/}"><span class="seguimiento__etiqueta">Hogar </span></a>
                     <i class="fa-solid fa-angle-right"></i>
-                    <span class="seguimiento__contacto"> Contactanos </span>
-                </a>
+                    <a href="/terminos-condiciones"><span class="seguimiento__contacto"> Términos y
+                            Condiciones</span></a>
+                </p>
             </div>
             <div class="seguimiento__dos">
-                <h2 class="seguimiento__titulo">CONTACTANOS</h2>
+                <h2 class="seguimiento__titulo">TERMINOS Y CONDICIONES</h2>
             </div>
         </div>
         <hr />
 
-        <article class="main">
-            <div class="flex__cajas">
-                <div class="bloques">
-                    <h1 class="bloque__titulo">Lima <span>(ASESORES)</span></h1>
-                    <ul>
-                        <li>
-                            <a th:href="@{https://wa.me/51984162557}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>YERSON</h3>
-                                    <p>984 162 557</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51922512904}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>JERENY</h3>
-                                    <p>922 512 904</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51972563104}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>GUSTAVO</h3>
-                                    <p>972 563 104</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51972213019}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>ELIEL</h3>
-                                    <p>972 213 019</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51914994007}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>ANDY</h3>
-                                    <p>914 994 007</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51923646990}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>LUIS</h3>
-                                    <p>923 646 990</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51984737542}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>JEREMY</h3>
-                                    <p>984 737 542</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                        <!-- AGREGAR LOS NUMEROS DE CONTACTO -->
-                </div>
-                <div class="linea-roja"></div>
-                <div class="bloques">
-                    <h1 class="bloque__titulo">Arequipa <span>(ASESORES)</span></h1>
-                    <ul>
-
-                        <li>
-                            <a th:href="@{https://wa.me/51918310475}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>FERNANDO</h3>
-                                    <p>918 310 475</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{https://wa.me/51921906558}" target="_blank">
-                                <div class="cont-asesor">
-                                    <img loading="lazy" th:src="@{/general/img/asesor-v.jpg}"
-                                        alt="Logo La Bruja Store" />
-                                    <h3>EDINSON</h3>
-                                    <p>921 906 558</p>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
+        <div>
+            <h2 class="privacidad__title">TERMINOS Y CONDICIONES</h2>
+            <div class="sepa">
+                <p class="descripcion__termino">
+                    El presente documento describe los <strong>“Términos y Condiciones”</strong>, así mismo, la
+                    Política de Privacidad aplica para el acceso y uso de los servicios prestados por
+                    <strong>LA BRUJA STORE S.R.L.</strong>
+                    Estos términos y condiciones existen en el sitio web
+                    <strong> https://labrujastore.com.pe/ </strong>, sus subdominios y/u otras partes relacionadas
+                    (urls adjuntas) (en adelante “labrujastore.com” o el “Sitio Web”). Cualquier persona que
+                    desee acceder, registrarse o utilizar el Sitio o los Servicios puede hacerlo de acuerdo con
+                    los Términos y Condiciones Generales, la <strong>Política de Privacidad</strong> y todas las
+                    demás políticas que operan labrujastore.com y según lo establecido en el presente. o descripciones
+                    de referencia y/o información de otras partes de este sitio web. Por lo tanto, todo acceso, todos
+                    los acuerdos y actividades realizadas en este sitio web y sus efectos legales se rigen por las
+                    leyes y normas vigentes en el Perú.
+                </p>
+                <p class="descripcion__termino">
+                    Los Usuarios deben leer, comprender y aceptar todos los términos establecidos en los
+                    Términos y Condiciones Generales y <strong>Política de Privacidad</strong> de
+                    <strong>LA BRUJA STORE S.R.L.</strong> y otros documentos, antes de registrarse como usuario
+                    de labrujastore.com y/o acceder a productos y enviar información, sujeto a la información presentada
+                    y proporcionada en los Términos y Condiciones.
+                </p>
+                <p class="descripcion__termino">
+                    Cuando visitas <strong>https://labrujastore.com.pe/</strong>, estás conectado electrónicamente
+                    a
+                    <strong>LA BRUJA STORE.</strong>
+                    De esta manera, su aceptación del contenido anterior significa que lo acepta y reconoce plenamente,
+                    y promete cumplir con este contenido en todos los aspectos; de manera similar, acepta que recibamos
+                    información de LA BRUJA STORE vía correo electrónico o publiquemos información en su portal.
+                </p>
             </div>
-        </article>
-
-        <article class="ubicacion">
-            <h1 class="ubicacion__titulo">Ubicanos</h1>
-            <div class="mapas">
-                <div class="cont-ubics">
-                    <h3>(Lima)</h3>
-                    <div>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.804184383345!2d-77.0418232249387!3d-12.056989988180627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9babbe694bd%3A0x282693d962c25f2f!2sLa%20Bruja%20Store!5e0!3m2!1ses-419!2spe!4v1709167610627!5m2!1ses-419!2spe"
-                            width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <ul>
-                            <li style="margin-bottom: 15px;">AV. GARCILAZO DE LA VEGA 1348 INTERIOR 2B-140 - CENTRO
-                                COMERCIAL CYBERPLAZA</li>
-                            <li>
-                                HORARIO DE ATENCIÓN
-                                <ul>
-                                    <li><strong>LUNES - SABADO:</strong> 10:00 AM a 8:00 PM</li>
-                                    <li><strong>DOMINGO:</strong> 10:00 AM a 6:00 PM</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="cont-ubics">
-                    <h3>(Arequipa)</h3>
-                    <div>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.4521393418995!2d-71.53245272485692!3d-16.401847784326904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b09520c21dd%3A0x384ea64a00d604d8!2sLa%20Bruja%20Store!5e0!3m2!1ses-419!2spe!4v1710342662889!5m2!1ses-419!2spe"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <ul>
-                            <li style="margin-bottom: 15px;">CALLE OCTAVIO MUÑOZ NAJAR 223 INTERIOR 133 - CENTRO
-                                COMERCIAL COMPUAREQUIPA</li>
-                            <li>
-                                HORARIO DE ATENCIÓN
-                                <ul>
-                                    <li><strong>LUNES - SABADO:</strong> 10:00 AM a 8:00 PM</li>
-                                    <li><strong>DOMINGO:</strong> 10:00 AM a 6:00 PM</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="sepa">
+                <span class="subtitle__termino">Clientes Registrados</span>
+                <p class="descripcion__termino">
+                    Los clientes registrados en <strong>LA BRUJA STORE S.R.L.</strong> Sólo ingresan sus propios
+                    datos, los cuales se consideran confiables y actualizados. Es responsabilidad exclusiva del
+                    cliente verificar esta información. Como parte de nuestras operaciones, daremos cumplimiento
+                    a la <strong>Ley N° 29733 – Ley de Protección de Datos Personales</strong>, Reglamento
+                    aprobado por <strong>Decreto Supremo 003-2013-JUS</strong> y sus normas complementarias y
+                    modificatorias (Todo ello se define a continuación como
+                    <strong>“Normativa de Protección de Datos Personales”)</strong> . La información que creamos
+                    y lo que hacemos se almacena en el banco privado de LA BRUJA STORE S.R.L.
+                </p>
+                <p class="descripcion__termino">
+                    Un cliente de <strong>LA BRUJA STORE S.R.L.</strong> puede dejar de serlo según la decisión
+                    de
+                    <strong>LA BRUJA STORE S.R.L.</strong>, sin necesidad de justificación alguna. Los
+                    distribuidores o clientes de <strong>LA BRUJA STORE S.R.L.</strong> aceptan los términos de
+                    esta política comercial y de distribución al realizar la compra y/o recibir una factura o
+                    boleta de <strong>LA BRUJA STORE S.R.L.</strong>
+                </p>
             </div>
-        </article>
+            <div class="sepa">
+                <span class="subtitle__termino">Productos y Precios</span>
+                <p class="descripcion__termino">
+                    Los precios y productos ofrecidos en <strong>https://labrujastore.com.pe/</strong> difieren de
+                    los ofrecidos por otros canales de venta utilizados por
+                    <strong>LA BRUJA STORE S.R.L.</strong>
+                    (e.g. centros comerciales, comerciales de televisión, libros, etc.), excepto en este sitio web
+                    o mencionado en anuncios de <strong>LA BRUJA STORE S.R.L.</strong> para cada promoción,
+                    hasta la recepción de la orden de compra, <strong>LA BRUJA STORE S.R.L.</strong> comienza desde
+                    el momento de la confirmación del cumplimiento, es decir, las partes de una determinada transacción
+                    (pago) han acordado.
+                </p>
+                <p class="descripcion__termino">
+                    Los precios y productos de este sitio web son válidos únicamente a partir de la fecha en que
+                    se muestran en el sitio web <strong>https://labrujastore.com.pe/</strong> y están sujetos a cambios
+                    sin previo aviso.
+                </p>
+                <p class="descripcion__termino">
+                    Los precios de los productos ofrecidos en este sitio web se muestran en la moneda nacional
+                    (sol). Los cargos relacionados con el valor de los productos entregados (Ic. IVA) no
+                    incluyen transporte, manipulación, entrega, mercancías sin marcar u otros cargos.
+                </p>
+                <p class="descripcion__termino">
+                    El precio de muchos productos disponibles en nuestro sitio web o redes sociales puede ser
+                    incorrecto y el monto de pago correcto se mostrará en su carrito de compras antes de pagar
+                    (crédito, crédito, pago o cambio). Si tras la compra, hay un error tipográfico en el precio
+                    de alguno de los productos y el precio correcto es superior al precio que aparece en la web,
+                    <strong>https://labrujastore.com.pe/</strong>, nos pondremos en contacto contigo antes de
+                    enviar/cancelar el pedido. Le avisaremos de la cancelación. Si el precio es inferior, la
+                    diferencia se descontará del pedido final de compra.
+                </p>
+                <p class="descripcion__termino">
+                    Si se excede la cantidad permitida, el pedido se suspenderá durante un tiempo acordado entre
+                    la empresa y el cliente y el cliente deberá devolver la mercancía para completar el pedido.
+                    Si cancela un pedido que ha sido pagado con tarjeta de crédito o débito, el importe se
+                    abonará en el plazo especificado por la entidad bancaria.
+                </p>
+                <p class="descripcion__termino">
+                    El producto, modelo, modelo y número de modelo se enumeran debajo de los productos en la
+                    tienda en línea. No hay motivo para realizar un reclamo por seleccionar el modelo de
+                    producto incorrecto.
+                </p>
+                <p class="descripcion__termino">
+                    <strong>https://labrujastore.com.pe/</strong> proporciona información relativa a la configuración
+                    del producto o su funcionalidad. Es responsabilidad del comprador o vendedor verificar la calidad
+                    de los productos que adquiere y asegurarse de que sus servicios cumplan con los requisitos de
+                    cada situación.
+                </p>
+            </div>
+            <div class="sepa">
+                <span class="subtitle__termino">Stock</span>
+                <p class="descripcion__termino">
+                    <strong>https://labrujastore.com.pe/</strong> es responsable de actualizar el sitio web y
+                    monitorear continuamente su contenido, sin embargo,
+                    <strong>https://labrujastore.com.pe/</strong>
+                    puede cambiar y descontinuar productos y servicios en cualquier momento sin responsabilidad alguna
+                    para los usuarios.
+                </p>
+                <p class="descripcion__termino">
+                    Por lo tanto, <strong>https://labrujastore.com.pe/</strong> se reserva el derecho de no aceptar
+                    solicitudes de compra y por tanto de no entregar productos si no han sido solicitados. Las
+                    solicitudes de compra de <strong>https://labrujastore.com.pe/</strong> se confirman en función
+                    de la disponibilidad del producto, precio, perfil del cliente. Por lo tanto,<strong>
+                        https://labrujastore.com.pe/</strong>
+                    se reserva el derecho de no aceptar solicitudes de compra y de no enviar mercancías sin una
+                    solicitud.
+                    Las órdenes de compra desde <strong>https://labrujastore.com.pe/</strong>se confirman en
+                    función de la disponibilidad del producto, precio, perfil del cliente y forma de pago. Si
+                    alguna de estas condiciones fuera incorrecta no se podrán realizar cambios en el pedido de
+                    compra y se informará al cliente de la cancelación mediante correo electrónico (indicado por
+                    el cliente al registrarse en la web) o telefónicamente (si es necesario). El día hábil
+                    siguiente a la fecha de recepción de la orden de compra.
+                </p>
+            </div>
+            <div class="sepa">
+                <span class="subtitle__termino" style="display: block; margin-bottom: 1rem;">Política de entrega</span>
+                <b class="trie__title">Plazo de entrega</b>
+                <p class="descripcion__termino">
+                    Una vez finalizada su compra, por favor espere más de 4 días hábiles para el envío desde
+                    nuestra cuenta corriente, esto aplica para entrega en la ciudad de Lima. Para nuestras
+                    entregas locales, espere aproximadamente 4 días hábiles para la entrega a la empresa de
+                    envío elegida. Además de las referencias locales, se le enviarán instrucciones de entrega
+                    por correo electrónico o teléfono móvil.
+                </p>
+                <p class="descripcion__termino">
+                    Además de las referencias locales, se le enviarán instrucciones de entrega por correo
+                    electrónico o teléfono móvil.
+                </p>
+                <b class="trie__title">Horario de Entrega</b>
+                <p class="descripcion__termino">
+                    Nuestro horario de entrega en Lima es de lunes a sábado de 11am a 6pm.
+                </p>
+                <b class="trie__title">Área de Entrega</b>
+                <p class="descripcion__termino">
+                    Realizamos envíos a todo el nivel nacional a través de empresas de entrega afiliadas a <strong>LA
+                        BRUJA
+                        STORE S.R.L.</strong> Nuestros servicios de entrega en la Ciudad de Lima son compatibles con los
+                    distintos distritos
+                    que conforman Lima Metropolitana, sujeto a disponibilidad del transportista.
+                </p>
+                <b class="trie__title">Condiciones de entrega </b>
+                <p class="descripcion__termino">
+                    Nuestras condiciones de entrega para productos comprados en
+                    <strong>https://labrujastore.com.pe/</strong> son:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Recogida en tienda.-</strong> La dirección que se encuentra en nuestro sitio web.
+                    </li>
+                    <li>
+                        <strong>Mediante delivery.-</strong> Firma del vendedor indicando precio e importe de venta.
+                    </li>
+                    <li>
+                        <strong>Entrega a Provincia.-</strong> Enviamos instrucciones de entrega desde la empresa de
+                        envío seleccionada por el cliente vía email y teléfono, mostrando el estado de entrega de
+                        nuestro
+                        pedido.
+                    </li>
+                </ul>
+                <b class="trie__title">Tarifas de envío </b>
+                <p class="descripcion__termino">Nuestras tarifas de envío:</p>
+                <ul>
+                    <li>
+                        Nuestros cargos de envío varían según el área especificada
+                        al momento de la compra, no hay costo adicional por recoger en tienda, no realizamos envíos
+                        a otras áreas.
+                    </li>
+                </ul>
+                <b class="trie__title">Métodos de Pago </b>
+                <p class="descripcion__termino">
+                    Nuestros productos y servicios en la tienda virtual <strong>https://labrujastore.com.pe/</strong>
+                    serán cancelados si no se transfieren a la cuenta de <strong>LA BRUJA STORE S.R.L.</strong> Si
+                    un cliente luego desea pagar su pedido después de la entrega, puede agregar dinero para pagar
+                    su pedido mediante pago con tarjeta y un recargo del 5% o transferencia bancaria.
+                </p>
+                <p class="descripcion__termino">
+                    Las tarjetas aceptadas en este sitio incluyen: Tarjetas de crédito y/o débito VISA,
+                    MasterCard, Diners Club, American Express. El uso de la Tarjeta está sujeto a las
+                    condiciones aplicables al Emisor de la Tarjeta establecidas en estos Términos y Condiciones
+                    y a las disposiciones acordadas en el Acuerdo de Apertura y los Términos de Uso. Los pagos
+                    con tarjeta de crédito a través de <strong>https://labrujastore.com.pe/</strong> están sujetos a
+                    las condiciones establecidas por el banco emisor mencionado anteriormente.
+                </p>
+                <p class="descripcion__termino">
+                    En lo referente a las tarjetas bancarias aceptadas en este sitio, los detalles relacionados
+                    con su fecha de emisión, fecha de vencimiento, límite de crédito, bloqueos, contraseña
+                    secreta, entre otros, estarán sujetos al Contrato de Apertura y Reglamento de Uso
+                    correspondiente. En consecuencia, <strong>LA BRUJA STORE S.R.L</strong> no asumirá responsabilidad
+                    alguna sobre dichos aspectos. El sitio podría especificar condiciones de compra según el método
+                    de pago seleccionado por el usuario.
+                </p>
+            </div>
+        </div>
+
     </section>
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
-	----------------------------------------------------------------------------------------------------------------------------->
-
-
+    ----------------------------------------------------------------------------------------------------------------------------->
 
 
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
-	----------------------------------------------------------------------------------------------------------------------------->
+        	----------------------------------------------------------------------------------------------------------------------------->
     <footer>
         <div class="line-red"></div>
         <div class="body-footer">
@@ -699,20 +753,17 @@
                 <div class="cont-redes-footer">
                     <ul>
                         <li>
-                            <a class="style-icon" target="_blank"
-                                th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
+                            <a class="style-icon" target="_blank" th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
                                 <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}">
                             </a>
                         </li>
                         <li>
-                            <a class="style-icon" target="_blank"
-                                th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
+                            <a class="style-icon" target="_blank" th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
                                 <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}">
                             </a>
                         </li>
                         <li>
-                            <a class="style-icon" target="_blank"
-                                th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
+                            <a class="style-icon" target="_blank" th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
                                 <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}">
                             </a>
                         </li>
@@ -726,12 +777,9 @@
                 </div>
                 <ul class="informacion__lista">
                     <li><a th:href="@{/contactanos}"><i class="fa-brands fa-whatsapp"></i> CONTACTANOS</a></li>
-                    <li><a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}"><i
-                                class="fa-solid fa-location-dot"></i> AREQUIPA: C.C. CompuArequipa Tienda 133 y 219</a></li>
-                    <li><a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}"><i
-                                class="fa-solid fa-location-dot"></i> LIMA: C.C. Cyberplaza tienda 140 sector 2 B</a></li>
-                    <li><a href="mailto:labrujastore@outlook.com"><i class="fa-solid fa-envelope"></i>
-                            labrujastore@uotlook.com</a></li>
+                    <li><a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}"><i class="fa-solid fa-location-dot"></i> AREQUIPA: C.C. CompuArequipa Tienda 133 y 219</a></li>
+                    <li><a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}"><i class="fa-solid fa-location-dot"></i> LIMA: C.C. Cyberplaza tienda 140 sector 2 B</a></li>
+                    <li><a href="mailto:labrujastore@outlook.com"><i class="fa-solid fa-envelope"></i> labrujastore@uotlook.com</a></li>
                 </ul>
             </div>
             <div class="cont-footer">
@@ -747,15 +795,16 @@
                 </ul>
             </div>
         </div>
-    
+        
         <div class="copyright">
             <p>Labrujastore© 2024 todos los derechos reservados.</p>
         </div>
-    
+
     </footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
-	----------------------------------------------------------------------------------------------------------------------------->
+        	----------------------------------------------------------------------------------------------------------------------------->
     <script th:src="@{/general/js/abrir-slider.js}"></script>
+
 </body>
 
 </html>

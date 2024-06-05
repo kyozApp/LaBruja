@@ -363,8 +363,8 @@
             <a class="cont-lista-op" href="/catalogo/producto">CATALOGO</a>
             <a class="cont-lista-op" href="/contactanos">CONTACTANOS</a>
             <a class="cont-lista-op" href="/about">ACERCA DE</a>
-            <!-- <a class="cont-lista-op" href="/">CARRITO</a>
-        			<a class="cont-lista-op" href="/">COTIZACIÓN</a> -->
+            <a class="cont-lista-op" href="/cotizacion">COTIZACIÓN</a>
+            <!--<a class="cont-lista-op" href="/">COTIZACIÓN</a> -->
         </div>
     </div>
     
@@ -399,6 +399,22 @@
                     <a href="/contactanos">
                         <li class="listaItems">
                             <span>CONTACTANOS</span>
+                        </li>
+                    </a>
+                    </a>
+                    <a href="/about">
+                        <li class="listaItems">
+                            <span>SOBRE NOSOTROS</span>
+                        </li>
+                    </a>
+                    <a href="/cotizacion">
+                        <li class="listaItems">
+                            <span>COTIZAR ONLINE</span>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li class="listaItems">
+                            <span></span>
                         </li>
                     </a>
                 </ul>
@@ -2745,96 +2761,78 @@
     
     <!-- INICIO FOOTER ----------------------------------------------------------------------------------------------------------
     ----------------------------------------------------------------------------------------------------------------------------->
-    <footer class="footer">
-        <main class="encabezado">
-            <span class="encabezado__titulo ocultar">Suscribete para resivir boletinis</span>
-            <div class="encabezado__contenido ocultar">
-                <input type="email" class="encabezado__input" placeholder="Su dirección electronico" />
-                <p class="encabezado__parrafo">suscribirse</p>
-            </div>
-        </main>
-        <section class="seccion">
-            <article class="articulo">
-                <figure>
-                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="imagen" class="articulo__imagen" width="315px" />
-                </figure>
-                <div class="contenido">
-                    <p class="contenido__descripcion">
-                        Consigue las mejores marcas a los mejores
-                        <span class="contenido__span">precios, aquí en La Bruja Store.</span>
+    <footer>
+        <div class="line-red"></div>
+        <div class="body-footer">
+            <div class="cont-footer">
+                <div class="logo-footer">
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" class="articulo__imagen" width="315px">
+                </div>
+                <div class="descp-footer">
+                    <p>
+                        Consigue las mejores marcas a los mejores<br>
+                        precios, aquí en La Bruja Store.
                     </p>
-                    <p>Siguenos en nuestras redes sociales:</p>
-                    <div class="cont-redes">
-                        <div class="cad-img">
+                    <p>
+                        Síguenos en nuestras redes sociales:
+                    </p>
+                </div>
+                <div class="cont-redes-footer">
+                    <ul>
+                        <li>
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.facebook.com/LaBrujaStoreOficial?locale=es_LA}">
-                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/facebook.svg}">
                             </a>
-                        </div>
-                        <div class="cad-img">
+                        </li>
+                        <li>
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.instagram.com/labrujastoreaqp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==}">
-                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/instagram.svg}">
                             </a>
-                        </div>
-                        <div class="cad-img">
+                        </li>
+                        <li>
                             <a class="style-icon" target="_blank"
                                 th:href="@{https://www.tiktok.com/@labrujastoreaqp?is_from_webapp=1&sender_device=pc}">
-                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}" alt="">
+                                <img loading="lazy" class="icon-redes" th:src="@{/general/img/icon/tiktok.svg}">
                             </a>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
-            </article>
-            <article class="contacto">
-                <div class="container">
-                    <h2 class="contacto__titulo">CONTÁCTANOS</h2>
-                    <div class="conacto__dividir"></div>
-                </div>
-                <div class="contacto__borde"></div>
-                <div class="contacto__iconos">
-                    <a th:href="@{/contactanos}">
-                        <span><i class="fa-brands fa-whatsapp"></i></span>CONTACTANOS
-                    </a>
-                    <a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}">
-                        <span><i class="fa-solid fa-location-dot"></i></span>AREQUIPA: C.C. CompuArequipa Tienda
-                        133 y 219
-                    </a>
-                    <a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}">
-                        <span><i class="fa-solid fa-location-dot"></i></span>LIMA: C.C. Cyberplaza tienda 140
-                        sector 2 B
-                    </a>
-                    <a href="mailto:labrujastore@outlook.com">
-                        <span><i class="fa-solid fa-envelope"></i></span>
-                        labrujastore@uotlook.com
-                    </a>
-                </div>
-            </article>
-            <article class="informacion">
-                <div class="container">
-                    <h2 class="informacion__titulo">INFORMACIÓN</h2>
+            </div>
+            <div class="cont-footer">
+                <div class="head-cont-footer">
+                    <h2 class="informacion__titulo">CONTÁCTANOS</h2>
                     <div class="informacion__dividir"></div>
                 </div>
                 <ul class="informacion__lista">
-                    <li>Nosotros</li>
-                    <li>Novedades</li>
-                    <li>Destacados</li>
-                    <li>Ofertas del día</li>
-                    <li>
-                        <a th:href="@{/politica_de_privacidad}">Politicas de Privacidad</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/terminos_y_condiciones}">Terminos y Condiciones</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/eliminar_datos_cuenta}">Store Data</a>
-                    </li>
+                    <li><a th:href="@{/contactanos}"><i class="fa-brands fa-whatsapp"></i> CONTACTANOS</a></li>
+                    <li><a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}"><i
+                                class="fa-solid fa-location-dot"></i> AREQUIPA: C.C. CompuArequipa Tienda 133 y 219</a></li>
+                    <li><a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}"><i
+                                class="fa-solid fa-location-dot"></i> LIMA: C.C. Cyberplaza tienda 140 sector 2 B</a></li>
+                    <li><a href="mailto:labrujastore@outlook.com"><i class="fa-solid fa-envelope"></i>
+                            labrujastore@uotlook.com</a></li>
                 </ul>
-            </article>
-        </section>
-        <div class="copyright">
-            <p>Labrujastore© 2023 todos los derechos reservados.</p>
+            </div>
+            <div class="cont-footer">
+                <div class="head-cont-footer">
+                    <h2 class="informacion__titulo">POLÍTICAS</h2>
+                    <div class="informacion__dividir"></div>
+                </div>
+                <ul class="informacion__lista">
+                    <li><a href="/about">Nosotros</a></li>
+                    <li><a href="/politica-privacidad">Políticas de Privacidad</a></li>
+                    <li><a href="/terminos-condiciones">Términos y Condiciones</a></li>
+                    <li><a href="/politica-garantia">Devoluciones</a></li>
+                </ul>
+            </div>
         </div>
+    
+        <div class="copyright">
+            <p>Labrujastore© 2024 todos los derechos reservados.</p>
+        </div>
+    
     </footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
     ----------------------------------------------------------------------------------------------------------------------------->

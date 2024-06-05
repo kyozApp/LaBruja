@@ -1,0 +1,12 @@
+.seguimiento__titulo {
+    text-align: end;
+}
+
+.descripcion__termino {
+    text-align: justify;
+}
+
+.subtitle__termino {
+    font-weight: 900;
+    font-size: 20px;
+}
