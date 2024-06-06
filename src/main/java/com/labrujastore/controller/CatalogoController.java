@@ -248,6 +248,7 @@ public class CatalogoController {
         List<Refrigeracion> refrigeracionesCat = refrigeracionService.obtenerRefrigeracionesPorMarca(marcaId);
         List<Tarjeta> tarjetasCat = tarjetaService.obtenerTarjetasPorMarca(marcaId);
         List<Combo> combosCat = comboService.obtenerCombosPorMarca(marcaId);
+        List<Categoria> categorias = categoriaService.listarCategoria();
 
         model.addAttribute("bannersCategoria", bannersCategoria);
 
@@ -263,6 +264,7 @@ public class CatalogoController {
         model.addAttribute("vistaRefrigeracionesC", refrigeracionesCat);
         model.addAttribute("vistaTarjetasC", tarjetasCat);
         model.addAttribute("vistaCombosC", combosCat);
+        model.addAttribute("vistaCategoriasC", categorias);
 
         //Para mostrar en el buscador
         List<Accesorio> accesorios = accesorioService.listarAccesorio();

@@ -28,6 +28,7 @@ li {
     width: 1465px;
     display: flex;
     justify-content: space-between;
+    height: 45px;
 }
 
 .contenedor-2 {
