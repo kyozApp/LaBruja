@@ -25,11 +25,14 @@
     <link rel="stylesheet" th:href="@{/contactanos/css/contactanos.css}">
     <link rel="stylesheet" th:href="@{/general/css/footer.css}">
     <link rel="stylesheet" th:href="@{/general/css/sliderMain.css}">
+    <link rel="stylesheet" th:href="@{/about/css/about.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css}"/>
 
     <!-- JS -->
     <script th:src="@{https://kit.fontawesome.com/a7b7960e39.js}" crossorigin="anonymous"></script>
     <script th:src="@{/general/js/header.js}"></script>
     <script th:src="@{/general/js/contactanos.js}"></script>
+    
 </head>
 
 <body>
@@ -517,9 +520,112 @@
         </div>
         <hr />
 
-        <div style="height: 500px;">
-            <!-- CONTENIDO -->
+        <div id="about_bruja">
+            <div class="container">
+                <div class="caja-img"></div>
+                <div class="caja-cont"></div>
+            </div>
+            <div class="container invers">
+                <div class="caja-img"></div>
+                <div class="caja-cont tras-x"></div>
+            </div>
+            <div class="container">
+                <div class="caja-img"></div>
+                <div class="caja-cont"></div>
+            </div>
         </div>
+        <div id="vmv">
+            <div>
+                <div>
+                    <h2>VISIÓN</h2>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim exercitationem minus laboriosam
+                        beatae itaque dicta voluptas voluptates consectetur a blanditiis sunt ad sapiente, alias, harum
+                        facilis asperiores! Nemo, sint reprehenderit.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2>MISIÓN</h2>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim exercitationem minus laboriosam
+                        beatae itaque dicta voluptas voluptates consectetur a blanditiis sunt ad sapiente, alias, harum
+                        facilis asperiores! Nemo, sint reprehenderit.</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2>VALORES</h2>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim exercitationem minus laboriosam
+                        beatae itaque dicta voluptas voluptates consectetur a blanditiis sunt ad sapiente, alias, harum
+                        facilis asperiores! Nemo, sint reprehenderit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="metodo-pago">
+            <h3>METODOS DE PAGO</h3>
+            <p>LA BRUJA STORE S.R.L</p>
+            <div>
+                <div>
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+                <div>
+                    <h3></h3>
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" th:each="marca : ${vistaMarcas}">
+                    <a th:href="@{'/catalogo/marca/' + ${marca.nombreUrl} + '/' + ${marca.marcaId}}">
+                        <img loading="lazy" th:src="'data:image/' + ${marca.typeImage} + ';base64,' + ${marca.base64Image}"
+                            th:id="${marca.nombre}" />
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="datos-end">
+            <div>
+                <img src="" alt="">
+                <div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+            <div>
+                <img src="" alt="">
+                <div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+            <div>
+                <img src="" alt="">
+                <div>
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <img src="" alt="">
+        <!-- <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" /> -->
 
     </section>
     <!-- FIN CONTENIDO ----------------------------------------------------------------------------------------------------------
@@ -577,9 +683,11 @@
                 <ul class="informacion__lista">
                     <li><a th:href="@{/contactanos}"><i class="fa-brands fa-whatsapp"></i> CONTACTANOS</a></li>
                     <li><a target="_blank" th:href="@{https://maps.app.goo.gl/YrVFaSiMSWnPVonT9}"><i
-                                class="fa-solid fa-location-dot"></i> AREQUIPA: C.C. CompuArequipa Tienda 133 y 219</a></li>
+                                class="fa-solid fa-location-dot"></i> AREQUIPA: C.C. CompuArequipa Tienda 133 y 219</a>
+                    </li>
                     <li><a target="_blank" th:href="@{https://maps.app.goo.gl/7fpzHPvQvTrB4zeM9}"><i
-                                class="fa-solid fa-location-dot"></i> LIMA: C.C. Cyberplaza tienda 140 sector 2 B</a></li>
+                                class="fa-solid fa-location-dot"></i> LIMA: C.C. Cyberplaza tienda 140 sector 2 B</a>
+                    </li>
                     <li><a href="mailto:labrujastore@outlook.com"><i class="fa-solid fa-envelope"></i>
                             labrujastore@uotlook.com</a></li>
                 </ul>
@@ -597,15 +705,18 @@
                 </ul>
             </div>
         </div>
-    
+
         <div class="copyright">
             <p>Labrujastore© 2024 todos los derechos reservados.</p>
         </div>
-    
+
     </footer>
     <!-- FIN FOOTER ----------------------------------------------------------------------------------------------------------
         	----------------------------------------------------------------------------------------------------------------------------->
     <script th:src="@{/general/js/abrir-slider.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js}"></script>
+    <script th:src="@{/about/js/swiper-inicio.js}"></script>
+
 </body>
 
 </html>

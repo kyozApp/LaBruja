@@ -14,6 +14,7 @@ import com.labrujastore.entity.Categoria;
 import com.labrujastore.entity.Combo;
 import com.labrujastore.entity.Fuente;
 import com.labrujastore.entity.Laptop;
+import com.labrujastore.entity.Marca;
 import com.labrujastore.entity.Monitor;
 import com.labrujastore.entity.Placa;
 import com.labrujastore.entity.Procesador;
@@ -27,6 +28,7 @@ import com.labrujastore.service.CategoriaService;
 import com.labrujastore.service.ComboService;
 import com.labrujastore.service.FuenteService;
 import com.labrujastore.service.LaptopService;
+import com.labrujastore.service.MarcaService;
 import com.labrujastore.service.MonitorService;
 import com.labrujastore.service.PlacaService;
 import com.labrujastore.service.ProcesadorService;
@@ -78,8 +80,13 @@ public class AboutController {
     @Autowired
     private ComboService comboService;
 
+	@Autowired
+	private MarcaService marcaService;
+
     @GetMapping("")
     public String index_GET(Model model) {
+
+        List<Marca> marcas = marcaService.listarMarca();
 
         List<Categoria> categorias = categoriaService.listarCategoria();
         model.addAttribute("vistaCategorias", categorias);
@@ -109,6 +116,8 @@ public class AboutController {
         model.addAttribute("vistaRefrigeraciones", refrigeraciones);
         model.addAttribute("vistaTarjetas", tarjetas);
         model.addAttribute("vistaCombos", combos);
+
+        model.addAttribute("vistaMarcas", marcas);
 
         return "about/index";
     }
