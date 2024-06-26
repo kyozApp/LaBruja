@@ -413,6 +413,7 @@
 	    color: #000;
 	    font-weight: bold;
 	    transition: 0.2s;
+        min-height: 52px;
 	}
 
 	.titulo-producto a:visited {
