@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Área de desarrollo - LaBrujaStore</title>
+    <meta name="description"
+        content="Páginas webs, one page, paginas corporativas, RRSS o links, etc. Lo que necesitas para impulsar tu imagen en el Internet.">
+    <meta name="robots" content="index">
+    <meta name="keywords" content="one page, paginas, web, corporativo, RRSS, link"> <!--Palabras claves o tags-->
+
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <link rel="icon" th:href="@{/general/img/logotipo.png}" type="image/png">
+
+    <link rel="stylesheet" th:href="@{/area-desarrollo/css/style.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css}" />
+    <link rel="stylesheet" th:href="@{https://unpkg.com/aos@2.3.1/dist/aos.css}">
+</head>
+
+<body>
+    <div id="inicio"></div>
+    <header class="header">
+        <div class="cont-header">
+            <div class="cont-img-header">
+                <a href="">
+                    <img loading="lazy" th:src="@{/general/img/logo.png}" alt="Logo La Bruja Store" />
+                </a>
+            </div>
+            <div class="cont-link-header">
+                <ul>
+                    <li><a th:href="@{#inicio}">INICIO</a></li>
+                    <li><a th:href="@{#servicios}">NUESTROS SERVICIOS</a></li>
+                </ul>
+            </div>
+            <div class="cont-btn-header">
+                <a th:href="@{#contactanos}">Contacto</a>
+            </div>
+            <div class="cont-opc-header">
+                <button onclick="abrirModal()">
+                    <img loading="lazy" class="" th:src="@{/area-desarrollo/img/menu-regular-204.png}">
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="modal-silebar" id="modal">
+        <div class="cont-modal">
+            <div class="head-modal">
+                <button id="cerrar-modal">
+                    <img loading="lazy" class="" th:src="@{/area-desarrollo/img/x-regular-120.png}">
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a class="link-menu-modal" th:href="@{#inicio}">INICIO</a></li>
+                    <li><a class="link-menu-modal" th:href="@{#servicios}">SERVICIOS</a></li>
+                    <li><a class="link-menu-modal" th:href="@{#contactanos}">CONTACTANOS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="div-section">
+        <div class="cont-section">
+            <div class="seccion-1">
+                <div class="text-content" data-aos="fade-right" data-aos-duration="3000">
+                    <h1>Experimenta los Mejores Servicios de Creación de Páginas Web</h1>
+                    <p>Ofrecemos una gama completa de servicios de creación de páginas web, incluyendo RRSS, one page y
+                        páginas corporativas.
+                        Confía tu presencia online a profesionales que realmente se preocupan por tu estilo y
+                        necesidades.
+                    </p>
+                    <a th:href="@{#contactanos}" class="read-more">CONTACTANOS</a>
+                </div>
+                <div class="image-content" data-aos="fade-left" data-aos-duration="3000">
+                    <img loading="lazy" th:src="@{/area-desarrollo/img/lenguajes.webp}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mascara-color-sec-h">
+        <div class="div-section">
+            <div class="cont-section">
+                <section class="main-features">
+                    <h2 data-aos="zoom-in">Herramientas <span>Que Empleamos</span></h2>
+                    <div class="features-grid">
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/html5.png}">
+                            <h3>HTML5</h3>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/css3.svg}">
+                            <h3>CSS3</h3>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/ts.png}">
+                            <h3>TS</h3>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/astro.png}">
+                            <h3>ASTRO</h3>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/express.png}">
+                            <h3>EXPRESS</h3>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/mysql.png}">
+                            <h3>MySQL</h3>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-duration="3000">
+                            <img loading="lazy" class="" th:src="@{/area-desarrollo/img/docker.png}">
+                            <h3>Docker</h3>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="div-section">
+        <div class="cont-section">
+            <div class="seccion-2" id="servicios">
+                <h2>SERVICIOS QUE OFRECEMOS</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="section-card">
+                                <div class="service-header">
+                                    <h3>Link de Contacto</h3>
+                                    <h4>ENLACE / RRSS</h4>
+                                    <p>Entrega de 10 a 15 días</p>
+                                </div>
+                                <div class="service-price">
+                                    <p>S/. 250.00</p>
+                                </div>
+                                <div class="service-body">
+                                    <h5>DETALLES</h5>
+                                    <ul>
+                                        <li>Diseño Preferido</li>
+                                        <li>Colores Corporativos</li>
+                                        <li>Portada de 1 Sección</li>
+                                        <li>Hasta 10 Enlaces</li>
+                                        <li>Adaptable a Móbiles</li>
+                                        <li>Mapa Ubicación</li>
+                                        <li>Boton Whatsaap / Llamada</li>
+                                        <li>Iconos RRSS</li>
+                                        <li>Formulario contacto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="section-card">
+                                <div class="service-header">
+                                    <h3>One Page</h3>
+                                    <h4>INFORMATICA / SIMPLE</h4>
+                                    <p>Entrega de 15 a 20 días</p>
+                                </div>
+                                <div class="service-price">
+                                    <p>S/. 650.00</p>
+                                </div>
+                                <div class="service-body">
+                                    <h5>DETALLES</h5>
+                                    <ul>
+                                        <li>Diseño Preferido</li>
+                                        <li>Colores Corporativos</li>
+                                        <li>Portada de 8 Secciones</li>
+                                        <li>Adaptable a Móbiles</li>
+                                        <li>Mapa Ubicación</li>
+                                        <li>Boton Whatsaap / Llamada</li>
+                                        <li>Iconos RRSS</li>
+                                        <li>Formulario contacto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="section-card">
+                                <div class="service-header">
+                                    <h3>Página corporativa</h3>
+                                    <h4>SECCIONADA / PERSONALIZADA</h4>
+                                    <p>Entrega de 20 a 25 días</p>
+                                </div>
+                                <div class="service-price">
+                                    <p>S/. 850.00</p>
+                                </div>
+                                <div class="service-body">
+                                    <h5>DETALLES</h5>
+                                    <ul>
+                                        <li>Diseño Preferido</li>
+                                        <li>Colores Corporativos</li>
+                                        <li>Portada de 8 Secciones</li>
+                                        <li>4 Páginas interiores (Hasta 4 secciones c/u)</li>
+                                        <li>Adaptable a Móbiles</li>
+                                        <li>Mapa Ubicación</li>
+                                        <li>Boton Whatsaap / Llamada</li>
+                                        <li>Iconos RRSS</li>
+                                        <li>Formulario contacto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="section-card">
+                                <div class="service-header">
+                                    <h3>Link de Contacto</h3>
+                                    <h4>ENLACE / RRSS</h4>
+                                    <p>Entrega de 10 a 15 días</p>
+                                </div>
+                                <div class="service-price">
+                                    <p>S/. 250.00</p>
+                                </div>
+                                <div class="service-body">
+                                    <h5>DETALLES</h5>
+                                    <ul>
+                                        <li>Diseño Preferido</li>
+                                        <li>Colores Corporativos</li>
+                                        <li>Portada de 1 Sección</li>
+                                        <li>Hasta 10 Enlaces</li>
+                                        <li>Adaptable a Móbiles</li>
+                                        <li>Mapa Ubicación</li>
+                                        <li>Boton Whatsaap / Llamada</li>
+                                        <li>Iconos RRSS</li>
+                                        <li>Formulario contacto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="section-card">
+                                <div class="service-header">
+                                    <h3>One Page</h3>
+                                    <h4>INFORMATICA / SIMPLE</h4>
+                                    <p>Entrega de 15 a 20 días</p>
+                                </div>
+                                <div class="service-price">
+                                    <p>S/. 650.00</p>
+                                </div>
+                                <div class="service-body">
+                                    <h5>DETALLES</h5>
+                                    <ul>
+                                        <li>Diseño Preferido</li>
+                                        <li>Colores Corporativos</li>
+                                        <li>Portada de 8 Secciones</li>
+                                        <li>Adaptable a Móbiles</li>
+                                        <li>Mapa Ubicación</li>
+                                        <li>Boton Whatsaap / Llamada</li>
+                                        <li>Iconos RRSS</li>
+                                        <li>Formulario contacto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="section-card">
+                                <div class="service-header">
+                                    <h3>Página corporativa</h3>
+                                    <h4>SECCIONADA / PERSONALIZADA</h4>
+                                    <p>Entrega de 20 a 25 días</p>
+                                </div>
+                                <div class="service-price">
+                                    <p>S/. 850.00</p>
+                                </div>
+                                <div class="service-body">
+                                    <h5>DETALLES</h5>
+                                    <ul>
+                                        <li>Diseño Preferido</li>
+                                        <li>Colores Corporativos</li>
+                                        <li>Portada de 8 Secciones</li>
+                                        <li>4 Páginas interiores (Hasta 4 secciones c/u)</li>
+                                        <li>Adaptable a Móbiles</li>
+                                        <li>Mapa Ubicación</li>
+                                        <li>Boton Whatsaap / Llamada</li>
+                                        <li>Iconos RRSS</li>
+                                        <li>Formulario contacto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="servicios-post">
+                    <h3>Servicio Adicionales</h3>
+                    <div class="servicios-post-cont swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="section-card post-v">
+                                    <div class="service-header post-h3">
+                                        <h3>Copia de serguridad</h3>
+                                    </div>
+                                    <div class="service-price">
+                                        <p>S/. 100.00</p>
+                                    </div>
+                                    <div class="service-body">
+                                        <ul>
+                                            <li>Entrega en formato .zip</li>
+                                            <li>Hasta 1GB</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="section-card post-v">
+                                    <div class="service-header post-h3">
+                                        <h3>Restaurar una copia de seguridad</h3>
+                                    </div>
+                                    <div class="service-price">
+                                        <p>S/. 100.00</p>
+                                    </div>
+                                    <div class="service-body">
+                                        <ul>
+                                            <li>Debe tener el contenido del .zip</li>
+                                            <li>Restauración de hasta 1GB</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="section-card post-v">
+                                    <div class="service-header post-h3">
+                                        <h3>Agregar secciones</h3>
+                                    </div>
+                                    <div class="service-price">
+                                        <p>S/. 30.00</p>
+                                    </div>
+                                    <div class="service-body">
+                                        <ul>
+                                            <li>1 Sección en cualquier página</li>
+                                            <li>Diseño personalizado</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="section-card post-v">
+                                    <div class="service-header post-h3">
+                                        <h3>Actualizar contenido</h3>
+                                    </div>
+                                    <div class="service-price">
+                                        <p>S/. 60.00</p>
+                                    </div>
+                                    <div class="service-body">
+                                        <ul>
+                                            <li>Actualización de texto e imágenes de toda una página</li>
+                                            <li>Reordenar las secciones la página</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="div-section">
+        <div class="cont-section">
+            <div class="seccion-4">
+                <h1>Comparación de Planes</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Link / RRSS</th>
+                            <th>One Page</th>
+                            <th>Página Corporativa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Precio</td>
+                            <td>S/.250.00</td>
+                            <td>S/.650.00</td>
+                            <td>S/.850.00</td>
+                        </tr>
+                        <tr>
+                            <td>Tiempo</td>
+                            <td>7 días</td>
+                            <td>17 días</td>
+                            <td>25 días</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad de secciones</td>
+                            <td>1</td>
+                            <td>8</td>
+                            <td>8(Portada) - 4(Pag. Interior)</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad de links</td>
+                            <td>15</td>
+                            <td>Ilimitados</td>
+                            <td>Ilimitados</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad de páginas</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Adaptable a móvil</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Mapa ubicación</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Botón WhatsApp</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Formulario Contacto</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Feet Instagram / Facebook</td>
+                            <td>✓</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="div-section">
+        <div class="cont-section">
+            <div class="seccion-3" id="contactanos">
+                <div class="ubi-maps no-cursor">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32129.426503787156!2d-77.01032899351483!3d-12.054141027291424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9babbe694bd%3A0x282693d962c25f2f!2sLa%20Bruja%20Store!5e0!3m2!1ses!2spe!4v1719266988805!5m2!1ses!2spe"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="cont-contac">
+                    <h3>CONTACTANOS</h3>
+                    <div class="cont-name">
+                        <label for="nombre">Nombre (opcional)</label>
+                        <input type="text" name="nombre" id="nombre">
+                    </div>
+                    <div class="cont-select">
+                        <label for="serv">Seleccione un servicio <span class="required">*</span></label>
+                        <select id="serv" name="serv" required>
+                            <option value="">Escoja un servicio</option>
+                            <option value="Link RRSS">Link RRSS</option>
+                            <option value="One Page">One Page</option>
+                            <option value="Pagina Corporativa">Pagina Corporativa</option>
+                        </select>
+                    </div>
+                    <div class="cont-name">
+                        <label for="descripccion">Mensaje (opcional)</label>
+                        <textarea name="descripccion" id="descripccion"></textarea>
+                    </div>
+                    <button onclick="enviarMensaje()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wasap">
+        <div>
+            <div>
+                <div>
+                    <img src="" alt="">
+                    <div class="punt-green"></div>
+                </div>
+                <div>
+                    <h5></h5>
+                    <p></p>
+                </div>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+        <button class="btn-wsp" onclick="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                style="fill: rgba(0, 0, 0, 1);">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263">
+                </path>
+            </svg>
+        </button>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            <p>Labrujastore© 2024 todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- script -->
+    <script th:src="@{/area-desarrollo/js/menu.js}"></script>
+    <script th:src="@{/area-desarrollo/js/enviar-mensaje-ws.js}"></script>
+    <script th:src="@{https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js}"></script>
+    <script th:src="@{https://res.cloudinary.com/veseylab/raw/upload/v1684982764/magicmouse-2.0.0.cdn.min.js}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script th:src="@{/area-desarrollo/js/inicio-swiper.js}"></script>
+    <script th:src="@{/area-desarrollo/js/inicio-mouse.js}"></script>
+    <script th:src="@{/area-desarrollo/js/inicio-animation.js}"></script>
+</body>
+
+</html>
