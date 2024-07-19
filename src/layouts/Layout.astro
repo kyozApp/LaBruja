@@ -1,0 +1,16 @@
+---
+import BaseHead from "@layouts/BaseHead.astro";
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <BaseHead title={title} />
+    <body>
+        <slot />        
+    </body>
+</html>

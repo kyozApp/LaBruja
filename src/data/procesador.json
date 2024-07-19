@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "placa 1",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+  },
+  {
+    "id": 2,
+    "nombre": "placa 1",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+  }
+]

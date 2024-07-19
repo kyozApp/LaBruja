@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    position: relative;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: 'ui-sans-serif', 'system-ui', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
