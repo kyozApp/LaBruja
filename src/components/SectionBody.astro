@@ -1,0 +1,25 @@
+---
+
+---
+
+<div class="body">
+    <div>
+        <slot />
+    </div>
+</div>
+
+<style>
+    .body {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .body > div {
+        width: 100%;
+        max-width: 1400px;
+        padding: 20px;
+    }
+</style>
