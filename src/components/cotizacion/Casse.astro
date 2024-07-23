@@ -1,0 +1,57 @@
+---
+import casses from "@data/casse.json";
+---
+
+<div>
+    <p>casse</p>
+    <select id="casseSelect">
+        <option value="">Selecciona una casse</option>
+        {
+            casses.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="casse_id">Ninguno</span></p>
+<p>El nombre es: <span id="casse_nombre">Ninguno</span></p>
+<p>El precio es: <span id="casse_precio">Ninguno</span></p>
+<p>El stock es: <span id="casse_stock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const casse = document.getElementById("casseSelect");
+        const casseId = document.getElementById("casse_id");
+        const casseNombre = document.getElementById("casse_nombre");
+        const cassePrecio = document.getElementById("casse_precio");
+        const casseStock = document.getElementById("casse_stock");
+
+        if (!casse || !casseId || !casseNombre || !cassePrecio || !casseStock) return;
+
+        casse.addEventListener("change", (event) => {
+            const casse_id = event.target.value;
+            casseId.textContent = casse_id || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const casse_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const casse_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const casse_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            casseNombre.textContent = casse_nombre;
+            cassePrecio.textContent = `$${parseFloat(casse_precio).toFixed(2)}`;
+            casseStock.textContent = casse_stock;
+        });
+    });
+</script>

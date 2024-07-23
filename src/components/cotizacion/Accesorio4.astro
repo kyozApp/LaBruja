@@ -1,0 +1,57 @@
+---
+import accesorio4s from "@data/accesorio.json";
+---
+
+<div>
+    <p>accesorio4</p>
+    <select id="accesorio4Select">
+        <option value="">Selecciona una accesorio4</option>
+        {
+            accesorio4s.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="accesorio4_id">Ninguno</span></p>
+<p>El nombre es: <span id="accesorio4_nombre">Ninguno</span></p>
+<p>El precio es: <span id="accesorio4_precio">Ninguno</span></p>
+<p>El stock es: <span id="accesorio4_stock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const accesorio4 = document.getElementById("accesorio4Select");
+        const accesorio4Id = document.getElementById("accesorio4_id");
+        const accesorio4Nombre = document.getElementById("accesorio4_nombre");
+        const accesorio4Precio = document.getElementById("accesorio4_precio");
+        const accesorio4Stock = document.getElementById("accesorio4_stock");
+
+        if (!accesorio4 || !accesorio4Id || !accesorio4Nombre || !accesorio4Precio || !accesorio4Stock) return;
+
+        accesorio4.addEventListener("change", (event) => {
+            const accesorio4_id = event.target.value;
+            accesorio4Id.textContent = accesorio4_id || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const accesorio4_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const accesorio4_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const accesorio4_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            accesorio4Nombre.textContent = accesorio4_nombre;
+            accesorio4Precio.textContent = `$${parseFloat(accesorio4_precio).toFixed(2)}`;
+            accesorio4Stock.textContent = accesorio4_stock;
+        });
+    });
+</script>

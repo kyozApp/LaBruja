@@ -1,0 +1,57 @@
+---
+import monitors from "@data/monitor.json";
+---
+
+<div>
+    <p>monitor</p>
+    <select id="monitorSelect">
+        <option value="">Selecciona una monitor</option>
+        {
+            monitors.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="monitor_id">Ninguno</span></p>
+<p>El nombre es: <span id="monitor_nombre">Ninguno</span></p>
+<p>El precio es: <span id="monitor_precio">Ninguno</span></p>
+<p>El stock es: <span id="monitor_stock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const monitor = document.getElementById("monitorSelect");
+        const monitorId = document.getElementById("monitor_id");
+        const monitorNombre = document.getElementById("monitor_nombre");
+        const monitorPrecio = document.getElementById("monitor_precio");
+        const monitorStock = document.getElementById("monitor_stock");
+
+        if (!monitor || !monitorId || !monitorNombre || !monitorPrecio || !monitorStock) return;
+
+        monitor.addEventListener("change", (event) => {
+            const monitor_id = event.target.value;
+            monitorId.textContent = monitor_id || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const monitor_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const monitor_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const monitor_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            monitorNombre.textContent = monitor_nombre;
+            monitorPrecio.textContent = `$${parseFloat(monitor_precio).toFixed(2)}`;
+            monitorStock.textContent = monitor_stock;
+        });
+    });
+</script>

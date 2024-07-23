@@ -1,137 +1,57 @@
 ---
-import almacenamiento from "@data/almacenamiento.json";
-
-// Definir el tipo para los almacenamientos
-interface Almacenamiento {
-    id: string;
-    nombre: string;
-    precio: number;
-    stockTotal: number;
-}
-
-// Transformar los datos para incluir solo los campos necesarios
-const almacenamientos: Almacenamiento[] = almacenamiento.map((a: any) => ({
-    id: a.id,
-    nombre: a.nombre,
-    precio: a.precio,
-    stockTotal: a.stockTotal,
-}));
-
-// Convertir el array de almacenamientos a una cadena JSON
-const almacenamientosJson = JSON.stringify(almacenamientos);
+import almacenamientos from "@data/almacenamiento.json";
 ---
 
 <div>
-    <p>Almacenamiento</p>
-    <select id="almacenamiento">
-        <option value="">Selecciona un Almacenamiento</option>
-        {almacenamientos.map((a) => <option value={a.id}>{a.nombre}</option>)}
+    <p>almacenamiento</p>
+    <select id="almacenamientoSelect">
+        <option value="">Selecciona una almacenamiento</option>
+        {
+            almacenamientos.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
     </select>
 </div>
 
-<p>
-    El almacenamiento seleccionado es: <span id="almacenamientoSeleccionado"
-    ></span>
-</p>
-<p>
-    El precio del almacenamiento seleccionado es: <span
-        id="almacenamientoPrecio"></span>
-</p>
-<p>
-    El stock del almacenamiento seleccionado es: <span id="almacenamientoStock"
-    ></span>
-</p>
+<p>El id es: <span id="almacenamiento_id">Ninguno</span></p>
+<p>El nombre es: <span id="almacenamiento_nombre">Ninguno</span></p>
+<p>El precio es: <span id="almacenamiento_precio">Ninguno</span></p>
+<p>El stock es: <span id="almacenamiento_stock">Ninguno</span></p>
 
-<div
-    id="data-container"
-    data-almacenamientos={almacenamientosJson}
-    style="display:none;"
->
-</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const almacenamiento = document.getElementById("almacenamientoSelect");
+        const almacenamientoId = document.getElementById("almacenamiento_id");
+        const almacenamientoNombre = document.getElementById("almacenamiento_nombre");
+        const almacenamientoPrecio = document.getElementById("almacenamiento_precio");
+        const almacenamientoStock = document.getElementById("almacenamiento_stock");
 
-<script>
-    const dataContainer = document.getElementById(
-        "data-container",
-    ) as HTMLElement | null;
-    if (dataContainer) {
-        const almacenamientosJson =
-            dataContainer.getAttribute("data-almacenamientos") || "[]";
-        console.log("Datos JSON del atributo:", almacenamientosJson);
+        if (!almacenamiento || !almacenamientoId || !almacenamientoNombre || !almacenamientoPrecio || !almacenamientoStock) return;
 
-        const almacenamientos = JSON.parse(almacenamientosJson) as {
-            id: string;
-            nombre: string;
-            precio: number;
-            stockTotal: number;
-        }[];
-        console.log("Almacenamientos:", almacenamientos);
+        almacenamiento.addEventListener("change", (event) => {
+            const almacenamiento_id = event.target.value;
+            almacenamientoId.textContent = almacenamiento_id || "Ninguno";
 
-        let almacenamientoAlmacenado = {
-            nombre: "",
-            precio: 0,
-            stockTotal: 0,
-        };
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const almacenamiento_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const almacenamiento_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const almacenamiento_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
 
-        const selectElement = document.getElementById(
-            "almacenamiento",
-        ) as HTMLSelectElement | null;
-        const almacenamientoSeleccionadoSpan = document.getElementById(
-            "almacenamientoSeleccionado",
-        );
-        const almacenamientoPrecioSpan = document.getElementById(
-            "almacenamientoPrecio",
-        );
-        const almacenamientoStockSpan = document.getElementById(
-            "almacenamientoStock",
-        );
-
-        if (
-            selectElement &&
-            almacenamientoSeleccionadoSpan &&
-            almacenamientoPrecioSpan &&
-            almacenamientoStockSpan
-        ) {
-            selectElement.addEventListener("change", function () {
-                const selectedId = selectElement.value;
-                console.log("ID seleccionado:", selectedId);
-
-                if (selectedId) {
-                    const selectedAlmacenamiento = almacenamientos.find(
-                        (a) => a.id === selectedId,
-                    );
-                    console.log(
-                        "Almacenamiento seleccionado:",
-                        selectedAlmacenamiento,
-                    );
-
-                    if (selectedAlmacenamiento) {
-                        almacenamientoAlmacenado = {
-                            nombre: selectedAlmacenamiento.nombre,
-                            precio: selectedAlmacenamiento.precio,
-                            stockTotal: selectedAlmacenamiento.stockTotal,
-                        };
-
-                        almacenamientoSeleccionadoSpan.textContent =
-                            almacenamientoAlmacenado.nombre;
-                        almacenamientoPrecioSpan.textContent =
-                            almacenamientoAlmacenado.precio.toFixed(2);
-                        almacenamientoStockSpan.textContent =
-                            almacenamientoAlmacenado.stockTotal.toString();
-                    }
-                } else {
-                    almacenamientoAlmacenado = {
-                        nombre: "",
-                        precio: 0,
-                        stockTotal: 0,
-                    };
-
-                    almacenamientoSeleccionadoSpan.textContent = "";
-                    almacenamientoPrecioSpan.textContent = "";
-                    almacenamientoStockSpan.textContent = "";
-                }
-            });
-        }
-    } else {
-        console.error("Elemento data-container no encontrado");
-    }
+            almacenamientoNombre.textContent = almacenamiento_nombre;
+            almacenamientoPrecio.textContent = `$${parseFloat(almacenamiento_precio).toFixed(2)}`;
+            almacenamientoStock.textContent = almacenamiento_stock;
+        });
+    });
 </script>

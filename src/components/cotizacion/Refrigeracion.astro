@@ -1,0 +1,57 @@
+---
+import refrigeracions from "@data/refrigeracion.json";
+---
+
+<div>
+    <p>refrigeracion</p>
+    <select id="refrigeracionSelect">
+        <option value="">Selecciona una refrigeracion</option>
+        {
+            refrigeracions.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="refrigeracion_id">Ninguno</span></p>
+<p>El nombre es: <span id="refrigeracion_nombre">Ninguno</span></p>
+<p>El precio es: <span id="refrigeracion_precio">Ninguno</span></p>
+<p>El stock es: <span id="refrigeracion_stock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const refrigeracion = document.getElementById("refrigeracionSelect");
+        const refrigeracionId = document.getElementById("refrigeracion_id");
+        const refrigeracionNombre = document.getElementById("refrigeracion_nombre");
+        const refrigeracionPrecio = document.getElementById("refrigeracion_precio");
+        const refrigeracionStock = document.getElementById("refrigeracion_stock");
+
+        if (!refrigeracion || !refrigeracionId || !refrigeracionNombre || !refrigeracionPrecio || !refrigeracionStock) return;
+
+        refrigeracion.addEventListener("change", (event) => {
+            const refrigeracion_id = event.target.value;
+            refrigeracionId.textContent = refrigeracion_id || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const refrigeracion_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const refrigeracion_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const refrigeracion_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            refrigeracionNombre.textContent = refrigeracion_nombre;
+            refrigeracionPrecio.textContent = `$${parseFloat(refrigeracion_precio).toFixed(2)}`;
+            refrigeracionStock.textContent = refrigeracion_stock;
+        });
+    });
+</script>

@@ -1,0 +1,57 @@
+---
+import ram1s from "@data/ram.json";
+---
+
+<div>
+    <p>ram1</p>
+    <select id="ram1Select">
+        <option value="">Selecciona una ram1</option>
+        {
+            ram1s.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="ram1_id">Ninguno</span></p>
+<p>El nombre es: <span id="ram1_nombre">Ninguno</span></p>
+<p>El precio es: <span id="ram1_precio">Ninguno</span></p>
+<p>El stock es: <span id="ram1_stock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const ram1 = document.getElementById("ram1Select");
+        const ram1Id = document.getElementById("ram1_id");
+        const ram1Nombre = document.getElementById("ram1_nombre");
+        const ram1Precio = document.getElementById("ram1_precio");
+        const ram1Stock = document.getElementById("ram1_stock");
+
+        if (!ram1 || !ram1Id || !ram1Nombre || !ram1Precio || !ram1Stock) return;
+
+        ram1.addEventListener("change", (event) => {
+            const ram1_id = event.target.value;
+            ram1Id.textContent = ram1_id || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const ram1_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const ram1_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const ram1_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            ram1Nombre.textContent = ram1_nombre;
+            ram1Precio.textContent = `$${parseFloat(ram1_precio).toFixed(2)}`;
+            ram1Stock.textContent = ram1_stock;
+        });
+    });
+</script>

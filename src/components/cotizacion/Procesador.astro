@@ -1,122 +1,68 @@
 ---
-import procesador from "@data/procesador.json";
-
-// Definir el tipo para los procesadores
-interface Procesador {
-    id: string;
-    nombre: string;
-    precio: number;
-    stockTotal: number;
-}
-
-// Transformar los datos para incluir solo los campos necesarios
-const procesadores: Procesador[] = procesador.map((p: any) => ({
-    id: p.id,
-    nombre: p.nombre,
-    precio: p.precio,
-    stockTotal: p.stockTotal,
-}));
-
-// Convertir el array de procesadores a una cadena JSON
-const procesadoresJson = JSON.stringify(procesadores);
+import procesadores from "@data/procesador.json";
 ---
 
 <div>
-    <p>Procesador</p>
-    <select id="procesador">
-        <option value="">Selecciona un Procesador</option>
-        {procesadores.map((p) => <option value={p.id}>{p.nombre}</option>)}
+    <p>procesador</p>
+    <select id="procesadorSelect">
+        <option value="">Selecciona una procesador</option>
+        {
+            procesadores.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
     </select>
 </div>
 
-<p>El procesador seleccionado es: <span id="procesadorSeleccionado"></span></p>
-<p>
-    El precio del procesador seleccionado es: <span id="procesadorPrecio"
-    ></span>
-</p>
-<p>
-    El stock del procesador seleccionado es: <span id="procesadorStock"></span>
-</p>
+<p>El id es: <span id="procesador_id">Ninguno</span></p>
+<p>El nombre es: <span id="procesador_nombre">Ninguno</span></p>
+<p>El precio es: S/.<span id="procesador_precio">Ninguno</span></p>
+<p>El stock es: <span id="procesador_stock">Ninguno</span></p>
 
-<!-- Insertar los datos JSON como un atributo de datos en un elemento invisible -->
-<div
-    id="data-container"
-    data-procesadores={procesadoresJson}
-    style="display:none;"
->
-</div>
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const procesador = document.getElementById("procesadorSelect");
+        const procesadorId = document.getElementById("procesador_id");
+        const procesadorNombre = document.getElementById("procesador_nombre");
+        const procesadorPrecio = document.getElementById("procesador_precio");
+        const procesadorStock = document.getElementById("procesador_stock");
 
-<script>
-    // Obtener los datos JSON desde el atributo de datos
-    const dataContainer = document.getElementById(
-        "data-container",
-    ) as HTMLElement;
-    const procesadores = JSON.parse(
-        dataContainer.getAttribute("data-procesadores") || "[]",
-    ) as { id: string; nombre: string; precio: number; stockTotal: number }[];
+        if (
+            !procesador ||
+            !procesadorId ||
+            !procesadorNombre ||
+            !procesadorPrecio ||
+            !procesadorStock
+        )
+            return;
 
-    // Variable para almacenar el procesador seleccionado
-    let procesadorAlmacenado = {
-        nombre: "",
-        precio: 0,
-        stockTotal: 0,
-    };
+        procesador.addEventListener("change", (event) => {
+            const procesador_id = event.target.value;
+            procesadorId.textContent = procesador_id || "Ninguno";
 
-    // Obtener los elementos <select>, <span> y <p>
-    const selectElement = document.getElementById(
-        "procesador",
-    ) as HTMLSelectElement | null;
-    const procesadorSeleccionadoSpan = document.getElementById(
-        "procesadorSeleccionado",
-    );
-    const procesadorPrecioSpan = document.getElementById("procesadorPrecio");
-    const procesadorStockSpan = document.getElementById("procesadorStock");
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const procesador_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const procesador_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const procesador_stock =
+                selectedOption.getAttribute("data-stock") || "0";
 
-    // Verificar que los elementos no sean null
-    if (
-        selectElement &&
-        procesadorSeleccionadoSpan &&
-        procesadorPrecioSpan &&
-        procesadorStockSpan
-    ) {
-        // Añadir un event listener para el evento 'change'
-        selectElement.addEventListener("change", function () {
-            const selectedId = selectElement.value;
-
-            if (selectedId) {
-                // Buscar el procesador con el id seleccionado
-                const selectedProcessor = procesadores.find(
-                    (p) => p.id === selectedId,
-                );
-
-                if (selectedProcessor) {
-                    // Actualizar la variable procesadorAlmacenado
-                    procesadorAlmacenado = {
-                        nombre: selectedProcessor.nombre,
-                        precio: selectedProcessor.precio,
-                        stockTotal: selectedProcessor.stockTotal,
-                    };
-
-                    // Actualizar el contenido de los <span> con los datos del procesador
-                    procesadorSeleccionadoSpan.textContent =
-                        procesadorAlmacenado.nombre;
-                    procesadorPrecioSpan.textContent =
-                        procesadorAlmacenado.precio.toFixed(2); // Formato con dos decimales
-                    procesadorStockSpan.textContent =
-                        procesadorAlmacenado.stockTotal.toString();
-                }
-            } else {
-                // Limpiar la variable y el contenido de los <span> si no se selecciona ningún procesador
-                procesadorAlmacenado = {
-                    nombre: "",
-                    precio: 0,
-                    stockTotal: 0,
-                };
-
-                procesadorSeleccionadoSpan.textContent = "";
-                procesadorPrecioSpan.textContent = "";
-                procesadorStockSpan.textContent = "";
-            }
+            procesadorNombre.textContent = procesador_nombre;
+            procesadorPrecio.textContent =
+                parseFloat(procesador_precio).toFixed(2);
+            procesadorStock.textContent = procesador_stock;
         });
-    }
+        procesadorNombre.textContent = "Ninguno";
+        procesadorPrecio.textContent = "0";
+        procesadorStock.textContent = "0";
+    });
 </script>

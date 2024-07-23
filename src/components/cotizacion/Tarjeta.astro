@@ -1,0 +1,57 @@
+---
+import tarjetas from "@data/tarjeta.json";
+---
+
+<div>
+    <p>tarjeta</p>
+    <select id="tarjetaSelect">
+        <option value="">Selecciona una tarjeta</option>
+        {
+            tarjetas.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="tarjeta_id">Ninguno</span></p>
+<p>El nombre es: <span id="tarjeta_nombre">Ninguno</span></p>
+<p>El precio es: <span id="tarjeta_precio">Ninguno</span></p>
+<p>El stock es: <span id="tarjeta_stock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const tarjeta = document.getElementById("tarjetaSelect");
+        const tarjetaId = document.getElementById("tarjeta_id");
+        const tarjetaNombre = document.getElementById("tarjeta_nombre");
+        const tarjetaPrecio = document.getElementById("tarjeta_precio");
+        const tarjetaStock = document.getElementById("tarjeta_stock");
+
+        if (!tarjeta || !tarjetaId || !tarjetaNombre || !tarjetaPrecio || !tarjetaStock) return;
+
+        tarjeta.addEventListener("change", (event) => {
+            const tarjeta_id = event.target.value;
+            tarjetaId.textContent = tarjeta_id || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const tarjeta_nombre =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const tarjeta_precio =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const tarjeta_stock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            tarjetaNombre.textContent = tarjeta_nombre;
+            tarjetaPrecio.textContent = `$${parseFloat(tarjeta_precio).toFixed(2)}`;
+            tarjetaStock.textContent = tarjeta_stock;
+        });
+    });
+</script>
