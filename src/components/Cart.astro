@@ -1,0 +1,202 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    productoId: string;
+    nombreImage?: string;
+    nombre?: string;
+    precio?: number;
+    stock?: number;
+    categoria?: string;
+    imagenes?: string[];
+}
+
+const {
+    nombreImage = "/src/assets/layout/sin-imagen.png",
+    nombre = "NOMBRE DEL PRODUCTO",
+    precio = "xxx.xx",
+    stock = "0",
+    categoria = "",
+    imagenes = [],
+} = Astro.props;
+---
+
+<div class="detalle-producto">
+    <div class="contenedor-img-mini">
+        <div class="cont-img">
+            <a href={`catalogo/${categoria}/${nombre}`} class="con-img-fav">
+                {
+                    imagenes.length > 0 ? (
+                        <slot />
+                    ) : (
+                        <img
+                            src={nombreImage}
+                            alt={nombre}
+                            loading="eager"
+                            class="img-producto"
+                        />
+                    )
+                }
+            </a>
+        </div>
+        <div class="cont-vista-previa">
+            <a href={`catalogo/${categoria}/${nombre}`} title="Vista previa">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path
+                        d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"
+                    ></path></svg
+                >
+            </a>
+        </div>
+    </div>
+    <div class="titulo-producto">
+        <a href={`catalogo/${categoria}/${nombre}`}>{nombre}</a>
+    </div>
+    <div class="cont-producto">
+        <div class="sub-cont-produc">
+            <div class="cont-atrub-prod">
+                <p class="precio-producto">(S/. {precio})</p>
+                <p>Stock: {stock}</p>
+            </div>
+            <div class="btn-producto">
+                <a href="" class="con-img-fav"> Comprar </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    * {
+        font-family: "Poppins", sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .detalle-producto {
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow:
+            0 0 10px rgb(0 0 0 / 22%),
+            0 0 20px rgb(0 0 0 / 5%);
+        position: relative;
+        max-width: 330px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+    .contenedor-img-mini {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-img {
+        width: 100%;
+    }
+    .detalle-producto .img-producto {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        transition: 0.2s;
+    }
+    .detalle-producto img {
+        width: 100%;
+    }
+    .cont-vista-previa {
+        position: absolute;
+        display: flex;
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+    }
+
+    .cont-vista-previa > a {
+        padding: 10px;
+        color: rgba(255, 0, 0, 0);
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        transition: 0.2s ease;
+    }
+
+    .cont-vista-previa svg {
+        fill: rgba(255, 0, 0, 0);
+        transition: 0.2s;
+        width: 24px;
+        height: 24px;
+    }
+
+    .contenedor-img-mini:hover .img-producto {
+        filter: grayscale(100%);
+    }
+    .contenedor-img-mini:hover .cont-vista-previa > a {
+        background-color: #ffffffde;
+        cursor: pointer;
+    }
+    .contenedor-img-mini:hover .cont-vista-previa > a svg {
+        fill: rgb(255, 0, 0);
+    }
+
+    .contenedor-img-mini .cont-vista-previa > a:hover {
+        background-color: #ff1e1ede;
+    }
+
+    .contenedor-img-mini .cont-vista-previa > a:hover svg {
+        fill: rgb(255, 255, 255);
+    }
+
+    .titulo-producto {
+        background-color: aliceblue;
+        margin: 0;
+        text-align: center;
+        padding: 5px 0;
+        color: #000;
+        font-weight: bold;
+        transition: 0.2s;
+        min-height: 52px;
+    }
+    .titulo-producto a {
+        transition: 0.2s;
+        color: black;
+    }
+    .titulo-producto a:hover {
+        color: #ff0b37;
+    }
+    .cont-producto {
+        padding: 10px;
+    }
+    .sub-cont-produc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+    }
+    .sub-cont-produc p {
+        margin: 0;
+    }
+    .precio-producto {
+        font-size: 20px;
+        color: red;
+        font-weight: bolder;
+    }
+    .btn-producto {
+    }
+    .btn-producto a {
+        background-color: #ff0b37;
+        padding: 10px 10px;
+        color: white;
+        border-radius: 7px;
+        font-size: 20px;
+        transition: 0.2s;
+    }
+
+    .checkmodal {
+        display: none;
+    }
+</style>
