@@ -1,32 +1,142 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "1",
+    "nombre": "LENOVO GAMING 3 82K2027ALM",
+    "categoria": "Laptop",
+    "subcategoria": "",
+    "marca": "Lenovo",
+    "stockTotal": 3,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 5645,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/14?tipo=laptop",
+    "descripcion": "NB LENOVO GAMING 3 RYZEN 5-5500H, 8GB, 512GB SSD, 4GB RTX2050, 15.6\" FHD IPS WINDOWS 11 82K20274LM",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "2",
+    "nombre": "ACER NITRO AN515-58-72EY",
+    "categoria": "Laptop",
+    "subcategoria": "",
+    "marca": "Acer",
+    "stockTotal": 3,
+    "stockLima": 2,
+    "stockArequipa": 1,
+    "precio": 3890,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/15?tipo=laptop",
+    "descripcion": "NB ACER NITRO AN515-58-72EY, I7-12650H, 16GB, 512GB SSD, RTX 3050, 15.6 FHD, WIN11",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "3",
+    "nombre": "ACER NITRO 5 AN515-58-57VS",
+    "categoria": "Laptop",
+    "subcategoria": "",
+    "marca": "Acer",
+    "stockTotal": 3,
+    "stockLima": 2,
+    "stockArequipa": 1,
+    "precio": 2865,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/16?tipo=laptop",
+    "descripcion": "NB ACER NITRO 5 AN515-58-57VS,CORE I5-12450H 4.4GHZ, 8GB, 512GB SSD, RTX 3050 4GB, 15.6\", WIN 11",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "4",
+    "nombre": "HP VICTUS 15-FB0109LA",
+    "categoria": "Laptop",
+    "subcategoria": "",
+    "marca": "HP",
+    "stockTotal": 2,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 3725,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/17?tipo=laptop",
+    "descripcion": "NB HP VICTUS 15-FB0109LA RYZEN 7 5800H, 16GB, 512GB SSD, 4GB NVIDIA RTX 3050, 15.6\" FHD, WINDOWS 11",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "5",
+    "nombre": "ASUS TUF GAMING A15 FA506N",
+    "categoria": "Laptop",
+    "subcategoria": "TUF GAMING",
+    "marca": "ASUS",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 2970,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/18?tipo=laptop",
+    "descripcion": "LAPTOP ASUS TUF GAMING A15 FA506NC RYZEN 5 7535HS, RAM 8GB DDR5, SSD 512GB NVME, RTX NVIDEA 3050 4GB, 15.6\" FHD 144HZ IPS, Windows 11 Home.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "6",
+    "nombre": "THUNDEROBOT 911 AIR",
+    "categoria": "Laptop",
+    "subcategoria": "",
+    "marca": "THUNDEROBOT",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 1990,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/19?tipo=laptop",
+    "descripcion": "LAPTOP THUNDEROBOT 911 AIR I5 11260H, 8GB RAM DDR4, 512GB SSD, GTX NVIDIA 1650 4GB",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "7",
+    "nombre": "LAPTOP LENOVO V15 G4 82YU00X6LM",
+    "categoria": "Laptop",
+    "subcategoria": "",
+    "marca": "LENOVO",
+    "stockTotal": 1,
+    "stockLima": 1,
+    "stockArequipa": 0,
+    "precio": 1430,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/20?tipo=laptop",
+    "descripcion": "LAPTOP LENOVO V15 G4 RYZEN 5 7520U, 8GB RAM DDR5, 256GB SSD NVME, ESPAÑOL, VEGA GRAPHICS",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

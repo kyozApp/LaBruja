@@ -1,0 +1,64 @@
+---
+
+---
+
+<div class="div-correo">
+    <p>
+        Correo electronico: <span class="spanCorreo"
+            >labrujastore@outlook.com</span
+        >
+    </p>
+</div>
+
+<script>
+    // Encuentra todos los botones con la clase `alert` en la página.
+    const span = document.querySelectorAll("span.spanCorreo");
+
+    // Maneja los clics en cada botón.
+    span.forEach((span) => {
+        span.addEventListener("click", () => {
+            const email = span?.textContent?.trim();
+            if (email && validateEmail(email)) {
+                window.location.href = `mailto:${email}`;
+            } else {
+                console.error(
+                    "Correo electrónico no válido o no encontrado:",
+                    email,
+                );
+            }
+        });
+    });
+    function validateEmail(email: string) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+</script>
+
+<style>
+    .div-correo {
+        background-color: #0f172a;
+        height: 50px;
+        display: none;
+        align-items: center;
+        color: #f8fafc;
+        padding: 0 0 0 6rem;
+        font-size: x-large;
+    }
+
+    .spanCorreo:hover {
+        cursor: pointer;
+        color: #dc2626;
+    }
+
+    @media screen and (min-width: 768px) {
+        .div-correo {
+            display: flex;
+        }
+    }
+
+    @media screen and (min-width: 1240px) {
+        .div-correo {
+            display: flex;
+        }
+    }
+</style>

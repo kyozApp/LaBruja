@@ -1,32 +1,222 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "25",
+    "nombre": "CASE GAMER TEROS TE-1312 NEGRO 4FAN ARGB",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "Teros",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 4,
+    "precio": 165,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/1?tipo=casse",
+    "descripcion": "CASE ATX TE1312 BLACK Panel lateral Vidrio templado, puertos USB 3.0 , USB 2.0, Audífono y micrófono, 4 Fan 12 cm ARGB. No incluye fuente de alimentación",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "26",
+    "nombre": "CASE GAMER DK-D4 BLACK 1STPLAYER",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 150,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/2?tipo=casse",
+    "descripcion": "CASE GAMER MALLADO NEGRO4 FAN RGB (3 DELANTEROS 1 TRASERO) TAMAÑO SOPORTADO ATX, M-ATX, I-TX ESTRUCTURA METALICA CON VIDRIO TEMPLADO LATERAL NO INCLYE FUENTE DE ALIEMNTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "27",
+    "nombre": "CASE GAMING F3-A B&W 1ST PLAYER 4FAN ARGB",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 155,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/3?tipo=casse",
+    "descripcion": "CASE GAMER SEMIMALLADO BLANCO Y NEGRO4 FAN ARGB (3 DELANTEROS 1 TRASERO) TAMAÑO SOPORTADO M-ATX ESTRUCTURA METALICA CON VIDRIO TEMPLADO LATERAL NO INCLYE FUENTE DE ALIEMNTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "28",
+    "nombre": "CASE GAMING X3-M BLANCO 1ST PLAYER 4FAN RGB",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 165,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/4?tipo=casse",
+    "descripcion": "CASE GAMER MALLADO BLANCO4 FAN ARGB (3 DELANTEROS 1 TRASERO) TAMAÑO SOPORTADO M-ATX ESTRUCTURA METALICA CON VIDRIO TEMPLADO LATERAL NO INCLYE FUENTE DE ALIEMNTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "29",
+    "nombre": "CASE GAMING X3-M NEGRO 1ST PLAYER 4FAN RGB",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 160,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/5?tipo=casse",
+    "descripcion": "CASE GAMER MALLADO NEGRO4 FAN ARGB (3 DELANTEROS 1 TRASERO) TAMAÑO SOPORTADO M-ATX ESTRUCTURA METALICA CON VIDRIO TEMPLADO LATERAL NO INCLYE FUENTE DE ALIEMNTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "30",
+    "nombre": "CASE GAMING T3 NEGRO 1ST PLAYER 4FAN ARGB",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 210,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/6?tipo=casse",
+    "descripcion": "CASE GAMER MALLADO NEGRO CON DOBLE FILTRO DE AIRE4 FAN ARGB (3 DELANTEROS 1 TRASERO)  TAMAÑO SOPORTADO M-ATX ESTRUCTURA METÁLICA CON VIDRIO TEMPLADO LATERAL NO INCLUYE FUENTE DE ALIMENTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "31",
+    "nombre": "CASE GAMING T5 NEGRO 1ST PLAYER 4FAN ARGB",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 3,
+    "stockLima": 3,
+    "stockArequipa": 0,
+    "precio": 200,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/7?tipo=casse",
+    "descripcion": "CASE GAMER MALLADO NEGRO4 FAN ARGB (3 DELANTEROS 1 TRASERO)  TAMAÑO SOPORTADO M-ATX ESTRUCTURA METALICA CON VIDRIO TEMPLADO LATERAL NO INCLYE FUENTE DE ALIEMNTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "32",
+    "nombre": "CASE GAMING SP7-EV NEGRO 1ST PLAYER",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 1,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 535,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/8?tipo=casse",
+    "descripcion": "CASE GAMER PANTALLA DELANTERA NO INCLUYE FAN COOLER TAMAÑO SOPORTADO ATX, M-ATX, I-TX ESTRUCTURA METALICA CON VIDRIO TEMPLADO LATERAL NO INCLYE FUENTE DE ALIEMNTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "33",
+    "nombre": "CASE GAMING 1ST PLAYER MV5-T N",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "1stplayer",
+    "stockTotal": 10,
+    "stockLima": 10,
+    "stockArequipa": 0,
+    "precio": 160,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/9?tipo=casse",
+    "descripcion": "CASE GAMER TRANSPARENTE NEGRO CON VIDRIO TEMPLADO LATERAL Y FRONTAL3 FAN ARGB (2 DELANTEROS 1 TRASERO)  TAMAÑO SOPORTADO M-ATX ESTRUCTURA METÁLICA NO INCLUYE FUENTE DE ALIMENTACIÓN.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "34",
+    "nombre": "CASE BASICO FUSSION ENC 1003 GABINETE MICROATX 230W",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "Fussion",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 70,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/10?tipo=casse",
+    "descripcion": "FUSSION - ENC 1003 Dimensión Chasis: (L*A*H) Largo *Ancho* Alto 27.5cm * 17cm * 35cm Dimensión Gabinete: (L*A*H) Largo *Ancho* Alto 30.5cm * 17cm * 35cm Panel Frontal ABS Panel Lateral ABS Grosor de Metal 0.35 SPCC Vidrio Templado No Fuente de Poder Voltaje 230W Conector 1 Conector 20 + 4 Pines Conector 1 Conector P8 (4x2) Pines Conector 3 Conectores Sata Conector 1 Conector Ata Ventilador 1 Cooler de 8cm Soporte de Placa Madre Micro ATX / Mini ATX Slots de Expansión 4",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "35",
+    "nombre": "CASE GAMER HALION DRAGON CR15 FUENTE 500W X4F",
+    "categoria": "case",
+    "subcategoria": "",
+    "marca": "Halion",
+    "stockTotal": 10,
+    "stockLima": 10,
+    "stockArequipa": 0,
+    "precio": 205,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/11?tipo=casse",
+    "descripcion": "CASE GAMER HALION DRAGON CR15 CON FUENTE Fuente de 500W Puertos: 2xUSB 2.0, 1xUSB 3.0, Audio HD Panel lateral de vidrio templado Color negro 3 cooler delantero de 120mm RGB 1 cooler posterior de 120mm RGB Dimensiones: 365 x 200 x 455mm",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

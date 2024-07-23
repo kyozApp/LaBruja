@@ -1,32 +1,218 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "49",
+    "nombre": "PROCESADOR INTEL CORE I5 12400F",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 5,
+    "stockLima": 2,
+    "stockArequipa": 3,
+    "precio": 540,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/1?tipo=procesador",
+    "descripcion": "El procesador I5-12400F, con litografía Intel 7, cuenta con 6 núcleos, todos ellos Performance-cores, sin Efficient-cores, y un total de 12 subprocesos. Su frecuencia turbo máxima es de 4.40 GHz, con una frecuencia base de Performance-core de 2.50 GHz. Tiene una caché de 18 MB Intel® Smart Cache y una caché L2 total de 7.5 MB. La potencia base del procesador es de 65 W, mientras que la potencia turbo máxima es de 117 W. Es compatible con tipos de memoria de hasta DDR5 4800 MT/s y hasta DDR4 3200 MT/s. La revisión de PCI Express es 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "37",
+      "38"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "50",
+    "nombre": "PROCESADOR INTEL CORE I5 13400F",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 3,
+    "stockLima": 2,
+    "stockArequipa": 1,
+    "precio": 990,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/2?tipo=procesador",
+    "descripcion": "El procesador I5-13400F, con litografía Intel 7, tiene 10 núcleos, divididos en 6 Performance-cores y 4 Efficient-cores, con un total de 16 subprocesos. Su frecuencia turbo máxima es de 4.60 GHz para los Performance-cores y 3.30 GHz para los Efficient-cores, mientras que la frecuencia base es de 2.50 GHz y 1.80 GHz respectivamente. Este procesador cuenta con una caché de 20 MB Intel® Smart Cache y una caché L2 total de 9.5 MB. La potencia base es de 65 W y la potencia turbo máxima es de 148 W. Es compatible con tipos de memoria de hasta DDR5 4800 MT/s y hasta DDR4 3200 MT/s, y soporta las revisiones PCI Express 5.0 y 4.0. Los zócalos compatibles son FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "39",
+      "40"
+    ]
+  },
+  {
+    "id": "51",
+    "nombre": "PROCESADOR INTEL CORE I5 14400F",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 3,
+    "stockLima": 2,
+    "stockArequipa": 1,
+    "precio": 1005,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/3?tipo=procesador",
+    "descripcion": "El procesador I5-14400F, fabricado con litografía Intel 7, cuenta con 10 núcleos divididos en 6 Performance-cores y 4 Efficient-cores, sumando un total de 16 subprocesos. Su frecuencia turbo máxima alcanza los 4.7 GHz para los Performance-cores y 3.5 GHz para los Efficient-cores, con una frecuencia base de 2.5 GHz y 1.8 GHz respectivamente. Dispone de una caché de 20 MB Intel® Smart Cache y una caché L2 total de 9.5 MB. La potencia base del procesador es de 65 W, mientras que la potencia turbo máxima es de 148 W. Este procesador es compatible con memorias de hasta DDR5 4800 MT/s y DDR4 3200 MT/s. Además, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": "52",
+    "nombre": "PROCESADOR INTEL CORE I5 12600KF",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 4,
+    "stockLima": 2,
+    "stockArequipa": 2,
+    "precio": 750,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/4?tipo=procesador",
+    "descripcion": "El procesador I5-12600KF, fabricado con litografía Intel 7, tiene 10 núcleos, divididos en 6 Performance-cores y 4 Efficient-cores, sumando un total de 16 subprocesos. La frecuencia turbo máxima es de 4.90 GHz para los Performance-cores y 3.60 GHz para los Efficient-cores, mientras que las frecuencias base son de 3.70 GHz y 2.80 GHz respectivamente. Cuenta con una caché de 20 MB Intel® Smart Cache y una caché L2 total de 9.5 MB. La potencia base del procesador es de 125 W y la potencia turbo máxima es de 150 W. Este procesador es compatible con tipos de memoria de hasta DDR5 4800 MT/s y DDR4 3200 MT/s, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": "53",
+    "nombre": "PROCESADOR INTEL CORE I5 13600KF",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 2,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 1370,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/5?tipo=procesador",
+    "descripcion": "El procesador I5-13600KF, fabricado con litografía Intel 7, cuenta con 14 núcleos, de los cuales 6 son Performance-cores y 8 son Efficient-cores, sumando un total de 20 subprocesos. La frecuencia turbo máxima es de 5.1 GHz para los Performance-cores y 3.9 GHz para los Efficient-cores, mientras que las frecuencias base son de 3.5 GHz y 2.6 GHz respectivamente. Dispone de una caché de 24 MB Intel® Smart Cache y una caché L2 total de 20 MB. La potencia base del procesador es de 125 W y la potencia turbo máxima es de 181 W. Este procesador es compatible con memorias de hasta DDR5 5600 MT/s y DDR4 3200 MT/s. Además, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": "54",
+    "nombre": "PROCESADOR INTEL CORE I5 14600KF",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 2,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 1350,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/6?tipo=procesador",
+    "descripcion": "El procesador I5-14600KF, fabricado con litografía Intel 7, tiene 14 núcleos, divididos en 6 Performance-cores y 8 Efficient-cores, sumando un total de 20 subprocesos. La frecuencia turbo máxima alcanza los 5.3 GHz para los Performance-cores y 4 GHz para los Efficient-cores, mientras que las frecuencias base son de 3.5 GHz y 2.6 GHz respectivamente. Este procesador cuenta con una caché de 24 MB Intel® Smart Cache y una caché L2 total de 20 MB. La potencia base es de 125 W y la potencia turbo máxima es de 181 W. Es compatible con tipos de memoria de hasta DDR5 5600 MT/s y hasta DDR4 3200 MT/s, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": "55",
+    "nombre": "PROCESADOR INTEL CORE I7 12700F",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 5,
+    "stockLima": 3,
+    "stockArequipa": 2,
+    "precio": 1160,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/7?tipo=procesador",
+    "descripcion": "El procesador I7-12700F, fabricado con litografía Intel 7, cuenta con 12 núcleos, divididos en 8 Performance-cores y 4 Efficient-cores, sumando un total de 20 subprocesos. La frecuencia turbo máxima es de 4.90 GHz, con los Performance-cores alcanzando hasta 4.80 GHz y los Efficient-cores hasta 3.60 GHz. Las frecuencias base son de 2.10 GHz para los Performance-cores y 1.60 GHz para los Efficient-cores. Este procesador dispone de una caché de 25 MB Intel® Smart Cache y una caché L2 total de 12 MB. La potencia base es de 65 W y la potencia turbo máxima es de 180 W. Es compatible con tipos de memoria de hasta DDR5 5600 MT/s y DDR4 3200 MT/s, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": "56",
+    "nombre": "PROCESADOR INTEL CORE I7 13700F",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 1690,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/8?tipo=procesador",
+    "descripcion": "El procesador I7-13700F, fabricado con litografía Intel 7, tiene 16 núcleos, divididos en 8 Performance-cores y 8 Efficient-cores, sumando un total de 24 subprocesos. La frecuencia turbo máxima es de 5.20 GHz, con los Performance-cores alcanzando hasta 5.10 GHz y los Efficient-cores hasta 4.10 GHz. Las frecuencias base son de 2.10 GHz para los Performance-cores y 1.50 GHz para los Efficient-cores. Este procesador cuenta con una caché de 30 MB Intel® Smart Cache y una caché L2 total de 24 MB. La potencia base es de 65 W y la potencia turbo máxima es de 219 W. Es compatible con tipos de memoria de hasta DDR5 5600 MT/s y DDR4 3200 MT/s, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
+  },
+  {
+    "id": "57",
+    "nombre": "PROCESADOR INTEL CORE I7 14700F",
+    "categoria": "procesador",
+    "subcategoria": "",
+    "marca": "Intel",
+    "stockTotal": 2,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 1730,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/9?tipo=procesador",
+    "descripcion": "El procesador I7-14700F, fabricado con litografía Intel 7, cuenta con 20 núcleos, divididos en 8 Performance-cores y 12 Efficient-cores, sumando un total de 28 subprocesos. La frecuencia turbo máxima es de 5.40 GHz, con los Performance-cores alcanzando hasta 5.30 GHz y los Efficient-cores hasta 4.10 GHz. Las frecuencias base son de 2.10 GHz para los Performance-cores y 1.50 GHz para los Efficient-cores. Este procesador dispone de una caché de 33 MB Intel® Smart Cache y una caché L2 total de 28 MB. La potencia base es de 65 W y la potencia turbo máxima es de 219 W. Es compatible con tipos de memoria de hasta DDR5 5600 MT/s y DDR4 3200 MT/s, soporta las revisiones PCI Express 5.0 y 4.0, y es compatible con zócalos FCLGA1700.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "41",
+      "42"
+    ]
   }
 ]

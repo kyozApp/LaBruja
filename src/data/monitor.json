@@ -1,32 +1,162 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "17",
+    "nombre": "MONITOR SAMSUNG PLANO LS32B300NWNXGO LED 32 75HZ FHD",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Samsung",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 599,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/8?tipo=monitor",
+    "descripcion": "La pantalla sin bordes en tres lados aporta un estilo puro y moderno a cualquier entorno de trabajo. En la configuración de varios monitores, las pantallas se alinean a la perfección para ofrecer una vista prácticamente sin espacios ni distracciones.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "18",
+    "nombre": "MONITOR GAMER DG24FC 24 FHD 1920X1080 CURVO 75HZ MICRONICS",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Micronics",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 310,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/9?tipo=monitor",
+    "descripcion": "Monitor Tamaño 24 Pulgadas. Resolución FHD. PPI 92 (Pixeles por Pulgada) Panel Curvo Sin Marco. Tasa de Refresco: 75 Hz Tiempo de Respuesta 3ms.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "19",
+    "nombre": "MONITOR GAMER BRICKELL DG27FC 27 FHD 1920X1080 CURVO 75HZ MICRONICS",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Micronics",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 415,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/10?tipo=monitor",
+    "descripcion": "Monitor Tamaño 27 Pulgadas. Resolución FHD. PPI 92 (Pixeles por Pulgada) Panel Curvo Sin Marco. Tasa de Refresco: 75 Hz Tiempo de Respuesta 3ms.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "20",
+    "nombre": "MONITOR GAMER DO22FC 22 FHD 1920X1080 75HZ MICRONICS",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Micronics",
+    "stockTotal": 11,
+    "stockLima": 11,
+    "stockArequipa": 0,
+    "precio": 235,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/11?tipo=monitor",
+    "descripcion": "MONITOR OFICINA MIC D022FF Nueva gama de monitores con las mejores características para usos multiples, de alta resistencia y durabilidad. Con la tecnología de baja luz azul que reduce el daño ocular y la fatiga visual. Características Principales: • Pantalla: 22´´ Full HD Resolución 1920x1080 • Pantalla: Plana • Entradas: HDMI VGA • Tasa de refrigeración: 75 Hz • Low Blue Light • tiempo de respuesta: 3Ms",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "21",
+    "nombre": "MONITOR GAMING CURVO DAHUA LM27-E230C 27 165HZ 1MS",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Duhua",
+    "stockTotal": 8,
+    "stockLima": 3,
+    "stockArequipa": 5,
+    "precio": 595,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/12?tipo=monitor",
+    "descripcion": "Monitor LED Gaming Full HD 27\" VA 165 Hz - DHI-LM27-E230C - DAHUA El monitor LED Gaming E230C ofrece una experiencia colorida y de alta calidad gracias a su pantalla curvada ultra-diseñada 1500R combinada con un panel VA para amplios ángulos de visión, sin biseles en 3 lados. Con una resolución FHD de 1920 x 1080 píxeles, ofrece imágenes extremadamente vivas y nítidas con una paleta de colores muy realista (99% sRGB). La frecuencia de refresco de 165 Hz elimina cualquier retraso de la imagen. Estas ventajas tecnológicas ofrecen una experiencia inmersiva y realista.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "22",
+    "nombre": "MONITOR GAMING CURVO DAHUA LM24-E230C 24 165HZ 1MS",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Duhua",
+    "stockTotal": 20,
+    "stockLima": 10,
+    "stockArequipa": 10,
+    "precio": 450,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/13?tipo=monitor",
+    "descripcion": "Monitor LED Gaming Full HD 23.6\" VA 165 Hz - DHI-LM24-E230C - DAHUA< Esta pantalla de Dahua está equipada con sincronización adaptativa, compatible con tarjetas gráficas AMD y NVIDIA. Esta tecnología no sólo mejora la frecuencia de actualización, sino que también garantiza que cada imagen se muestre de forma óptima y evita cualquier retardo. El procesamiento DCR inteligente optimiza la calidad de la imagen para obtener imágenes asombrosas.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "23",
+    "nombre": "MONITOR GAMER MSI G24SCV 24P 100HZ 1MS CURVO",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Msi",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 365,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/14?tipo=monitor",
+    "descripcion": "Pantalla Gaming curva (1500R): la mejor inmersión en el juego. Tiempo de respuesta de 1 ms: elimina el tearing de la pantalla y los framerates entrecortados. Visión nocturna: observa cada detalle con claridad en la oscuridad, lo que te ayudará a encontrar y atacar a los enemigos antes de que se den cuenta. Antiparpadeo y reducción de la luz azul: juega durante más tiempo y evita el cansancio y la fatiga ocular.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "24",
+    "nombre": "MONITOR GAMER TEROS TE-2440S 24 FHD 100HZ 5MS IPS",
+    "categoria": "monitor",
+    "subcategoria": "",
+    "marca": "Teros",
+    "stockTotal": 4,
+    "stockLima": 0,
+    "stockArequipa": 4,
+    "precio": 315,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/15?tipo=monitor",
+    "descripcion": "Pantalla plana de 24\", marco slim, de 100hz como taza de frecuencia y 5ms de tiempo de respuesta. FHD",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

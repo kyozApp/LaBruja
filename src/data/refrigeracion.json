@@ -1,32 +1,22 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "36",
+    "nombre": "DISCIPADOR CPU AG620 ARGB DEEP COOL DOBLE TORRE",
+    "categoria": "refrigeracion",
+    "subcategoria": "",
+    "marca": "Deepcool",
+    "stockTotal": 2,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 220,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
-  },
-  {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
-    "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/1?tipo=refrigeracion",
+    "descripcion": "El DeepCool AG620 ARGB es un disipador de CPU de 120 mm de doble torre que cuenta con una impresionante potencia de refrigeración de 260 W, que ha sido reducida y optimizada para lograr una gran eficiencia.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

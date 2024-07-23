@@ -1,15 +1,153 @@
 ---
-
+import { Image } from "astro:assets";
+import logo from "@assets/header/logo.png";
+import Correo from "@layouts/Correo.astro";
 ---
 
-<header>
-    <div>
-        
-    </div>
-    <div>
-
-    </div>
-    <div>
-
-    </div>
+<Correo />
+<header class="header">
+    <nav class="nav">
+        <Image src={logo} alt="Logo" class="logo" loading="eager" />
+        <label class="label_hamburguesa" for="menu_hamburguesa">
+            <svg
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="list_icon"
+                ><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg
+            >
+        </label>
+        <input
+            type="checkbox"
+            name="menu_hamburguesa"
+            id="menu_hamburguesa"
+            class="menu_hamburguesa"
+        />
+        <ul class="ul_links">
+            <li class="li_links"><a href="/" class="link">INICIO</a></li>
+            <li class="li_links">
+                <a href="/catalogo " class="link">CATALOGO</a>
+            </li>
+            <li class="li_links">
+                <a href="/contactanos" class="link">CONTACTANOS</a>
+            </li>
+            <li class="li_links">
+                <a href="acerca-de" class="link">ACERCA DE</a>
+            </li>
+            <li class="li_links">
+                <a href="/cotizacion" class="link">COTIZACION</a>
+            </li>
+        </ul>
+    </nav>
 </header>
+
+<style>
+    .header {
+        height: 150px;
+        background-color: #020617;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 0 2rem;
+    }
+
+    .logo {
+        color: #ffffff;
+        width: 400px;
+        height: 100%;
+    }
+
+    .label_hamburguesa {
+    }
+
+    .menu_hamburguesa {
+        display: none;
+    }
+
+    .menu_hamburguesa:checked ~ .ul_links {
+        height: calc(100vh - 200px);
+    }
+
+    .list_icon {
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .ul_links {
+        width: 100%;
+        background-color: #dc2626;
+        position: absolute;
+        top: 135px;
+        left: 0;
+        height: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        transition: all 0.3s;
+        z-index: 100;
+    }
+
+    .li_links {
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .link {
+        font-size: 2rem;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    @media screen and (min-width: 768px) {
+        .logo {
+            width: 400px;
+        }
+    }
+
+    @media screen and (min-width: 1240px) {
+        .logo {
+            width: 400px;
+        }
+
+        .label_hamburguesa {
+            display: none;
+        }
+
+        .ul_links {
+            position: static;
+            width: auto;
+            height: auto;
+            flex-direction: row;
+            gap: 1rem;
+            background-color: #000000fd;
+        }
+
+        .link {
+            font-size: 1.8rem;
+            padding: 0.2rem 0.7rem;
+        }
+
+        .link:hover {
+            color: red;
+        }
+    }
+</style>

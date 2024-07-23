@@ -1,32 +1,102 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "12",
+    "nombre": "MEMORIA RAM DDR4 8GB 3200MHZ VULCAN Z T-FORCE TEAMGROUP",
+    "categoria": "ram",
+    "subcategoria": "",
+    "marca": "Teamgroup",
+    "stockTotal": 40,
+    "stockLima": 20,
+    "stockArequipa": 20,
+    "precio": 85,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/3?tipo=ram",
+    "descripcion": "Diseño simple para proteger perfectamente el módulo de refrigeración Adhesivo altamente termoconductor Circuito integrado selecto de alta calidad Compatible con XMP 2.0 Ahorro de energía con un voltaje de funcionamiento ultrabajo",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "13",
+    "nombre": "MEMORIAS RAM DDR5 16GB 5600MHZ DATA XPG LANCER BLADE",
+    "categoria": "ram",
+    "subcategoria": "",
+    "marca": "XPG",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 200,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/6?tipo=ram",
+    "descripcion": "",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "14",
+    "nombre": "MEMORIAS RAM DDR5 16GB 5600MHZ DATA XPG LANCER BLADE WHITE",
+    "categoria": "ram",
+    "subcategoria": "",
+    "marca": "XPG",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 200,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/7?tipo=ram",
+    "descripcion": "",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "15",
+    "nombre": "MEMORIA RAM DDR4 8GB 3200MHZ VULCAN Z T-FORCE TEAMGROUP TUF GAMING ALLIANCE",
+    "categoria": "ram",
+    "subcategoria": "",
+    "marca": "Teamgroup",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 85,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/8?tipo=ram",
+    "descripcion": "Certificada por TUF Gaming Alliance Difusor térmico con diseño de corte asimétrico Difusor térmico forjado de aluminio de alta calidad completamente cubierto Voltaje de funcionamiento ultrabajo de 1.2 V a 1.35V Compatible con la tecnología de sobreaceleración inteligente Intel XMP 2.0 Chips de circuitos integrados selectos, de alta calidad",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "16",
+    "nombre": "MEMORIA RAM 16GB T-FORCE VULCAN 5.20GHZ DDR5",
+    "categoria": "ram",
+    "subcategoria": "",
+    "marca": "Teamgroup",
+    "stockTotal": 20,
+    "stockLima": 10,
+    "stockArequipa": 10,
+    "precio": 210,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/9?tipo=ram",
+    "descripcion": "Diseño elegante Estructura reforzada para un mejor enfriamiento Compatible con Intel XMP3.0 para un overclocking con un solo clic Los circuitos integrados de administración de energía (PMIC, del inglés Power Management Integrated Circuit) están equipados para un uso de energía estable y eficiente Diseño de enfriamiento de PMIC fortalecido ECC on-die para darle estabilidad al sistema Circuitos integrados de alta calidad seleccionados para dar estabilidad y confiabilidad",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

@@ -1,32 +1,82 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "8",
+    "nombre": "TARJETA DE VIDEO NVIDIA RTX 4060 ASUS DUAL 8GB OC GDDR6",
+    "categoria": "tarjeta",
+    "subcategoria": "",
+    "marca": "ASUS",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 1300,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/2?tipo=tarjeta",
+    "descripcion": "ASUS Dual GeForce RTX™ 4060 OC Edition 8GB GDDR6 con dos potentes ventiladores Axial-tech y un diseño de 2.5 ranuras para una amplia compatibilidad Multiprocesadores de streaming NVIDIA Ada Lovelace: Hasta el doble de rendimiento y eficiencia energética. Tensor Cores de 4.ª generación: Hasta 4 veces más rendimiento con DLSS 3 que renderizado de fuerza bruta. RT Cores de tercera generación: Hasta el doble de rendimiento en ray tracing OC Edition: 2535 MHz (OC Mode)/ 2505 MHz (Default Mode)",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
-    "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "id": "9",
+    "nombre": "TARJETA DE VIDEO NVIDIA RTX 3050 ASUS DUAL 6GB GDDR6",
+    "categoria": "tarjeta",
+    "subcategoria": "",
+    "marca": "Asus",
+    "stockTotal": 2,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 850,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/3?tipo=tarjeta",
+    "descripcion": "ASUS Dual GeForce RTX™ 3050 6GB GDDR6 con dos potentes ventiladores Rendimiento de juego AAA y trazado de rayos Multiprocesadores de transmisión NVIDIA Ampere: el nuevo Ampere SM ofrece el doble de rendimiento del FP32 y una eficiencia energética mejorada. Núcleos RT de 2.ª generación: experimente el doble de rendimiento que los núcleos RT de 1.ª generación, además de RT y sombreado simultáneos para un nivel completamente nuevo de rendimiento de trazado de rayos. Núcleos tensoriales de tercera generación: obtenga hasta el doble de rendimiento con escasez estructural y algoritmos de IA avanzados como DLSS. Estos núcleos ofrecen un enorme impulso en el rendimiento del juego y capacidades de IA completamente nuevas. La resistencia al polvo IP5X ofrece protección contra la entrada de partículas para una mayor durabilidad.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "10",
+    "nombre": "TARJETA DE VIDEO NVIDIA RTX 4060TI MSI VENTUS 2X 8GB OC GDDR6",
+    "categoria": "tarjeta",
+    "subcategoria": "",
+    "marca": "Msi",
+    "stockTotal": 2,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 1800,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/4?tipo=tarjeta",
+    "descripcion": "CON DLSS 3 Juega, transmite, crea. La GeForce RTX™ 4060 Ti te permite disfrutar de los últimos juegos y aplicaciones con la arquitectura ultraeficiente NVIDIA Ada Lovelace. Experimente juegos inmersivos acelerados por IA con trazado de rayos y DLSS 3, y potencie su proceso creativo y su productividad con NVIDIA Studio. Diseño térmico de doble ventilador TORX Fan 4.0: Una obra maestra del trabajo en equipo, las aspas del ventilador trabajan en pares para crear niveles sin precedentes de presión de aire enfocada. Zero Frozr: Los ventiladores se detienen por completo cuando las temperaturas son relativamente bajas, eliminando todo ruido.",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "11",
+    "nombre": "TARJETA DE VIDEO RADEON RX 7600 8GB GDDR6OC GIGABYTE 3 FAN",
+    "categoria": "tarjeta",
+    "subcategoria": "",
+    "marca": "Gigabyte",
+    "stockTotal": 4,
+    "stockLima": 2,
+    "stockArequipa": 2,
+    "precio": 1250,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/5?tipo=tarjeta",
+    "descripcion": "Graphics Processing: Radeon™ RX 7600 Core Clock: Boost Clock* : up to 2755 MHz (Reference card: 2655 MHz) Game Clock* : up to 2355 MHz (Reference card: 2250 MHz) Stream Processors: 2048 Memory Clock: 18 Gbps  Memory Size: 8 GB Memory Type: GDDR6 Memory Bus: 128 bit",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

@@ -1,0 +1,366 @@
+---
+import procesadores from "@data/procesador.json";
+import { Image } from "astro:assets";
+import nrt from "@assets/procesador/nrt.jpg";
+import snk from "@assets/procesador/snk.jpg";
+import Titulo from "../Titulo.astro";
+
+const imagenMap: Record<string, ImageMetadata> = {
+    "nrt.jpg": nrt,
+    "snk.jpg": snk,
+};
+---
+
+<Titulo title="Productos nuevos" />
+
+{
+    procesadores.map((procesador) => (
+        <div class="detalle-producto">
+            <div class="contenedor-img-mini">
+                <div class="cont-img">
+                    <a
+                        href={`catalogo/procesador/${procesador.nombre}`}
+                        class="con-img-fav"
+                    >
+                        {procesador.imagen.length > 0 && (
+                            <Image
+                                src={snk}
+                                alt={procesador.nombre}
+                                loading="eager"
+                                class="img-producto"
+                            />
+                        )}
+                    </a>
+                </div>
+                <div class="cont-vista-previa">
+                    <input
+                        class="checkmodal"
+                        type="checkbox"
+                        id={procesador.id}
+                    />
+                    <label for={procesador.id}>
+                        <a class="abrir-modal" title="Vista previa">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512"
+                            >
+                                <path d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z" />
+                            </svg>
+                        </a>
+                    </label>
+                    <div class="modal-producto">
+                        <div class="cont-modal">
+                            <div class="estructura-modal">
+                                <a
+                                    href={`catalogo/procesador/${procesador.nombre}`}
+                                >
+                                    {procesador.imagen.length > 0 && (
+                                        <Image
+                                            src={snk}
+                                            alt={procesador.nombre}
+                                            loading="eager"
+                                            class="img-producto"
+                                        />
+                                    )}
+                                </a>
+                                <div class="div-cont-modal">
+                                    <div class="des-modal">
+                                        <a href="">
+                                            <h2>{procesador.nombre}</h2>
+                                        </a>
+                                        <h3>(S/. {procesador.precio})</h3>
+                                        <p>Stock: {procesador.stockTotal}</p>
+                                    </div>
+                                    <div class="btn-ver-detalles">
+                                        <a href={procesador.url}>
+                                            <p>VER DETALLES</p>
+                                            <i
+                                                class="fa-solid fa-arrow-right"
+                                                aria-hidden="true"
+                                            />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for={procesador.id}>
+                                <div class="close-modal">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 384 512"
+                                    >
+                                        <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="titulo-producto">
+                <a href="">{procesador.nombre}</a>
+            </div>
+            <div class="cont-producto">
+                <div class="sub-cont-produc">
+                    <div class="cont-atrub-prod">
+                        <p class="precio-producto">(S/. {procesador.precio})</p>
+                        <p>Stock: {procesador.stockTotal}</p>
+                    </div>
+                    <div class="btn-producto">
+                        <a href="" class="con-img-fav">
+                            {" "}
+                            Comprar{" "}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    ))
+}
+
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .detalle-producto {
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow:
+            0 0 10px rgb(0 0 0 / 22%),
+            0 0 20px rgb(0 0 0 / 5%);
+        position: relative;
+        margin-bottom: 30px;
+        max-width: 330px;
+    }
+    .contenedor-img-mini {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-img {
+        width: 100%;
+    }
+    .detalle-producto .img-producto {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        transition: 0.2s;
+    }
+    .detalle-producto img {
+        width: 100%;
+    }
+    .cont-vista-previa {
+        position: absolute;
+        display: flex;
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+    }
+    .cont-vista-previa > label svg {
+        fill: rgba(255, 0, 0, 0);
+        transition: 0.2s;
+        width: 24px;
+        height: 24px;
+    }
+    .cont-vista-previa > label a {
+        padding: 10px;
+        background-color: #ffffff00;
+        color: rgba(255, 0, 0, 0);
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        transition: 0.2s ease;
+    }
+    .cont-vista-previa > label a:hover {
+        background-color: #ffffff !important;
+        color: rgb(255, 0, 0) !important;
+    }
+    .cont-vista-previa > label a:hover svg {
+        fill: #ff0000 !important;
+    }
+    .cont-vista-previa > label a:hover::after {
+        content: attr(title);
+        display: block;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        bottom: 108%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        white-space: nowrap;
+    }
+    .contenedor-img-mini:hover .img-producto {
+        filter: grayscale(100%);
+    }
+    .contenedor-img-mini:hover .cont-vista-previa > label a {
+        background-color: #ff00008c;
+        color: rgb(255 255 255);
+    }
+    .contenedor-img-mini:hover .cont-vista-previa > label svg {
+        fill: rgb(255 255 255);
+    }
+    .titulo-producto {
+        background-color: aliceblue;
+        margin: 0;
+        text-align: center;
+        padding: 5px 0;
+        color: #000;
+        font-weight: bold;
+        transition: 0.2s;
+        min-height: 52px;
+    }
+    .titulo-producto a {
+        transition: 0.2s;
+        color: black;
+    }
+    .titulo-producto a:hover {
+        color: #ff0b37;
+    }
+    .cont-producto {
+        padding: 10px;
+    }
+    .sub-cont-produc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+    }
+    .sub-cont-produc p {
+        margin: 0;
+    }
+    .precio-producto {
+        font-size: 20px;
+        color: red;
+        font-weight: bolder;
+    }
+    .btn-producto {
+    }
+    .btn-producto a {
+        background-color: #ff0b37;
+        padding: 10px 10px;
+        color: white;
+        border-radius: 7px;
+        font-size: 20px;
+        transition: 0.2s;
+    }
+
+    /* ESTILOS PARA EL MODAL ----------------------------------*/
+    .modal-producto {
+        z-index: 30;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000069;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    .checkmodal {
+        display: none;
+    }
+    .checkmodal:checked ~ .modal-producto {
+        display: flex;
+    }
+    .cont-modal {
+        background-color: #eeeeee;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .estructura-modal {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+    .estructura-modal img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+    .div-cont-modal {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .des-modal {
+        height: 100%;
+        text-align: center;
+    }
+    .des-modal h2 {
+        line-height: 1.3;
+        color: black;
+        transition: 0.2s;
+    }
+    .des-modal h2:hover {
+        color: #ff3d3d;
+    }
+    .des-modal h3 {
+        font-size: 3rem;
+        margin: 0;
+        color: #ff3d3d;
+    }
+    .des-modal p {
+        font-size: 20px;
+        color: black;
+        font-weight: bolder;
+        padding: 20px;
+        margin: 0;
+        padding-top: 0;
+    }
+    .btn-ver-detalles {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .btn-ver-detalles a {
+        display: flex;
+        align-items: center;
+        width: 145px;
+        justify-content: space-evenly;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        transition: 0.2s;
+    }
+    .btn-ver-detalles a:hover {
+        background-color: #000;
+    }
+    .btn-ver-detalles p {
+        margin: 10px 0;
+    }
+    .close-modal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background-color: #e90404;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+    }
+    .close-modal:hover {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+    }
+    .close-modal svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+    }
+</style>

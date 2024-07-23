@@ -1,32 +1,290 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
+    "id": "37",
+    "nombre": "PLACA MADRE ASUS H610M K DDR4",
     "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "subcategoria": "",
+    "marca": "Asus",
+    "stockTotal": 3,
+    "stockLima": 3,
+    "stockArequipa": 0,
+    "precio": 325,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/1?tipo=placa",
+    "descripcion": "Socket Intel® LGA 1700: Listo para procesadores Intel® de 12a y 13a Gen. Conectividad ultrarrápida: Puerto M.2 de 32 Gbps, Ethernet Realtek de 1Gb y USB 3.2 Gen 1. 5X Protection III: Múltiples protecciones de hardware para una protección completa.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "12",
+      "13"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
+    "id": "38",
+    "nombre": "PLACA MADRE ASUS PRIME A520M K DDR4 AM4",
     "categoria": "placa",
-    "subcategoria": "placa1",
-    "marca": "placa",
-    "stockTotal": 15,
-    "stockLima": 15,
-    "stockArequipa": 15,
-    "precio": 1000,
+    "subcategoria": "",
+    "marca": "Asus",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 240,
     "estado": "nuevo",
-    "url": "placa1",
-    "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/2?tipo=placa",
+    "descripcion": "Tarjeta Madre micro ATX AMD A520 (Ryzen AM4) con soporte M.2, Ethernet de 1 Gb, HDMI / D-Sub, SATA 6 Gbps, USB 3.2 Gen 1 Tipo A Socket AMD AM4: Listo para procesadores de escritorio Ryzen™ 5000 Series / 4000 G-Series / 3000 Series. Enfriamiento completo: Disipador de Chipset y Fan Xpert. Conectividad ultrarrápida: Compatibilidad con M.2, Ethernet de 1 Gb, USB 3.2 Gen 2 tipo A. 5X Protection III: Múltiples protecciones de hardware para la protección integral del sistema.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "39",
+    "nombre": "PLACA MADRE ASROCK B760M-H M.2 DDR5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Asrock",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 420,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/3?tipo=placa",
+    "descripcion": "B760M-H/M.2 Admite procesadores Intel® Core™ de 14.ª , 13.ª y 12.ª generación (LGA1700) 5+1+1 Fase de Potencia 2 x DIMM DDR5 Admite doble canal, hasta 7200+ (OC) 1 PCIe 4.0 x16, 2 PCIe 3.0 x1, 1 M.2 Key E para WiFi Opciones de salida de gráficos: HDMI, DisplayPort Códec de audio Realtek ALC897 7.1 canales HD 4 SATA3, 1 Hyper M.2 (PCIe Gen4x4), 1 Ultra M.2 (PCIe Gen3x4) 1 USB 3.2 Gen1 Type-C (trasero), 5 USB 3.2 Gen1 Type-A (3 traseros, 2 frontales), 5 USB 2.0 (2 traseros, 3 frontales) LAN Gigabit Realtek Compatible con el instalador de controladores automáticos de ASRock",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "12",
+      "13"
+    ]
+  },
+  {
+    "id": "40",
+    "nombre": "PLACA MADRE ASUS PRIME B760M-A S/V/L DDR5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Asus",
+    "stockTotal": 1,
+    "stockLima": 1,
+    "stockArequipa": 0,
+    "precio": 535,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/4?tipo=placa",
+    "descripcion": "Placa base Intel ® B760 (LGA 1700) mATX con PCIe 4.0, DDR5, dos ranuras M.2, Realtek 2.5Gb Ethernet, DisplayPort, Dual HDMI™, SATA 6 Gbps, USB 3.2 Gen 2 trasero, USB 3.2 Gen 1 Type-C frontal ® , Sincronización de Aura Zócalo Intel® LGA 1700: listo para procesadores Intel® de 13.ª y 12.ª generación Conectividad ultrarrápida: PCIe 4.0, dos ranuras M.2, Realtek 2.5Gb Ethernet, USB 3.2 Gen 2 trasero, USB 3.2 Gen 1 Type-C® frontal Refrigeración integral: disipadores VRM, disipador M.2, disipador PCH, cabezales de ventilador híbridos y Fan Xpert 2+ Tecnología de memoria exclusiva: ASUS Enhanced Memory Profile II y ASUS OptiMem II Iluminación RGB Aura Sync: encabezados direccionables Gen 2 integrados y encabezado Aura RGB para tiras LED RGB, fácilmente sincronizables con hardware compatible con Aura Sync",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "41",
+    "nombre": "PLACA MADRE GIGABYTE B550M DS3H AC DDR4",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Gigabyte",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 435,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/5?tipo=placa",
+    "descripcion": "Placa base ultraduradera AMD B550 con solución Pure Digital VRM, ranura PCIe 4.0 x16, conectores duales PCIe 4.0/3.0 M.2, WiFi Intel® de doble banda 802.11ac, LAN Realtek GbE, Smart Fan 5 con FAN STOP, RGB FUSION 2.0, Q -Flash Plus Compatible con los procesadores AMD Ryzen™ 5000 Series/ Ryzen™ 5000 G-Series/ Ryzen™ 4000 G-Series/ Ryzen™ 3000 y Ryzen™ 3000 G-Series DDR4 sin búfer ECC/no ECC de doble canal, 4 DIMM Solución VRM digital pura de 5+3 fases con MOSFET de bajo RDS (activado) Ranura x16 preparada para PCIe 4.0 Ultra Durable™ Conectores duales NVMe PCIe 4.0/3.0 M.2 ultrarrápidos Intel® integrado de doble banda 802.11ac inalámbrico y BT 4.2 con antena WIFI Condensadores de audio de alta calidad y protección contra ruido de audio para una máxima calidad de audio LAN Realtek GbE con gestión de ancho de banda Compatibilidad con HDMI y DVI traseros RGB FUSION 2.0 admite tiras LED direccionables y RGB",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "12",
+      "13"
+    ]
+  },
+  {
+    "id": "42",
+    "nombre": "PLACA MADRE MSI PRO B650M-P SVL DDR5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Msi",
+    "stockTotal": 10,
+    "stockLima": 5,
+    "stockArequipa": 5,
+    "precio": 515,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/6?tipo=placa",
+    "descripcion": "PRO B650M-P Compatible con procesadores de escritorio AMD Ryzen™ serie 7000 Admite memoria DDR5, DDR5 de doble canal 7200+MHz (OC) Core Boost: con diseño premium y diseño de energía digital para admitir más núcleos y brindar un mejor rendimiento Memory Boost: tecnología avanzada para ofrecer señales de datos puros para el mejor rendimiento, estabilidad y compatibilidad. PCB de alta calidad: PCB de 6 capas fabricado con cobre espesado de 2 oz Experiencia de juego ultrarrápida: ranuras PCIe 4.0, Lightning Gen 4 x4 M.2 LAN 2.5G: Solución de red mejorada para uso profesional y multimedia. Ofrece una conexión de red segura, estable y rápida AUMENTO DE AUDIO: Recompense sus oídos con una calidad de sonido de estudio para disfrutar de la experiencia de juego más inmersiva Steel Armor: protege las tarjetas VGA contra dobleces y EMI para un mejor rendimiento, estabilidad y resistencia.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "43",
+    "nombre": "PLACA MADRE MSI A620M-E PRO DDR5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Msi",
+    "stockTotal": 0,
+    "stockLima": 0,
+    "stockArequipa": 0,
+    "precio": 345,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/7?tipo=placa",
+    "descripcion": "PRO A620M-E - Admite procesadores AMD Ryzen™ 7000 Series Desktop - Admite Memoria DDR5, Dual Channel DDR5 6800+MHz (OC) - Core Boost : Con un diseño premium y un diseño de potencia digital para soportar más núcleos y proporcionar un mejor rendimiento. - Memoria Boost: Tecnología avanzada para ofrecer señales de datos puras para el mejor rendimiento, estabilidad y compatibilidad. - Experiencia de juego a la velocidad del rayo: Ranura PCIe 4.0, Lightning Gen 4 x4 M.2 - AUDIO BOOST: Recompensa a tus oídos con una calidad de sonido de estudio para disfrutar de la experiencia de juego más envolvente. - Steel Armor:protege las tarjetas VGA contra las interferencias electromagnéticas para mejorar el rendimiento, la estabilidad y la resistencia.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "12",
+      "13"
+    ]
+  },
+  {
+    "id": "44",
+    "nombre": "PLACA MADRE MSI B760M -P LGA1700 PCIE 4.0 DDR4",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Msi",
+    "stockTotal": 4,
+    "stockLima": 2,
+    "stockArequipa": 2,
+    "precio": 435,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/8?tipo=placa",
+    "descripcion": "PRO B760M-P DDR4 - Compatible con procesadores de 12ᵃ/13ᵃGen Intel® Core™, Pentium® Gold and Celeron® para Socket LGA 1700 - Admite memoria DDR4, doble canal DDR4 4800+MHz (OC) - Core Boost : Con un diseño premium y un diseño de potencia digital para soportar más núcleos y proporcionar un mejor rendimiento. - Memoria Boost: Tecnología avanzada para ofrecer señales de datos puras para el mejor rendimiento, estabilidad y compatibilidad. - Experiencia ultrarrápida: PCIe 4.0, Lightning Gen4 x4 M.2 con M.2 Shield Frozr - AUDIO BOOST: Recompensa a tus oídos con una calidad de sonido de estudio para disfrutar de la experiencia de juego más envolvente. - Armadura de acero: protege las tarjetas VGA contra la flexión y las interferencias electromagnéticas para mejorar el rendimiento, la estabilidad y la resistencia.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "45",
+    "nombre": "PLACA MADRE ASUS PRIME Z790-A WIFI SVL DDR5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Asus",
+    "stockTotal": 3,
+    "stockLima": 2,
+    "stockArequipa": 1,
+    "precio": 1425,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/9?tipo=placa",
+    "descripcion": "PLACA MADRE ASUS PRIME Z790-A WIFI SVL DDR5 - Socket Intel® LGA 1700: Listo para procesadores Intel® de 12.ª y 13.ª generación. - Solución de alimentación mejorada: 16+1+1 fases de poder, conectores ProCool, chokes y condensadores duraderos para un suministro de energía estable. - Refrigeración integral: Disipadores de calor VRM grandes, disipadores de calor M.2, puertos de ventilador híbrido y Fan Xpert 4. - Conectividad de próxima generación: Memoria DDR5, PCIe® 5.0, Intel 2.5 Gb Ethernet, USB 3.2 Gen2x2 Type-C®, USB 3.2 Gen 2 Type-C®, Thunderbolt™ (USB4®),         4 PCIe® 4.0 M.2. - Tecnología exclusiva de memoria con inteligencia artificial: AI Cooling II, cancelación de ruido AI bidireccional, ASUS Enhanced Memory Profile II y ASUS OptiMem. II - Diseño de fácil montaje: Puerto PCIe Q-Release, M.2 Q-Latch, Q-LED Core y SafeSlot.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "12",
+      "13"
+    ]
+  },
+  {
+    "id": "46",
+    "nombre": "PLACA MADRE ASUS PRIME Z790-P WIFI SVL DDR5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Asus",
+    "stockTotal": 2,
+    "stockLima": 1,
+    "stockArequipa": 1,
+    "precio": 1115,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/10?tipo=placa",
+    "descripcion": "PLACA MADRE ASUS PRIME Z790-P WIFI SVL DDR5 Socket Intel® LGA 1700: Listo para procesadores Intel® Core™. Solución de alimentación mejorada: 14+1+1 fases de poder DrMOS, PCB de seis capas, conectores ProCool, chokes de aleación y condensadores duraderos para un suministro de energía estable. Conectividad de próxima generación: Memoria DDR5, Intel® Wi-Fi 6, PCIe® 5.0, Realtek 2.5Gb Ethernet, USB 3.2 Gen2x2 Type-C®, panel frontal USB 3.2 Gen 2 Type-C®, Thunderbolt™ 4 (USB4® ),         3 PCIe® 4.0 M.2 Tecnología de memoria exclusiva: ASUS Enhanced Memory Profile II y ASUS OptiMem II. Enfriamiento integral: Disipadores de calor VRM grandes, disipador de calor M.2 flexible, disipador de calor PCH, puertos de ventilador híbrido y Fan Xpert 4 con AI Cooling II.",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "14",
+      "15"
+    ]
+  },
+  {
+    "id": "47",
+    "nombre": "PLACA MADRE MSI B550M PRO-VDH WIFI",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Msi",
+    "stockTotal": 4,
+    "stockLima": 2,
+    "stockArequipa": 2,
+    "precio": 400,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/11?tipo=placa",
+    "descripcion": "PLACA MADRE MSI B550M PRO-VDH WIFI Soporta procesadores 3ra Gen AMD Ryzen™ y futuros AMD Ryzen™ con actualización de BIOS Soporta memoria DDR4 hasta 4400(OC) MHz Experiencia ultrarrápida: PCIe 4.0, Lightning Gen4 x4 M.2 con M.2 Shield Frozr Solución térmica premium: con acolchado térmico 7W/mK, acolchado adicional para el choke y M.2 Shield Frozr, ofrece un alto desempeño y un trabajo sin pausa Diseño poderoso: Core Boost, CI PWM digital, PCB de cobre engrosado de 2oz, Creator Genie, DDR4 Boost Audio Boost: Gratifica tus oídos con el sonido con calidad de estudio Dragon Center: Un nuevo software que integra todas las herramientas exclusivas de MSI en una interfaz de usuario fácil de usar..",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "12",
+      "13"
+    ]
+  },
+  {
+    "id": "48",
+    "nombre": "PLACA MADRE ASROCK A620M-HD-M.2+ AM5",
+    "categoria": "placa",
+    "subcategoria": "",
+    "marca": "Asrock",
+    "stockTotal": 10,
+    "stockLima": 5,
+    "stockArequipa": 5,
+    "precio": 335,
+    "estado": "nuevo",
+    "url": "https://labrujastore.com.pe/catalogo/detalle/producto/12?tipo=placa",
+    "descripcion": "Soporta AMD Socket AM5 Ryzen™ 8000 y 7000 Series Processors6+1+1 Power Phase, Dr.MOS 2 x DDR5 DIMMs Soporta Dual Channel, up to 7200+ (OC) 1 PCIe 4.0 x16, 2 PCIe 3.0 x1, 1 M.2 Key E para WiFi Integrated AMD RDNA™ 2 Graphics* Opciones de salida gráficos: HDMI, DisplayPort Realtek ALC897 Audio 7.1 canales HD Codec, Nahimic Audio 4 SATA3, 2 Hyper M.2 (PCIe Gen4x4) 6 USB 3.2 Gen1 (3 Rear, 1 Trasero Tipo-C, 2 Front) Realtek Gigabit LAN Soporta Instalador de drivers ASRock Instalador de drivers automático, BIOS Flashback",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ],
+    "compatibles": [
+      "14",
+      "15"
+    ]
   }
 ]

@@ -1,0 +1,120 @@
+---
+import procesadores from "@data/procesador.json";
+import almacenamientos from "@data/almacenamiento.json";
+---
+
+<h2>Crear Cotización</h2>
+
+<div>
+    <p>Procesador</p>
+    <select id="procesadorSelect">
+        <option value="">Selecciona un Procesador</option>
+        {
+            procesadores.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="procedorId">Ninguno</span></p>
+<p>El nombre es: <span id="procedorName">Ninguno</span></p>
+<p>El precio es: <span id="procedorPrice">Ninguno</span></p>
+<p>El stock es: <span id="procedorStock">Ninguno</span></p>
+
+<div>
+    <p>Almacenamiento</p>
+    <select id="almacenamientoSelect">
+        <option value="">Selecciona un Almacenamiento</option>
+        {
+            almacenamientos.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El id es: <span id="selectedId">Ninguno</span></p>
+<p>El nombre es: <span id="selectedName">Ninguno</span></p>
+<p>El precio es: <span id="selectedPrice">Ninguno</span></p>
+<p>El stock es: <span id="selectedStock">Ninguno</span></p>
+
+<script type="module">
+    document.addEventListener("DOMContentLoaded", () => {
+        const procesador = document.getElementById("procesadorSelect");
+        const procesadorId = document.getElementById("procedorId");
+        const procesadorNombre = document.getElementById("procedorName");
+        const procesadorPrecio = document.getElementById("procedorPrice");
+        const procesadorStock = document.getElementById("procedorStock");
+
+        const almacenamiento = document.getElementById("almacenamientoSelect");
+        const almacenamientoId = document.getElementById("selectedId");
+        const almacenamientoNombre = document.getElementById("selectedName");
+        const almacenamientoPrecio = document.getElementById("selectedPrice");
+        const almacenamientoStock = document.getElementById("selectedStock");
+
+        if (
+            !procesador ||
+            !procesadorId ||
+            !procesadorNombre ||
+            !procesadorPrecio ||
+            !procesadorStock ||
+            !almacenamiento ||
+            !almacenamientoId ||
+            !almacenamientoNombre ||
+            !almacenamientoPrecio ||
+            !almacenamientoStock
+        )
+            return;
+
+        procesador.addEventListener("change", (event) => {
+            const procedorId = event.target.value;
+            procesadorId.textContent = procedorId || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const procedorName =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const procedorPrice =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const procedorStock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            procesadorNombre.textContent = procedorName;
+            procesadorPrecio.textContent = `$${parseFloat(procedorPrice).toFixed(2)}`;
+            procesadorStock.textContent = procedorStock;
+        });
+
+        almacenamiento.addEventListener("change", (event) => {
+            const selectedId = event.target.value;
+            almacenamientoId.textContent = selectedId || "Ninguno";
+
+            const selectedOption =
+                event.target.options[event.target.selectedIndex];
+            const selectedName =
+                selectedOption.getAttribute("data-nombre") || "Ninguno";
+            const selectedPrice =
+                selectedOption.getAttribute("data-precio") || "Ninguno";
+            const selectedStock =
+                selectedOption.getAttribute("data-stock") || "Ninguno";
+
+            almacenamientoNombre.textContent = selectedName;
+            almacenamientoPrecio.textContent = `$${parseFloat(selectedPrice).toFixed(2)}`;
+            almacenamientoStock.textContent = selectedStock;
+        });
+    });
+</script>

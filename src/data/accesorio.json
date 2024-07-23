@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "nombre": "placa 1",
+    "id": "1",
+    "nombre": "proce 1",
     "categoria": "placa",
     "subcategoria": "placa1",
     "marca": "placa",
@@ -10,13 +10,38 @@
     "stockArequipa": 15,
     "precio": 1000,
     "estado": "nuevo",
-    "url": "placa1",
+    "url": "placa B-550 Con 5 nucleos",
     "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   },
   {
-    "id": 2,
-    "nombre": "placa 1",
+    "id": "2",
+    "nombre": "proce 2",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa 21",
+    "descripcion": "placa 1",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "3",
+    "nombre": "proce 3",
     "categoria": "placa",
     "subcategoria": "placa1",
     "marca": "placa",
@@ -27,6 +52,191 @@
     "estado": "nuevo",
     "url": "placa1",
     "descripcion": "placa 1",
-    "imagen": ["snk.jpg", "nrt.jpg","snk.jpg", "nrt.jpg"]
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "4",
+    "nombre": "proce 4",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "5",
+    "nombre": "proce 5",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "6",
+    "nombre": "proce 6",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "7",
+    "nombre": "proce 7",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "8",
+    "nombre": "proce 8",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "9",
+    "nombre": "proce 9",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "10",
+    "nombre": "proce 10",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "11",
+    "nombre": "proce 11",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "snk.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
+  },
+  {
+    "id": "12",
+    "nombre": "proce 12",
+    "categoria": "placa",
+    "subcategoria": "placa1",
+    "marca": "placa",
+    "stockTotal": 15,
+    "stockLima": 15,
+    "stockArequipa": 15,
+    "precio": 1000,
+    "estado": "nuevo",
+    "url": "placa1",
+    "descripcion": "placa 1",
+    "imagen": [
+      "nrt.jpg",
+      "nrt.jpg",
+      "snk.jpg",
+      "nrt.jpg"
+    ]
   }
 ]

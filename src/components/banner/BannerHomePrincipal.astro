@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+import nrt from "@assets/procesador/nrt.jpg";
+import snk from "@assets/procesador/snk.jpg";
+---
+
+<div class="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <Image
+                src={snk}
+                alt="snk"
+                width={1300}
+                height={850}
+                loading="eager"
+            />
+        </div>
+        <div class="carousel-item">
+            <Image
+                src={nrt}
+                alt="nrt"
+                width={1300}
+                height={850}
+                loading="eager"
+            />
+        </div>
+        <div class="carousel-item">
+            <Image
+                src={nrt}
+                alt="nrt"
+                width={1300}
+                height={850}
+                loading="eager"
+            />
+        </div>
+    </div>
+    <button class="prev" id="prev">&lt;</button>
+    <button class="next" id="next">&gt;</button>
+</div>
+
+<style>
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 200px);
+        overflow: hidden;
+    }
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: calc(100vh - 200px);
+        display: block;
+    }
+
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #ef4444;
+        color: #fafaf9;
+        border: none;
+        padding: 20px;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+</style>
+
+<script>
+    const carouselInner = document.querySelector(
+        ".carousel-inner",
+    ) as HTMLElement;
+    const prevButton = document.getElementById("prev") as HTMLButtonElement;
+    const nextButton = document.getElementById("next") as HTMLButtonElement;
+    const items = document.querySelectorAll(
+        ".carousel-item",
+    ) as NodeListOf<HTMLElement>;
+    let currentIndex = 0;
+    const totalItems = items.length;
+    const intervalTime = 3000;
+
+    function showItem(index: number): void {
+        const offset = -index * 100;
+        carouselInner.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextItem(): void {
+        currentIndex = (currentIndex + 1) % totalItems;
+        showItem(currentIndex);
+    }
+
+    function prevItem(): void {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        showItem(currentIndex);
+    }
+
+    if (prevButton && nextButton) {
+        nextButton.addEventListener("click", nextItem);
+        prevButton.addEventListener("click", prevItem);
+    }
+
+    let autoSlide = setInterval(nextItem, intervalTime);
+
+    const carousel = document.querySelector(".carousel") as HTMLElement;
+    if (carousel) {
+        carousel.addEventListener("mouseover", () => {
+            clearInterval(autoSlide);
+        });
+
+        carousel.addEventListener("mouseleave", () => {
+            autoSlide = setInterval(nextItem, intervalTime);
+        });
+    }
+</script>

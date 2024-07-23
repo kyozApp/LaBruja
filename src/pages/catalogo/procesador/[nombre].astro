@@ -1,0 +1,51 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+import procesadores from "@data/procesador.json";
+
+import nrt from "@assets/procesador/nrt.jpg";
+import snk from "@assets/procesador/snk.jpg";
+import Header from "@layouts/Header.astro";
+import Footer from "@layouts/Footer.astro";
+
+const imagenMap: Record<string, ImageMetadata> = {
+    "nrt.jpg": nrt,
+    "snk.jpg": snk,
+};
+
+export async function getStaticPaths() {
+    return procesadores.map((procesador) => ({
+        params: { nombre: procesador.nombre.toString() },
+    }));
+}
+
+const { nombre } = Astro.params as { nombre: string };
+const procesador = procesadores.find((p) => p.nombre === nombre);
+
+if (!procesador) {
+    throw new Error(`Producto con id ${nombre} no encontrado`);
+}
+---
+
+<Layout title={procesador.nombre}>
+    <Header />
+    <h1>{procesador.nombre}</h1>
+    <div>
+        <p>
+            <strong>Nombre:</strong>
+            {procesador.nombre}
+        </p>
+        {
+            procesador.imagen.map((img) => (
+                <Image
+                    src={imagenMap[img]}
+                    alt={procesador.nombre}
+                    width={300}
+                    height={300}
+                    loading="eager"
+                />
+            ))
+        }
+    </div>
+    <Footer />
+</Layout>
