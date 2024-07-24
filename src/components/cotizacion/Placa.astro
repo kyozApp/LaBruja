@@ -1,9 +1,6 @@
 ---
 import placas from "@data/placa.json";
-const { placasCompatibles } = Astro.props;
-// const idsSeleccionados = ["37", "38", "39", "40"];
-const idsSeleccionados = placasCompatibles;
-const placasFiltradas = placas.filter((p) => idsSeleccionados.includes(p.id));
+const idsSeleccionados = ["37", "38", "39", "40"];
 ---
 
 <div>
@@ -11,7 +8,7 @@ const placasFiltradas = placas.filter((p) => idsSeleccionados.includes(p.id));
     <select id="placaSelect">
         <option value="">Selecciona una placa</option>
         {
-            placasFiltradas.map((p) => (
+            placas.map((p) => (
                 <option
                     value={p.id}
                     data-nombre={p.nombre}

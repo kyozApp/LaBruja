@@ -22,13 +22,10 @@ import placas from "@data/placa.json";
         }
     </select>
 </div>
-
 <p>El id es: <span id="procesador_id">Ninguno</span></p>
 <p>El nombre es: <span id="procesador_nombre">Ninguno</span></p>
 <p>El precio es: S/.<span id="procesador_precio">0</span></p>
 <p>El stock es: <span id="procesador_stock">0</span></p>
-
-<p>Placas compatibles:</p>
 
 <div>
     <p>Placa</p>
@@ -96,16 +93,14 @@ import placas from "@data/placa.json";
             procesadorPrecio.textContent = parseFloat(procesador_precio).toFixed(2);
             procesadorStock.textContent = procesador_stock;
 
-            // Filtrar placas compatibles
             Array.from(placaSelect.options).forEach(option => {
                 if (placasCompatiblesIds.includes(option.value)) {
-                    option.style.display = "block"; // Mostrar la opción si es compatible
+                    option.style.display = "block";
                 } else {
-                    option.style.display = "none"; // Ocultar la opción si no es compatible
+                    option.style.display = "none";
                 }
             });
 
-            // Limpiar selección previa
             placaSelect.value = "";
             placaId.textContent = "Ninguno";
             placaNombre.textContent = "Ninguno";
