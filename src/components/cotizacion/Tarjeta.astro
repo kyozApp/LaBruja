@@ -23,8 +23,8 @@ import tarjetas from "@data/tarjeta.json";
 
 <p>El id es: <span id="tarjeta_id">Ninguno</span></p>
 <p>El nombre es: <span id="tarjeta_nombre">Ninguno</span></p>
-<p>El precio es: <span id="tarjeta_precio">Ninguno</span></p>
-<p>El stock es: <span id="tarjeta_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="tarjeta_precio">0</span></p>
+<p>El stock es: <span id="tarjeta_stock">0</span></p>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +34,14 @@ import tarjetas from "@data/tarjeta.json";
         const tarjetaPrecio = document.getElementById("tarjeta_precio");
         const tarjetaStock = document.getElementById("tarjeta_stock");
 
-        if (!tarjeta || !tarjetaId || !tarjetaNombre || !tarjetaPrecio || !tarjetaStock) return;
+        if (
+            !tarjeta ||
+            !tarjetaId ||
+            !tarjetaNombre ||
+            !tarjetaPrecio ||
+            !tarjetaStock
+        )
+            return;
 
         tarjeta.addEventListener("change", (event) => {
             const tarjeta_id = event.target.value;
@@ -45,13 +52,16 @@ import tarjetas from "@data/tarjeta.json";
             const tarjeta_nombre =
                 selectedOption.getAttribute("data-nombre") || "Ninguno";
             const tarjeta_precio =
-                selectedOption.getAttribute("data-precio") || "Ninguno";
+                selectedOption.getAttribute("data-precio") || "0";
             const tarjeta_stock =
-                selectedOption.getAttribute("data-stock") || "Ninguno";
+                selectedOption.getAttribute("data-stock") || "0";
 
             tarjetaNombre.textContent = tarjeta_nombre;
-            tarjetaPrecio.textContent = `$${parseFloat(tarjeta_precio).toFixed(2)}`;
+            tarjetaPrecio.textContent = parseFloat(tarjeta_precio).toFixed(2);
             tarjetaStock.textContent = tarjeta_stock;
         });
+        tarjetaNombre.textContent = "Ninguno";
+        tarjetaPrecio.textContent = "0";
+        tarjetaStock.textContent = "0";
     });
 </script>

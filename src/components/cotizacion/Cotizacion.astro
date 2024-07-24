@@ -13,12 +13,18 @@ import Accesorio1 from "@components/cotizacion/Accesorio1.astro";
 import Accesorio2 from "@components/cotizacion/Accesorio2.astro";
 import Accesorio3 from "@components/cotizacion/Accesorio3.astro";
 import Accesorio4 from "@components/cotizacion/Accesorio4.astro";
+import ProcePlaca from "@components/cotizacion/ProcePlaca.astro";
+
+// let placasCompatibles: string[] = [];
+// placasCompatibles = ["37", "38", "39", "40"];
+
 ---
 
 <h2>Crear Cotización</h2>
-<Procesador />
-<Placa />
-<Ram1 />
+<ProcePlaca />
+<!-- <Procesador />
+<Placa placasCompatibles={placasCompatibles} /> -->
+<!-- <Ram1 />
 <Ram2 />
 <Almacenamiento />
 <Tarjeta />
@@ -29,4 +35,4 @@ import Accesorio4 from "@components/cotizacion/Accesorio4.astro";
 <Accesorio1 />
 <Accesorio2 />
 <Accesorio3 />
-<Accesorio4 />
+<Accesorio4 /> -->

@@ -1,5 +1,5 @@
 ---
-import monitors from "@data/monitor.json";
+import monitores from "@data/monitor.json";
 ---
 
 <div>
@@ -7,7 +7,7 @@ import monitors from "@data/monitor.json";
     <select id="monitorSelect">
         <option value="">Selecciona una monitor</option>
         {
-            monitors.map((p) => (
+            monitores.map((p) => (
                 <option
                     value={p.id}
                     data-nombre={p.nombre}
@@ -23,8 +23,8 @@ import monitors from "@data/monitor.json";
 
 <p>El id es: <span id="monitor_id">Ninguno</span></p>
 <p>El nombre es: <span id="monitor_nombre">Ninguno</span></p>
-<p>El precio es: <span id="monitor_precio">Ninguno</span></p>
-<p>El stock es: <span id="monitor_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="monitor_precio">0</span></p>
+<p>El stock es: <span id="monitor_stock">0</span></p>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +34,14 @@ import monitors from "@data/monitor.json";
         const monitorPrecio = document.getElementById("monitor_precio");
         const monitorStock = document.getElementById("monitor_stock");
 
-        if (!monitor || !monitorId || !monitorNombre || !monitorPrecio || !monitorStock) return;
+        if (
+            !monitor ||
+            !monitorId ||
+            !monitorNombre ||
+            !monitorPrecio ||
+            !monitorStock
+        )
+            return;
 
         monitor.addEventListener("change", (event) => {
             const monitor_id = event.target.value;
@@ -45,13 +52,16 @@ import monitors from "@data/monitor.json";
             const monitor_nombre =
                 selectedOption.getAttribute("data-nombre") || "Ninguno";
             const monitor_precio =
-                selectedOption.getAttribute("data-precio") || "Ninguno";
+                selectedOption.getAttribute("data-precio") || "0";
             const monitor_stock =
-                selectedOption.getAttribute("data-stock") || "Ninguno";
+                selectedOption.getAttribute("data-stock") || "0";
 
             monitorNombre.textContent = monitor_nombre;
-            monitorPrecio.textContent = `$${parseFloat(monitor_precio).toFixed(2)}`;
+            monitorPrecio.textContent = parseFloat(monitor_precio).toFixed(2);
             monitorStock.textContent = monitor_stock;
         });
+        monitorNombre.textContent = "Ninguno";
+        monitorPrecio.textContent = "0";
+        monitorStock.textContent = "0";
     });
 </script>

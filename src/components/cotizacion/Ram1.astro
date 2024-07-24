@@ -1,5 +1,5 @@
 ---
-import ram1s from "@data/ram.json";
+import rams1 from "@data/ram.json";
 ---
 
 <div>
@@ -7,7 +7,7 @@ import ram1s from "@data/ram.json";
     <select id="ram1Select">
         <option value="">Selecciona una ram1</option>
         {
-            ram1s.map((p) => (
+            rams1.map((p) => (
                 <option
                     value={p.id}
                     data-nombre={p.nombre}
@@ -23,8 +23,8 @@ import ram1s from "@data/ram.json";
 
 <p>El id es: <span id="ram1_id">Ninguno</span></p>
 <p>El nombre es: <span id="ram1_nombre">Ninguno</span></p>
-<p>El precio es: <span id="ram1_precio">Ninguno</span></p>
-<p>El stock es: <span id="ram1_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="ram1_precio">0</span></p>
+<p>El stock es: <span id="ram1_stock">0</span></p>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +34,8 @@ import ram1s from "@data/ram.json";
         const ram1Precio = document.getElementById("ram1_precio");
         const ram1Stock = document.getElementById("ram1_stock");
 
-        if (!ram1 || !ram1Id || !ram1Nombre || !ram1Precio || !ram1Stock) return;
+        if (!ram1 || !ram1Id || !ram1Nombre || !ram1Precio || !ram1Stock)
+            return;
 
         ram1.addEventListener("change", (event) => {
             const ram1_id = event.target.value;
@@ -45,13 +46,15 @@ import ram1s from "@data/ram.json";
             const ram1_nombre =
                 selectedOption.getAttribute("data-nombre") || "Ninguno";
             const ram1_precio =
-                selectedOption.getAttribute("data-precio") || "Ninguno";
-            const ram1_stock =
-                selectedOption.getAttribute("data-stock") || "Ninguno";
+                selectedOption.getAttribute("data-precio") || "0";
+            const ram1_stock = selectedOption.getAttribute("data-stock") || "0";
 
             ram1Nombre.textContent = ram1_nombre;
-            ram1Precio.textContent = `$${parseFloat(ram1_precio).toFixed(2)}`;
+            ram1Precio.textContent = parseFloat(ram1_precio).toFixed(2);
             ram1Stock.textContent = ram1_stock;
         });
+        ram1Nombre.textContent = "Ninguno";
+        ram1Precio.textContent = "0";
+        ram1Stock.textContent = "0";
     });
 </script>

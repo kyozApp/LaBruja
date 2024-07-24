@@ -13,6 +13,7 @@ import procesadores from "@data/procesador.json";
                     data-nombre={p.nombre}
                     data-precio={p.precio}
                     data-stock={p.stockTotal}
+                    data-placasCompatibles={p.placasCompatibles}
                 >
                     {p.nombre}
                 </option>
@@ -23,8 +24,12 @@ import procesadores from "@data/procesador.json";
 
 <p>El id es: <span id="procesador_id">Ninguno</span></p>
 <p>El nombre es: <span id="procesador_nombre">Ninguno</span></p>
-<p>El precio es: S/.<span id="procesador_precio">Ninguno</span></p>
-<p>El stock es: <span id="procesador_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="procesador_precio">0</span></p>
+<p>El stock es: <span id="procesador_stock">0</span></p>
+
+<p>Placas compatibles:</p>
+
+<ul id="placasCompatibles"></ul>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,12 +39,15 @@ import procesadores from "@data/procesador.json";
         const procesadorPrecio = document.getElementById("procesador_precio");
         const procesadorStock = document.getElementById("procesador_stock");
 
+        const placasCompatibles = document.getElementById("placasCompatibles");
+
         if (
             !procesador ||
             !procesadorId ||
             !procesadorNombre ||
             !procesadorPrecio ||
-            !procesadorStock
+            !procesadorStock ||
+            !placasCompatibles
         )
             return;
 
@@ -56,13 +64,24 @@ import procesadores from "@data/procesador.json";
             const procesador_stock =
                 selectedOption.getAttribute("data-stock") || "0";
 
+            const placasCompatiblesList =
+                selectedOption.getAttribute("data-placasCompatibles") || "";
+
             procesadorNombre.textContent = procesador_nombre;
             procesadorPrecio.textContent =
                 parseFloat(procesador_precio).toFixed(2);
             procesadorStock.textContent = procesador_stock;
+
+            placasCompatibles.innerHTML = placasCompatiblesList
+                .split(",")
+                .map((placa) => `<li>${placa}</li>`)
+                .join("");
         });
+
         procesadorNombre.textContent = "Ninguno";
         procesadorPrecio.textContent = "0";
         procesadorStock.textContent = "0";
+
+        placasCompatibles.innerHTML = "";
     });
 </script>

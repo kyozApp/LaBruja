@@ -23,8 +23,8 @@ import fuentes from "@data/fuente.json";
 
 <p>El id es: <span id="fuente_id">Ninguno</span></p>
 <p>El nombre es: <span id="fuente_nombre">Ninguno</span></p>
-<p>El precio es: <span id="fuente_precio">Ninguno</span></p>
-<p>El stock es: <span id="fuente_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="fuente_precio">0</span></p>
+<p>El stock es: <span id="fuente_stock">0</span></p>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +34,14 @@ import fuentes from "@data/fuente.json";
         const fuentePrecio = document.getElementById("fuente_precio");
         const fuenteStock = document.getElementById("fuente_stock");
 
-        if (!fuente || !fuenteId || !fuenteNombre || !fuentePrecio || !fuenteStock) return;
+        if (
+            !fuente ||
+            !fuenteId ||
+            !fuenteNombre ||
+            !fuentePrecio ||
+            !fuenteStock
+        )
+            return;
 
         fuente.addEventListener("change", (event) => {
             const fuente_id = event.target.value;
@@ -45,13 +52,16 @@ import fuentes from "@data/fuente.json";
             const fuente_nombre =
                 selectedOption.getAttribute("data-nombre") || "Ninguno";
             const fuente_precio =
-                selectedOption.getAttribute("data-precio") || "Ninguno";
+                selectedOption.getAttribute("data-precio") || "0";
             const fuente_stock =
-                selectedOption.getAttribute("data-stock") || "Ninguno";
+                selectedOption.getAttribute("data-stock") || "0";
 
             fuenteNombre.textContent = fuente_nombre;
-            fuentePrecio.textContent = `$${parseFloat(fuente_precio).toFixed(2)}`;
+            fuentePrecio.textContent = parseFloat(fuente_precio).toFixed(2);
             fuenteStock.textContent = fuente_stock;
         });
+        fuenteNombre.textContent = "Ninguno";
+        fuentePrecio.textContent = "0";
+        fuenteStock.textContent = "0";
     });
 </script>

@@ -1,5 +1,5 @@
 ---
-import accesorio4s from "@data/accesorio.json";
+import accesorios4 from "@data/accesorio.json";
 ---
 
 <div>
@@ -7,7 +7,7 @@ import accesorio4s from "@data/accesorio.json";
     <select id="accesorio4Select">
         <option value="">Selecciona una accesorio4</option>
         {
-            accesorio4s.map((p) => (
+            accesorios4.map((p) => (
                 <option
                     value={p.id}
                     data-nombre={p.nombre}
@@ -23,8 +23,8 @@ import accesorio4s from "@data/accesorio.json";
 
 <p>El id es: <span id="accesorio4_id">Ninguno</span></p>
 <p>El nombre es: <span id="accesorio4_nombre">Ninguno</span></p>
-<p>El precio es: <span id="accesorio4_precio">Ninguno</span></p>
-<p>El stock es: <span id="accesorio4_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="accesorio4_precio">0</span></p>
+<p>El stock es: <span id="accesorio4_stock">0</span></p>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +34,14 @@ import accesorio4s from "@data/accesorio.json";
         const accesorio4Precio = document.getElementById("accesorio4_precio");
         const accesorio4Stock = document.getElementById("accesorio4_stock");
 
-        if (!accesorio4 || !accesorio4Id || !accesorio4Nombre || !accesorio4Precio || !accesorio4Stock) return;
+        if (
+            !accesorio4 ||
+            !accesorio4Id ||
+            !accesorio4Nombre ||
+            !accesorio4Precio ||
+            !accesorio4Stock
+        )
+            return;
 
         accesorio4.addEventListener("change", (event) => {
             const accesorio4_id = event.target.value;
@@ -45,13 +52,17 @@ import accesorio4s from "@data/accesorio.json";
             const accesorio4_nombre =
                 selectedOption.getAttribute("data-nombre") || "Ninguno";
             const accesorio4_precio =
-                selectedOption.getAttribute("data-precio") || "Ninguno";
+                selectedOption.getAttribute("data-precio") || "0";
             const accesorio4_stock =
-                selectedOption.getAttribute("data-stock") || "Ninguno";
+                selectedOption.getAttribute("data-stock") || "0";
 
             accesorio4Nombre.textContent = accesorio4_nombre;
-            accesorio4Precio.textContent = `$${parseFloat(accesorio4_precio).toFixed(2)}`;
+            accesorio4Precio.textContent =
+                parseFloat(accesorio4_precio).toFixed(2);
             accesorio4Stock.textContent = accesorio4_stock;
         });
+        accesorio4Nombre.textContent = "Ninguno";
+        accesorio4Precio.textContent = "0";
+        accesorio4Stock.textContent = "0";
     });
 </script>

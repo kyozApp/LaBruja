@@ -23,8 +23,8 @@ import casses from "@data/casse.json";
 
 <p>El id es: <span id="casse_id">Ninguno</span></p>
 <p>El nombre es: <span id="casse_nombre">Ninguno</span></p>
-<p>El precio es: <span id="casse_precio">Ninguno</span></p>
-<p>El stock es: <span id="casse_stock">Ninguno</span></p>
+<p>El precio es: S/.<span id="casse_precio">0</span></p>
+<p>El stock es: <span id="casse_stock">0</span></p>
 
 <script type="module">
     document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +34,8 @@ import casses from "@data/casse.json";
         const cassePrecio = document.getElementById("casse_precio");
         const casseStock = document.getElementById("casse_stock");
 
-        if (!casse || !casseId || !casseNombre || !cassePrecio || !casseStock) return;
+        if (!casse || !casseId || !casseNombre || !cassePrecio || !casseStock)
+            return;
 
         casse.addEventListener("change", (event) => {
             const casse_id = event.target.value;
@@ -45,13 +46,16 @@ import casses from "@data/casse.json";
             const casse_nombre =
                 selectedOption.getAttribute("data-nombre") || "Ninguno";
             const casse_precio =
-                selectedOption.getAttribute("data-precio") || "Ninguno";
+                selectedOption.getAttribute("data-precio") || "0";
             const casse_stock =
-                selectedOption.getAttribute("data-stock") || "Ninguno";
+                selectedOption.getAttribute("data-stock") || "0";
 
             casseNombre.textContent = casse_nombre;
-            cassePrecio.textContent = `$${parseFloat(casse_precio).toFixed(2)}`;
+            cassePrecio.textContent = parseFloat(casse_precio).toFixed(2);
             casseStock.textContent = casse_stock;
         });
+        casseNombre.textContent = "Ninguno";
+        cassePrecio.textContent = "0";
+        casseStock.textContent = "0";
     });
 </script>
