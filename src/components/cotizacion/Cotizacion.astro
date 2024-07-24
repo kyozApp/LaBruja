@@ -1,36 +1,823 @@
 ---
-import Procesador from "@components/cotizacion/Procesador.astro";
-import Placa from "@components/cotizacion/Placa.astro";
-import Ram1 from "@components/cotizacion/Ram1.astro";
-import Ram2 from "@components/cotizacion/Ram2.astro";
-import Almacenamiento from "@components/cotizacion/Almacenamiento.astro";
-import Tarjeta from "@components/cotizacion/Tarjeta.astro";
-import Fuente from "@components/cotizacion/Fuente.astro";
-import Casse from "@components/cotizacion/Casse.astro";
-import Monitor from "@components/cotizacion/Monitor.astro";
-import Refrigeracion from "@components/cotizacion/Refrigeracion.astro";
-import Accesorio1 from "@components/cotizacion/Accesorio1.astro";
-import Accesorio2 from "@components/cotizacion/Accesorio2.astro";
-import Accesorio3 from "@components/cotizacion/Accesorio3.astro";
-import Accesorio4 from "@components/cotizacion/Accesorio4.astro";
-import ProcePlaca from "@components/cotizacion/ProcePlaca.astro";
-import ProcesadorPlaca from "@components/cotizacion/ProcesadorPlaca.astro";
+import procesadores from "@data/procesador.json";
+import placas from "@data/placa.json";
+import rams from "@data/ram.json";
+import almacenamientos from "@data/almacenamiento.json";
+import tarjetas from "@data/tarjeta.json";
+import fuentes from "@data/fuente.json";
+import casses from "@data/casse.json";
+import monitores from "@data/monitor.json";
+import refrigeraciones from "@data/refrigeracion.json";
+import accesorios from "@data/accesorio.json";
 ---
 
-<h2>Crear Cotización</h2>
-<ProcesadorPlaca
-<!-- <ProcePlaca /> -->
-<!-- <Procesador />
-<Placa /> -->
-<!-- <Ram1 />
-<Ram2 />
-<Almacenamiento />
-<Tarjeta />
-<Fuente />
-<Casse />
-<Monitor />
-<Refrigeracion />
-<Accesorio1 />
-<Accesorio2 />
-<Accesorio3 />
-<Accesorio4 /> -->
+<div>
+    <p>Procesador</p>
+    <select id="procesadorSelect">
+        <option value="">Selecciona un procesador</option>
+        {
+            procesadores.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                    data-placasCompatibles={p.placasCompatibles.join(",")}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="procesador_precio">0</span></p>
+<p>El stock es: <span id="procesador_stock">0</span></p>
+
+<div>
+    <p>Placa</p>
+    <select id="placaSelect">
+        <option value="">Selecciona una placa</option>
+        {
+            placas.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                    data-ramsCompatibles={p.ramsCompatibles.join(",")}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="placa_precio">0</span></p>
+<p>El stock es: <span id="placa_stock">0</span></p>
+
+<div>
+    <p>Ram1</p>
+    <select id="ram1Select">
+        <option value="">Selecciona una ram</option>
+        {
+            rams.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="ram1_precio">0</span></p>
+<p>El stock es: <span id="ram1_stock">0</span></p>
+
+<div>
+    <p>Ram2</p>
+    <select id="ram2Select">
+        <option value="">Selecciona una ram</option>
+        {
+            rams.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="ram2_precio">0</span></p>
+<p>El stock es: <span id="ram2_stock">0</span></p>
+
+<div>
+    <p>almacenamiento</p>
+    <select id="almacenamientoSelect">
+        <option value="">Selecciona una almacenamiento</option>
+        {
+            almacenamientos.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="almacenamiento_precio">0</span></p>
+<p>El stock es: <span id="almacenamiento_stock">0</span></p>
+
+<div>
+    <p>tarjeta</p>
+    <select id="tarjetaSelect">
+        <option value="">Selecciona una tarjeta</option>
+        {
+            tarjetas.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="tarjeta_precio">0</span></p>
+<p>El stock es: <span id="tarjeta_stock">0</span></p>
+
+<div>
+    <p>fuente</p>
+    <select id="fuenteSelect">
+        <option value="">Selecciona una fuente</option>
+        {
+            fuentes.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="fuente_precio">0</span></p>
+<p>El stock es: <span id="fuente_stock">0</span></p>
+
+<div>
+    <p>casse</p>
+    <select id="casseSelect">
+        <option value="">Selecciona una casse</option>
+        {
+            casses.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="casse_precio">0</span></p>
+<p>El stock es: <span id="casse_stock">0</span></p>
+
+<div>
+    <p>monitor</p>
+    <select id="monitorSelect">
+        <option value="">Selecciona una monitor</option>
+        {
+            monitores.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="monitor_precio">0</span></p>
+<p>El stock es: <span id="monitor_stock">0</span></p>
+
+<div>
+    <p>refrigeracion</p>
+    <select id="refrigeracionSelect">
+        <option value="">Selecciona una refrigeracion</option>
+        {
+            refrigeraciones.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="refrigeracion_precio">0</span></p>
+<p>El stock es: <span id="refrigeracion_stock">0</span></p>
+
+<div>
+    <p>accesorio1</p>
+    <select id="accesorio1Select">
+        <option value="">Selecciona una accesorio1</option>
+        {
+            accesorios.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="accesorio1_precio">0</span></p>
+<p>El stock es: <span id="accesorio1_stock">0</span></p>
+
+<div>
+    <p>accesorio2</p>
+    <select id="accesorio2Select">
+        <option value="">Selecciona una accesorio2</option>
+        {
+            accesorios.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="accesorio2_precio">0</span></p>
+<p>El stock es: <span id="accesorio2_stock">0</span></p>
+
+<div>
+    <p>accesorio3</p>
+    <select id="accesorio3Select">
+        <option value="">Selecciona una accesorio3</option>
+        {
+            accesorios.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="accesorio3_precio">0</span></p>
+<p>El stock es: <span id="accesorio3_stock">0</span></p>
+
+<div>
+    <p>accesorio4</p>
+    <select id="accesorio4Select">
+        <option value="">Selecciona una accesorio4</option>
+        {
+            accesorios.map((p) => (
+                <option
+                    value={p.id}
+                    data-nombre={p.nombre}
+                    data-precio={p.precio}
+                    data-stock={p.stockTotal}
+                >
+                    {p.nombre}
+                </option>
+            ))
+        }
+    </select>
+</div>
+
+<p>El precio es: S/.<span id="accesorio4_precio">0</span></p>
+<p>El stock es: <span id="accesorio4_stock">0</span></p>
+
+<p>La suma es: S/.<span id="total">0</span></p>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const procesador = document.getElementById(
+            "procesadorSelect",
+        ) as HTMLSelectElement;
+        const procesadorPrecio = document.getElementById(
+            "procesador_precio",
+        ) as HTMLSpanElement;
+        const procesadorStock = document.getElementById(
+            "procesador_stock",
+        ) as HTMLSpanElement;
+
+        const placaSelect = document.getElementById(
+            "placaSelect",
+        ) as HTMLSelectElement;
+        const placaPrecio = document.getElementById(
+            "placa_precio",
+        ) as HTMLSpanElement;
+        const placaStock = document.getElementById(
+            "placa_stock",
+        ) as HTMLSpanElement;
+
+        const ram1Select = document.getElementById(
+            "ram1Select",
+        ) as HTMLSelectElement;
+        const ram1Precio = document.getElementById(
+            "ram1_precio",
+        ) as HTMLSpanElement;
+        const ram1Stock = document.getElementById(
+            "ram1_stock",
+        ) as HTMLSpanElement;
+
+        const ram2Select = document.getElementById(
+            "ram2Select",
+        ) as HTMLSelectElement;
+        const ram2Precio = document.getElementById(
+            "ram2_precio",
+        ) as HTMLSpanElement;
+        const ram2Stock = document.getElementById(
+            "ram2_stock",
+        ) as HTMLSpanElement;
+
+        const almacenamientoSelect = document.getElementById(
+            "almacenamientoSelect",
+        ) as HTMLSelectElement;
+        const almacenamientoPrecio = document.getElementById(
+            "almacenamiento_precio",
+        ) as HTMLSpanElement;
+        const almacenamientoStock = document.getElementById(
+            "almacenamiento_stock",
+        ) as HTMLSpanElement;
+
+        const tarjetaSelect = document.getElementById(
+            "tarjetaSelect",
+        ) as HTMLSelectElement;
+        const tarjetaPrecio = document.getElementById(
+            "tarjeta_precio",
+        ) as HTMLSpanElement;
+        const tarjetaStock = document.getElementById(
+            "tarjeta_stock",
+        ) as HTMLSpanElement;
+
+        const fuenteSelect = document.getElementById(
+            "fuenteSelect",
+        ) as HTMLSelectElement;
+        const fuentePrecio = document.getElementById(
+            "fuente_precio",
+        ) as HTMLSpanElement;
+        const fuenteStock = document.getElementById(
+            "fuente_stock",
+        ) as HTMLSpanElement;
+
+        const casseSelect = document.getElementById(
+            "casseSelect",
+        ) as HTMLSelectElement;
+        const cassePrecio = document.getElementById(
+            "casse_precio",
+        ) as HTMLSpanElement;
+        const casseStock = document.getElementById(
+            "casse_stock",
+        ) as HTMLSpanElement;
+
+        const monitorSelect = document.getElementById(
+            "monitorSelect",
+        ) as HTMLSelectElement;
+        const monitorPrecio = document.getElementById(
+            "monitor_precio",
+        ) as HTMLSpanElement;
+        const monitorStock = document.getElementById(
+            "monitor_stock",
+        ) as HTMLSpanElement;
+
+        const refrigeracionSelect = document.getElementById(
+            "refrigeracionSelect",
+        ) as HTMLSelectElement;
+        const refrigeracionPrecio = document.getElementById(
+            "refrigeracion_precio",
+        ) as HTMLSpanElement;
+        const refrigeracionStock = document.getElementById(
+            "refrigeracion_stock",
+        ) as HTMLSpanElement;
+
+        const accesorio1Select = document.getElementById(
+            "accesorio1Select",
+        ) as HTMLSelectElement;
+        const accesorio1Precio = document.getElementById(
+            "accesorio1_precio",
+        ) as HTMLSpanElement;
+        const accesorio1Stock = document.getElementById(
+            "accesorio1_stock",
+        ) as HTMLSpanElement;
+
+        const accesorio2Select = document.getElementById(
+            "accesorio2Select",
+        ) as HTMLSelectElement;
+        const accesorio2Precio = document.getElementById(
+            "accesorio2_precio",
+        ) as HTMLSpanElement;
+        const accesorio2Stock = document.getElementById(
+            "accesorio2_stock",
+        ) as HTMLSpanElement;
+
+        const accesorio3Select = document.getElementById(
+            "accesorio3Select",
+        ) as HTMLSelectElement;
+        const accesorio3Precio = document.getElementById(
+            "accesorio3_precio",
+        ) as HTMLSpanElement;
+        const accesorio3Stock = document.getElementById(
+            "accesorio3_stock",
+        ) as HTMLSpanElement;
+
+        const accesorio4Select = document.getElementById(
+            "accesorio4Select",
+        ) as HTMLSelectElement;
+        const accesorio4Precio = document.getElementById(
+            "accesorio4_precio",
+        ) as HTMLSpanElement;
+        const accesorio4Stock = document.getElementById(
+            "accesorio4_stock",
+        ) as HTMLSpanElement;
+
+        const total = document.getElementById("total") as HTMLSpanElement;
+
+        if (
+            !procesador ||
+            !procesadorPrecio ||
+            !procesadorStock ||
+            !placaSelect ||
+            !placaPrecio ||
+            !placaStock ||
+            !ram1Select ||
+            !ram1Precio ||
+            !ram1Stock ||
+            !ram2Select ||
+            !ram2Precio ||
+            !ram2Stock ||
+            !almacenamientoSelect ||
+            !almacenamientoPrecio ||
+            !almacenamientoStock ||
+            !tarjetaSelect ||
+            !tarjetaPrecio ||
+            !tarjetaStock ||
+            !fuenteSelect ||
+            !fuentePrecio ||
+            !fuenteStock ||
+            !casseSelect ||
+            !cassePrecio ||
+            !casseStock ||
+            !monitorSelect ||
+            !monitorPrecio ||
+            !monitorStock ||
+            !refrigeracionSelect ||
+            !refrigeracionPrecio ||
+            !refrigeracionStock ||
+            !accesorio1Select ||
+            !accesorio1Precio ||
+            !accesorio1Stock ||
+            !accesorio2Select ||
+            !accesorio2Precio ||
+            !accesorio2Stock ||
+            !accesorio3Select ||
+            !accesorio3Precio ||
+            !accesorio3Stock ||
+            !accesorio4Select ||
+            !accesorio4Precio ||
+            !accesorio4Stock ||
+            !total
+        )
+            return;
+
+        function updateTotal() {
+            const procesadorPrice = parseFloat(
+                procesadorPrecio.textContent || "0",
+            );
+            const placaPrice = parseFloat(placaPrecio.textContent || "0");
+            const ram1Price = parseFloat(ram1Precio.textContent || "0");
+            const ram2Price = parseFloat(ram2Precio.textContent || "0");
+            const almacenamientoPrice = parseFloat(
+                almacenamientoPrecio.textContent || "0",
+            );
+            const tarjetaPrice = parseFloat(tarjetaPrecio.textContent || "0");
+            const fuentePrice = parseFloat(fuentePrecio.textContent || "0");
+            const cassePrice = parseFloat(cassePrecio.textContent || "0");
+            const monitorPrice = parseFloat(monitorPrecio.textContent || "0");
+            const refrigeracionPrice = parseFloat(
+                refrigeracionPrecio.textContent || "0",
+            );
+            const accesorio1Price = parseFloat(
+                accesorio1Precio.textContent || "0",
+            );
+            const accesorio2Price = parseFloat(
+                accesorio2Precio.textContent || "0",
+            );
+            const accesorio3Price = parseFloat(
+                accesorio3Precio.textContent || "0",
+            );
+            const accesorio4Price = parseFloat(
+                accesorio4Precio.textContent || "0",
+            );
+
+            const sum =
+                procesadorPrice +
+                placaPrice +
+                ram1Price +
+                ram2Price +
+                almacenamientoPrice +
+                tarjetaPrice +
+                fuentePrice +
+                cassePrice +
+                monitorPrice +
+                refrigeracionPrice +
+                accesorio1Price +
+                accesorio2Price +
+                accesorio3Price +
+                accesorio4Price;
+            total.textContent = sum.toFixed(2);
+        }
+
+        procesador.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const procesador_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const procesador_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            const placasCompatiblesIds = (
+                selectedOption.getAttribute("data-placasCompatibles") || ""
+            ).split(",");
+
+            procesadorPrecio.textContent =
+                parseFloat(procesador_precio).toFixed(2);
+            procesadorStock.textContent = procesador_stock;
+
+            Array.from(placaSelect.options).forEach((option) => {
+                if (placasCompatiblesIds.includes(option.value)) {
+                    option.style.display = "block";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+
+            placaSelect.value = "";
+            placaPrecio.textContent = "0";
+            placaStock.textContent = "0";
+
+            ram1Select.value = "";
+            ram1Precio.textContent = "0";
+            ram1Stock.textContent = "0";
+
+            ram2Select.value = "";
+            ram2Precio.textContent = "0";
+            ram2Stock.textContent = "0";
+
+            updateTotal();
+        });
+
+        placaSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const placa_id = target.value;
+            const selectedOption = target.options[target.selectedIndex];
+            const placa_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const placa_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            const ramsCompatiblesIds = (
+                selectedOption.getAttribute("data-ramsCompatibles") || ""
+            ).split(",");
+
+            placaPrecio.textContent = parseFloat(placa_precio).toFixed(2);
+            placaStock.textContent = placa_stock;
+
+            Array.from(ram1Select.options).forEach((option) => {
+                if (ramsCompatiblesIds.includes(option.value)) {
+                    option.style.display = "block";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+
+            Array.from(ram2Select.options).forEach((option) => {
+                if (ramsCompatiblesIds.includes(option.value)) {
+                    option.style.display = "block";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+
+            ram1Select.value = "";
+            ram1Precio.textContent = "0";
+            ram1Stock.textContent = "0";
+
+            ram2Select.value = "";
+            ram2Precio.textContent = "0";
+            ram2Stock.textContent = "0";
+
+            updateTotal();
+        });
+
+        ram1Select.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const ram1_id = target.value;
+            const selectedOption = target.options[target.selectedIndex];
+            const ram1_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const ram1_stock = selectedOption.getAttribute("data-stock") || "0";
+
+            ram1Precio.textContent = parseFloat(ram1_precio).toFixed(2);
+            ram1Stock.textContent = ram1_stock;
+
+            updateTotal();
+        });
+
+        ram2Select.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const ram2_id = target.value;
+            const selectedOption = target.options[target.selectedIndex];
+            const ram2_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const ram2_stock = selectedOption.getAttribute("data-stock") || "0";
+
+            ram2Precio.textContent = parseFloat(ram2_precio).toFixed(2);
+            ram2Stock.textContent = ram2_stock;
+
+            updateTotal();
+        });
+
+        almacenamientoSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const almacenamiento_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const almacenamiento_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            almacenamientoPrecio.textContent = parseFloat(
+                almacenamiento_precio,
+            ).toFixed(2);
+            almacenamientoStock.textContent = almacenamiento_stock;
+
+            updateTotal();
+        });
+
+        tarjetaSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const tarjeta_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const tarjeta_stock = selectedOption.getAttribute("data-stock") || "0";
+
+            tarjetaPrecio.textContent = parseFloat(tarjeta_precio).toFixed(2);
+            tarjetaStock.textContent = tarjeta_stock;
+
+            updateTotal();
+        });
+
+        fuenteSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const fuente_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const fuente_stock = selectedOption.getAttribute("data-stock") || "0";
+
+            fuentePrecio.textContent = parseFloat(fuente_precio).toFixed(2);
+            fuenteStock.textContent = fuente_stock;
+
+            updateTotal();
+        });
+
+        casseSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const casse_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const casse_stock = selectedOption.getAttribute("data-stock") || "0";
+
+            cassePrecio.textContent = parseFloat(casse_precio).toFixed(2);
+            casseStock.textContent = casse_stock;
+
+            updateTotal();
+        });
+
+        monitorSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const monitor_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const monitor_stock = selectedOption.getAttribute("data-stock") || "0";
+
+            monitorPrecio.textContent = parseFloat(monitor_precio).toFixed(2);
+            monitorStock.textContent = monitor_stock;
+
+            updateTotal();
+        });
+
+        refrigeracionSelect.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const refrigeracion_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const refrigeracion_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            refrigeracionPrecio.textContent = parseFloat(
+                refrigeracion_precio,
+            ).toFixed(2);
+            refrigeracionStock.textContent = refrigeracion_stock;
+
+            updateTotal();
+        });
+
+        accesorio1Select.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const accesorio1_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const accesorio1_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            accesorio1Precio.textContent = parseFloat(
+                accesorio1_precio,
+            ).toFixed(2);
+            accesorio1Stock.textContent = accesorio1_stock;
+
+            updateTotal();
+        });
+
+        accesorio2Select.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const accesorio2_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const accesorio2_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            accesorio2Precio.textContent = parseFloat(
+                accesorio2_precio,
+            ).toFixed(2);
+            accesorio2Stock.textContent = accesorio2_stock;
+
+            updateTotal();
+        });
+
+        accesorio3Select.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const accesorio3_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const accesorio3_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            accesorio3Precio.textContent = parseFloat(
+                accesorio3_precio,
+            ).toFixed(2);
+            accesorio3Stock.textContent = accesorio3_stock;
+
+            updateTotal();
+        });
+
+        accesorio4Select.addEventListener("change", (event) => {
+            const target = event.target as HTMLSelectElement;
+            const selectedOption = target.options[target.selectedIndex];
+            const accesorio4_precio =
+                selectedOption.getAttribute("data-precio") || "0";
+            const accesorio4_stock =
+                selectedOption.getAttribute("data-stock") || "0";
+
+            accesorio4Precio.textContent = parseFloat(
+                accesorio4_precio,
+            ).toFixed(2);
+            accesorio4Stock.textContent = accesorio4_stock;
+
+            updateTotal();
+        });
+    });
+</script>
