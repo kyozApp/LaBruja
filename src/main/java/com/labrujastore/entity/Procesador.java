@@ -37,10 +37,10 @@ public class Procesador implements Serializable {
     @Column
     private String nombre;
 
-    @Column
+    @Column(nullable = true)
     private String imagenNombre;
 
-    @Column(columnDefinition = "longblob")
+    @Column(nullable = true, columnDefinition = "longblob")
     private byte[] imagenArchivo;
 
     @Column
