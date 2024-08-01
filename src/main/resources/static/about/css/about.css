@@ -1,3 +1,7 @@
+#about_bruja {
+    margin: 65px auto;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -6,21 +10,38 @@
 }
 
 .caja-img {
-    width: 605px;
     height: 546px;
     background: rgba(217, 217, 217, 1);
     align-content: center;
     text-align: center;
-    align-items: center;
+}
+
+.caja-img img {
+    height: 100%;
 }
 
 .caja-cont {
-    width: 587px;
+    width: 562px;
     height: 383px;
-    background: rgba(249, 249, 249, 1);
+    background-color: white;
     align-content: center;
-    text-align: center;
-    transform: translate(-10%, -0%);
+    transform: translate(-3%, -0%);
+    padding: 30px;
+    text-align: left;
+    box-shadow: 5px 10px 16px -14px #000000;
+}
+
+.caja-cont h3 {
+    font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-top: 0;
+}
+
+.caja-cont h6 {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 12px;
 }
 
 .invers {
@@ -28,23 +49,169 @@
 }
 
 .tras-x {
-    transform: translate(10%, -0%);
+    transform: translate(3%, -0%);
+    text-align: end;
+    box-shadow: -5px 10px 16px -14px #000000;
 }
 
 #vmv {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     min-height: 500px;
-    background-color: bisque;
+    gap: 10px;
+    text-align: center;
+    margin: 100px auto;
+}
+
+.line-y-black {
+    background-color: #f4f4f4;
+    height: 100%;
+    padding: 1px !important;
+    width: 0px !important;
+    height: 370px;
 }
 
 #vmv>div {
     display: flex;
+    max-width: 320px;
     width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+#vmv>div h2 {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+.cont-img-vmv {
+    width: 75px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.cont-img-vmv img {
+    width: 100%;
+}
+
+#vmv>div p {
+    background-color: #efefef;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 75px;
+}
+
+.metodo-pago {
+    text-align: center;
+}
+
+/* metodos de pago----------------------------------------------------- */
+
+.metodo-pago {
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 40px auto;
+}
+
+.metodo-pago h3,
+.metodo-pago p {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.metodo-pago>h3 {
+    padding: 10px 15px;
+    width: 300px;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 27px;
+}
+
+.metodo-pago .nombresrl {
+    padding: 5px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 24px;
+    margin-top: 0;
+}
+
+.cont-metodos-pago {
+    display: flex;
+    justify-items: center;
+    gap: 30px;
+    margin: 30px auto;
+    width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
 }
-.swiper-slide img{
+
+.cont-metodos-pago>div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cont-metodos-pago>div .cont-img-pagos {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-metodos-pago>div img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.cont-metodos-pago>div p {
+    font-size: 25px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.cont-metodos-pago>div span {
+    color: red;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.marcas{
+    margin: 50px auto;
+}
+
+.marcas span {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: #a8a8a8;
+    font-weight: 600;
+}
+
+.fade-effect {
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.marca-swiper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 170px;
+}
+
+.marca-swiper img {
+    max-width: 100%;
+    max-height: 60%;
 }
