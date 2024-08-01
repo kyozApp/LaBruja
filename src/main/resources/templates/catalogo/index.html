@@ -83,14 +83,14 @@
                                         <li th:each="producto : ${vistaAccesorios}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.accesorioId}, tipo='accesorio')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                             th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                             th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                         <img loading="lazy" class="img-produc-search"
                                                             th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                             th:src="@{/general/img/sin-imagen.png}" />
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -105,14 +105,14 @@
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.almacenamientoId}, tipo='almacenamiento')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -126,14 +126,14 @@
                                         <li th:each="producto : ${vistaCasses}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.casseId}, tipo='casse')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -147,14 +147,14 @@
                                         <li th:each="producto : ${vistaFuentes}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.fuenteId}, tipo='fuente')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -168,14 +168,14 @@
                                         <li th:each="producto : ${vistaLaptops}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.laptopId}, tipo='laptop')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -189,14 +189,14 @@
                                         <li th:each="producto : ${vistaMonitores}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.monitorId}, tipo='monitor')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -209,14 +209,14 @@
                                         <li th:each="producto : ${vistaPlacas}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.placaId}, tipo='placa')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -231,14 +231,14 @@
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.procesadorId}, tipo='procesador')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -252,14 +252,14 @@
                                         <li th:each="producto : ${vistaRams}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.ramId}, tipo='ram')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -274,14 +274,14 @@
                                             <a class="link-producto"
                                                 th:href="@{/catalogo/detalle/producto/{id}(id=${producto.refrigeracionId}, tipo='refrigeracion')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -295,14 +295,14 @@
                                         <li th:each="producto : ${vistaTarjetas}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.tarjetaId}, tipo='tarjeta')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>
@@ -316,14 +316,14 @@
                                         <li th:each="producto : ${vistaCombos}" class="productos-filtrados display-none">
                                             <a class="link-producto" th:href="@{/catalogo/detalle/producto/{id}(id=${producto.comboId}, tipo='combo')}">
                                                 <div class="div-produc-filt">
-                                                    <div class="cont-img-produc-fitl">
+                                                    <!-- <div class="cont-img-produc-fitl">
                                                         <img loading="lazy" class="img-produc-search"
                                                                 th:if="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="'data:image/' + ${producto.typeImage} + ';base64,' + ${producto.base64Image}" />
                                                             <img loading="lazy" class="img-produc-search"
                                                                 th:unless="${producto.base64Image != null && !#strings.isEmpty(producto.base64Image)}"
                                                                 th:src="@{/general/img/sin-imagen.png}"/>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="cont-detalle-produc-fitl">
                                                         <h4 class="nombre-produc-search" th:text="${producto.nombre}">
                                                         </h4>

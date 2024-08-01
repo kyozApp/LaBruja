@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+.hide-option {
+    display: none;
+}
+
 .cont-categoria {
     height: 40px;
     display: flex;

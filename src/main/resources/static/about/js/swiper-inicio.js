@@ -1,15 +1,15 @@
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 10,
-    spaceBetween: 0,
+    slidesPerView: 9,
+    spaceBetween: 25,
     loop: true,
-    freeMode: true,
-    lazy: true,
+    speed: 2000,
     autoplay: {
-        delay: 2000,
+        delay: 0,
+        disableOnInteraction: false,
         pauseOnMouseEnter: true,
+    },    
+    lazy: {
+        loadOnTransitionStart: true,
+        loadPrevNext: true,
     },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    }
 });
